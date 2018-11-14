@@ -134,6 +134,24 @@
     <Compile Include="Forma_Pago.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Clientes\AltaClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\AltaClientesForm.Designer.cs">
+      <DependentUpon>AltaClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\BajaClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\BajaClientesForm.Designer.cs">
+      <DependentUpon>BajaClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\ModifClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\ModifClientesForm.Designer.cs">
+      <DependentUpon>ModifClientesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidad.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -219,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\AltaClientesForm.resx">
+      <DependentUpon>AltaClientesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
