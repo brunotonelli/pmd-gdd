@@ -68,6 +68,7 @@
     <Compile Include="Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\MetodosExtension.cs" />
     <Compile Include="Extensiones\TextBoxRequerido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\ModifClientesForm.resx">
+      <DependentUpon>ModifClientesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

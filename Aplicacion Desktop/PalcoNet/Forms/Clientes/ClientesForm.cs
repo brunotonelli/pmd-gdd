@@ -12,6 +12,8 @@ namespace PalcoNet.Forms.Clientes
 {
     public partial class ClientesForm : Form
     {
+        private Cliente Seleccionado;
+
         public ClientesForm() {
             InitializeComponent();
 
@@ -19,7 +21,7 @@ namespace PalcoNet.Forms.Clientes
             {
                 var query = from cliente in context.Cliente
                             select cliente;
-                clienteBindingSource.DataSource = query.ToList().Take(10);
+                clienteBindingSource.DataSource = query.ToList();
             }
 
         }
@@ -29,9 +31,13 @@ namespace PalcoNet.Forms.Clientes
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
-            botonDetalles.Enabled = true;
-            botonModificar.Enabled = true;
-            botonEliminar.Enabled = true;
+            if (dataGrid.SelectedRows.Count > 0)
+            {
+                Seleccionado = dataGrid.SelectedRows[0].DataBoundItem as Cliente;
+                botonDetalles.Enabled = true;
+                botonModificar.Enabled = true;
+                botonEliminar.Enabled = true;
+            }
         }
 
         private void botonDetalles_Click(object sender, EventArgs e) {
@@ -39,7 +45,7 @@ namespace PalcoNet.Forms.Clientes
         }
 
         private void botonModificar_Click(object sender, EventArgs e) {
-
+            new ModifClientesForm(Seleccionado).Show();
         }
 
         private void botonEliminar_Click(object sender, EventArgs e) {
@@ -63,6 +69,34 @@ namespace PalcoNet.Forms.Clientes
                 context.Entry(cliente).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
             }
+        }
+
+        private void botonBuscar_Click(object sender, EventArgs e) {
+            using (var context = new GD2C2018Entities())
+            {
+                var query = from cliente in context.Cliente
+                            where cliente.Cli_Nombre.Contains(boxFiltroNombre.Text) &&
+                                  cliente.Cli_Apellido.Contains(boxFiltroApellido.Text) &&
+                                  cliente.Cli_Mail.Contains(boxFiltroMail.Text)                                
+                            select cliente;
+                if (boxFiltroDNI.Text.Length > 0) {
+                    decimal dni = decimal.Parse(boxFiltroDNI.Text);
+                    query = query.Where(cliente => cliente.Cli_Dni == dni);
+                }
+                clienteBindingSource.DataSource = query.ToList();
+            }
+        }
+
+        private void botonLimpiar_Click(object sender, EventArgs e) {
+            boxFiltroNombre.Text = string.Empty;
+            boxFiltroApellido.Text = string.Empty;
+            boxFiltroDNI.Text = string.Empty;
+            boxFiltroMail.Text = string.Empty;
+            using (var context = new GD2C2018Entities())
+            {
+                clienteBindingSource.DataSource = (from cliente in context.Cliente
+                                                   select cliente).ToList();
+            }            
         }
     }
 }
