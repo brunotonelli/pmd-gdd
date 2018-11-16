@@ -34,11 +34,11 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(225, 42);
+            this.button1.Location = new System.Drawing.Point(109, 86);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(255, 81);
             this.button1.TabIndex = 0;
-            this.button1.Text = "ver clientes (no se pide pero para probar xddd)";
+            this.button1.Text = "Clientes";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
