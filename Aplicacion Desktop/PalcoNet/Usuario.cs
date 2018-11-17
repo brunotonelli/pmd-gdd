@@ -24,7 +24,7 @@ namespace PalcoNet
         public string Usuario_Username { get; set; }
         public byte[] Usuario_Password { get; set; }
         public Nullable<int> Usuario_Intentos_Fallidos { get; set; }
-        public int Usuario_Rol { get; set; }
+        public string Usuario_Rol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cliente> Cliente { get; set; }

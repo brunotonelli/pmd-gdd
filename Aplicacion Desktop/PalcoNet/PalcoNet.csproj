@@ -68,6 +68,12 @@
     <Compile Include="Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\ListaFuncionalidades.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extensiones\ListaFuncionalidades.Designer.cs">
+      <DependentUpon>ListaFuncionalidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensiones\MetodosExtension.cs" />
     <Compile Include="Extensiones\TextBoxRequerido.cs">
       <SubType>UserControl</SubType>
@@ -93,12 +99,6 @@
     <Compile Include="Forms\Clientes\AltaClientesForm.Designer.cs">
       <DependentUpon>AltaClientesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Clientes\BajaClientesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Clientes\BajaClientesForm.Designer.cs">
-      <DependentUpon>BajaClientesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Clientes\ClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +110,18 @@
     </Compile>
     <Compile Include="Forms\Clientes\ModifClientesForm.Designer.cs">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Roles\NuevoRolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Roles\NuevoRolForm.Designer.cs">
+      <DependentUpon>NuevoRolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Roles\RolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Roles\RolesForm.Designer.cs">
+      <DependentUpon>RolesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidad.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
@@ -161,6 +173,9 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Extensiones\ListaFuncionalidades.resx">
+      <DependentUpon>ListaFuncionalidades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Extensiones\TextBoxRequerido.resx">
       <DependentUpon>TextBoxRequerido.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\ModifClientesForm.resx">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Roles\NuevoRolForm.resx">
+      <DependentUpon>NuevoRolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Roles\RolesForm.resx">
+      <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -194,6 +215,8 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cliente.datasource" />
+    <None Include="Properties\DataSources\Funcionalidad.datasource" />
+    <None Include="Properties\DataSources\Rol.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

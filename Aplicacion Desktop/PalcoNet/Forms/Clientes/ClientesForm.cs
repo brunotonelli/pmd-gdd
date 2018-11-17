@@ -55,18 +55,16 @@ namespace PalcoNet.Forms.Clientes
             string mensaje = "¿Está seguro que desea eliminar al cliente " + nombre + "?";
             DialogResult result = MessageBox.Show(mensaje, "Borrar cliente", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-                BorrarCliente(selected);
+                BorrarCliente(selected.Index);
         }
 
-        private void BorrarCliente(DataGridViewRow fila) {
-
-            decimal dni = Decimal.Parse(fila.Cells[2].Value.ToString());
-            dataGrid.Rows.Remove(fila); //visualmente saco la fila
+        private void BorrarCliente(int fila) {
+            
+            dataGrid.Rows.RemoveAt(fila); //visualmente saco la fila
             
             using (var context = new GD2C2018Entities())
             {
-                var cliente = new Cliente { Cli_Dni = dni };
-                context.Entry(cliente).State = System.Data.Entity.EntityState.Deleted;
+                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
             }
         }

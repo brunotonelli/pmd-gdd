@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PalcoNet.Extensiones;
+using PalcoNet.Forms.Roles;
 
 namespace PalcoNet
 {
@@ -25,7 +26,7 @@ namespace PalcoNet
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            new AltaClientesForm().Show();
+            new RolesForm().Show();
         }
     }
 }

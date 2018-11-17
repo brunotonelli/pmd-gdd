@@ -45,6 +45,9 @@ namespace PalcoNet.Forms.Clientes
             this.boxLocalidad = new System.Windows.Forms.TextBox();
             this.botonCrear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxDNI = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxCUIL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
@@ -54,12 +57,9 @@ namespace PalcoNet.Forms.Clientes
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxDNI = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -218,6 +218,33 @@ namespace PalcoNet.Forms.Clientes
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
+            // boxDNI
+            // 
+            this.boxDNI.BackColor = System.Drawing.Color.Tomato;
+            this.boxDNI.Location = new System.Drawing.Point(84, 111);
+            this.boxDNI.Name = "boxDNI";
+            this.boxDNI.Padding = new System.Windows.Forms.Padding(1);
+            this.boxDNI.Size = new System.Drawing.Size(150, 20);
+            this.boxDNI.TabIndex = 27;
+            // 
+            // boxApellido
+            // 
+            this.boxApellido.BackColor = System.Drawing.Color.Tomato;
+            this.boxApellido.Location = new System.Drawing.Point(84, 73);
+            this.boxApellido.Name = "boxApellido";
+            this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
+            this.boxApellido.Size = new System.Drawing.Size(150, 20);
+            this.boxApellido.TabIndex = 26;
+            // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(84, 36);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(150, 20);
+            this.boxNombre.TabIndex = 25;
+            // 
             // boxCUIL
             // 
             this.boxCUIL.Location = new System.Drawing.Point(84, 144);
@@ -312,6 +339,15 @@ namespace PalcoNet.Forms.Clientes
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de contacto";
             // 
+            // boxMail
+            // 
+            this.boxMail.BackColor = System.Drawing.Color.Tomato;
+            this.boxMail.Location = new System.Drawing.Point(84, 32);
+            this.boxMail.Name = "boxMail";
+            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
+            this.boxMail.Size = new System.Drawing.Size(150, 20);
+            this.boxMail.TabIndex = 28;
+            // 
             // botonCancelar
             // 
             this.botonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,42 +367,6 @@ namespace PalcoNet.Forms.Clientes
             this.label13.Size = new System.Drawing.Size(213, 13);
             this.label13.TabIndex = 40;
             this.label13.Text = "Los campos marcados con * son requeridos";
-            // 
-            // boxNombre
-            // 
-            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
-            this.boxNombre.Location = new System.Drawing.Point(84, 36);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNombre.Size = new System.Drawing.Size(150, 20);
-            this.boxNombre.TabIndex = 25;
-            // 
-            // boxApellido
-            // 
-            this.boxApellido.BackColor = System.Drawing.Color.Tomato;
-            this.boxApellido.Location = new System.Drawing.Point(84, 73);
-            this.boxApellido.Name = "boxApellido";
-            this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
-            this.boxApellido.Size = new System.Drawing.Size(150, 20);
-            this.boxApellido.TabIndex = 26;
-            // 
-            // boxDNI
-            // 
-            this.boxDNI.BackColor = System.Drawing.Color.Tomato;
-            this.boxDNI.Location = new System.Drawing.Point(84, 111);
-            this.boxDNI.Name = "boxDNI";
-            this.boxDNI.Padding = new System.Windows.Forms.Padding(1);
-            this.boxDNI.Size = new System.Drawing.Size(150, 20);
-            this.boxDNI.TabIndex = 27;
-            // 
-            // boxMail
-            // 
-            this.boxMail.BackColor = System.Drawing.Color.Tomato;
-            this.boxMail.Location = new System.Drawing.Point(84, 32);
-            this.boxMail.Name = "boxMail";
-            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
-            this.boxMail.Size = new System.Drawing.Size(150, 20);
-            this.boxMail.TabIndex = 28;
             // 
             // AltaClientesForm
             // 

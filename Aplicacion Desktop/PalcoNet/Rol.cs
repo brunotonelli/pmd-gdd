@@ -21,7 +21,7 @@ namespace PalcoNet
             this.Funcionalidad = new HashSet<Funcionalidad>();
         }
     
-        public int Rol_ID { get; set; }
+        public string Rol_ID { get; set; }
         public string Rol_Nombre { get; set; }
         public Nullable<bool> Rol_Habilitado { get; set; }
     

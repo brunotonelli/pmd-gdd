@@ -49,9 +49,34 @@ DELETE FROM PMD.Forma_Pago PRINT 'Formas de pago borradas'
 DELETE FROM PMD.Item_Factura PRINT 'Items Facturas borrados'
 DELETE FROM PMD.Factura PRINT 'Facturas borradas'
 DELETE FROM PMD.Grado_Publicacion PRINT 'Grados borrados'
+DELETE FROM PMD.Func_Rol
+DELETE FROM PMD.Rol PRINT 'Roles borrados'
+DELETE FROM PMD.Funcionalidad PRINT 'Funcionalidades borradas'
 
 GO
 
+INSERT INTO PMD.Rol(Rol_ID, Rol_Nombre, Rol_Habilitado)
+VALUES ('EMP', 'Empresa', 1), ('ADM', 'Administrativo', 1), ('CLI', 'Cliente', 1)
+
+GO
+
+DBCC CHECKIDENT ('GD2C2018.PMD.Funcionalidad', RESEED, 0)
+INSERT INTO PMD.Funcionalidad(Func_Descripcion)
+VALUES ('ABM de Rol'), ('ABM de Clientes'), ('ABM de Empresa de Espectáculos'),
+	   ('ABM de Rubro'), ('ABM Grado de Publicación'), ('Generar publicación'),
+	   ('Editar publicación'), ('Comprar'), ('Historial de cliente'),
+	   ('Canje y administración de puntos'), ('Generar rendición de comisiones'),
+	   ('Listado Estadistico')
+
+GO
+
+INSERT INTO PMD.Func_Rol(Rol_ID, Func_ID)
+VALUES ('EMP', 4), ('EMP', 5), ('EMP', 6), ('EMP', 7), --funcs de empresa
+	   ('CLI', 8), ('CLI', 9), ('CLI', 10), --funcs de cliente
+	   ('ADM', 1), ('ADM', 2), ('ADM', 3), ('ADM', 4), ('ADM', 5),
+	   ('ADM', 7), ('ADM', 11), ('ADM', 12) --funcs de admin	
+
+GO
 INSERT INTO PMD.Grado_Publicacion(Grado_Nombre, Grado_Comision)
 VALUES ('Bajo', 10), ('Medio', 30), ('Alto', 50)
 
