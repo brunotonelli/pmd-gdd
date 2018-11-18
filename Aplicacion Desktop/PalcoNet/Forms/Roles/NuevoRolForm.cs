@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,11 @@ namespace PalcoNet.Forms.Roles
 {
     public partial class NuevoRolForm : Form
     {
-        public NuevoRolForm() {
+        DataGridView DataGrid;
+
+        public NuevoRolForm(DataGridView dataGrid) {
             InitializeComponent();
+            DataGrid = dataGrid;
         }
 
         private void botonCrear_Click(object sender, EventArgs e) {
@@ -35,9 +39,10 @@ namespace PalcoNet.Forms.Roles
 
                 context.Entry(rol).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
+                DataGrid.DataSource = context.Rol.ToList();
             }
-            this.Close();
-           
+
+            this.Close();           
         }
     }
 }

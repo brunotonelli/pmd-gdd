@@ -40,7 +40,8 @@ namespace PalcoNet.Extensiones
 
         private void Validar(object sender, EventArgs e) {
             BackColor = textBox.Text.Length == 0 ? Color.Tomato : Color.LimeGreen;
-            TextChangeEvent?.Invoke(sender, e);
+            if (TextChangeEvent != null)
+                TextChangeEvent(sender, e);
         }
         
         protected override void SetBoundsCore(int x, int y,

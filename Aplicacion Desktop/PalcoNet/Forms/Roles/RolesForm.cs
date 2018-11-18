@@ -19,14 +19,12 @@ namespace PalcoNet.Forms.Roles
 
             using (var context = new GD2C2018Entities())
             {
-                var query = from rol in context.Rol
-                            select rol;
-                rolBindingSource.DataSource = query.ToList();
+                rolBindingSource.DataSource = context.Rol.ToList();
             }
         }
 
         private void botonNuevo_Click(object sender, EventArgs e) {
-            new NuevoRolForm().Show();
+            new NuevoRolForm(dataGrid).Show();
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
@@ -53,14 +51,14 @@ namespace PalcoNet.Forms.Roles
         }
 
         private void BorrarRol(int fila) {
-
-            dataGrid.Rows.RemoveAt(fila); //visualmente saco la fila
-
+            
             using (var context = new GD2C2018Entities())
             {
                 context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
             }
+
+            dataGrid.Rows.RemoveAt(fila);
         }
     }
 }

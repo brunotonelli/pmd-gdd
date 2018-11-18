@@ -19,15 +19,13 @@ namespace PalcoNet.Forms.Clientes
 
             using (var context = new GD2C2018Entities())
             {
-                var query = from cliente in context.Cliente
-                            select cliente;
-                clienteBindingSource.DataSource = query.ToList();
+                clienteBindingSource.DataSource = context.Cliente.ToList();
             }
 
         }
 
         private void botonNuevo_Click(object sender, EventArgs e) {
-            new AltaClientesForm().Show();
+            new AltaClientesForm(dataGrid).Show();
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
@@ -60,13 +58,13 @@ namespace PalcoNet.Forms.Clientes
 
         private void BorrarCliente(int fila) {
             
-            dataGrid.Rows.RemoveAt(fila); //visualmente saco la fila
-            
             using (var context = new GD2C2018Entities())
             {
                 context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
             }
+
+            dataGrid.Rows.RemoveAt(fila);
         }
 
         private void botonBuscar_Click(object sender, EventArgs e) {
