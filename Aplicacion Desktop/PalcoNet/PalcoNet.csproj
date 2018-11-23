@@ -85,12 +85,6 @@
     <Compile Include="Factura.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forma_Pago.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -111,6 +105,30 @@
     </Compile>
     <Compile Include="Forms\Clientes\ModifClientesForm.Designer.cs">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\RegistrarClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\RegistrarClienteForm.Designer.cs">
+      <DependentUpon>RegistrarClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\RegistrarEmpresaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\RegistrarEmpresaForm.Designer.cs">
+      <DependentUpon>RegistrarEmpresaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\RegistrarseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\RegistrarseForm.Designer.cs">
+      <DependentUpon>RegistrarseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Roles\NuevoRolForm.cs">
       <SubType>Form</SubType>
@@ -180,9 +198,6 @@
     <EmbeddedResource Include="Extensiones\TextBoxRequerido.resx">
       <DependentUpon>TextBoxRequerido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\AltaClientesForm.resx">
       <DependentUpon>AltaClientesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +206,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\ModifClientesForm.resx">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\RegistrarEmpresaForm.resx">
+      <DependentUpon>RegistrarEmpresaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\RegistrarseForm.resx">
+      <DependentUpon>RegistrarseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Roles\NuevoRolForm.resx">
       <DependentUpon>NuevoRolForm.cs</DependentUpon>
