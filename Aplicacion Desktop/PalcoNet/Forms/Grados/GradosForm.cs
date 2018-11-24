@@ -12,7 +12,7 @@ namespace PalcoNet.Forms
 {
     public partial class GradosForm : Form
     {
-
+        private int id;
         private Grado_Publicacion Seleccionado;
 
         public GradosForm() {
@@ -41,7 +41,21 @@ namespace PalcoNet.Forms
             string mensaje = "¿Está seguro que desea eliminar este grado de publicacion" + nombre + "?";
             DialogResult result = MessageBox.Show(mensaje, "Borrar grado de publicacion", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-                BorrarGrado(selected.Index);
+                //BorrarGrado(selected.Index);
+                BorrarGradoLogico(selected.Index);
+        }
+
+        private void BorrarGradoLogico(int fila)
+        {
+            using (var context = new GD2C2018Entities())
+            {
+                Seleccionado.Grado_Habilitado = false;
+                id = Seleccionado.Grado_ID;
+                var grado = context.Grado_Publicacion.Single(c => c.Grado_ID == id);
+                context.Entry(grado).CurrentValues.SetValues(Seleccionado);
+                context.SaveChanges();
+                gradoPublicacionBindingSource.DataSource = context.Grado_Publicacion.ToList();
+            }
         }
 
         private void BorrarGrado(int fila)
@@ -54,9 +68,6 @@ namespace PalcoNet.Forms
                 datagrid.DataSource = gradoPublicacionBindingSource;
             }
         }
-
-
-
 
         private void botonBuscar_Click(object sender, EventArgs e)
         {
@@ -81,8 +92,33 @@ namespace PalcoNet.Forms
             {
                 Seleccionado = datagrid.SelectedRows[0].DataBoundItem as Grado_Publicacion;
                 botonModificar.Enabled = true;
+                
+            }
+            if (Seleccionado.Grado_Habilitado == true)
+            {
+                btnHabilitar.Enabled = false;
                 botonEliminar.Enabled = true;
             }
+            else
+            {
+                btnHabilitar.Enabled = true;
+                botonEliminar.Enabled = false;
+            }
+
+        }
+
+        private void btnHabilitar_Click(object sender, EventArgs e)
+        {
+            using (var context = new GD2C2018Entities())
+                {
+                    Seleccionado.Grado_Habilitado = true;
+                    id = Seleccionado.Grado_ID;
+                    var grado = context.Grado_Publicacion.Single(c => c.Grado_ID == id);
+                    context.Entry(grado).CurrentValues.SetValues(Seleccionado);
+                    context.SaveChanges();
+                    gradoPublicacionBindingSource.DataSource = context.Grado_Publicacion.ToList();
+                }
+            
         }
     }
 }

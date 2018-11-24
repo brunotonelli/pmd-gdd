@@ -42,6 +42,7 @@
             this.gradoNombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradoComisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradoHabilitadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnHabilitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
@@ -62,7 +63,7 @@
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(445, 127);
+            this.botonModificar.Location = new System.Drawing.Point(445, 88);
             this.botonModificar.Margin = new System.Windows.Forms.Padding(4);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(196, 42);
@@ -75,7 +76,7 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(445, 186);
+            this.botonEliminar.Location = new System.Drawing.Point(445, 137);
             this.botonEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(196, 42);
@@ -87,7 +88,7 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(445, 65);
+            this.botonNuevo.Location = new System.Drawing.Point(445, 38);
             this.botonNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.botonNuevo.Name = "botonNuevo";
             this.botonNuevo.Size = new System.Drawing.Size(196, 42);
@@ -211,11 +212,25 @@
             this.gradoHabilitadoDataGridViewTextBoxColumn.Name = "gradoHabilitadoDataGridViewTextBoxColumn";
             this.gradoHabilitadoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // btnHabilitar
+            // 
+            this.btnHabilitar.Enabled = false;
+            this.btnHabilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHabilitar.Location = new System.Drawing.Point(445, 187);
+            this.btnHabilitar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHabilitar.Name = "btnHabilitar";
+            this.btnHabilitar.Size = new System.Drawing.Size(196, 42);
+            this.btnHabilitar.TabIndex = 20;
+            this.btnHabilitar.Text = "Habilitar";
+            this.btnHabilitar.UseVisualStyleBackColor = true;
+            this.btnHabilitar.Click += new System.EventHandler(this.btnHabilitar_Click);
+            // 
             // GradosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 456);
+            this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
@@ -250,5 +265,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoNombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoComisionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoHabilitadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnHabilitar;
     }
 }
