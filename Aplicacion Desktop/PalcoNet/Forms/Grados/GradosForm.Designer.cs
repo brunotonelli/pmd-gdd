@@ -26,7 +26,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-<<<<<<< HEAD
+
             this.SuspendLayout();
             // 
             // GradosForm
@@ -37,7 +37,6 @@
             this.Name = "GradosForm";
             this.Text = "GradosForm";
             this.ResumeLayout(false);
-=======
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.botonModificar = new System.Windows.Forms.Button();
@@ -257,7 +256,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
 
         }
 

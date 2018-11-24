@@ -43,11 +43,10 @@
             this.botonDetalles = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonModificar = new System.Windows.Forms.Button();
-<<<<<<< HEAD
+
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gradoPublicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-=======
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
+
             this.cliMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliFechaNacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -254,7 +253,6 @@
             this.botonModificar.UseVisualStyleBackColor = true;
             this.botonModificar.Click += new System.EventHandler(this.botonModificar_Click);
             // 
-<<<<<<< HEAD
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
@@ -262,7 +260,7 @@
             // gradoPublicacionBindingSource
             // 
             this.gradoPublicacionBindingSource.DataSource = typeof(PalcoNet.Grado_Publicacion);
-=======
+
             // cliMailDataGridViewTextBoxColumn
             // 
             this.cliMailDataGridViewTextBoxColumn.DataPropertyName = "Cli_Mail";
@@ -276,7 +274,7 @@
             this.cliFechaNacDataGridViewTextBoxColumn.HeaderText = "Fecha de nacimiento";
             this.cliFechaNacDataGridViewTextBoxColumn.Name = "cliFechaNacDataGridViewTextBoxColumn";
             this.cliFechaNacDataGridViewTextBoxColumn.ReadOnly = true;
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
+
             // 
             // cliMailDataGridViewTextBoxColumn
             // 
@@ -292,7 +290,7 @@
             this.cliApellidoDataGridViewTextBoxColumn.Name = "cliApellidoDataGridViewTextBoxColumn";
             this.cliApellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-<<<<<<< HEAD
+
             // cliDniDataGridViewTextBoxColumn
             // 
             this.cliDniDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nro_Doc";
@@ -309,10 +307,10 @@
             // 
             // cliNombreDataGridViewTextBoxColumn
             // 
-=======
+
             // cliNombreDataGridViewTextBoxColumn
             // 
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
+
             this.cliNombreDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nombre";
             this.cliNombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.cliNombreDataGridViewTextBoxColumn.Name = "cliNombreDataGridViewTextBoxColumn";

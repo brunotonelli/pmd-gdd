@@ -33,15 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -49,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -76,7 +72,6 @@
     <Compile Include="Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Extensiones\Configuracion.cs" />
     <Compile Include="Extensiones\ListaFuncionalidades.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,23 +261,15 @@
     <EmbeddedResource Include="Forms\Clientes\ModifClientesForm.resx">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Forms\ComprarForm.resx">
       <DependentUpon>ComprarForm.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Grados\AltaGrado.resx">
       <DependentUpon>AltaGrado.cs</DependentUpon>
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Grados\GradosForm.resx">
-      <DependentUpon>GradosForm.cs</DependentUpon>
-    </EmbeddedResource>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Include="Forms\Grados\ModificacionGradoForm.resx">
       <DependentUpon>ModificacionGradoForm.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
     <EmbeddedResource Include="Forms\Main\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,52 +312,8 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cliente.datasource" />
-    <None Include="Properties\DataSources\Compra.datasource" />
-    <None Include="Properties\DataSources\Espectaculo.datasource" />
-    <None Include="Properties\DataSources\Espec_Empresa.datasource" />
-    <None Include="Properties\DataSources\Estado.datasource" />
-    <None Include="Properties\DataSources\Factura.datasource" />
-    <None Include="Properties\DataSources\Forma_Pago.datasource" />
     <None Include="Properties\DataSources\Funcionalidad.datasource" />
-<<<<<<< HEAD
-    <None Include="Properties\DataSources\Grado_Publicacion.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Model.PublicacionModel.datasource" />
-    <None Include="Properties\DataSources\Publicacion.datasource" />
-=======
-    <None Include="Properties\DataSources\GD2C2018Entities.datasource" />
-    <None Include="Properties\DataSources\Grado_Publicacion.datasource" />
-    <None Include="Properties\DataSources\Item_Factura.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Extensiones.ListaFuncionalidades.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Extensiones.MetodosExtension.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Extensiones.TextBoxRequerido.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Extensiones.Utilidades.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Extensiones.Validaciones.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.AltaClientesForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.ClientesForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.EmpresasForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.GradosForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.LoginForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.MainForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.MenuForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.ModifClientesForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.NuevoRolForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.RegistrarClienteForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.RegistrarEmpresaForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.RegistrarseForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.RolesForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Forms.RubrosForm.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Properties.Resources.datasource" />
-    <None Include="Properties\DataSources\PalcoNet.Properties.Settings.datasource" />
-    <None Include="Properties\DataSources\Premio.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
-    <None Include="Properties\DataSources\Publicacion.datasource" />
-    <None Include="Properties\DataSources\Puntos.datasource" />
->>>>>>> 0643607ff28bbf72f9eba67133ab4f2c3eb9620d
     <None Include="Properties\DataSources\Rol.datasource" />
-    <None Include="Properties\DataSources\Rubro.datasource" />
-    <None Include="Properties\DataSources\Tipo_Ubicacion.datasource" />
-    <None Include="Properties\DataSources\Ubicacion.datasource" />
-    <None Include="Properties\DataSources\Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -401,7 +344,6 @@
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
