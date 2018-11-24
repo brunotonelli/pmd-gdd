@@ -1,9 +1,9 @@
-﻿using System;
+﻿using PalcoNet.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PalcoNet.Forms.Main;
 
 namespace PalcoNet
 {

@@ -1,6 +1,6 @@
 ﻿using PalcoNet.Extensiones;
 
-namespace PalcoNet.Forms.Roles
+namespace PalcoNet.Forms
 {
     partial class NuevoRolForm
     {

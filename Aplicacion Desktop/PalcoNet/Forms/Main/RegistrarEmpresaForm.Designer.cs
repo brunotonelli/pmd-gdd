@@ -1,4 +1,4 @@
-﻿namespace PalcoNet.Forms.Main
+﻿namespace PalcoNet.Forms
 {
     partial class RegistrarEmpresaForm
     {
@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.boxUsuario = new System.Windows.Forms.TextBox();
+            this.boxContraseña = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.boxCiudad = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.boxCalle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,8 +53,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
-            this.boxCiudad = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,9 +62,7 @@
             this.botonRegistrarse = new System.Windows.Forms.Button();
             this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxUsuario = new System.Windows.Forms.TextBox();
-            this.boxContraseña = new System.Windows.Forms.TextBox();
+            this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,36 +84,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Usuario";
             // 
-            // label1
+            // boxUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre de usuario";
+            this.boxUsuario.Location = new System.Drawing.Point(122, 37);
+            this.boxUsuario.Name = "boxUsuario";
+            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
+            this.boxUsuario.TabIndex = 31;
             // 
-            // label2
+            // boxContraseña
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Cliente",
-            "Empresa"});
-            this.comboBox1.Location = new System.Drawing.Point(122, 106);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(122, 21);
-            this.comboBox1.TabIndex = 4;
+            this.boxContraseña.Location = new System.Drawing.Point(122, 70);
+            this.boxContraseña.Name = "boxContraseña";
+            this.boxContraseña.Size = new System.Drawing.Size(122, 20);
+            this.boxContraseña.TabIndex = 32;
+            this.boxContraseña.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -124,10 +108,41 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Rol";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cliente",
+            "Empresa"});
+            this.comboBox1.Location = new System.Drawing.Point(122, 106);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(122, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Text = "Empresa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Contraseña";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre de usuario";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.boxCUIT);
-            this.groupBox3.Controls.Add(this.boxNombre);
+            this.groupBox3.Controls.Add(this.boxRazon);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,6 +193,22 @@
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de ubicación";
+            // 
+            // boxCiudad
+            // 
+            this.boxCiudad.Location = new System.Drawing.Point(97, 248);
+            this.boxCiudad.Name = "boxCiudad";
+            this.boxCiudad.Size = new System.Drawing.Size(150, 20);
+            this.boxCiudad.TabIndex = 29;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(17, 251);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Ciudad";
             // 
             // boxCalle
             // 
@@ -275,22 +306,6 @@
             this.boxDepartamento.Size = new System.Drawing.Size(150, 20);
             this.boxDepartamento.TabIndex = 17;
             // 
-            // boxCiudad
-            // 
-            this.boxCiudad.Location = new System.Drawing.Point(97, 248);
-            this.boxCiudad.Name = "boxCiudad";
-            this.boxCiudad.Size = new System.Drawing.Size(150, 20);
-            this.boxCiudad.TabIndex = 29;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 251);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Ciudad";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.boxMail);
@@ -358,6 +373,7 @@
             this.botonRegistrarse.TabIndex = 41;
             this.botonRegistrarse.Text = "Registrarse";
             this.botonRegistrarse.UseVisualStyleBackColor = true;
+            this.botonRegistrarse.Click += new System.EventHandler(this.botonRegistrarse_Click);
             // 
             // boxMail
             // 
@@ -377,28 +393,14 @@
             this.boxCUIT.Size = new System.Drawing.Size(150, 20);
             this.boxCUIT.TabIndex = 26;
             // 
-            // boxNombre
+            // boxRazon
             // 
-            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
-            this.boxNombre.Location = new System.Drawing.Point(94, 36);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNombre.Size = new System.Drawing.Size(150, 20);
-            this.boxNombre.TabIndex = 25;
-            // 
-            // boxUsuario
-            // 
-            this.boxUsuario.Location = new System.Drawing.Point(122, 37);
-            this.boxUsuario.Name = "boxUsuario";
-            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
-            this.boxUsuario.TabIndex = 31;
-            // 
-            // boxContraseña
-            // 
-            this.boxContraseña.Location = new System.Drawing.Point(122, 70);
-            this.boxContraseña.Name = "boxContraseña";
-            this.boxContraseña.Size = new System.Drawing.Size(122, 20);
-            this.boxContraseña.TabIndex = 32;
+            this.boxRazon.BackColor = System.Drawing.Color.Tomato;
+            this.boxRazon.Location = new System.Drawing.Point(94, 36);
+            this.boxRazon.Name = "boxRazon";
+            this.boxRazon.Padding = new System.Windows.Forms.Padding(1);
+            this.boxRazon.Size = new System.Drawing.Size(150, 20);
+            this.boxRazon.TabIndex = 25;
             // 
             // RegistrarEmpresaForm
             // 
@@ -435,7 +437,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Extensiones.TextBoxRequerido boxNombre;
+        private Extensiones.TextBoxRequerido boxRazon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox2;

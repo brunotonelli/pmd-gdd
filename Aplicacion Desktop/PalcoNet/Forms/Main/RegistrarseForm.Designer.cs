@@ -1,4 +1,4 @@
-﻿namespace PalcoNet.Forms.Main
+﻿namespace PalcoNet.Forms
 {
     partial class RegistrarseForm
     {

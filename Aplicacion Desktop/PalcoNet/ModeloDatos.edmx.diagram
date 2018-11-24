@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1abfa0cbe6f1427d8857777b963b0fc2" Name="Diagram1" ZoomLevel="83">
-        <EntityTypeShape EntityType="GD2C2018Model.Cliente" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="GD2C2018Model.Compra" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GD2C2018Model.Espec_Empresa" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GD2C2018Model.Espectaculo" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
@@ -23,7 +22,6 @@
         <EntityTypeShape EntityType="GD2C2018Model.Tipo_Ubicacion" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GD2C2018Model.Ubicacion" Width="1.5" PointX="8" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="GD2C2018Model.Usuario" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <AssociationConnector Association="GD2C2018Model.FK_Cliente_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="GD2C2018Model.FK_Puntos_Compra" ManuallyRouted="false" />
         <AssociationConnector Association="GD2C2018Model.FK_Ubicacion_Compra" ManuallyRouted="false" />
         <AssociationConnector Association="GD2C2018Model.FK_Espec_Empresa_Usuario" ManuallyRouted="false" />
@@ -31,6 +29,8 @@
         <AssociationConnector Association="GD2C2018Model.FK_Publicacion_Espectaculo" ManuallyRouted="false" />
         <AssociationConnector Association="GD2C2018Model.FK_Item_Factura_Factura" ManuallyRouted="false" />
         <AssociationConnector Association="GD2C2018Model.Func_Rol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GD2C2018Model.Cliente" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="GD2C2018Model.FK_Cliente_Usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

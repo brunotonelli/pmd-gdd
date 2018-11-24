@@ -1,4 +1,4 @@
-﻿namespace PalcoNet.Forms.Clientes
+﻿namespace PalcoNet.Forms
 {
     partial class ModifClientesForm
     {
@@ -47,7 +47,9 @@
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.boxDNI = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxCUIL = new System.Windows.Forms.TextBox();
@@ -56,17 +58,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.botonGuardar = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.boxNroTarjeta = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.boxTipoDoc = new System.Windows.Forms.ComboBox();
+            this.boxTipoTarjeta = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(315, 301);
+            this.label13.Location = new System.Drawing.Point(35, 422);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(213, 13);
             this.label13.TabIndex = 46;
@@ -75,7 +83,7 @@
             // botonCancelar
             // 
             this.botonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonCancelar.Location = new System.Drawing.Point(291, 333);
+            this.botonCancelar.Location = new System.Drawing.Point(291, 410);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(119, 37);
             this.botonCancelar.TabIndex = 45;
@@ -88,7 +96,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.boxTelefono);
-            this.groupBox3.Location = new System.Drawing.Point(20, 261);
+            this.groupBox3.Location = new System.Drawing.Point(20, 283);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(254, 109);
             this.groupBox3.TabIndex = 44;
@@ -248,7 +256,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.boxDNI);
+            this.groupBox1.Controls.Add(this.boxTipoDoc);
+            this.groupBox1.Controls.Add(this.boxNroDoc);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.boxApellido);
             this.groupBox1.Controls.Add(this.boxNombre);
             this.groupBox1.Controls.Add(this.boxCUIL);
@@ -257,23 +268,40 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(20, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 217);
+            this.groupBox1.Size = new System.Drawing.Size(254, 253);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
-            // boxDNI
+            // boxNroDoc
             // 
-            this.boxDNI.BackColor = System.Drawing.Color.Tomato;
-            this.boxDNI.Location = new System.Drawing.Point(84, 111);
-            this.boxDNI.Name = "boxDNI";
-            this.boxDNI.Padding = new System.Windows.Forms.Padding(1);
-            this.boxDNI.Size = new System.Drawing.Size(150, 20);
-            this.boxDNI.TabIndex = 27;
+            this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
+            this.boxNroDoc.Location = new System.Drawing.Point(84, 145);
+            this.boxNroDoc.Name = "boxNroDoc";
+            this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
+            this.boxNroDoc.TabIndex = 38;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(2, 145);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(80, 13);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "* Num. de Doc.";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(2, 107);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 13);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "* Tipo de Doc.";
             // 
             // boxApellido
             // 
@@ -295,7 +323,7 @@
             // 
             // boxCUIL
             // 
-            this.boxCUIL.Location = new System.Drawing.Point(84, 144);
+            this.boxCUIL.Location = new System.Drawing.Point(83, 181);
             this.boxCUIL.Name = "boxCUIL";
             this.boxCUIL.Size = new System.Drawing.Size(150, 20);
             this.boxCUIL.TabIndex = 23;
@@ -312,7 +340,7 @@
             // boxFecha
             // 
             this.boxFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.boxFecha.Location = new System.Drawing.Point(134, 181);
+            this.boxFecha.Location = new System.Drawing.Point(133, 218);
             this.boxFecha.Name = "boxFecha";
             this.boxFecha.Size = new System.Drawing.Size(100, 20);
             this.boxFecha.TabIndex = 8;
@@ -320,7 +348,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 184);
+            this.label4.Location = new System.Drawing.Point(19, 221);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 13);
             this.label4.TabIndex = 7;
@@ -329,7 +357,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 147);
+            this.label12.Location = new System.Drawing.Point(19, 184);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(31, 13);
             this.label12.TabIndex = 24;
@@ -344,20 +372,11 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "* Apellido";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "* DNI";
-            // 
             // botonGuardar
             // 
             this.botonGuardar.Enabled = false;
             this.botonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonGuardar.Location = new System.Drawing.Point(437, 333);
+            this.botonGuardar.Location = new System.Drawing.Point(437, 410);
             this.botonGuardar.Name = "botonGuardar";
             this.botonGuardar.Size = new System.Drawing.Size(121, 37);
             this.botonGuardar.TabIndex = 41;
@@ -365,11 +384,81 @@
             this.botonGuardar.UseVisualStyleBackColor = true;
             this.botonGuardar.Click += new System.EventHandler(this.botonGuardar_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.boxTipoTarjeta);
+            this.groupBox5.Controls.Add(this.boxNroTarjeta);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Location = new System.Drawing.Point(291, 283);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(267, 109);
+            this.groupBox5.TabIndex = 49;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Tarjeta asociada";
+            // 
+            // boxNroTarjeta
+            // 
+            this.boxNroTarjeta.Location = new System.Drawing.Point(72, 66);
+            this.boxNroTarjeta.Name = "boxNroTarjeta";
+            this.boxNroTarjeta.Size = new System.Drawing.Size(150, 20);
+            this.boxNroTarjeta.TabIndex = 30;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(17, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Tipo";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(17, 69);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Numero";
+            // 
+            // boxTipoDoc
+            // 
+            this.boxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxTipoDoc.FormattingEnabled = true;
+            this.boxTipoDoc.Items.AddRange(new object[] {
+            "DNI",
+            "Libreta electoral",
+            "Carnet de extranjeria",
+            "Reg. unico de contribuyentes",
+            "Pasaporte",
+            "Part. de nacimiento-identidad",
+            "Otros",
+            "N/E"});
+            this.boxTipoDoc.Location = new System.Drawing.Point(83, 106);
+            this.boxTipoDoc.Name = "boxTipoDoc";
+            this.boxTipoDoc.Size = new System.Drawing.Size(152, 21);
+            this.boxTipoDoc.TabIndex = 41;
+            // 
+            // boxTipoTarjeta
+            // 
+            this.boxTipoTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxTipoTarjeta.FormattingEnabled = true;
+            this.boxTipoTarjeta.Items.AddRange(new object[] {
+            "Visa",
+            "MasterCard",
+            "American Express"});
+            this.boxTipoTarjeta.Location = new System.Drawing.Point(72, 28);
+            this.boxTipoTarjeta.Name = "boxTipoTarjeta";
+            this.boxTipoTarjeta.Size = new System.Drawing.Size(150, 21);
+            this.boxTipoTarjeta.TabIndex = 40;
+            // 
             // ModifClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 395);
+            this.ClientSize = new System.Drawing.Size(578, 462);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.groupBox3);
@@ -378,12 +467,15 @@
             this.Controls.Add(this.botonGuardar);
             this.Name = "ModifClientesForm";
             this.Text = "[PalcoNet] - Modificar Cliente";
+            this.Load += new System.EventHandler(this.ModifClientesForm_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,7 +504,6 @@
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.TextBox boxDepartamento;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Extensiones.TextBoxRequerido boxDNI;
         private Extensiones.TextBoxRequerido boxApellido;
         private Extensiones.TextBoxRequerido boxNombre;
         private System.Windows.Forms.TextBox boxCUIL;
@@ -421,7 +512,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button botonGuardar;
+        private Extensiones.TextBoxRequerido boxNroDoc;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox boxNroTarjeta;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox boxTipoDoc;
+        private System.Windows.Forms.ComboBox boxTipoTarjeta;
     }
 }

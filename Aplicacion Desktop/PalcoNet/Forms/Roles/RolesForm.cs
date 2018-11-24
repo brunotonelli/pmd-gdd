@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PalcoNet.Forms.Roles
+namespace PalcoNet.Forms
 {
     public partial class RolesForm : Form
     {

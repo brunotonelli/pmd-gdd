@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PalcoNet.Forms.Clientes
+namespace PalcoNet.Forms
 {
     public partial class AltaClientesForm : Form
     {
@@ -22,7 +22,7 @@ namespace PalcoNet.Forms.Clientes
             BindearCampos();
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxDNI.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
@@ -43,7 +43,7 @@ namespace PalcoNet.Forms.Clientes
         private void ValidarRequeridos(object sender, EventArgs e) {
             var nombre = boxNombre.Text;
             var apellido = boxApellido.Text;
-            var dni = boxDNI.Text;
+            var dni = boxNroDoc.Text;
             var mail = boxMail.Text;
             bool ok = nombre.Length != 0 && apellido.Length != 0 && dni.Length != 0 && mail.Length != 0;
             botonCrear.Enabled = ok;
@@ -52,7 +52,8 @@ namespace PalcoNet.Forms.Clientes
         private void BindearCampos() {
             boxNombre.Bindear(Nuevo, "Cli_Nombre");
             boxApellido.Bindear(Nuevo, "Cli_Apellido");
-            boxDNI.Bindear(Nuevo, "Cli_Dni");
+            boxNroDoc.Bindear(Nuevo, "Cli_Nro_Doc");
+            boxTipoDoc.Bindear(Nuevo, "Cli_Tipo_Doc");
             boxMail.Bindear(Nuevo, "Cli_Mail");
             boxCUIL.Bindear(Nuevo, "Cli_CUIL");
             boxFecha.Bindear(Nuevo, "Cli_Fecha_Nac", "Value");
@@ -63,6 +64,8 @@ namespace PalcoNet.Forms.Clientes
             boxDepartamento.Bindear(Nuevo, "Cli_Depto");
             boxCodigoPostal.Bindear(Nuevo, "Cli_Cod_Postal");
             boxLocalidad.Bindear(Nuevo, "Cli_Localidad");
+            boxTipoTarjeta.Bindear(Nuevo, "Cli_Tarjeta_Tipo");
+            boxNroTarjeta.Bindear(Nuevo, "Cli_Tarjeta_Num");
         }
 
     }

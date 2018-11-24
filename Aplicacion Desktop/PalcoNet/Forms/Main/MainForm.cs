@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PalcoNet.Forms.Clientes;
-using PalcoNet.Forms.Roles;
 
-namespace PalcoNet.Forms.Main
+namespace PalcoNet.Forms
 {
     public partial class MainForm : Form
     {
@@ -32,6 +30,10 @@ namespace PalcoNet.Forms.Main
         private void button4_Click(object sender, EventArgs e)
         {
             new RegistrarseForm().Show();
+        }
+
+        private void botonLogin_Click(object sender, EventArgs e) {
+            new LoginForm().Show();
         }
     }
 }

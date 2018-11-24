@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PalcoNet.Forms.Main
+namespace PalcoNet.Forms
 {
     public partial class RegistrarseForm : Form
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PalcoNet.Forms.Clientes
+namespace PalcoNet.Forms
 {
     public partial class ClientesForm : Form
     {
@@ -76,8 +76,8 @@ namespace PalcoNet.Forms.Clientes
                                   cliente.Cli_Mail.Contains(boxFiltroMail.Text)                                
                             select cliente;
                 if (boxFiltroDNI.Text.Length > 0) {
-                    decimal dni = decimal.Parse(boxFiltroDNI.Text);
-                    query = query.Where(cliente => cliente.Cli_Dni == dni);
+                    decimal documento = decimal.Parse(boxFiltroDNI.Text);
+                    query = query.Where(cliente => cliente.Cli_Nro_Doc == documento);
                 }
                 clienteBindingSource.DataSource = query.ToList();
             }

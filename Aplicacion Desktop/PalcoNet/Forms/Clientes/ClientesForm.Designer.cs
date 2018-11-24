@@ -1,4 +1,4 @@
-﻿namespace PalcoNet.Forms.Clientes
+﻿namespace PalcoNet.Forms
 {
     partial class ClientesForm
     {
@@ -28,6 +28,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.botonLimpiar = new System.Windows.Forms.Button();
@@ -48,10 +49,9 @@
             this.cliDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliFechaNacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -81,6 +81,10 @@
             this.dataGrid.Size = new System.Drawing.Size(492, 249);
             this.dataGrid.TabIndex = 1;
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
             // 
             // groupBox1
             // 
@@ -248,8 +252,8 @@
             // 
             // cliDniDataGridViewTextBoxColumn
             // 
-            this.cliDniDataGridViewTextBoxColumn.DataPropertyName = "Cli_Dni";
-            this.cliDniDataGridViewTextBoxColumn.HeaderText = "DNI";
+            this.cliDniDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nro_Doc";
+            this.cliDniDataGridViewTextBoxColumn.HeaderText = "Documento";
             this.cliDniDataGridViewTextBoxColumn.Name = "cliDniDataGridViewTextBoxColumn";
             this.cliDniDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -267,10 +271,6 @@
             this.cliMailDataGridViewTextBoxColumn.Name = "cliMailDataGridViewTextBoxColumn";
             this.cliMailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
-            // 
             // ClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,9 +285,9 @@
             this.Name = "ClientesForm";
             this.Text = "ClientesForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
