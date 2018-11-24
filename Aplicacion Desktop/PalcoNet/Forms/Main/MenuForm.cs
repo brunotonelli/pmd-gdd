@@ -32,7 +32,7 @@ namespace PalcoNet.Forms
             botonClientes.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("ABM de Clientes"));
             botonEmpresas.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("ABM de Empresa de Espectáculos"));
             botonRoles.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("ABM de Rol"));
-            botonRubros.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("ABM de Rubro"));
+            //botonRubros.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("ABM de Rubro"));
             botonGrados.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("ABM Grado de Publicación"));
             botonComisiones.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("Generar rendición de comisiones"));
             botonListado.Enabled = funcionalidades.Any(f => f.Func_Descripcion.Equals("Listado Estadistico"));
