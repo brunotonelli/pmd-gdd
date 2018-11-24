@@ -14,18 +14,11 @@ namespace PalcoNet
     
     public partial class Compra
     {
-        public Compra()
-        {
-            this.Ubicacion = new HashSet<Ubicacion>();
-        }
-    
         public decimal Compra_ID { get; set; }
         public Nullable<System.DateTime> Compra_Fecha { get; set; }
         public Nullable<decimal> Compra_Cantidad { get; set; }
         public int Compra_Forma_Pago { get; set; }
-        public decimal Compra_Cliente { get; set; }
-    
-        public virtual Puntos Puntos { get; set; }
-        public virtual ICollection<Ubicacion> Ubicacion { get; set; }
+        public string Compra_Tipo_Doc_Cliente { get; set; }
+        public decimal Compra_Num_Doc_Cliente { get; set; }
     }
 }

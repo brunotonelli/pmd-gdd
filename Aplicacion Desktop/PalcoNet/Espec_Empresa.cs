@@ -27,6 +27,7 @@ namespace PalcoNet
         public string Espec_Empresa_Localidad { get; set; }
         public string Espec_Empresa_Ciudad { get; set; }
         public string Espec_Empresa_Usuario { get; set; }
+        public Nullable<bool> Espec_Empresa_Habilitado { get; set; }
     
         public virtual Usuario Usuario { get; set; }
     }

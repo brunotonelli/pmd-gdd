@@ -14,11 +14,6 @@ namespace PalcoNet
     
     public partial class Espectaculo
     {
-        public Espectaculo()
-        {
-            this.Publicacion = new HashSet<Publicacion>();
-        }
-    
         public decimal Espectaculo_Cod { get; set; }
         public string Espectaculo_Descripcion { get; set; }
         public Nullable<int> Espectaculo_Rubro { get; set; }
@@ -26,6 +21,5 @@ namespace PalcoNet
         public Nullable<System.DateTime> Espectaculo_Fecha_Venc { get; set; }
     
         public virtual Rubro Rubro { get; set; }
-        public virtual ICollection<Publicacion> Publicacion { get; set; }
     }
 }

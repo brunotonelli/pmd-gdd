@@ -21,7 +21,5 @@ namespace PalcoNet
         public Nullable<int> Publicacion_Grado { get; set; }
         public string Publicacion_Empresa { get; set; }
         public int Publicacion_Estado { get; set; }
-    
-        public virtual Espectaculo Espectaculo { get; set; }
     }
 }

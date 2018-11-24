@@ -47,6 +47,7 @@
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxTipoDoc = new System.Windows.Forms.ComboBox();
             this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -60,11 +61,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.boxTipoTarjeta = new System.Windows.Forms.ComboBox();
             this.boxNroTarjeta = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.boxTipoDoc = new System.Windows.Forms.ComboBox();
-            this.boxTipoTarjeta = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -276,6 +276,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
+            // boxTipoDoc
+            // 
+            this.boxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxTipoDoc.FormattingEnabled = true;
+            this.boxTipoDoc.Items.AddRange(new object[] {
+            "DNI",
+            "Libreta electoral",
+            "Carnet de extranjeria",
+            "Reg. unico de contribuyentes",
+            "Pasaporte",
+            "Part. de nacimiento-identidad",
+            "Otros",
+            "N/E"});
+            this.boxTipoDoc.Location = new System.Drawing.Point(83, 106);
+            this.boxTipoDoc.Name = "boxTipoDoc";
+            this.boxTipoDoc.Size = new System.Drawing.Size(152, 21);
+            this.boxTipoDoc.TabIndex = 41;
+            // 
             // boxNroDoc
             // 
             this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
@@ -397,6 +415,19 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tarjeta asociada";
             // 
+            // boxTipoTarjeta
+            // 
+            this.boxTipoTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxTipoTarjeta.FormattingEnabled = true;
+            this.boxTipoTarjeta.Items.AddRange(new object[] {
+            "Visa",
+            "MasterCard",
+            "American Express"});
+            this.boxTipoTarjeta.Location = new System.Drawing.Point(72, 28);
+            this.boxTipoTarjeta.Name = "boxTipoTarjeta";
+            this.boxTipoTarjeta.Size = new System.Drawing.Size(150, 21);
+            this.boxTipoTarjeta.TabIndex = 40;
+            // 
             // boxNroTarjeta
             // 
             this.boxNroTarjeta.Location = new System.Drawing.Point(72, 66);
@@ -421,37 +452,6 @@
             this.label19.Size = new System.Drawing.Size(44, 13);
             this.label19.TabIndex = 22;
             this.label19.Text = "Numero";
-            // 
-            // boxTipoDoc
-            // 
-            this.boxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.boxTipoDoc.FormattingEnabled = true;
-            this.boxTipoDoc.Items.AddRange(new object[] {
-            "DNI",
-            "Libreta electoral",
-            "Carnet de extranjeria",
-            "Reg. unico de contribuyentes",
-            "Pasaporte",
-            "Part. de nacimiento-identidad",
-            "Otros",
-            "N/E"});
-            this.boxTipoDoc.Location = new System.Drawing.Point(83, 106);
-            this.boxTipoDoc.Name = "boxTipoDoc";
-            this.boxTipoDoc.Size = new System.Drawing.Size(152, 21);
-            this.boxTipoDoc.TabIndex = 41;
-            // 
-            // boxTipoTarjeta
-            // 
-            this.boxTipoTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.boxTipoTarjeta.FormattingEnabled = true;
-            this.boxTipoTarjeta.Items.AddRange(new object[] {
-            "Visa",
-            "MasterCard",
-            "American Express"});
-            this.boxTipoTarjeta.Location = new System.Drawing.Point(72, 28);
-            this.boxTipoTarjeta.Name = "boxTipoTarjeta";
-            this.boxTipoTarjeta.Size = new System.Drawing.Size(150, 21);
-            this.boxTipoTarjeta.TabIndex = 40;
             // 
             // ModifClientesForm
             // 

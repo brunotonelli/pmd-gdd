@@ -56,9 +56,9 @@ namespace PalcoNet.Forms
             {
                 context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
+                rolBindingSource.Remove(Seleccionado);
+                dataGrid.DataSource = rolBindingSource;
             }
-
-            dataGrid.Rows.RemoveAt(fila);
         }
     }
 }

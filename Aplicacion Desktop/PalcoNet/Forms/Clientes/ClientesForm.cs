@@ -57,14 +57,13 @@ namespace PalcoNet.Forms
         }
 
         private void BorrarCliente(int fila) {
-            
             using (var context = new GD2C2018Entities())
             {
                 context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
+                clienteBindingSource.Remove(Seleccionado);
+                dataGrid.DataSource = clienteBindingSource;
             }
-
-            dataGrid.Rows.RemoveAt(fila);
         }
 
         private void botonBuscar_Click(object sender, EventArgs e) {

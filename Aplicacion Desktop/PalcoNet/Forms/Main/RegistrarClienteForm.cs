@@ -16,6 +16,7 @@ namespace PalcoNet.Forms
         public RegistrarClienteForm()
         {
             InitializeComponent();
+            boxTipoDoc.SelectedIndex = 0;
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);

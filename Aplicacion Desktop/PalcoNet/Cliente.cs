@@ -32,6 +32,7 @@ namespace PalcoNet
         public string Cli_Tarjeta_Num { get; set; }
         public string Cli_Tarjeta_Tipo { get; set; }
         public string Cli_Usuario { get; set; }
+        public bool Cli_Habilitado { get; set; }
     
         public virtual Usuario Usuario { get; set; }
     }

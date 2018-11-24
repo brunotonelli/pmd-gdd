@@ -21,7 +21,5 @@ namespace PalcoNet
         public Nullable<decimal> Ubicacion_Precio { get; set; }
         public decimal Ubicacion_Tipo { get; set; }
         public Nullable<decimal> Ubicacion_Compra { get; set; }
-    
-        public virtual Compra Compra { get; set; }
     }
 }

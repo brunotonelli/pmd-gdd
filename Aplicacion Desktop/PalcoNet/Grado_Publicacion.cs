@@ -17,5 +17,6 @@ namespace PalcoNet
         public int Grado_ID { get; set; }
         public string Grado_Nombre { get; set; }
         public Nullable<decimal> Grado_Comision { get; set; }
+        public Nullable<bool> Grado_Habilitado { get; set; }
     }
 }

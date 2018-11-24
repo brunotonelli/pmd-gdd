@@ -20,6 +20,7 @@ namespace PalcoNet.Forms
             InitializeComponent();
             DataGrid = dataGrid;
             BindearCampos();
+            boxTipoDoc.SelectedIndex = 0;
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);

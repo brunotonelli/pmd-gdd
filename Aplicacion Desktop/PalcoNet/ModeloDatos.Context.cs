@@ -25,6 +25,7 @@ namespace PalcoNet
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Compra> Compra { get; set; }
         public DbSet<Espec_Empresa> Espec_Empresa { get; set; }
         public DbSet<Espectaculo> Espectaculo { get; set; }
@@ -42,6 +43,5 @@ namespace PalcoNet
         public DbSet<Tipo_Ubicacion> Tipo_Ubicacion { get; set; }
         public DbSet<Ubicacion> Ubicacion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
     }
 }
