@@ -32,7 +32,7 @@ namespace PalcoNet.Forms
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
             if (dataGrid.SelectedRows.Count > 0)
             {
-                Seleccionado = dataGrid.SelectedRows[0].DataBoundItem as Cliente;
+                Seleccionado =  dataGrid.SelectedRows[0].DataBoundItem as Cliente;
                 botonDetalles.Enabled = true;
                 botonModificar.Enabled = true;
                 botonEliminar.Enabled = true;
