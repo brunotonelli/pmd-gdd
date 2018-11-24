@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost\SQLSERVER2012;Initial Catalog=GD2C2018;Persist Security Info=True;User ID=gdEspectaculos2018;Password=gd2018</Value>
     </Setting>
+    <Setting Name="FechaActual" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">11/24/2018 02:30:00</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

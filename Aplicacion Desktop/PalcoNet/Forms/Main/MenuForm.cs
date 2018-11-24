@@ -59,5 +59,9 @@ namespace PalcoNet.Forms
         private void botonGrados_Click(object sender, EventArgs e) {
             new GradosForm().Show();
         }
+
+        private void botonComprar_Click(object sender, EventArgs e) {
+            new ComprarForm().Show();
+        }
     }
 }

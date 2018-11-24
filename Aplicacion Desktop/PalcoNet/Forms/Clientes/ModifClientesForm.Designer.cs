@@ -89,6 +89,7 @@
             this.botonCancelar.TabIndex = 45;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // groupBox3
             // 
@@ -467,7 +468,7 @@
             this.Controls.Add(this.botonGuardar);
             this.Name = "ModifClientesForm";
             this.Text = "[PalcoNet] - Modificar Cliente";
-            this.Load += new System.EventHandler(this.ModifClientesForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifClientesForm_FormClosing);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);

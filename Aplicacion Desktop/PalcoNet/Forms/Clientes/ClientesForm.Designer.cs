@@ -28,7 +28,6 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.botonLimpiar = new System.Windows.Forms.Button();
@@ -44,14 +43,17 @@
             this.botonDetalles = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonModificar = new System.Windows.Forms.Button();
-            this.cliNombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliFechaNacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gradoPublicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cliMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliFechaNacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliNombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -81,10 +83,6 @@
             this.dataGrid.Size = new System.Drawing.Size(492, 249);
             this.dataGrid.TabIndex = 1;
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
             // 
             // groupBox1
             // 
@@ -236,26 +234,20 @@
             this.botonModificar.UseVisualStyleBackColor = true;
             this.botonModificar.Click += new System.EventHandler(this.botonModificar_Click);
             // 
-            // cliNombreDataGridViewTextBoxColumn
+            // clienteBindingSource
             // 
-            this.cliNombreDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nombre";
-            this.cliNombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.cliNombreDataGridViewTextBoxColumn.Name = "cliNombreDataGridViewTextBoxColumn";
-            this.cliNombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
             // 
-            // cliApellidoDataGridViewTextBoxColumn
+            // gradoPublicacionBindingSource
             // 
-            this.cliApellidoDataGridViewTextBoxColumn.DataPropertyName = "Cli_Apellido";
-            this.cliApellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.cliApellidoDataGridViewTextBoxColumn.Name = "cliApellidoDataGridViewTextBoxColumn";
-            this.cliApellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.gradoPublicacionBindingSource.DataSource = typeof(PalcoNet.Grado_Publicacion);
             // 
-            // cliDniDataGridViewTextBoxColumn
+            // cliMailDataGridViewTextBoxColumn
             // 
-            this.cliDniDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nro_Doc";
-            this.cliDniDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.cliDniDataGridViewTextBoxColumn.Name = "cliDniDataGridViewTextBoxColumn";
-            this.cliDniDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cliMailDataGridViewTextBoxColumn.DataPropertyName = "Cli_Mail";
+            this.cliMailDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.cliMailDataGridViewTextBoxColumn.Name = "cliMailDataGridViewTextBoxColumn";
+            this.cliMailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cliFechaNacDataGridViewTextBoxColumn
             // 
@@ -264,12 +256,26 @@
             this.cliFechaNacDataGridViewTextBoxColumn.Name = "cliFechaNacDataGridViewTextBoxColumn";
             this.cliFechaNacDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cliMailDataGridViewTextBoxColumn
+            // cliDniDataGridViewTextBoxColumn
             // 
-            this.cliMailDataGridViewTextBoxColumn.DataPropertyName = "Cli_Mail";
-            this.cliMailDataGridViewTextBoxColumn.HeaderText = "Mail";
-            this.cliMailDataGridViewTextBoxColumn.Name = "cliMailDataGridViewTextBoxColumn";
-            this.cliMailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cliDniDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nro_Doc";
+            this.cliDniDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.cliDniDataGridViewTextBoxColumn.Name = "cliDniDataGridViewTextBoxColumn";
+            this.cliDniDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cliApellidoDataGridViewTextBoxColumn
+            // 
+            this.cliApellidoDataGridViewTextBoxColumn.DataPropertyName = "Cli_Apellido";
+            this.cliApellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.cliApellidoDataGridViewTextBoxColumn.Name = "cliApellidoDataGridViewTextBoxColumn";
+            this.cliApellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cliNombreDataGridViewTextBoxColumn
+            // 
+            this.cliNombreDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nombre";
+            this.cliNombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.cliNombreDataGridViewTextBoxColumn.Name = "cliNombreDataGridViewTextBoxColumn";
+            this.cliNombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ClientesForm
             // 
@@ -285,9 +291,10 @@
             this.Name = "ClientesForm";
             this.Text = "ClientesForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,5 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cliDniDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliFechaNacDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliMailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource gradoPublicacionBindingSource;
     }
 }

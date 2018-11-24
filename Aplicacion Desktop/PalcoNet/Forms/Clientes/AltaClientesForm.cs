@@ -20,7 +20,7 @@ namespace PalcoNet.Forms
             InitializeComponent();
             DataGrid = dataGrid;
             BindearCampos();
-            boxTipoDoc.SelectedIndex = 0;
+            boxTipoDoc.SelectedItem = "DNI";
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
@@ -28,6 +28,10 @@ namespace PalcoNet.Forms
         }
 
         private void botonCrear_Click(object sender, EventArgs e) {
+            Nuevo.Cli_Tipo_Doc = boxTipoDoc.SelectedItem.ToString();
+            decimal doc;
+            decimal.TryParse(boxNroDoc.Text, out doc);
+            Nuevo.Cli_Nro_Doc = doc;
             using (var context = new GD2C2018Entities())
             {
                 context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
@@ -54,9 +58,9 @@ namespace PalcoNet.Forms
             boxNombre.Bindear(Nuevo, "Cli_Nombre");
             boxApellido.Bindear(Nuevo, "Cli_Apellido");
             boxNroDoc.Bindear(Nuevo, "Cli_Nro_Doc");
-            boxTipoDoc.Bindear(Nuevo, "Cli_Tipo_Doc");
             boxMail.Bindear(Nuevo, "Cli_Mail");
             boxCUIL.Bindear(Nuevo, "Cli_CUIL");
+            boxTipoDoc.Bindear(Nuevo, "Cli_Tipo_Doc", "SelectedItem");
             boxFecha.Bindear(Nuevo, "Cli_Fecha_Nac", "Value");
             boxTelefono.Bindear(Nuevo, "Cli_Telefono");
             boxCalle.Bindear(Nuevo, "Cli_Dom_Calle");

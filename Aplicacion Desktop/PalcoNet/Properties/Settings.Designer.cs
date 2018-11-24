@@ -33,5 +33,14 @@ namespace PalcoNet.Properties {
                 return ((string)(this["GD2C2018ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11/24/2018 02:30:00")]
+        public global::System.DateTime FechaActual {
+            get {
+                return ((global::System.DateTime)(this["FechaActual"]));
+            }
+        }
     }
 }

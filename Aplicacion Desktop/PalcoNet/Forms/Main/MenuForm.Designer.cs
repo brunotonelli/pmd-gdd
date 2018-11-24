@@ -120,6 +120,7 @@
             this.botonComprar.TabIndex = 6;
             this.botonComprar.Text = "Comprar";
             this.botonComprar.UseVisualStyleBackColor = true;
+            this.botonComprar.Click += new System.EventHandler(this.botonComprar_Click);
             // 
             // botonHistorial
             // 
