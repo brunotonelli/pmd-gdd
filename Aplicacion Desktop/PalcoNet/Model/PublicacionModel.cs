@@ -20,5 +20,6 @@ namespace PalcoNet.Model
         public DateTime FechaFinal { get; set; }
         public DateTime FechaPublicacion { get; set; }
         public string Empresa { get; set; }
+        public int Localidades { get; set; }
     }
 }

@@ -111,11 +111,17 @@
     <Compile Include="Forms\Clientes\ModifClientesForm.Designer.cs">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ComprarForm.cs">
+    <Compile Include="Forms\Compras\ComprarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ComprarForm.Designer.cs">
+    <Compile Include="Forms\Compras\ComprarForm.Designer.cs">
       <DependentUpon>ComprarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\ConfirmarCompraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\ConfirmarCompraForm.Designer.cs">
+      <DependentUpon>ConfirmarCompraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Empresas\EmpresasForm.cs">
       <SubType>Form</SubType>
@@ -220,6 +226,7 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\PublicacionModel.cs" />
+    <Compile Include="Model\UbicacionModel.cs" />
     <Compile Include="Premio.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -261,8 +268,11 @@
     <EmbeddedResource Include="Forms\Clientes\ModifClientesForm.resx">
       <DependentUpon>ModifClientesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ComprarForm.resx">
+    <EmbeddedResource Include="Forms\Compras\ComprarForm.resx">
       <DependentUpon>ComprarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\ConfirmarCompraForm.resx">
+      <DependentUpon>ConfirmarCompraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Grados\AltaGrado.resx">
       <DependentUpon>AltaGrado.cs</DependentUpon>
@@ -302,6 +312,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="ModeloDatos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -313,7 +324,9 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cliente.datasource" />
     <None Include="Properties\DataSources\Funcionalidad.datasource" />
+    <None Include="Properties\DataSources\PalcoNet.Model.UbicacionModel.datasource" />
     <None Include="Properties\DataSources\Rol.datasource" />
+    <None Include="Properties\DataSources\Ubicacion1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -343,6 +356,9 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\flechaDer.png" />
+    <None Include="Resources\flechaIzq.png" />
+    <None Include="Resources\ticket.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

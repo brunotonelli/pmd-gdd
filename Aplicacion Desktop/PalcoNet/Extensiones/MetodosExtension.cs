@@ -39,6 +39,15 @@ namespace PalcoNet.Extensiones
                 Cli_Usuario = c.Cli_Usuario
             };
         }
-        
+
+        public static bool Contains(this string source, string toCheck, StringComparison comp) {
+            return source?.IndexOf(toCheck, comp) >= 0;
+        }
+
+        public static bool Contains(this List<string> source, string toCheck, StringComparison comp) {
+            return source.Any(s => s.Contains(toCheck, StringComparison.OrdinalIgnoreCase));
+        }
+
+
     }
 }
