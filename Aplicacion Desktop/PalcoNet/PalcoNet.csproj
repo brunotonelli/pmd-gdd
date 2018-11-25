@@ -72,6 +72,7 @@
     <Compile Include="Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\InfoSesion.cs" />
     <Compile Include="Extensiones\ListaFuncionalidades.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,11 +124,23 @@
     <Compile Include="Forms\Compras\ConfirmarCompraForm.Designer.cs">
       <DependentUpon>ConfirmarCompraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Empresas\AltaEmpresaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Empresas\AltaEmpresaForm.designer.cs">
+      <DependentUpon>AltaEmpresaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Empresas\EmpresasForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Empresas\EmpresasForm.Designer.cs">
       <DependentUpon>EmpresasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Empresas\ModifEmpresasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Empresas\ModifEmpresasForm.designer.cs">
+      <DependentUpon>ModifEmpresasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Grados\AltaGrado.cs">
       <SubType>Form</SubType>
@@ -273,6 +286,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\ConfirmarCompraForm.resx">
       <DependentUpon>ConfirmarCompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Empresas\AltaEmpresaForm.resx">
+      <DependentUpon>AltaEmpresaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Empresas\EmpresaForm.resx" />
+    <EmbeddedResource Include="Forms\Empresas\EmpresasForm.resx">
+      <DependentUpon>EmpresasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Empresas\ModifEmpresasForm.resx">
+      <DependentUpon>ModifEmpresasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Grados\AltaGrado.resx">
       <DependentUpon>AltaGrado.cs</DependentUpon>

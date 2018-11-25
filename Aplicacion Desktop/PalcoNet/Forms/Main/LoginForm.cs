@@ -37,6 +37,7 @@ namespace PalcoNet.Forms
             {
                 var menu = new MenuForm(usuario);
                 this.Close();
+                InfoSesion.Usuario = usuario;
                 menu.Show();
             }
         }
