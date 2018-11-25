@@ -15,10 +15,11 @@ namespace PalcoNet
     public partial class Compra
     {
         public decimal Compra_ID { get; set; }
-        public Nullable<System.DateTime> Compra_Fecha { get; set; }
-        public Nullable<decimal> Compra_Cantidad { get; set; }
+        public System.DateTime Compra_Fecha { get; set; }
+        public decimal Compra_Cantidad { get; set; }
         public int Compra_Forma_Pago { get; set; }
         public string Compra_Tipo_Doc_Cliente { get; set; }
         public decimal Compra_Num_Doc_Cliente { get; set; }
+        public decimal Compra_Total { get; set; }
     }
 }

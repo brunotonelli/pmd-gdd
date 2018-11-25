@@ -30,12 +30,6 @@
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.boxFormaPago = new System.Windows.Forms.ComboBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,18 +38,24 @@
             this.labelCantidad = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.gridSeleccionados = new System.Windows.Forms.DataGridView();
+            this.botonSeleccionar = new System.Windows.Forms.Button();
+            this.botonDeseleccionar = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceSeleccionados = new System.Windows.Forms.BindingSource(this.components);
-            this.botonSeleccionar = new System.Windows.Forms.Button();
-            this.botonDeseleccionar = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourceSeleccionados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // boxFecha
@@ -101,40 +101,7 @@
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(342, 218);
             this.dataGrid.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Fila";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Fila";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Asiento";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Asiento";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Enumerado";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Enumerado";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Precio";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Tipo";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Tipo";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // sourceUbicaciones
-            // 
-            this.sourceUbicaciones.DataSource = typeof(PalcoNet.Model.UbicacionModel);
+            this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             // 
             // label1
             // 
@@ -192,9 +159,9 @@
             this.labelCantidad.ForeColor = System.Drawing.Color.Maroon;
             this.labelCantidad.Location = new System.Drawing.Point(526, 19);
             this.labelCantidad.Name = "labelCantidad";
-            this.labelCantidad.Size = new System.Drawing.Size(30, 24);
+            this.labelCantidad.Size = new System.Drawing.Size(20, 24);
             this.labelCantidad.TabIndex = 9;
-            this.labelCantidad.Text = "##";
+            this.labelCantidad.Text = "0";
             // 
             // labelTotal
             // 
@@ -205,7 +172,7 @@
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(60, 24);
             this.labelTotal.TabIndex = 10;
-            this.labelTotal.Text = "$ ##.#";
+            this.labelTotal.Text = "$ 0,00";
             // 
             // gridSeleccionados
             // 
@@ -229,6 +196,30 @@
             this.gridSeleccionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSeleccionados.Size = new System.Drawing.Size(342, 218);
             this.gridSeleccionados.TabIndex = 11;
+            // 
+            // botonSeleccionar
+            // 
+            this.botonSeleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
+            this.botonSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.botonSeleccionar.Enabled = false;
+            this.botonSeleccionar.Location = new System.Drawing.Point(360, 99);
+            this.botonSeleccionar.Name = "botonSeleccionar";
+            this.botonSeleccionar.Size = new System.Drawing.Size(63, 34);
+            this.botonSeleccionar.TabIndex = 12;
+            this.botonSeleccionar.UseVisualStyleBackColor = true;
+            this.botonSeleccionar.Click += new System.EventHandler(this.botonSeleccionar_Click);
+            // 
+            // botonDeseleccionar
+            // 
+            this.botonDeseleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaIzq;
+            this.botonDeseleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.botonDeseleccionar.Enabled = false;
+            this.botonDeseleccionar.Location = new System.Drawing.Point(360, 139);
+            this.botonDeseleccionar.Name = "botonDeseleccionar";
+            this.botonDeseleccionar.Size = new System.Drawing.Size(63, 35);
+            this.botonDeseleccionar.TabIndex = 13;
+            this.botonDeseleccionar.UseVisualStyleBackColor = true;
+            this.botonDeseleccionar.Click += new System.EventHandler(this.botonDeseleccionar_Click);
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -264,29 +255,39 @@
             // 
             this.sourceSeleccionados.DataSource = typeof(PalcoNet.Model.UbicacionModel);
             // 
-            // botonSeleccionar
+            // dataGridViewTextBoxColumn11
             // 
-            this.botonSeleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
-            this.botonSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonSeleccionar.Enabled = false;
-            this.botonSeleccionar.Location = new System.Drawing.Point(360, 99);
-            this.botonSeleccionar.Name = "botonSeleccionar";
-            this.botonSeleccionar.Size = new System.Drawing.Size(63, 34);
-            this.botonSeleccionar.TabIndex = 12;
-            this.botonSeleccionar.UseVisualStyleBackColor = true;
-            this.botonSeleccionar.Click += new System.EventHandler(this.botonSeleccionar_Click);
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Fila";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Fila";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
-            // botonDeseleccionar
+            // dataGridViewTextBoxColumn12
             // 
-            this.botonDeseleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaIzq;
-            this.botonDeseleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonDeseleccionar.Enabled = false;
-            this.botonDeseleccionar.Location = new System.Drawing.Point(360, 139);
-            this.botonDeseleccionar.Name = "botonDeseleccionar";
-            this.botonDeseleccionar.Size = new System.Drawing.Size(63, 35);
-            this.botonDeseleccionar.TabIndex = 13;
-            this.botonDeseleccionar.UseVisualStyleBackColor = true;
-            this.botonDeseleccionar.Click += new System.EventHandler(this.botonDeseleccionar_Click);
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Asiento";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Asiento";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Enumerado";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Enumerado";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Precio";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Precio";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Tipo";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // sourceUbicaciones
+            // 
+            this.sourceUbicaciones.DataSource = typeof(PalcoNet.Model.UbicacionModel);
             // 
             // ConfirmarCompraForm
             // 
@@ -309,9 +310,9 @@
             this.Name = "ConfirmarCompraForm";
             this.Text = "ConfirmarCompraForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourceSeleccionados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

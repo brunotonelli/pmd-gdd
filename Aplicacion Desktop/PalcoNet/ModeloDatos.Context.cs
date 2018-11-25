@@ -26,7 +26,6 @@ namespace PalcoNet
         }
     
         public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<Compra> Compra { get; set; }
         public DbSet<Espec_Empresa> Espec_Empresa { get; set; }
         public DbSet<Espectaculo> Espectaculo { get; set; }
         public DbSet<Estado> Estado { get; set; }
@@ -41,7 +40,8 @@ namespace PalcoNet
         public DbSet<Rol> Rol { get; set; }
         public DbSet<Rubro> Rubro { get; set; }
         public DbSet<Tipo_Ubicacion> Tipo_Ubicacion { get; set; }
-        public DbSet<Ubicacion> Ubicacion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Compra> Compra { get; set; }
+        public DbSet<Ubicacion> Ubicacion { get; set; }
     }
 }

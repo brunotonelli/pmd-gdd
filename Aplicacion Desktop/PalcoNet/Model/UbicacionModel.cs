@@ -14,5 +14,6 @@ namespace PalcoNet.Model
         public string Enumerado { get; set; }
         public decimal Precio { get; set; }
         public string Tipo { get; set; }
+        public bool Disponible { get; set; }
     }
 }

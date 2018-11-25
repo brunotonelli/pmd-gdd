@@ -52,8 +52,9 @@ namespace PalcoNet.Forms
                             Asiento = u.Ubicacion_Asiento,
                             Fila = u.Ubicacion_Fila,
                             Enumerado = u.Ubicacion_Sin_numerar.Value ? "NO" : "SÍ",
-                            Precio = u.Ubicacion_Precio ?? 0,
-                            Tipo = t.Tipo_Ubicacion_Descripcion
+                            Precio = u.Ubicacion_Precio,
+                            Tipo = t.Tipo_Ubicacion_Descripcion,
+                            Disponible = u.Ubicacion_Disponible
                         }).ToList();
             }
         }
@@ -113,7 +114,8 @@ namespace PalcoNet.Forms
                     Compra_Cantidad = Cantidad,
                     Compra_Forma_Pago = formaPago,
                     Compra_Tipo_Doc_Cliente = cliente.tipo,
-                    Compra_Num_Doc_Cliente = cliente.numero
+                    Compra_Num_Doc_Cliente = cliente.numero,
+                    Compra_Total = Total
                 };
 
                 context.Entry(compra).State = System.Data.Entity.EntityState.Added;
@@ -122,6 +124,15 @@ namespace PalcoNet.Forms
 
             MessageBox.Show("La empresa de espectaculos le enviará la factura", "Compra realizada con éxito", MessageBoxButtons.OK);
             this.Close();
+        }
+
+        private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                UbicacionModel ubic = row.DataBoundItem as UbicacionModel;
+                if (!ubic.Disponible) row.DefaultCellStyle.BackColor = Color.FromArgb(200, 255, 200);
+                else row.DefaultCellStyle.BackColor = Color.FromArgb(255, 200, 200);
+            }
         }
     }
 }
