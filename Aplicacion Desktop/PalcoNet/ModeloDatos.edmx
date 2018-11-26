@@ -37,10 +37,12 @@
           <Property Name="Compra_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Compra_Fecha" Type="datetime" Nullable="false" />
           <Property Name="Compra_Cantidad" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Compra_Forma_Pago" Type="int" Nullable="false" />
+          <Property Name="Compra_Forma_Pago" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Compra_Tipo_Doc_Cliente" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Compra_Num_Doc_Cliente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Compra_Total" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Compra_Publicacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Compra_Facturada" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Espec_Empresa">
           <Key>
@@ -87,13 +89,6 @@
           <Property Name="Factura_Total" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Factura_Publicacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
-        <EntityType Name="Forma_Pago">
-          <Key>
-            <PropertyRef Name="Forma_Pago_ID" />
-          </Key>
-          <Property Name="Forma_Pago_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Forma_Pago_Desc" Type="nvarchar" MaxLength="255" />
-        </EntityType>
         <EntityType Name="Func_Rol">
           <Key>
             <PropertyRef Name="Rol_ID" />
@@ -125,10 +120,9 @@
           </Key>
           <Property Name="Item_Factura_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Item_Factura_Factura" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Item_Factura_Monto" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Item_Factura_Monto" Type="numeric" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Item_Factura_Cantidad" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Item_Factura_Descripcion" Type="nvarchar" MaxLength="60" />
-          <Property Name="Item_Factura_Importe_Comision" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Item_Factura_Compra" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Premio">
@@ -178,13 +172,6 @@
           <Property Name="Rubro_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rubro_Descripcion" Type="nchar" MaxLength="10" />
         </EntityType>
-        <EntityType Name="Tipo_Ubicacion">
-          <Key>
-            <PropertyRef Name="Tipo_Ubicacion_Codigo" />
-          </Key>
-          <Property Name="Tipo_Ubicacion_Codigo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Tipo_Ubicacion_Descripcion" Type="nvarchar" MaxLength="255" />
-        </EntityType>
         <EntityType Name="Ubicacion">
           <Key>
             <PropertyRef Name="Ubicacion_Publicacion" />
@@ -196,7 +183,7 @@
           <Property Name="Ubicacion_Asiento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Ubicacion_Sin_numerar" Type="bit" />
           <Property Name="Ubicacion_Precio" Type="numeric" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Ubicacion_Tipo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ubicacion_Tipo" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Ubicacion_Compra" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Ubicacion_Disponible" Type="bit" Nullable="false" />
         </EntityType>
@@ -281,7 +268,6 @@
           <EntitySet Name="Espectaculo" EntityType="Self.Espectaculo" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Factura" EntityType="Self.Factura" Schema="PMD" store:Type="Tables" />
-          <EntitySet Name="Forma_Pago" EntityType="Self.Forma_Pago" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Func_Rol" EntityType="Self.Func_Rol" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Funcionalidad" EntityType="Self.Funcionalidad" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Grado_Publicacion" EntityType="Self.Grado_Publicacion" Schema="PMD" store:Type="Tables" />
@@ -291,7 +277,6 @@
           <EntitySet Name="Puntos" EntityType="Self.Puntos" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Rubro" EntityType="Self.Rubro" Schema="PMD" store:Type="Tables" />
-          <EntitySet Name="Tipo_Ubicacion" EntityType="Self.Tipo_Ubicacion" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="PMD" store:Type="Tables" />
           <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
@@ -325,7 +310,6 @@
           <EntitySet Name="Espectaculo" EntityType="GD2C2018Model.Espectaculo" />
           <EntitySet Name="Estado" EntityType="GD2C2018Model.Estado" />
           <EntitySet Name="Factura" EntityType="GD2C2018Model.Factura" />
-          <EntitySet Name="Forma_Pago" EntityType="GD2C2018Model.Forma_Pago" />
           <EntitySet Name="Funcionalidad" EntityType="GD2C2018Model.Funcionalidad" />
           <EntitySet Name="Grado_Publicacion" EntityType="GD2C2018Model.Grado_Publicacion" />
           <EntitySet Name="Item_Factura" EntityType="GD2C2018Model.Item_Factura" />
@@ -334,7 +318,7 @@
           <EntitySet Name="Puntos" EntityType="GD2C2018Model.Puntos" />
           <EntitySet Name="Rol" EntityType="GD2C2018Model.Rol" />
           <EntitySet Name="Rubro" EntityType="GD2C2018Model.Rubro" />
-          <EntitySet Name="Tipo_Ubicacion" EntityType="GD2C2018Model.Tipo_Ubicacion" />
+          <EntitySet Name="Ubicacion" EntityType="GD2C2018Model.Ubicacion" />
           <EntitySet Name="Usuario" EntityType="GD2C2018Model.Usuario" />
           <AssociationSet Name="FK_Cliente_Usuario" Association="GD2C2018Model.FK_Cliente_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -353,7 +337,6 @@
             <End Role="Rol" EntitySet="Rol" />
           </AssociationSet>
           <EntitySet Name="Compra" EntityType="GD2C2018Model.Compra" />
-          <EntitySet Name="Ubicacion" EntityType="GD2C2018Model.Ubicacion" />
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -428,13 +411,6 @@
           <Property Name="Factura_Total" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Factura_Publicacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
-        <EntityType Name="Forma_Pago">
-          <Key>
-            <PropertyRef Name="Forma_Pago_ID" />
-          </Key>
-          <Property Name="Forma_Pago_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Forma_Pago_Desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Funcionalidad">
           <Key>
             <PropertyRef Name="Func_ID" />
@@ -459,10 +435,9 @@
           </Key>
           <Property Name="Item_Factura_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Item_Factura_Factura" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Item_Factura_Monto" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Item_Factura_Monto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Item_Factura_Cantidad" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Item_Factura_Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="Item_Factura_Importe_Comision" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Item_Factura_Compra" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Premio">
@@ -514,12 +489,20 @@
           <Property Name="Rubro_Descripcion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Espectaculo" Relationship="GD2C2018Model.FK_Espectaculo_Rubro" FromRole="Rubro" ToRole="Espectaculo" />
         </EntityType>
-        <EntityType Name="Tipo_Ubicacion">
+        <EntityType Name="Ubicacion">
           <Key>
-            <PropertyRef Name="Tipo_Ubicacion_Codigo" />
+            <PropertyRef Name="Ubicacion_Publicacion" />
+            <PropertyRef Name="Ubicacion_Fila" />
+            <PropertyRef Name="Ubicacion_Asiento" />
           </Key>
-          <Property Name="Tipo_Ubicacion_Codigo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Tipo_Ubicacion_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ubicacion_Publicacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Ubicacion_Fila" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Ubicacion_Asiento" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Ubicacion_Sin_numerar" Type="Boolean" />
+          <Property Name="Ubicacion_Precio" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Ubicacion_Tipo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ubicacion_Compra" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Ubicacion_Disponible" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -580,25 +563,12 @@
           <Property Name="Compra_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Compra_Fecha" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Compra_Cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Compra_Forma_Pago" Type="Int32" Nullable="false" />
+          <Property Name="Compra_Forma_Pago" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Compra_Tipo_Doc_Cliente" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Compra_Num_Doc_Cliente" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
           <Property Name="Compra_Total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-        </EntityType>
-        <EntityType Name="Ubicacion">
-          <Key>
-            <PropertyRef Name="Ubicacion_Publicacion" />
-            <PropertyRef Name="Ubicacion_Fila" />
-            <PropertyRef Name="Ubicacion_Asiento" />
-          </Key>
-          <Property Name="Ubicacion_Publicacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Ubicacion_Fila" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Ubicacion_Asiento" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Ubicacion_Sin_numerar" Type="Boolean" />
-          <Property Name="Ubicacion_Precio" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Ubicacion_Tipo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Ubicacion_Compra" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Ubicacion_Disponible" Type="Boolean" Nullable="false" />
+          <Property Name="Compra_Publicacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Compra_Facturada" Type="Boolean" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -680,14 +650,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Forma_Pago">
-            <EntityTypeMapping TypeName="GD2C2018Model.Forma_Pago">
-              <MappingFragment StoreEntitySet="Forma_Pago">
-                <ScalarProperty Name="Forma_Pago_Desc" ColumnName="Forma_Pago_Desc" />
-                <ScalarProperty Name="Forma_Pago_ID" ColumnName="Forma_Pago_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Funcionalidad">
             <EntityTypeMapping TypeName="GD2C2018Model.Funcionalidad">
               <MappingFragment StoreEntitySet="Funcionalidad">
@@ -710,7 +672,6 @@
             <EntityTypeMapping TypeName="GD2C2018Model.Item_Factura">
               <MappingFragment StoreEntitySet="Item_Factura">
                 <ScalarProperty Name="Item_Factura_Compra" ColumnName="Item_Factura_Compra" />
-                <ScalarProperty Name="Item_Factura_Importe_Comision" ColumnName="Item_Factura_Importe_Comision" />
                 <ScalarProperty Name="Item_Factura_Descripcion" ColumnName="Item_Factura_Descripcion" />
                 <ScalarProperty Name="Item_Factura_Cantidad" ColumnName="Item_Factura_Cantidad" />
                 <ScalarProperty Name="Item_Factura_Monto" ColumnName="Item_Factura_Monto" />
@@ -771,11 +732,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tipo_Ubicacion">
-            <EntityTypeMapping TypeName="GD2C2018Model.Tipo_Ubicacion">
-              <MappingFragment StoreEntitySet="Tipo_Ubicacion">
-                <ScalarProperty Name="Tipo_Ubicacion_Descripcion" ColumnName="Tipo_Ubicacion_Descripcion" />
-                <ScalarProperty Name="Tipo_Ubicacion_Codigo" ColumnName="Tipo_Ubicacion_Codigo" />
+          <EntitySetMapping Name="Ubicacion">
+            <EntityTypeMapping TypeName="GD2C2018Model.Ubicacion">
+              <MappingFragment StoreEntitySet="Ubicacion">
+                <ScalarProperty Name="Ubicacion_Disponible" ColumnName="Ubicacion_Disponible" />
+                <ScalarProperty Name="Ubicacion_Compra" ColumnName="Ubicacion_Compra" />
+                <ScalarProperty Name="Ubicacion_Tipo" ColumnName="Ubicacion_Tipo" />
+                <ScalarProperty Name="Ubicacion_Precio" ColumnName="Ubicacion_Precio" />
+                <ScalarProperty Name="Ubicacion_Sin_numerar" ColumnName="Ubicacion_Sin_numerar" />
+                <ScalarProperty Name="Ubicacion_Asiento" ColumnName="Ubicacion_Asiento" />
+                <ScalarProperty Name="Ubicacion_Fila" ColumnName="Ubicacion_Fila" />
+                <ScalarProperty Name="Ubicacion_Publicacion" ColumnName="Ubicacion_Publicacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -801,6 +768,8 @@
           <EntitySetMapping Name="Compra">
             <EntityTypeMapping TypeName="GD2C2018Model.Compra">
               <MappingFragment StoreEntitySet="Compra">
+                <ScalarProperty Name="Compra_Facturada" ColumnName="Compra_Facturada" />
+                <ScalarProperty Name="Compra_Publicacion" ColumnName="Compra_Publicacion" />
                 <ScalarProperty Name="Compra_Total" ColumnName="Compra_Total" />
                 <ScalarProperty Name="Compra_Num_Doc_Cliente" ColumnName="Compra_Num_Doc_Cliente" />
                 <ScalarProperty Name="Compra_Tipo_Doc_Cliente" ColumnName="Compra_Tipo_Doc_Cliente" />
@@ -808,20 +777,6 @@
                 <ScalarProperty Name="Compra_Cantidad" ColumnName="Compra_Cantidad" />
                 <ScalarProperty Name="Compra_Fecha" ColumnName="Compra_Fecha" />
                 <ScalarProperty Name="Compra_ID" ColumnName="Compra_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ubicacion">
-            <EntityTypeMapping TypeName="GD2C2018Model.Ubicacion">
-              <MappingFragment StoreEntitySet="Ubicacion">
-                <ScalarProperty Name="Ubicacion_Disponible" ColumnName="Ubicacion_Disponible" />
-                <ScalarProperty Name="Ubicacion_Compra" ColumnName="Ubicacion_Compra" />
-                <ScalarProperty Name="Ubicacion_Tipo" ColumnName="Ubicacion_Tipo" />
-                <ScalarProperty Name="Ubicacion_Precio" ColumnName="Ubicacion_Precio" />
-                <ScalarProperty Name="Ubicacion_Sin_numerar" ColumnName="Ubicacion_Sin_numerar" />
-                <ScalarProperty Name="Ubicacion_Asiento" ColumnName="Ubicacion_Asiento" />
-                <ScalarProperty Name="Ubicacion_Fila" ColumnName="Ubicacion_Fila" />
-                <ScalarProperty Name="Ubicacion_Publicacion" ColumnName="Ubicacion_Publicacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

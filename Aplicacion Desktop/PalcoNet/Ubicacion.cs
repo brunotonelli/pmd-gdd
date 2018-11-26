@@ -19,7 +19,7 @@ namespace PalcoNet
         public decimal Ubicacion_Asiento { get; set; }
         public Nullable<bool> Ubicacion_Sin_numerar { get; set; }
         public decimal Ubicacion_Precio { get; set; }
-        public decimal Ubicacion_Tipo { get; set; }
+        public string Ubicacion_Tipo { get; set; }
         public Nullable<decimal> Ubicacion_Compra { get; set; }
         public bool Ubicacion_Disponible { get; set; }
     }

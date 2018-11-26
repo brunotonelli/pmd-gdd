@@ -21,30 +21,18 @@ namespace PalcoNet.Forms
         public ConfirmarCompraForm(PublicacionModel publicacion) {
             InitializeComponent();
             Publicacion = publicacion;
-            CargarFormasDePago();
+            boxFormaPago.SelectedItem = boxFormaPago.Items[0];
             boxFecha.Value = Properties.Settings.Default.FechaActual;
             sourceUbicaciones.DataSource = GetUbicaciones();
             botonSeleccionar.Enabled = sourceUbicaciones.Count > 0;
         }
 
-        private void CargarFormasDePago() {
-            using (var context = new GD2C2018Entities())
-            {
-                boxFormaPago.Items.Clear();
-                var q = (from f in context.Forma_Pago
-                         select f.Forma_Pago_Desc).ToList();
-                foreach (var f in q)
-                    boxFormaPago.Items.Add(f);
-                boxFormaPago.SelectedItem = boxFormaPago.Items[0];
-            }
-        }
 
         private List<UbicacionModel> GetUbicaciones() {
             using (var context = new GD2C2018Entities())
             {
                 var a = context.Ubicacion.Count();
                 return (from u in context.Ubicacion
-                        join t in context.Tipo_Ubicacion on u.Ubicacion_Tipo equals t.Tipo_Ubicacion_Codigo
                         where u.Ubicacion_Publicacion == Publicacion.ID
                         select new UbicacionModel
                         {
@@ -53,7 +41,7 @@ namespace PalcoNet.Forms
                             Fila = u.Ubicacion_Fila,
                             Enumerado = u.Ubicacion_Sin_numerar.Value ? "NO" : "SÍ",
                             Precio = u.Ubicacion_Precio,
-                            Tipo = t.Tipo_Ubicacion_Descripcion,
+                            Tipo = u.Ubicacion_Tipo,
                             Disponible = u.Ubicacion_Disponible
                         }).ToList();
             }
@@ -61,14 +49,21 @@ namespace PalcoNet.Forms
 
         private void botonSeleccionar_Click(object sender, EventArgs e) {
             var u = dataGrid.SelectedRows[0].DataBoundItem as UbicacionModel;
-            sourceSeleccionados.Add(u);
-            sourceUbicaciones.Remove(u);
-            botonSeleccionar.Enabled = sourceUbicaciones.Count > 0;
-            botonDeseleccionar.Enabled = sourceSeleccionados.Count > 0;
-            Cantidad++;
-            Total += u.Precio;
-            labelCantidad.Text = Cantidad.ToString();
-            labelTotal.Text = "$ " + Total.ToString();
+            if (u.Disponible)
+            {
+                sourceSeleccionados.Add(u);
+                sourceUbicaciones.Remove(u);
+                botonSeleccionar.Enabled = sourceUbicaciones.Count > 0;
+                botonDeseleccionar.Enabled = sourceSeleccionados.Count > 0;
+                Cantidad++;
+                Total += u.Precio;
+                labelCantidad.Text = Cantidad.ToString();
+                labelTotal.Text = "$ " + Total.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Ese asiento ya se encuentra ocupado", "Error", MessageBoxButtons.OK);
+            }
         }
 
         private void botonDeseleccionar_Click(object sender, EventArgs e) {
@@ -104,21 +99,31 @@ namespace PalcoNet.Forms
                 if (cliente == null)
                     cliente = new { tipo = "DNI", numero = 0.0m };
 
-                int formaPago = (from f in context.Forma_Pago
-                                 where f.Forma_Pago_Desc == boxFormaPago.SelectedItem.ToString()
-                                 select f.Forma_Pago_ID).First();
-
                 Compra compra = new Compra
                 {
                     Compra_Fecha = Properties.Settings.Default.FechaActual,
                     Compra_Cantidad = Cantidad,
-                    Compra_Forma_Pago = formaPago,
+                    Compra_Forma_Pago = boxFormaPago.SelectedItem.ToString(),
                     Compra_Tipo_Doc_Cliente = cliente.tipo,
                     Compra_Num_Doc_Cliente = cliente.numero,
-                    Compra_Total = Total
+                    Compra_Total = Total,
+                    Compra_Publicacion = Publicacion.ID,
+                    Compra_Facturada = false
                 };
 
                 context.Entry(compra).State = System.Data.Entity.EntityState.Added;
+
+                foreach(UbicacionModel u in sourceSeleccionados.List)
+                {
+                    var ubicacion = (from ub in context.Ubicacion
+                                     where ub.Ubicacion_Publicacion == Publicacion.ID
+                                     && ub.Ubicacion_Asiento == u.Asiento
+                                     && ub.Ubicacion_Fila == u.Fila
+                                     select ub).FirstOrDefault();
+                    ubicacion.Ubicacion_Disponible = false;
+                    context.Entry(ubicacion).State = System.Data.Entity.EntityState.Modified;
+                }
+
                 context.SaveChanges();
             }
 
@@ -130,8 +135,8 @@ namespace PalcoNet.Forms
             foreach (DataGridViewRow row in dataGrid.Rows)
             {
                 UbicacionModel ubic = row.DataBoundItem as UbicacionModel;
-                if (!ubic.Disponible) row.DefaultCellStyle.BackColor = Color.FromArgb(200, 255, 200);
-                else row.DefaultCellStyle.BackColor = Color.FromArgb(255, 200, 200);
+                if (ubic.Disponible) row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
+                else row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
             }
         }
     }

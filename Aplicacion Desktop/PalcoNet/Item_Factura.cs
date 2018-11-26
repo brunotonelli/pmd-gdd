@@ -16,10 +16,9 @@ namespace PalcoNet
     {
         public int Item_Factura_ID { get; set; }
         public decimal Item_Factura_Factura { get; set; }
-        public Nullable<decimal> Item_Factura_Monto { get; set; }
+        public decimal Item_Factura_Monto { get; set; }
         public Nullable<decimal> Item_Factura_Cantidad { get; set; }
         public string Item_Factura_Descripcion { get; set; }
-        public Nullable<decimal> Item_Factura_Importe_Comision { get; set; }
         public decimal Item_Factura_Compra { get; set; }
     }
 }

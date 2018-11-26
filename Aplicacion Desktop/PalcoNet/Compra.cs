@@ -17,9 +17,11 @@ namespace PalcoNet
         public decimal Compra_ID { get; set; }
         public System.DateTime Compra_Fecha { get; set; }
         public decimal Compra_Cantidad { get; set; }
-        public int Compra_Forma_Pago { get; set; }
+        public string Compra_Forma_Pago { get; set; }
         public string Compra_Tipo_Doc_Cliente { get; set; }
         public decimal Compra_Num_Doc_Cliente { get; set; }
         public decimal Compra_Total { get; set; }
+        public decimal Compra_Publicacion { get; set; }
+        public bool Compra_Facturada { get; set; }
     }
 }

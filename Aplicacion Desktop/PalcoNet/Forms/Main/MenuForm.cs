@@ -63,5 +63,9 @@ namespace PalcoNet.Forms
         private void botonComprar_Click(object sender, EventArgs e) {
             new ComprarForm().Show();
         }
+
+        private void botonComisiones_Click(object sender, EventArgs e) {
+            new ComisionesForm().Show();
+        }
     }
 }
