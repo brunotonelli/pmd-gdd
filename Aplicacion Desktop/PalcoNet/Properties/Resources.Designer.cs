@@ -83,6 +83,16 @@ namespace PalcoNet.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap palco {
+            get {
+                object obj = ResourceManager.GetObject("palco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ticket {
             get {
                 object obj = ResourceManager.GetObject("ticket", resourceCulture);

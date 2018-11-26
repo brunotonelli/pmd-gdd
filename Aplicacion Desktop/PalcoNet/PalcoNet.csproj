@@ -127,6 +127,18 @@
     <Compile Include="Forms\Compras\ConfirmarCompraForm.Designer.cs">
       <DependentUpon>ConfirmarCompraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\FacturaDetallesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FacturaDetallesForm.Designer.cs">
+      <DependentUpon>FacturaDetallesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FacturasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FacturasForm.Designer.cs">
+      <DependentUpon>FacturasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Empresas\AltaEmpresaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +253,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Model\CompraModel.cs" />
     <Compile Include="Model\PublicacionModel.cs" />
     <Compile Include="Model\UbicacionModel.cs" />
@@ -290,6 +303,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\ConfirmarCompraForm.resx">
       <DependentUpon>ConfirmarCompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FacturaDetallesForm.resx">
+      <DependentUpon>FacturaDetallesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FacturasForm.resx">
+      <DependentUpon>FacturasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Empresas\AltaEmpresaForm.resx">
       <DependentUpon>AltaEmpresaForm.cs</DependentUpon>
@@ -351,8 +370,10 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cliente.datasource" />
     <None Include="Properties\DataSources\Compra1.datasource" />
+    <None Include="Properties\DataSources\Factura1.datasource" />
     <None Include="Properties\DataSources\Funcionalidad.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.CompraModel.datasource" />
+    <None Include="Properties\DataSources\PalcoNet.Model.ItemModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.UbicacionModel.datasource" />
     <None Include="Properties\DataSources\Rol.datasource" />
     <None Include="Properties\DataSources\Ubicacion1.datasource" />
@@ -385,6 +406,7 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\palco.jpg" />
     <None Include="Resources\flechaDer.png" />
     <None Include="Resources\flechaIzq.png" />
     <None Include="Resources\ticket.png" />

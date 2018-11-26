@@ -96,7 +96,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonVerFacturas_Click(object sender, EventArgs e) {
-
+            new FacturasForm().Show();
         }
     }
 }
