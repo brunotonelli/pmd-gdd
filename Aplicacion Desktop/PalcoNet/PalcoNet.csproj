@@ -157,6 +157,12 @@
     <Compile Include="Forms\Empresas\ModifEmpresasForm.designer.cs">
       <DependentUpon>ModifEmpresasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Estadisitcas\EstadisticasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Estadisitcas\EstadisticasForm.Designer.cs">
+      <DependentUpon>EstadisticasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Grados\AltaGrado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ComprasEstadistico.cs" />
     <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Model\CompraModel.cs" />
     <Compile Include="Model\PublicacionModel.cs" />
@@ -319,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Empresas\ModifEmpresasForm.resx">
       <DependentUpon>ModifEmpresasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Estadisitcas\EstadisticasForm.resx">
+      <DependentUpon>EstadisticasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Grados\AltaGrado.resx">
       <DependentUpon>AltaGrado.cs</DependentUpon>
