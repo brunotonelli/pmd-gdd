@@ -67,5 +67,10 @@ namespace PalcoNet.Forms
         private void botonComisiones_Click(object sender, EventArgs e) {
             new ComisionesForm().Show();
         }
+
+        private void botonListado_Click(object sender, EventArgs e)
+        {
+            new EstadisticasForm().Show();
+        }
     }
 }
