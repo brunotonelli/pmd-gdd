@@ -16,10 +16,11 @@ namespace PalcoNet
     {
         public decimal Publicacion_ID { get; set; }
         public decimal Publicacion_Espectaculo { get; set; }
-        public Nullable<System.DateTime> Publicacion_Fecha { get; set; }
+        public System.DateTime Publicacion_Fecha { get; set; }
         public Nullable<int> Publicacion_Localidades { get; set; }
         public Nullable<int> Publicacion_Grado { get; set; }
         public string Publicacion_Empresa { get; set; }
         public int Publicacion_Estado { get; set; }
+        public System.DateTime Publicacion_Fecha_Espectaculo { get; set; }
     }
 }

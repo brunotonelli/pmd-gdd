@@ -35,16 +35,14 @@ namespace PalcoNet.Forms
                             join emp in context.Espec_Empresa on p.Publicacion_Empresa equals emp.Espec_Empresa_Cuit
                             where p.Publicacion_Estado == 2
                             && p.Publicacion_Fecha >= Properties.Settings.Default.FechaActual
-                            && esp.Espectaculo_Fecha >= Properties.Settings.Default.FechaActual
-                            && esp.Espectaculo_Fecha_Venc >= Properties.Settings.Default.FechaActual
+                            && p.Publicacion_Fecha_Espectaculo >= Properties.Settings.Default.FechaActual
                             select new PublicacionModel
                             {
                                 ID = p.Publicacion_ID,
                                 Nombre = esp.Espectaculo_Descripcion,
                                 Rubro = esp.Rubro.Rubro_Descripcion,
-                                FechaInicial = esp.Espectaculo_Fecha ?? Properties.Settings.Default.FechaActual,
-                                FechaFinal = esp.Espectaculo_Fecha_Venc ?? Properties.Settings.Default.FechaActual,
-                                FechaPublicacion = p.Publicacion_Fecha ?? Properties.Settings.Default.FechaActual,
+                                FechaEspectaculo = p.Publicacion_Fecha_Espectaculo,
+                                FechaPublicacion = p.Publicacion_Fecha,
                                 Empresa = emp.Espec_Empresa_Razon_Social,
                                 Localidades = p.Publicacion_Localidades ?? 0
                             })
@@ -59,7 +57,7 @@ namespace PalcoNet.Forms
                     var rubrosFiltro = listBoxRubros.CheckedItems.Cast<string>().ToList();
                     var ret = list
                        .Where(p => (p.Nombre.Contains(boxDescripcion.Text)
-                        && ((p.FechaInicial < boxFechaFinal.Value && boxFechaInicial.Value < p.FechaFinal) || !usarFechas)
+                        && ((p.FechaPublicacion < boxFechaFinal.Value && boxFechaInicial.Value < p.FechaEspectaculo) || !usarFechas)
                         && rubrosFiltro.Contains(p.Rubro)) || !usarFiltros);
                     Cantidad = ret.Count() / tamaño + 1;
                     return ret.ToPagedList(pagina, tamaño);

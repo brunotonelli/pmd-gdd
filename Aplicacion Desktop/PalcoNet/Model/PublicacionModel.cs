@@ -13,11 +13,10 @@ namespace PalcoNet.Model
         public string Rubro { get; set; }
         public string RangoFecha {
             get {
-                return FechaInicial.ToShortDateString() + " - " + FechaFinal.ToShortDateString();
+                return FechaPublicacion.ToShortDateString() + " - " + FechaEspectaculo.ToShortDateString();
             }
         }
-        public DateTime FechaInicial { get; set; }
-        public DateTime FechaFinal { get; set; }
+        public DateTime FechaEspectaculo { get; set; }
         public DateTime FechaPublicacion { get; set; }
         public string Empresa { get; set; }
         public int Localidades { get; set; }
