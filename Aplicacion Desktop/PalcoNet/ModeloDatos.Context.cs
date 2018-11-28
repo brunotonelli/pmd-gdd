@@ -39,7 +39,7 @@ namespace PalcoNet
         public DbSet<Ubicacion> Ubicacion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Compra> Compra { get; set; }
-        public DbSet<Espectaculo> Espectaculo { get; set; }
         public DbSet<Publicacion> Publicacion { get; set; }
+        public DbSet<Espectaculo> Espectaculo { get; set; }
     }
 }

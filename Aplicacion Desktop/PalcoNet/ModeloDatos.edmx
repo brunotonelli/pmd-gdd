@@ -70,6 +70,7 @@
           <Property Name="Espectaculo_Cod" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Espectaculo_Descripcion" Type="nvarchar" MaxLength="255" />
           <Property Name="Espectaculo_Rubro" Type="int" />
+          <Property Name="Espectaculo_Direccion" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Estado">
           <Key>
@@ -330,8 +331,8 @@
             <End Role="Rol" EntitySet="Rol" />
           </AssociationSet>
           <EntitySet Name="Compra" EntityType="GD2C2018Model.Compra" />
-          <EntitySet Name="Espectaculo" EntityType="GD2C2018Model.Espectaculo" />
           <EntitySet Name="Publicacion" EntityType="GD2C2018Model.Publicacion" />
+          <EntitySet Name="Espectaculo" EntityType="GD2C2018Model.Espectaculo" />
           <AssociationSet Name="FK_Espectaculo_Rubro" Association="GD2C2018Model.FK_Espectaculo_Rubro">
             <End Role="Rubro" EntitySet="Rubro" />
             <End Role="Espectaculo" EntitySet="Espectaculo" />
@@ -534,15 +535,6 @@
           <Property Name="Compra_Publicacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Compra_Facturada" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Espectaculo">
-          <Key>
-            <PropertyRef Name="Espectaculo_Cod" />
-          </Key>
-          <Property Name="Espectaculo_Cod" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Espectaculo_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Espectaculo_Rubro" Type="Int32" />
-          <NavigationProperty Name="Rubro" Relationship="GD2C2018Model.FK_Espectaculo_Rubro" FromRole="Espectaculo" ToRole="Rubro" />
-        </EntityType>
         <EntityType Name="Publicacion">
           <Key>
             <PropertyRef Name="Publicacion_ID" />
@@ -555,6 +547,16 @@
           <Property Name="Publicacion_Empresa" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Publicacion_Estado" Type="Int32" Nullable="false" />
           <Property Name="Publicacion_Fecha_Espectaculo" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Espectaculo">
+          <Key>
+            <PropertyRef Name="Espectaculo_Cod" />
+          </Key>
+          <Property Name="Espectaculo_Cod" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Espectaculo_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Espectaculo_Rubro" Type="Int32" />
+          <Property Name="Espectaculo_Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rubro" Relationship="GD2C2018Model.FK_Espectaculo_Rubro" FromRole="Espectaculo" ToRole="Rubro" />
         </EntityType>
         <Association Name="FK_Espectaculo_Rubro">
           <End Type="GD2C2018Model.Rubro" Role="Rubro" Multiplicity="0..1" />
@@ -754,15 +756,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Espectaculo">
-            <EntityTypeMapping TypeName="GD2C2018Model.Espectaculo">
-              <MappingFragment StoreEntitySet="Espectaculo">
-                <ScalarProperty Name="Espectaculo_Rubro" ColumnName="Espectaculo_Rubro" />
-                <ScalarProperty Name="Espectaculo_Descripcion" ColumnName="Espectaculo_Descripcion" />
-                <ScalarProperty Name="Espectaculo_Cod" ColumnName="Espectaculo_Cod" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Publicacion">
             <EntityTypeMapping TypeName="GD2C2018Model.Publicacion">
               <MappingFragment StoreEntitySet="Publicacion">
@@ -774,6 +767,16 @@
                 <ScalarProperty Name="Publicacion_Fecha" ColumnName="Publicacion_Fecha" />
                 <ScalarProperty Name="Publicacion_Espectaculo" ColumnName="Publicacion_Espectaculo" />
                 <ScalarProperty Name="Publicacion_ID" ColumnName="Publicacion_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Espectaculo">
+            <EntityTypeMapping TypeName="GD2C2018Model.Espectaculo">
+              <MappingFragment StoreEntitySet="Espectaculo">
+                <ScalarProperty Name="Espectaculo_Direccion" ColumnName="Espectaculo_Direccion" />
+                <ScalarProperty Name="Espectaculo_Rubro" ColumnName="Espectaculo_Rubro" />
+                <ScalarProperty Name="Espectaculo_Descripcion" ColumnName="Espectaculo_Descripcion" />
+                <ScalarProperty Name="Espectaculo_Cod" ColumnName="Espectaculo_Cod" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

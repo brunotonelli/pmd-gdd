@@ -17,6 +17,7 @@ namespace PalcoNet
         public decimal Espectaculo_Cod { get; set; }
         public string Espectaculo_Descripcion { get; set; }
         public Nullable<int> Espectaculo_Rubro { get; set; }
+        public string Espectaculo_Direccion { get; set; }
     
         public virtual Rubro Rubro { get; set; }
     }
