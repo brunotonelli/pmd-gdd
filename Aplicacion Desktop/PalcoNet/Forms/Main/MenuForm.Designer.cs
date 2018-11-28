@@ -133,6 +133,7 @@
             this.botonHistorial.TabIndex = 7;
             this.botonHistorial.Text = "Historial de Cliente";
             this.botonHistorial.UseVisualStyleBackColor = true;
+            this.botonHistorial.Click += new System.EventHandler(this.botonHistorial_Click);
             // 
             // botonPuntos
             // 

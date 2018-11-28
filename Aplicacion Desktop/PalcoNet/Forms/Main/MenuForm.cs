@@ -76,5 +76,10 @@ namespace PalcoNet.Forms
         private void botonGenerar_Click(object sender, EventArgs e) {
             new GenerarPublicacionForm().Show();
         }
+
+        private void botonHistorial_Click(object sender, EventArgs e)
+        {
+            new HistorialComprasForm().Show();
+        }
     }
 }

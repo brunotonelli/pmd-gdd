@@ -90,12 +90,22 @@ namespace PalcoNet.Forms
                     context.Entry(usuario).State = System.Data.Entity.EntityState.Added;
                     context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
                     context.SaveChanges();
-                }
 
+                    InfoSesion.NroDocumento = (from c in context.Cliente
+                                               where c.Cli_Usuario == boxUsuario.Text
+                                               select c.Cli_Nro_Doc).FirstOrDefault();
+
+                    InfoSesion.TipoDocumento = (from c in context.Cliente
+                                                where c.Cli_Usuario == boxUsuario.Text
+                                                select c.Cli_Tipo_Doc).FirstOrDefault();
+                }
+                InfoSesion.Usuario = usuario;
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
                 var menu = new MenuForm(usuario);
                 this.Close();
-                InfoSesion.Usuario = usuario;
+
+
+
                 menu.Show();
             }
         }

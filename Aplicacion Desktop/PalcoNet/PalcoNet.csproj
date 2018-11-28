@@ -181,6 +181,12 @@
     <Compile Include="Forms\Grados\ModificacionGradoForm.Designer.cs">
       <DependentUpon>ModificacionGradoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Historial Compras\HistorialComprasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Historial Compras\HistorialComprasForm.Designer.cs">
+      <DependentUpon>HistorialComprasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,7 @@
     </Compile>
     <Compile Include="Model\ComprasEstadistico.cs" />
     <Compile Include="Model\FechaHoraModel.cs" />
+    <Compile Include="Model\HistorialModel.cs" />
     <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Model\CompraModel.cs" />
     <Compile Include="Model\PublicacionModel.cs" />
@@ -343,6 +350,9 @@
     <EmbeddedResource Include="Forms\Grados\ModificacionGradoForm.resx">
       <DependentUpon>ModificacionGradoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Historial Compras\HistorialComprasForm.resx">
+      <DependentUpon>HistorialComprasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,6 +404,7 @@
     <None Include="Properties\DataSources\Funcionalidad.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.CompraModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.FechaHoraModel.datasource" />
+    <None Include="Properties\DataSources\PalcoNet.Model.HistorialModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.ItemModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.UbicacionModel.datasource" />
     <None Include="Properties\DataSources\Rol.datasource" />
@@ -432,6 +443,7 @@
     <None Include="Resources\flechaIzq.png" />
     <None Include="Resources\ticket.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -38,6 +38,15 @@ namespace PalcoNet.Forms
                 var menu = new MenuForm(usuario);
                 this.Close();
                 InfoSesion.Usuario = usuario;
+
+                InfoSesion.NroDocumento = (from c in context.Cliente
+                                           where c.Cli_Usuario == boxUsuario.Text
+                                           select c.Cli_Nro_Doc).FirstOrDefault();
+
+                InfoSesion.TipoDocumento = (from c in context.Cliente
+                                           where c.Cli_Usuario == boxUsuario.Text
+                                           select c.Cli_Tipo_Doc).FirstOrDefault();
+
                 menu.Show();
             }
         }
