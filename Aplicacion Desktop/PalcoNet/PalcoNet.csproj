@@ -217,6 +217,12 @@
     <Compile Include="Forms\Main\RegistrarseForm.Designer.cs">
       <DependentUpon>RegistrarseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Publicaciones\GenerarPublicacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Publicaciones\GenerarPublicacionForm.Designer.cs">
+      <DependentUpon>GenerarPublicacionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Roles\NuevoRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,7 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\ComprasEstadistico.cs" />
+    <Compile Include="Model\FechaHoraModel.cs" />
     <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Model\CompraModel.cs" />
     <Compile Include="Model\PublicacionModel.cs" />
@@ -354,6 +361,9 @@
     <EmbeddedResource Include="Forms\Main\RegistrarseForm.resx">
       <DependentUpon>RegistrarseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Publicaciones\GenerarPublicacionForm.resx">
+      <DependentUpon>GenerarPublicacionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Roles\NuevoRolForm.resx">
       <DependentUpon>NuevoRolForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +393,7 @@
     <None Include="Properties\DataSources\Factura1.datasource" />
     <None Include="Properties\DataSources\Funcionalidad.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.CompraModel.datasource" />
+    <None Include="Properties\DataSources\PalcoNet.Model.FechaHoraModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.ItemModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.UbicacionModel.datasource" />
     <None Include="Properties\DataSources\Rol.datasource" />

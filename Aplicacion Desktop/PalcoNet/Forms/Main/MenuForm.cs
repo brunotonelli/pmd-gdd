@@ -72,5 +72,9 @@ namespace PalcoNet.Forms
         {
             new EstadisticasForm().Show();
         }
+
+        private void botonGenerar_Click(object sender, EventArgs e) {
+            new GenerarPublicacionForm().Show();
+        }
     }
 }

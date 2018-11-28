@@ -53,10 +53,9 @@
             // 
             // botonRoles
             // 
-            this.botonRoles.Location = new System.Drawing.Point(8, 80);
-            this.botonRoles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonRoles.Location = new System.Drawing.Point(6, 65);
             this.botonRoles.Name = "botonRoles";
-            this.botonRoles.Size = new System.Drawing.Size(160, 49);
+            this.botonRoles.Size = new System.Drawing.Size(120, 40);
             this.botonRoles.TabIndex = 0;
             this.botonRoles.Text = "ABM de Rol";
             this.botonRoles.UseVisualStyleBackColor = true;
@@ -64,10 +63,9 @@
             // 
             // botonClientes
             // 
-            this.botonClientes.Location = new System.Drawing.Point(8, 23);
-            this.botonClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonClientes.Location = new System.Drawing.Point(6, 19);
             this.botonClientes.Name = "botonClientes";
-            this.botonClientes.Size = new System.Drawing.Size(160, 49);
+            this.botonClientes.Size = new System.Drawing.Size(120, 40);
             this.botonClientes.TabIndex = 1;
             this.botonClientes.Text = "ABM de Clientes";
             this.botonClientes.UseVisualStyleBackColor = true;
@@ -75,10 +73,9 @@
             // 
             // botonEmpresas
             // 
-            this.botonEmpresas.Location = new System.Drawing.Point(176, 23);
-            this.botonEmpresas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonEmpresas.Location = new System.Drawing.Point(132, 19);
             this.botonEmpresas.Name = "botonEmpresas";
-            this.botonEmpresas.Size = new System.Drawing.Size(160, 49);
+            this.botonEmpresas.Size = new System.Drawing.Size(120, 40);
             this.botonEmpresas.TabIndex = 2;
             this.botonEmpresas.Text = "ABM de Empresa";
             this.botonEmpresas.UseVisualStyleBackColor = true;
@@ -87,10 +84,9 @@
             // botonRubros
             // 
             this.botonRubros.Enabled = false;
-            this.botonRubros.Location = new System.Drawing.Point(176, 80);
-            this.botonRubros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonRubros.Location = new System.Drawing.Point(132, 65);
             this.botonRubros.Name = "botonRubros";
-            this.botonRubros.Size = new System.Drawing.Size(160, 49);
+            this.botonRubros.Size = new System.Drawing.Size(120, 40);
             this.botonRubros.TabIndex = 3;
             this.botonRubros.Text = "ABM de Rubro";
             this.botonRubros.UseVisualStyleBackColor = true;
@@ -99,21 +95,20 @@
             // botonGenerar
             // 
             this.botonGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonGenerar.Location = new System.Drawing.Point(8, 108);
-            this.botonGenerar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonGenerar.Location = new System.Drawing.Point(6, 88);
             this.botonGenerar.Name = "botonGenerar";
-            this.botonGenerar.Size = new System.Drawing.Size(328, 70);
+            this.botonGenerar.Size = new System.Drawing.Size(246, 57);
             this.botonGenerar.TabIndex = 4;
             this.botonGenerar.Text = "Generar Publicación";
             this.botonGenerar.UseVisualStyleBackColor = true;
+            this.botonGenerar.Click += new System.EventHandler(this.botonGenerar_Click);
             // 
             // botonEditar
             // 
             this.botonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEditar.Location = new System.Drawing.Point(8, 194);
-            this.botonEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonEditar.Location = new System.Drawing.Point(6, 158);
             this.botonEditar.Name = "botonEditar";
-            this.botonEditar.Size = new System.Drawing.Size(328, 70);
+            this.botonEditar.Size = new System.Drawing.Size(246, 57);
             this.botonEditar.TabIndex = 5;
             this.botonEditar.Text = "Editar Publicación";
             this.botonEditar.UseVisualStyleBackColor = true;
@@ -121,10 +116,9 @@
             // botonComprar
             // 
             this.botonComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonComprar.Location = new System.Drawing.Point(8, 23);
-            this.botonComprar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonComprar.Location = new System.Drawing.Point(6, 19);
             this.botonComprar.Name = "botonComprar";
-            this.botonComprar.Size = new System.Drawing.Size(328, 70);
+            this.botonComprar.Size = new System.Drawing.Size(246, 57);
             this.botonComprar.TabIndex = 6;
             this.botonComprar.Text = "Comprar";
             this.botonComprar.UseVisualStyleBackColor = true;
@@ -133,10 +127,9 @@
             // botonHistorial
             // 
             this.botonHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonHistorial.Location = new System.Drawing.Point(8, 30);
-            this.botonHistorial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonHistorial.Location = new System.Drawing.Point(6, 24);
             this.botonHistorial.Name = "botonHistorial";
-            this.botonHistorial.Size = new System.Drawing.Size(165, 79);
+            this.botonHistorial.Size = new System.Drawing.Size(124, 64);
             this.botonHistorial.TabIndex = 7;
             this.botonHistorial.Text = "Historial de Cliente";
             this.botonHistorial.UseVisualStyleBackColor = true;
@@ -144,20 +137,18 @@
             // botonPuntos
             // 
             this.botonPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonPuntos.Location = new System.Drawing.Point(181, 30);
-            this.botonPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonPuntos.Location = new System.Drawing.Point(136, 24);
             this.botonPuntos.Name = "botonPuntos";
-            this.botonPuntos.Size = new System.Drawing.Size(165, 79);
+            this.botonPuntos.Size = new System.Drawing.Size(124, 64);
             this.botonPuntos.TabIndex = 8;
             this.botonPuntos.Text = "Administración de Puntos";
             this.botonPuntos.UseVisualStyleBackColor = true;
             // 
             // botonComisiones
             // 
-            this.botonComisiones.Location = new System.Drawing.Point(8, 193);
-            this.botonComisiones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonComisiones.Location = new System.Drawing.Point(6, 157);
             this.botonComisiones.Name = "botonComisiones";
-            this.botonComisiones.Size = new System.Drawing.Size(160, 71);
+            this.botonComisiones.Size = new System.Drawing.Size(120, 58);
             this.botonComisiones.TabIndex = 9;
             this.botonComisiones.Text = "Generar rendición de Comisiones";
             this.botonComisiones.UseVisualStyleBackColor = true;
@@ -165,10 +156,9 @@
             // 
             // botonListado
             // 
-            this.botonListado.Location = new System.Drawing.Point(176, 193);
-            this.botonListado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonListado.Location = new System.Drawing.Point(132, 157);
             this.botonListado.Name = "botonListado";
-            this.botonListado.Size = new System.Drawing.Size(160, 71);
+            this.botonListado.Size = new System.Drawing.Size(120, 58);
             this.botonListado.TabIndex = 10;
             this.botonListado.Text = "Listado estadístico";
             this.botonListado.UseVisualStyleBackColor = true;
@@ -176,10 +166,9 @@
             // 
             // botonGrados
             // 
-            this.botonGrados.Location = new System.Drawing.Point(9, 137);
-            this.botonGrados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonGrados.Location = new System.Drawing.Point(7, 111);
             this.botonGrados.Name = "botonGrados";
-            this.botonGrados.Size = new System.Drawing.Size(328, 49);
+            this.botonGrados.Size = new System.Drawing.Size(246, 40);
             this.botonGrados.TabIndex = 11;
             this.botonGrados.Text = "ABM de Grado de Publicación";
             this.botonGrados.UseVisualStyleBackColor = true;
@@ -189,30 +178,27 @@
             // 
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsuario.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelUsuario.Location = new System.Drawing.Point(376, 30);
-            this.labelUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUsuario.Location = new System.Drawing.Point(282, 24);
             this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(335, 32);
+            this.labelUsuario.Size = new System.Drawing.Size(251, 26);
             this.labelUsuario.TabIndex = 20;
             this.labelUsuario.Text = "NOMBRE_USUARIO";
             this.labelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // botonLogout
             // 
-            this.botonLogout.Location = new System.Drawing.Point(492, 73);
-            this.botonLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonLogout.Location = new System.Drawing.Point(369, 59);
             this.botonLogout.Name = "botonLogout";
-            this.botonLogout.Size = new System.Drawing.Size(219, 36);
+            this.botonLogout.Size = new System.Drawing.Size(164, 29);
             this.botonLogout.TabIndex = 15;
             this.botonLogout.Text = "Cerrar sesión";
             this.botonLogout.UseVisualStyleBackColor = true;
             // 
             // botonCuenta
             // 
-            this.botonCuenta.Location = new System.Drawing.Point(375, 73);
-            this.botonCuenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonCuenta.Location = new System.Drawing.Point(281, 59);
             this.botonCuenta.Name = "botonCuenta";
-            this.botonCuenta.Size = new System.Drawing.Size(109, 36);
+            this.botonCuenta.Size = new System.Drawing.Size(82, 29);
             this.botonCuenta.TabIndex = 16;
             this.botonCuenta.Text = "Cuenta";
             this.botonCuenta.UseVisualStyleBackColor = true;
@@ -221,10 +207,9 @@
             // 
             this.labelRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRol.ForeColor = System.Drawing.Color.Maroon;
-            this.labelRol.Location = new System.Drawing.Point(321, 28);
-            this.labelRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRol.Location = new System.Drawing.Point(241, 23);
             this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(424, 39);
+            this.labelRol.Size = new System.Drawing.Size(318, 32);
             this.labelRol.TabIndex = 14;
             this.labelRol.Text = "ROL_USUARIO";
             this.labelRol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -238,11 +223,9 @@
             this.groupBox1.Controls.Add(this.botonComisiones);
             this.groupBox1.Controls.Add(this.botonListado);
             this.groupBox1.Controls.Add(this.botonGrados);
-            this.groupBox1.Location = new System.Drawing.Point(400, 96);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(300, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(345, 276);
+            this.groupBox1.Size = new System.Drawing.Size(259, 224);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrativo";
@@ -252,11 +235,9 @@
             this.groupBox2.Controls.Add(this.botonEditar);
             this.groupBox2.Controls.Add(this.botonGenerar);
             this.groupBox2.Controls.Add(this.botonComprar);
-            this.groupBox2.Location = new System.Drawing.Point(25, 96);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(19, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(343, 276);
+            this.groupBox2.Size = new System.Drawing.Size(257, 224);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Espectaculos";
@@ -268,11 +249,9 @@
             this.groupBox3.Controls.Add(this.botonPuntos);
             this.groupBox3.Controls.Add(this.botonCuenta);
             this.groupBox3.Controls.Add(this.botonLogout);
-            this.groupBox3.Location = new System.Drawing.Point(25, 393);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(19, 319);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(720, 121);
+            this.groupBox3.Size = new System.Drawing.Size(540, 98);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Usuario";
@@ -281,24 +260,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 46);
+            this.label1.Size = new System.Drawing.Size(225, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Menú principal";
             // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 532);
+            this.ClientSize = new System.Drawing.Size(576, 432);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelRol);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
             this.groupBox1.ResumeLayout(false);
