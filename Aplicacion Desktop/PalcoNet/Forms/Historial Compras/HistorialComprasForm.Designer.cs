@@ -74,7 +74,7 @@
             this.botonSiguiente.Size = new System.Drawing.Size(75, 36);
             this.botonSiguiente.TabIndex = 7;
             this.botonSiguiente.UseVisualStyleBackColor = true;
-            this.botonAnterior.Click += new System.EventHandler(this.botonSiguiente_Click);
+            this.botonSiguiente.Click += new System.EventHandler(this.botonSiguiente_Click);
             // 
             // label3
             // 
@@ -106,6 +106,7 @@
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
+            this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(505, 219);
             this.dataGrid.TabIndex = 2;
@@ -116,30 +117,35 @@
             this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
             this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
             this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // espectaculoDataGridViewTextBoxColumn
             // 
             this.espectaculoDataGridViewTextBoxColumn.DataPropertyName = "Espectaculo";
             this.espectaculoDataGridViewTextBoxColumn.HeaderText = "Espectaculo";
             this.espectaculoDataGridViewTextBoxColumn.Name = "espectaculoDataGridViewTextBoxColumn";
+            this.espectaculoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cantidadDataGridViewTextBoxColumn
             // 
             this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
             this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
             this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
+            this.cantidadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalDataGridViewTextBoxColumn
             // 
             this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
             this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // formaPagoDataGridViewTextBoxColumn
             // 
             this.formaPagoDataGridViewTextBoxColumn.DataPropertyName = "FormaPago";
             this.formaPagoDataGridViewTextBoxColumn.HeaderText = "FormaPago";
             this.formaPagoDataGridViewTextBoxColumn.Name = "formaPagoDataGridViewTextBoxColumn";
+            this.formaPagoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // historialModelBindingSource
             // 
@@ -157,8 +163,8 @@
             this.Controls.Add(this.botonSiguiente);
             this.Name = "HistorialComprasForm";
             this.Text = "[PalcoNet] - Historial de Compras";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.Load += new System.EventHandler(this.HistorialComprasForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

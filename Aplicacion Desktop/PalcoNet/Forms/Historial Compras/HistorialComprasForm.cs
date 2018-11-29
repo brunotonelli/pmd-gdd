@@ -26,7 +26,7 @@ namespace PalcoNet.Forms
         }
 
 
-        public IPagedList<HistorialModel> GetHistorial(int pagina = 1, int tamaño = 20)
+        public IPagedList<HistorialModel> GetHistorial(int pagina = 1, int tamaño = 9)
         {
 
             using (GD2C2018Entities context = new GD2C2018Entities())
@@ -89,6 +89,11 @@ namespace PalcoNet.Forms
             {
                 Seleccionado = dataGrid.SelectedRows[0].DataBoundItem as HistorialModel;
             }
+        }
+
+        private void botonSiguiente_Click_1(object sender, EventArgs e)
+        {
+
         }
 
 
