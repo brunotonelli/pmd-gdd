@@ -41,18 +41,18 @@
             this.rb_PuntosCliente = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_Trimestre = new System.Windows.Forms.ComboBox();
-            this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
             this.tm_Verificar = new System.Windows.Forms.Timer(this.components);
             this.grid3 = new System.Windows.Forms.DataGridView();
-            this.cliNroDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliTipoDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliNombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entradasCompradasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprasEstadisticoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comprasEstadisticoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dg_WEA = new System.Windows.Forms.DataGridView();
+            this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid3)).BeginInit();
@@ -83,13 +83,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_Ano);
             this.groupBox1.Controls.Add(this.lbl_Respuesta);
             this.groupBox1.Controls.Add(this.btn_Cerrar);
             this.groupBox1.Controls.Add(this.btn_Buscar);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cb_Trimestre);
-            this.groupBox1.Controls.Add(this.txt_Ano);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox1.Location = new System.Drawing.Point(18, 49);
@@ -201,15 +201,6 @@
             this.cb_Trimestre.Size = new System.Drawing.Size(248, 28);
             this.cb_Trimestre.TabIndex = 3;
             // 
-            // txt_Ano
-            // 
-            this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
-            this.txt_Ano.Location = new System.Drawing.Point(157, 25);
-            this.txt_Ano.Name = "txt_Ano";
-            this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
-            this.txt_Ano.Size = new System.Drawing.Size(248, 26);
-            this.txt_Ano.TabIndex = 1;
-            // 
             // tm_Verificar
             // 
             this.tm_Verificar.Interval = 500;
@@ -227,11 +218,11 @@
             this.grid3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cliNroDocDataGridViewTextBoxColumn,
-            this.cliTipoDocDataGridViewTextBoxColumn,
-            this.cliNombreDataGridViewTextBoxColumn,
-            this.cliApellidoDataGridViewTextBoxColumn,
-            this.entradasCompradasDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
             this.grid3.DataSource = this.comprasEstadisticoBindingSource;
             this.grid3.Location = new System.Drawing.Point(18, 365);
             this.grid3.Margin = new System.Windows.Forms.Padding(4);
@@ -243,52 +234,9 @@
             this.grid3.Size = new System.Drawing.Size(459, 174);
             this.grid3.TabIndex = 20;
             // 
-            // cliNroDocDataGridViewTextBoxColumn
-            // 
-            this.cliNroDocDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nro_Doc";
-            this.cliNroDocDataGridViewTextBoxColumn.HeaderText = "Cli_Nro_Doc";
-            this.cliNroDocDataGridViewTextBoxColumn.Name = "cliNroDocDataGridViewTextBoxColumn";
-            this.cliNroDocDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cliTipoDocDataGridViewTextBoxColumn
-            // 
-            this.cliTipoDocDataGridViewTextBoxColumn.DataPropertyName = "Cli_Tipo_Doc";
-            this.cliTipoDocDataGridViewTextBoxColumn.HeaderText = "Cli_Tipo_Doc";
-            this.cliTipoDocDataGridViewTextBoxColumn.Name = "cliTipoDocDataGridViewTextBoxColumn";
-            this.cliTipoDocDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cliNombreDataGridViewTextBoxColumn
-            // 
-            this.cliNombreDataGridViewTextBoxColumn.DataPropertyName = "Cli_Nombre";
-            this.cliNombreDataGridViewTextBoxColumn.HeaderText = "Cli_Nombre";
-            this.cliNombreDataGridViewTextBoxColumn.Name = "cliNombreDataGridViewTextBoxColumn";
-            this.cliNombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cliApellidoDataGridViewTextBoxColumn
-            // 
-            this.cliApellidoDataGridViewTextBoxColumn.DataPropertyName = "Cli_Apellido";
-            this.cliApellidoDataGridViewTextBoxColumn.HeaderText = "Cli_Apellido";
-            this.cliApellidoDataGridViewTextBoxColumn.Name = "cliApellidoDataGridViewTextBoxColumn";
-            this.cliApellidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // entradasCompradasDataGridViewTextBoxColumn
-            // 
-            this.entradasCompradasDataGridViewTextBoxColumn.DataPropertyName = "Entradas_Compradas";
-            this.entradasCompradasDataGridViewTextBoxColumn.HeaderText = "Entradas_Compradas";
-            this.entradasCompradasDataGridViewTextBoxColumn.Name = "entradasCompradasDataGridViewTextBoxColumn";
-            this.entradasCompradasDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // comprasEstadisticoBindingSource
             // 
             this.comprasEstadisticoBindingSource.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
-            // 
-            // comprasEstadisticoBindingSource1
-            // 
-            this.comprasEstadisticoBindingSource1.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
             // 
             // dg_WEA
             // 
@@ -309,6 +257,50 @@
             this.dg_WEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_WEA.Size = new System.Drawing.Size(459, 174);
             this.dg_WEA.TabIndex = 21;
+            // 
+            // txt_Ano
+            // 
+            this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
+            this.txt_Ano.Location = new System.Drawing.Point(157, 25);
+            this.txt_Ano.Name = "txt_Ano";
+            this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
+            this.txt_Ano.Size = new System.Drawing.Size(248, 26);
+            this.txt_Ano.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Cli_Nro_Doc";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Cli_Nro_Doc";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Cli_Tipo_Doc";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Cli_Tipo_Doc";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Cli_Nombre";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Cli_Nombre";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Cli_Apellido";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Cli_Apellido";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Entradas_Compradas";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Entradas_Compradas";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // EstadisticasForm
             // 
@@ -339,7 +331,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Extensiones.TextBoxRequerido txt_Ano;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
@@ -367,5 +358,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cliApellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entradasCompradasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dg_WEA;
+        private Extensiones.TextBoxRequerido txt_Ano;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

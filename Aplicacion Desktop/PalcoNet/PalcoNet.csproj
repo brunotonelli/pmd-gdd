@@ -426,6 +426,7 @@
     <None Include="Properties\DataSources\Factura1.datasource" />
     <None Include="Properties\DataSources\Funcionalidad.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.CompraModel.datasource" />
+    <None Include="Properties\DataSources\PalcoNet.Model.ComprasEstadistico.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.FechaHoraModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.HistorialModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.ItemModel.datasource" />

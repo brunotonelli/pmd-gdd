@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using PalcoNet.Model;
 using System.Data.Entity;
 using PalcoNet.Extensiones;
-using static PalcoNet.Extensiones.FuncionesSQL;
 using System.Data.Entity.SqlServer;
 
 namespace PalcoNet.Forms
@@ -41,7 +40,7 @@ namespace PalcoNet.Forms
                 lbl_Respuesta.Text = "";
 
                 var context = new GD2C2018Entities();
-                if (rb_ComprasCliente.Checked == true)
+                if (rb_ComprasCliente.Checked == true)//ORDENADO MES ANO
                 {
                     var query = from cli in context.Cliente
                                 join com in context.Compra on new { t = cli.Cli_Tipo_Doc, n = cli.Cli_Nro_Doc } equals new { t = com.Compra_Tipo_Doc_Cliente, n = com.Compra_Num_Doc_Cliente }
@@ -80,8 +79,8 @@ namespace PalcoNet.Forms
                                          {
                                              emp.Espec_Empresa_Cuit,
                                              emp.Espec_Empresa_Razon_Social,
-                                             Sobrante = LocalidadesTotales(emp.Espec_Empresa_Cuit, año, trimestre) -
-                                                        LocalidadesVendidas(emp.Espec_Empresa_Cuit, año, trimestre)
+                                             Sobrante = FuncionesSQL.LocalidadesTotales(emp.Espec_Empresa_Cuit, año, trimestre) -
+                                                        FuncionesSQL.LocalidadesVendidas(emp.Espec_Empresa_Cuit, año, trimestre)
                                          })
                                          .OrderByDescending(emp => emp.Sobrante).Take(5); //falta filtrar por grado ?
                                       
