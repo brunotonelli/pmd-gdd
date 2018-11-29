@@ -87,6 +87,9 @@
     <Compile Include="Extensiones\TextBoxRequerido.Designer.cs">
       <DependentUpon>TextBoxRequerido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\TransparentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensiones\Utilidades.cs" />
     <Compile Include="Extensiones\Validaciones.cs" />
     <Compile Include="Factura.cs">
@@ -457,6 +460,13 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\logoNET1.png" />
+    <None Include="Resources\logoPALCO.png" />
+    <None Include="Resources\logoNET.png" />
+    <None Include="Resources\logoBG.png" />
+    <None Include="Resources\cortinaTop.png" />
+    <None Include="Resources\cortinaIzq.png" />
+    <None Include="Resources\cortinaDer.png" />
     <None Include="Resources\palco.jpg" />
     <None Include="Resources\flechaDer.png" />
     <None Include="Resources\flechaIzq.png" />

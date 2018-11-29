@@ -83,9 +83,29 @@ namespace PalcoNet.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap palco {
+        internal static System.Drawing.Bitmap logoBG {
             get {
-                object obj = ResourceManager.GetObject("palco", resourceCulture);
+                object obj = ResourceManager.GetObject("logoBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoNET {
+            get {
+                object obj = ResourceManager.GetObject("logoNET", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoPALCO {
+            get {
+                object obj = ResourceManager.GetObject("logoPALCO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

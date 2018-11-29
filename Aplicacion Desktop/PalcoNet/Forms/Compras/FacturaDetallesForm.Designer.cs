@@ -43,12 +43,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.itemModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.compraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.compraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemModelBindingSource)).BeginInit();
@@ -148,7 +148,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::PalcoNet.Properties.Resources.palco;
+            this.pictureBox1.BackgroundImage = global::PalcoNet.Properties.Resources.logoNET;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(28, 20);
             this.pictureBox1.Name = "pictureBox1";
@@ -219,6 +219,29 @@
             this.dataGrid.TabIndex = 15;
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
             // 
+            // conceptoDataGridViewTextBoxColumn
+            // 
+            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn.FillWeight = 98.47716F;
+            this.conceptoDataGridViewTextBoxColumn.HeaderText = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
+            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.conceptoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "PrecioString";
+            this.precioDataGridViewTextBoxColumn.FillWeight = 101.5228F;
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // itemModelBindingSource
+            // 
+            this.itemModelBindingSource.DataSource = typeof(PalcoNet.Model.ItemModel);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -239,32 +262,9 @@
             this.labelTotal.Text = "$ ####,##";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // itemModelBindingSource
-            // 
-            this.itemModelBindingSource.DataSource = typeof(PalcoNet.Model.ItemModel);
-            // 
             // compraModelBindingSource
             // 
             this.compraModelBindingSource.DataSource = typeof(PalcoNet.Model.CompraModel);
-            // 
-            // conceptoDataGridViewTextBoxColumn
-            // 
-            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn.FillWeight = 98.47716F;
-            this.conceptoDataGridViewTextBoxColumn.HeaderText = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
-            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.conceptoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // precioDataGridViewTextBoxColumn
-            // 
-            this.precioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.precioDataGridViewTextBoxColumn.DataPropertyName = "PrecioString";
-            this.precioDataGridViewTextBoxColumn.FillWeight = 101.5228F;
-            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
-            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.precioDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FacturaDetallesForm
             // 
