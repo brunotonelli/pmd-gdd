@@ -41,6 +41,7 @@
             this.rb_PuntosCliente = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_Trimestre = new System.Windows.Forms.ComboBox();
+            this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
             this.tm_Verificar = new System.Windows.Forms.Timer(this.components);
             this.grid3 = new System.Windows.Forms.DataGridView();
             this.cliNroDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,15 +50,16 @@
             this.cliApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entradasCompradasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprasEstadisticoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
             this.comprasEstadisticoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dg_WEA = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_WEA)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -199,6 +201,15 @@
             this.cb_Trimestre.Size = new System.Drawing.Size(248, 28);
             this.cb_Trimestre.TabIndex = 3;
             // 
+            // txt_Ano
+            // 
+            this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
+            this.txt_Ano.Location = new System.Drawing.Point(157, 25);
+            this.txt_Ano.Name = "txt_Ano";
+            this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
+            this.txt_Ano.Size = new System.Drawing.Size(248, 26);
+            this.txt_Ano.TabIndex = 1;
+            // 
             // tm_Verificar
             // 
             this.tm_Verificar.Interval = 500;
@@ -229,7 +240,7 @@
             this.grid3.ReadOnly = true;
             this.grid3.RowHeadersVisible = false;
             this.grid3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid3.Size = new System.Drawing.Size(599, 174);
+            this.grid3.Size = new System.Drawing.Size(459, 174);
             this.grid3.TabIndex = 20;
             // 
             // cliNroDocDataGridViewTextBoxColumn
@@ -271,15 +282,6 @@
             // 
             this.comprasEstadisticoBindingSource.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
             // 
-            // txt_Ano
-            // 
-            this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
-            this.txt_Ano.Location = new System.Drawing.Point(157, 25);
-            this.txt_Ano.Name = "txt_Ano";
-            this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
-            this.txt_Ano.Size = new System.Drawing.Size(248, 26);
-            this.txt_Ano.TabIndex = 1;
-            // 
             // comprasEstadisticoBindingSource1
             // 
             this.comprasEstadisticoBindingSource1.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
@@ -288,11 +290,32 @@
             // 
             this.clienteBindingSource.DataSource = typeof(PalcoNet.Cliente);
             // 
+            // dg_WEA
+            // 
+            this.dg_WEA.AllowUserToAddRows = false;
+            this.dg_WEA.AllowUserToDeleteRows = false;
+            this.dg_WEA.AllowUserToResizeRows = false;
+            this.dg_WEA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_WEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_WEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_WEA.Location = new System.Drawing.Point(495, 365);
+            this.dg_WEA.Margin = new System.Windows.Forms.Padding(4);
+            this.dg_WEA.MultiSelect = false;
+            this.dg_WEA.Name = "dg_WEA";
+            this.dg_WEA.ReadOnly = true;
+            this.dg_WEA.RowHeadersVisible = false;
+            this.dg_WEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_WEA.Size = new System.Drawing.Size(459, 174);
+            this.dg_WEA.TabIndex = 21;
+            // 
             // EstadisticasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 579);
+            this.ClientSize = new System.Drawing.Size(967, 579);
+            this.Controls.Add(this.dg_WEA);
             this.Controls.Add(this.grid3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -307,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_WEA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,5 +366,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cliNombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliApellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entradasCompradasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dg_WEA;
     }
 }

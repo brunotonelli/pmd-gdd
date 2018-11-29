@@ -285,6 +285,7 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\ComprasEstadistico.cs" />
+    <Compile Include="Model\EmpEstadistico.cs" />
     <Compile Include="Model\FechaHoraModel.cs" />
     <Compile Include="Model\HistorialModel.cs" />
     <Compile Include="Model\ItemModel.cs" />
