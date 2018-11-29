@@ -24,31 +24,63 @@ namespace PalcoNet.Forms
 
         private void botonIniciar_Click(object sender, EventArgs e) {
             byte[] hash = Utilidades.SHA256Encrypt(boxContraseña.Text);
-
+            
             var context = new GD2C2018Entities();
             Usuario usuario = (from u in context.Usuario
                                where u.Usuario_Username == boxUsuario.Text
-                                     && u.Usuario_Password == hash
                                select u).FirstOrDefault();
-
-            if (usuario == null)
-                MessageBox.Show("Datos de inicio de sesión incorrectos", "Error de inicio de sesión");
-            else
-            {
-                var menu = new MenuForm(usuario);
-                this.Close();
-                InfoSesion.Usuario = usuario;
-
-                InfoSesion.NroDocumento = (from c in context.Cliente
-                                           where c.Cli_Usuario == boxUsuario.Text
-                                           select c.Cli_Nro_Doc).FirstOrDefault();
-
-                InfoSesion.TipoDocumento = (from c in context.Cliente
-                                           where c.Cli_Usuario == boxUsuario.Text
-                                           select c.Cli_Tipo_Doc).FirstOrDefault();
-
-                menu.Show();
+                
+            if (ValidarUsuario(usuario, hash, context)) {
+                InfoSesion.LogIn(usuario, context);
+                if (usuario.Usuario_Autogenerado ?? false)
+                {
+                    if (usuario.Usuario_Inicios > 1)
+                    {
+                        Inhabilitar(usuario, context);
+                        MessageBox.Show("Debía cambiar su contraseña ya que su usuario era autogenerado. Su usuario se encuentra bloqueado.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Su usuario fue autogenerado, debe cambiar la contraseña EN ESTA SESIÓN");
+                        new CuentaForm().Show();
+                    }
+                }
+                else
+                {
+                    var menu = new MenuForm(usuario);
+                    this.Close();
+                    menu.Show();
+                }
             }
         }
+
+        private bool ValidarUsuario(Usuario usuario, byte[] hash, GD2C2018Entities context) {
+            if (usuario == null)
+                MessageBox.Show("Usuario inexistente", "Error de inicio de sesión");
+            else if (!(usuario.Usuario_Habilitado ?? true))
+                MessageBox.Show("Su usuario se encuentra bloqueado. Contacte a un administrador", "Error de inicio de sesión");
+            else if (usuario.Usuario_Intentos_Fallidos >= 3)
+                MessageBox.Show("Usuario bloqueado por tener más de 3 inicios de sesión incorrectos", "Error de inicio de sesión");
+            else if (!hash.SonIguales(usuario.Usuario_Password))
+            {
+                MessageBox.Show("Contraseña incorrecta, se suma 1 intento fallido", "Error de inicio de sesión");
+                usuario.Usuario_Intentos_Fallidos++;
+                if (usuario.Usuario_Intentos_Fallidos >= 3)
+                {
+                    MessageBox.Show("Usuario bloqueado por tener más de 3 inicios de sesión incorrectos", "Error de inicio de sesión");
+                    usuario.Usuario_Habilitado = false;
+                }
+                context.SaveChanges();
+            }
+            else return true;
+            return false;
+        }
+
+        private void Inhabilitar(Usuario usuario, GD2C2018Entities context) {
+            usuario.Usuario_Habilitado = false;
+            context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+        }
+
     }
 }

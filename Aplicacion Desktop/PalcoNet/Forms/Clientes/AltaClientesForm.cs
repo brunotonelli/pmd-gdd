@@ -34,6 +34,8 @@ namespace PalcoNet.Forms
             Nuevo.Cli_Nro_Doc = doc;
             using (var context = new GD2C2018Entities())
             {
+                Usuario u = AutogenerarUsuario();
+                context.Entry(u).State = System.Data.Entity.EntityState.Added;
                 context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
                 DataGrid.DataSource = context.Cliente.ToList();
@@ -71,6 +73,27 @@ namespace PalcoNet.Forms
             boxLocalidad.Bindear(Nuevo, "Cli_Localidad");
             boxTipoTarjeta.Bindear(Nuevo, "Cli_Tarjeta_Tipo");
             boxNroTarjeta.Bindear(Nuevo, "Cli_Tarjeta_Num");
+        }
+
+        private Usuario AutogenerarUsuario() {
+            string contraseña = Utilidades.GenerarContraseña(4);
+            Usuario usuario = new Usuario
+            {
+                Usuario_Autogenerado = true,
+                Usuario_Habilitado = true,
+                Usuario_Inicios = 0,
+                Usuario_Intentos_Fallidos = 0,
+                Usuario_Rol = "CLI",
+                Usuario_Username = Utilidades.GenerarUsuario(6),
+                Usuario_Password = Utilidades.SHA256Encrypt(contraseña)
+            };
+
+            Nuevo.Cli_Usuario = usuario.Usuario_Username;
+            MessageBox.Show("Nombre de usuario: " + usuario.Usuario_Username +
+                "\nContraseña: " + contraseña +
+                "\n\nTome constancia de estos datos e informe al usuario por mail",
+                "Usuario autogenerado");
+            return usuario;
         }
 
     }

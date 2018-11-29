@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PalcoNet.Extensiones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,25 +16,17 @@ namespace PalcoNet.Forms
         public MainForm()
         {
             InitializeComponent();
+            FormsEstaticos.Principal = this;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            new ClientesForm().Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            new RolesForm().Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            new RegistrarseForm().Show();
-        }
-
+               
         private void botonLogin_Click(object sender, EventArgs e) {
             new LoginForm().Show();
+            this.Hide();
+        }
+
+        private void botonRegistrarse_Click(object sender, EventArgs e) {
+            new RegistrarseForm().Show();
+            this.Hide();
         }
     }
 }

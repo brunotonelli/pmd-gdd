@@ -36,6 +36,7 @@ namespace PalcoNet.Forms
                             join pub in context.Publicacion on comp.Compra_Publicacion equals pub.Publicacion_ID
                             join esp in context.Espectaculo on pub.Publicacion_Espectaculo equals esp.Espectaculo_Cod
                             where comp.Compra_Num_Doc_Cliente == InfoSesion.NroDocumento
+                            && comp.Compra_Tipo_Doc_Cliente == InfoSesion.TipoDocumento
                             select new HistorialModel {
                                 Fecha = comp.Compra_Fecha,
                                 Espectaculo = esp.Espectaculo_Descripcion,

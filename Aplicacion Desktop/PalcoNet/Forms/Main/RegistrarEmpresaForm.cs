@@ -55,7 +55,8 @@ namespace PalcoNet.Forms
                     Usuario_Username = boxUsuario.Text,
                     Usuario_Password = Utilidades.SHA256Encrypt(boxContraseña.Text),
                     Usuario_Intentos_Fallidos = 0,
-                    Usuario_Rol = "EMP"
+                    Usuario_Rol = "EMP",
+                    Usuario_Autogenerado = false
                 };
 
                 var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
@@ -87,9 +88,9 @@ namespace PalcoNet.Forms
                 }
 
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
+                InfoSesion.LogIn(usuario);
                 var menu = new MenuForm(usuario);
                 this.Close();
-                InfoSesion.Usuario = usuario;
                 menu.Show();
             }
         }

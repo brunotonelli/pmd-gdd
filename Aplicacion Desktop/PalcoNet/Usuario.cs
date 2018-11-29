@@ -25,6 +25,8 @@ namespace PalcoNet
         public Nullable<int> Usuario_Intentos_Fallidos { get; set; }
         public string Usuario_Rol { get; set; }
         public Nullable<bool> Usuario_Habilitado { get; set; }
+        public Nullable<bool> Usuario_Autogenerado { get; set; }
+        public int Usuario_Inicios { get; set; }
     
         public virtual ICollection<Cliente> Cliente { get; set; }
         public virtual ICollection<Espec_Empresa> Espec_Empresa { get; set; }

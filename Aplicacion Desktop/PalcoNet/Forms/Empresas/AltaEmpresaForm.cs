@@ -23,7 +23,7 @@ namespace PalcoNet.Forms
             BindearCampos();
 
             boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxCUIT.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxCUIT.TextChanged += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
@@ -31,6 +31,8 @@ namespace PalcoNet.Forms
         {
             using (var context = new GD2C2018Entities())
             {
+                Usuario u = AutogenerarUsuario();
+                context.Entry(u).State = System.Data.Entity.EntityState.Added;
                 context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
                 DataGrid.DataSource = context.Espec_Empresa.ToList();
@@ -67,85 +69,24 @@ namespace PalcoNet.Forms
             boxCiudad.Bindear(Nuevo, "Espec_Empresa_Localidad");
         }
 
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxCiudad_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxCalle_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxNumero_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxCodigoPostal_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxLocalidad_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxPiso_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxCUIT_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxMail_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxDepartamento_TextChanged(object sender, EventArgs e)
-        {
-
+        private Usuario AutogenerarUsuario() {
+            string contraseña = Utilidades.GenerarContraseña(4);
+            Usuario usuario = new Usuario
+            {
+                Usuario_Autogenerado = true,
+                Usuario_Habilitado = true,
+                Usuario_Inicios = 0,
+                Usuario_Intentos_Fallidos = 0,
+                Usuario_Rol = "EMP",
+                Usuario_Username = Utilidades.GenerarUsuario(6),
+                Usuario_Password = Utilidades.SHA256Encrypt(contraseña)
+            };
+            Nuevo.Espec_Empresa_Usuario = usuario.Usuario_Username;
+            MessageBox.Show("Nombre de usuario: " + usuario.Usuario_Username +
+                "\nContraseña: " + contraseña +
+                "\n\nTome constancia de estos datos e informe al usuario por mail",
+                "Usuario autogenerado");
+            return usuario;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PalcoNet.Forms;
+﻿using PalcoNet.Extensiones;
+using PalcoNet.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,6 +81,17 @@ namespace PalcoNet.Forms
         private void botonHistorial_Click(object sender, EventArgs e)
         {
             new HistorialComprasForm().Show();
+        }
+
+        private void botonLogout_Click(object sender, EventArgs e) {
+            InfoSesion.LogOut();
+            FormsEstaticos.Principal.Show();
+            this.Close();
+        }
+
+        private void botonCuenta_Click(object sender, EventArgs e) {
+            new CuentaForm().Show();
+            this.Close();
         }
     }
 }

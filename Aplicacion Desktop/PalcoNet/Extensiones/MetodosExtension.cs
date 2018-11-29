@@ -50,6 +50,18 @@ namespace PalcoNet.Extensiones
             return source.Any(s => s.Contains(toCheck, StringComparison.OrdinalIgnoreCase));
         }
 
+        public static T FirstOr<T>(this IEnumerable<T> source, T alternate) {
+            foreach (T t in source)
+                return t;
+            return alternate;
+        }
+
+        public static bool SonIguales(this byte[] a, byte[] b) {
+            for (int i = 0; i < a.Length; i++)
+                if (a[i] != b[i])
+                    return false;
+            return true;
+        }
 
     }
 }

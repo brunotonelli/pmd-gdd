@@ -49,7 +49,6 @@ namespace PalcoNet.Forms
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@ namespace PalcoNet.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxCUIT = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -71,7 +71,6 @@ namespace PalcoNet.Forms
             this.label5.Size = new System.Drawing.Size(213, 13);
             this.label5.TabIndex = 50;
             this.label5.Text = "Los campos marcados con * son requeridos";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // botonCancelar
             // 
@@ -118,7 +117,6 @@ namespace PalcoNet.Forms
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de ubicación";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // boxCiudad
             // 
@@ -126,7 +124,6 @@ namespace PalcoNet.Forms
             this.boxCiudad.Name = "boxCiudad";
             this.boxCiudad.Size = new System.Drawing.Size(150, 20);
             this.boxCiudad.TabIndex = 29;
-            this.boxCiudad.TextChanged += new System.EventHandler(this.boxCiudad_TextChanged);
             // 
             // label14
             // 
@@ -143,7 +140,6 @@ namespace PalcoNet.Forms
             this.boxCalle.Name = "boxCalle";
             this.boxCalle.Size = new System.Drawing.Size(150, 20);
             this.boxCalle.TabIndex = 11;
-            this.boxCalle.TextChanged += new System.EventHandler(this.boxCalle_TextChanged);
             // 
             // label8
             // 
@@ -169,7 +165,6 @@ namespace PalcoNet.Forms
             this.boxNumero.Name = "boxNumero";
             this.boxNumero.Size = new System.Drawing.Size(150, 20);
             this.boxNumero.TabIndex = 13;
-            this.boxNumero.TextChanged += new System.EventHandler(this.boxNumero_TextChanged);
             // 
             // boxCodigoPostal
             // 
@@ -177,7 +172,6 @@ namespace PalcoNet.Forms
             this.boxCodigoPostal.Name = "boxCodigoPostal";
             this.boxCodigoPostal.Size = new System.Drawing.Size(150, 20);
             this.boxCodigoPostal.TabIndex = 19;
-            this.boxCodigoPostal.TextChanged += new System.EventHandler(this.boxCodigoPostal_TextChanged);
             // 
             // label9
             // 
@@ -194,7 +188,6 @@ namespace PalcoNet.Forms
             this.boxLocalidad.Name = "boxLocalidad";
             this.boxLocalidad.Size = new System.Drawing.Size(150, 20);
             this.boxLocalidad.TabIndex = 27;
-            this.boxLocalidad.TextChanged += new System.EventHandler(this.boxLocalidad_TextChanged);
             // 
             // boxPiso
             // 
@@ -202,7 +195,6 @@ namespace PalcoNet.Forms
             this.boxPiso.Name = "boxPiso";
             this.boxPiso.Size = new System.Drawing.Size(150, 20);
             this.boxPiso.TabIndex = 15;
-            this.boxPiso.TextChanged += new System.EventHandler(this.boxPiso_TextChanged);
             // 
             // label11
             // 
@@ -237,7 +229,6 @@ namespace PalcoNet.Forms
             this.boxDepartamento.Name = "boxDepartamento";
             this.boxDepartamento.Size = new System.Drawing.Size(150, 20);
             this.boxDepartamento.TabIndex = 17;
-            this.boxDepartamento.TextChanged += new System.EventHandler(this.boxDepartamento_TextChanged);
             // 
             // groupBox3
             // 
@@ -252,17 +243,6 @@ namespace PalcoNet.Forms
             this.groupBox3.TabIndex = 45;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Empresa";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
-            // 
-            // boxCUIT
-            // 
-            this.boxCUIT.BackColor = System.Drawing.Color.Tomato;
-            this.boxCUIT.Location = new System.Drawing.Point(94, 73);
-            this.boxCUIT.Name = "boxCUIT";
-            this.boxCUIT.Padding = new System.Windows.Forms.Padding(1);
-            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIT.TabIndex = 26;
-            this.boxCUIT.Load += new System.EventHandler(this.boxCUIT_Load);
             // 
             // boxRazon
             // 
@@ -315,7 +295,6 @@ namespace PalcoNet.Forms
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "*Mail";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // groupBox4
             // 
@@ -329,7 +308,6 @@ namespace PalcoNet.Forms
             this.groupBox4.TabIndex = 47;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos de contacto";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // boxMail
             // 
@@ -339,7 +317,14 @@ namespace PalcoNet.Forms
             this.boxMail.Padding = new System.Windows.Forms.Padding(1);
             this.boxMail.Size = new System.Drawing.Size(150, 20);
             this.boxMail.TabIndex = 27;
-            this.boxMail.Load += new System.EventHandler(this.boxMail_Load);
+            // 
+            // boxCUIT
+            // 
+            this.boxCUIT.Location = new System.Drawing.Point(94, 70);
+            this.boxCUIT.Mask = "00-00000000-0";
+            this.boxCUIT.Name = "boxCUIT";
+            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIT.TabIndex = 55;
             // 
             // AltaEmpresaForm
             // 
@@ -385,7 +370,6 @@ namespace PalcoNet.Forms
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.TextBox boxDepartamento;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Extensiones.TextBoxRequerido boxCUIT;
         private Extensiones.TextBoxRequerido boxRazon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
@@ -394,5 +378,6 @@ namespace PalcoNet.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
         private TextBoxRequerido boxMail;
+        private System.Windows.Forms.MaskedTextBox boxCUIT;
     }
 }

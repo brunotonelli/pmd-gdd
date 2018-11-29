@@ -194,6 +194,7 @@
             this.botonLogout.TabIndex = 15;
             this.botonLogout.Text = "Cerrar sesión";
             this.botonLogout.UseVisualStyleBackColor = true;
+            this.botonLogout.Click += new System.EventHandler(this.botonLogout_Click);
             // 
             // botonCuenta
             // 
@@ -203,6 +204,7 @@
             this.botonCuenta.TabIndex = 16;
             this.botonCuenta.Text = "Cuenta";
             this.botonCuenta.UseVisualStyleBackColor = true;
+            this.botonCuenta.Click += new System.EventHandler(this.botonCuenta_Click);
             // 
             // labelRol
             // 

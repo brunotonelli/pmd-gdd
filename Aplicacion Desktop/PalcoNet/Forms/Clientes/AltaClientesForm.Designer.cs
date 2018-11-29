@@ -61,12 +61,12 @@ namespace PalcoNet.Forms
             this.label15 = new System.Windows.Forms.Label();
             this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxCUIL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.boxCUIL = new System.Windows.Forms.MaskedTextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -322,13 +322,13 @@ namespace PalcoNet.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.boxCUIL);
             this.groupBox1.Controls.Add(this.boxTipoDoc);
             this.groupBox1.Controls.Add(this.boxNroDoc);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.boxApellido);
             this.groupBox1.Controls.Add(this.boxNombre);
-            this.groupBox1.Controls.Add(this.boxCUIL);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.boxFecha);
             this.groupBox1.Controls.Add(this.label4);
@@ -405,13 +405,6 @@ namespace PalcoNet.Forms
             this.boxNombre.Size = new System.Drawing.Size(150, 20);
             this.boxNombre.TabIndex = 25;
             // 
-            // boxCUIL
-            // 
-            this.boxCUIL.Location = new System.Drawing.Point(83, 181);
-            this.boxCUIL.Name = "boxCUIL";
-            this.boxCUIL.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIL.TabIndex = 23;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -455,6 +448,14 @@ namespace PalcoNet.Forms
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "* Apellido";
+            // 
+            // boxCUIL
+            // 
+            this.boxCUIL.Location = new System.Drawing.Point(83, 181);
+            this.boxCUIL.Mask = "00-00000000-0";
+            this.boxCUIL.Name = "boxCUIL";
+            this.boxCUIL.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIL.TabIndex = 54;
             // 
             // AltaClientesForm
             // 
@@ -515,7 +516,6 @@ namespace PalcoNet.Forms
         private System.Windows.Forms.Label label15;
         private TextBoxRequerido boxApellido;
         private TextBoxRequerido boxNombre;
-        private System.Windows.Forms.TextBox boxCUIL;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker boxFecha;
         private System.Windows.Forms.Label label4;
@@ -523,5 +523,6 @@ namespace PalcoNet.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox boxTipoDoc;
         private System.Windows.Forms.ComboBox boxTipoTarjeta;
+        private System.Windows.Forms.MaskedTextBox boxCUIL;
     }
 }

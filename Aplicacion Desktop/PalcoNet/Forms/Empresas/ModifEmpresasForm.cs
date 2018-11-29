@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace PalcoNet.Forms.Empresas
+namespace PalcoNet.Forms
 {
     [System.ComponentModel.DefaultBindingProperty("Text")]
     public partial class ModifEmpresasForm : Form
@@ -27,9 +27,8 @@ namespace PalcoNet.Forms.Empresas
             BindearCampos();
 
             boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxCUIT.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
-     
+            boxCUIT.TextChanged += new EventHandler(ValidarRequeridos);
+            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);     
 
         }
 

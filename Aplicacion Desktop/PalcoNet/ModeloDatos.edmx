@@ -196,6 +196,8 @@
           <Property Name="Usuario_Intentos_Fallidos" Type="int" />
           <Property Name="Usuario_Rol" Type="char" MaxLength="3" />
           <Property Name="Usuario_Habilitado" Type="bit" />
+          <Property Name="Usuario_Autogenerado" Type="bit" />
+          <Property Name="Usuario_Inicios" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Cliente_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
@@ -317,15 +319,6 @@
           <EntitySet Name="Rol" EntityType="GD2C2018Model.Rol" />
           <EntitySet Name="Rubro" EntityType="GD2C2018Model.Rubro" />
           <EntitySet Name="Ubicacion" EntityType="GD2C2018Model.Ubicacion" />
-          <EntitySet Name="Usuario" EntityType="GD2C2018Model.Usuario" />
-          <AssociationSet Name="FK_Cliente_Usuario" Association="GD2C2018Model.FK_Cliente_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Cliente" EntitySet="Cliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Espec_Empresa_Usuario" Association="GD2C2018Model.FK_Espec_Empresa_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Espec_Empresa" EntitySet="Espec_Empresa" />
-          </AssociationSet>
           <AssociationSet Name="Func_Rol" Association="GD2C2018Model.Func_Rol">
             <End Role="Funcionalidad" EntitySet="Funcionalidad" />
             <End Role="Rol" EntitySet="Rol" />
@@ -337,7 +330,16 @@
             <End Role="Rubro" EntitySet="Rubro" />
             <End Role="Espectaculo" EntitySet="Espectaculo" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="Usuario" EntityType="GD2C2018Model.Usuario" />
+          <AssociationSet Name="FK_Cliente_Usuario" Association="GD2C2018Model.FK_Cliente_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Espec_Empresa_Usuario" Association="GD2C2018Model.FK_Espec_Empresa_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Espec_Empresa" EntitySet="Espec_Empresa" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Cli_Nro_Doc" />
@@ -481,42 +483,6 @@
           <Property Name="Ubicacion_Compra" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Ubicacion_Disponible" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="Usuario_Username" />
-          </Key>
-          <Property Name="Usuario_Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Usuario_Password" Type="Binary" MaxLength="64" FixedLength="true" />
-          <Property Name="Usuario_Intentos_Fallidos" Type="Int32" />
-          <Property Name="Usuario_Rol" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-          <Property Name="Usuario_Habilitado" Type="Boolean" />
-          <NavigationProperty Name="Cliente" Relationship="GD2C2018Model.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
-          <NavigationProperty Name="Espec_Empresa" Relationship="GD2C2018Model.FK_Espec_Empresa_Usuario" FromRole="Usuario" ToRole="Espec_Empresa" />
-        </EntityType>
-        <Association Name="FK_Cliente_Usuario">
-          <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="GD2C2018Model.Cliente" Role="Cliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="Usuario_Username" />
-            </Principal>
-            <Dependent Role="Cliente">
-              <PropertyRef Name="Cli_Usuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Espec_Empresa_Usuario">
-          <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="GD2C2018Model.Espec_Empresa" Role="Espec_Empresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="Usuario_Username" />
-            </Principal>
-            <Dependent Role="Espec_Empresa">
-              <PropertyRef Name="Espec_Empresa_Usuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Func_Rol">
           <End Type="GD2C2018Model.Funcionalidad" Role="Funcionalidad" Multiplicity="*" />
           <End Type="GD2C2018Model.Rol" Role="Rol" Multiplicity="*" />
@@ -567,6 +533,44 @@
             </Principal>
             <Dependent Role="Espectaculo">
               <PropertyRef Name="Espectaculo_Rubro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Usuario_Username" />
+          </Key>
+          <Property Name="Usuario_Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario_Password" Type="Binary" MaxLength="64" FixedLength="true" />
+          <Property Name="Usuario_Intentos_Fallidos" Type="Int32" />
+          <Property Name="Usuario_Rol" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Habilitado" Type="Boolean" />
+          <Property Name="Usuario_Autogenerado" Type="Boolean" />
+          <Property Name="Usuario_Inicios" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="GD2C2018Model.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
+          <NavigationProperty Name="Espec_Empresa" Relationship="GD2C2018Model.FK_Espec_Empresa_Usuario" FromRole="Usuario" ToRole="Espec_Empresa" />
+        </EntityType>
+        <Association Name="FK_Cliente_Usuario">
+          <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="GD2C2018Model.Cliente" Role="Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Cli_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Espec_Empresa_Usuario">
+          <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="GD2C2018Model.Espec_Empresa" Role="Espec_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Espec_Empresa">
+              <PropertyRef Name="Espec_Empresa_Usuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -722,17 +726,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="GD2C2018Model.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="Usuario_Habilitado" ColumnName="Usuario_Habilitado" />
-                <ScalarProperty Name="Usuario_Rol" ColumnName="Usuario_Rol" />
-                <ScalarProperty Name="Usuario_Intentos_Fallidos" ColumnName="Usuario_Intentos_Fallidos" />
-                <ScalarProperty Name="Usuario_Password" ColumnName="Usuario_Password" />
-                <ScalarProperty Name="Usuario_Username" ColumnName="Usuario_Username" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="Func_Rol" TypeName="GD2C2018Model.Func_Rol" StoreEntitySet="Func_Rol">
             <EndProperty Name="Rol">
               <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
@@ -777,6 +770,19 @@
                 <ScalarProperty Name="Espectaculo_Rubro" ColumnName="Espectaculo_Rubro" />
                 <ScalarProperty Name="Espectaculo_Descripcion" ColumnName="Espectaculo_Descripcion" />
                 <ScalarProperty Name="Espectaculo_Cod" ColumnName="Espectaculo_Cod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="GD2C2018Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Usuario_Inicios" ColumnName="Usuario_Inicios" />
+                <ScalarProperty Name="Usuario_Autogenerado" ColumnName="Usuario_Autogenerado" />
+                <ScalarProperty Name="Usuario_Habilitado" ColumnName="Usuario_Habilitado" />
+                <ScalarProperty Name="Usuario_Rol" ColumnName="Usuario_Rol" />
+                <ScalarProperty Name="Usuario_Intentos_Fallidos" ColumnName="Usuario_Intentos_Fallidos" />
+                <ScalarProperty Name="Usuario_Password" ColumnName="Usuario_Password" />
+                <ScalarProperty Name="Usuario_Username" ColumnName="Usuario_Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

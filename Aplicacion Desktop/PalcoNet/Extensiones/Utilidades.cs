@@ -14,5 +14,18 @@ namespace PalcoNet.Extensiones
             byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             return provider.ComputeHash(inputBytes);
         }
+
+        public static string GenerarContraseña(int length) {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[length];
+            var random = new Random();
+            for (int i = 0; i < stringChars.Length; i++)
+                stringChars[i] = chars[random.Next(chars.Length)];
+            return new string(stringChars);
+        }
+
+        public static string GenerarUsuario(int length) {
+            return Guid.NewGuid().ToString("n").Substring(0, length);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PalcoNet.Forms.Empresas
+﻿namespace PalcoNet.Forms
 {
     partial class ModifEmpresasForm
     {
@@ -52,10 +52,10 @@
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.boxCUIT = new System.Windows.Forms.MaskedTextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -289,15 +289,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Empresa";
             // 
-            // boxCUIT
-            // 
-            this.boxCUIT.BackColor = System.Drawing.Color.Tomato;
-            this.boxCUIT.Location = new System.Drawing.Point(94, 73);
-            this.boxCUIT.Name = "boxCUIT";
-            this.boxCUIT.Padding = new System.Windows.Forms.Padding(1);
-            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIT.TabIndex = 26;
-            // 
             // boxRazon
             // 
             this.boxRazon.BackColor = System.Drawing.Color.Tomato;
@@ -324,6 +315,14 @@
             this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "* CUIT";
+            // 
+            // boxCUIT
+            // 
+            this.boxCUIT.Location = new System.Drawing.Point(94, 70);
+            this.boxCUIT.Mask = "00-00000000-0";
+            this.boxCUIT.Name = "boxCUIT";
+            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIT.TabIndex = 56;
             // 
             // ModifEmpresasForm
             // 
@@ -375,9 +374,9 @@
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.TextBox boxDepartamento;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Extensiones.TextBoxRequerido boxCUIT;
         private Extensiones.TextBoxRequerido boxRazon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox boxCUIT;
     }
 }

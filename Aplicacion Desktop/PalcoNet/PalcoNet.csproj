@@ -72,6 +72,7 @@
     <Compile Include="Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\FormsEstaticos.cs" />
     <Compile Include="Extensiones\InfoSesion.cs" />
     <Compile Include="Extensiones\ListaFuncionalidades.cs">
       <SubType>UserControl</SubType>
@@ -186,6 +187,18 @@
     </Compile>
     <Compile Include="Forms\Historial Compras\HistorialComprasForm.Designer.cs">
       <DependentUpon>HistorialComprasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Usuario\CambiarContraseñaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario\CambiarContraseñaForm.Designer.cs">
+      <DependentUpon>CambiarContraseñaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Usuario\CuentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario\CuentaForm.Designer.cs">
+      <DependentUpon>CuentaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main\LoginForm.cs">
       <SubType>Form</SubType>
@@ -334,7 +347,6 @@
     <EmbeddedResource Include="Forms\Empresas\AltaEmpresaForm.resx">
       <DependentUpon>AltaEmpresaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Empresas\EmpresaForm.resx" />
     <EmbeddedResource Include="Forms\Empresas\EmpresasForm.resx">
       <DependentUpon>EmpresasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +364,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Historial Compras\HistorialComprasForm.resx">
       <DependentUpon>HistorialComprasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuario\CambiarContraseñaForm.resx">
+      <DependentUpon>CambiarContraseñaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuario\CuentaForm.resx">
+      <DependentUpon>CuentaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
