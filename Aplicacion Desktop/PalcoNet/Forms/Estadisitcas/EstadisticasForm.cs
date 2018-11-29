@@ -163,15 +163,15 @@ namespace PalcoNet.Forms
                 }
                 else//Empresas
                 {
-                    if (rb_Empresas.Checked = true)
+                    if (rb_Empresas.Checked == true)
                     {
                         try
                         {
                             string cadena = "SELECT e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social, PMD.localidadesTotales(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ")-PMD.localidadesVendidas(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ") AS Sobrante FROM PMD.Espec_Empresa e ORDER BY e.Espec_Empresa_Razon_Social, PMD.localidadesTotales(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ")-PMD.localidadesVendidas(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ") DESC";
 
-                            
+
                             var wea = context.Database
-                            .SqlQuery<EmpEstadistico>("SELECT TOP 5 e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social, PMD.localidadesTotales(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ")-PMD.localidadesVendidas(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ") AS Sobrante FROM PMD.Espec_Empresa e ORDER BY e.Espec_Empresa_Razon_Social, PMD.localidadesTotales(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ")-PMD.localidadesVendidas(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ") DESC")
+                            .SqlQuery<EmpEstadistico>("SELECT TOP 5 e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social, PMD.localidadesTotales(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ")-PMD.localidadesVendidas(e.Espec_Empresa_Cuit," + txt_Ano.Text + "," + cb_Trimestre.Text + ") AS Sobrante FROM PMD.Espec_Empresa e ORDER BY 3 DESC")
                             .ToList();
 
 
@@ -179,7 +179,8 @@ namespace PalcoNet.Forms
 
                         }
 
-                        catch(Exception ex){
+                        catch (Exception ex)
+                        {
                             Console.WriteLine(ex);
 
                         }
