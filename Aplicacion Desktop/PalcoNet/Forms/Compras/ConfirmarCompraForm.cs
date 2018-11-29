@@ -59,6 +59,7 @@ namespace PalcoNet.Forms
                 Total += u.Precio;
                 labelCantidad.Text = Cantidad.ToString();
                 labelTotal.Text = "$ " + Total.ToString();
+                ActualizarPuntos();
             }
             else
             {
@@ -76,6 +77,7 @@ namespace PalcoNet.Forms
             Total -= u.Precio;
             labelCantidad.Text = Cantidad.ToString();
             labelTotal.Text = "$ " + Total.ToString();
+            ActualizarPuntos();
         }
 
         private void botonConfirmar_Click(object sender, EventArgs e) {
@@ -86,47 +88,14 @@ namespace PalcoNet.Forms
         }
 
         private void ConfirmarCompra() {
-            
             using (var context = new GD2C2018Entities())
             {
-                var cliente = (from c in context.Cliente
-                                  where c.Cli_Usuario == InfoSesion.Usuario.Usuario_Username
-                                  select new
-                                  {
-                                      tipo = c.Cli_Tipo_Doc,
-                                      numero = c.Cli_Nro_Doc
-                                  }).FirstOrDefault();
-                if (cliente == null)
-                    cliente = new { tipo = "DNI", numero = 0.0m };
-
-                Compra compra = new Compra
-                {
-                    Compra_Fecha = Properties.Settings.Default.FechaActual,
-                    Compra_Cantidad = Cantidad,
-                    Compra_Forma_Pago = boxFormaPago.SelectedItem.ToString(),
-                    Compra_Tipo_Doc_Cliente = cliente.tipo,
-                    Compra_Num_Doc_Cliente = cliente.numero,
-                    Compra_Total = Total,
-                    Compra_Publicacion = Publicacion.ID,
-                    Compra_Facturada = false
-                };
-
+                Compra compra = GetCompra(context);
                 context.Entry(compra).State = System.Data.Entity.EntityState.Added;
-
-                foreach(UbicacionModel u in sourceSeleccionados.List)
-                {
-                    var ubicacion = (from ub in context.Ubicacion
-                                     where ub.Ubicacion_Publicacion == Publicacion.ID
-                                     && ub.Ubicacion_Asiento == u.Asiento
-                                     && ub.Ubicacion_Fila == u.Fila
-                                     select ub).FirstOrDefault();
-                    ubicacion.Ubicacion_Disponible = false;
-                    context.Entry(ubicacion).State = System.Data.Entity.EntityState.Modified;
-                }
-
+                GuardarUbicaciones(context);
+                GuardarPuntos(context, compra.Compra_Fecha);
                 context.SaveChanges();
             }
-
             MessageBox.Show("La empresa de espectaculos le enviará la factura", "Compra realizada con éxito", MessageBoxButtons.OK);
             this.Close();
         }
@@ -138,6 +107,48 @@ namespace PalcoNet.Forms
                 if (ubic.Disponible) row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
                 else row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
             }
+        }
+
+        private void GuardarUbicaciones(GD2C2018Entities context) {
+            foreach (UbicacionModel u in sourceSeleccionados.List)
+            {
+                var ubicacion = (from ub in context.Ubicacion
+                                 where ub.Ubicacion_Publicacion == Publicacion.ID
+                                 && ub.Ubicacion_Asiento == u.Asiento
+                                 && ub.Ubicacion_Fila == u.Fila
+                                 select ub).FirstOrDefault();
+                ubicacion.Ubicacion_Disponible = false;
+                context.Entry(ubicacion).State = System.Data.Entity.EntityState.Modified;
+            }
+        }
+
+        private void GuardarPuntos(GD2C2018Entities context, DateTime fecha) {
+            Puntos puntos = new Puntos
+            {
+                Puntos_Cantidad = (int)(Total * 0.35m),
+                Puntos_Tipo_Doc_Cliente = InfoSesion.TipoDocumento,
+                Puntos_Num_Doc_Cliente = InfoSesion.NroDocumento,
+                Puntos_Vencimiento = fecha.AddMonths(6)
+            };
+            context.Entry(puntos).State = System.Data.Entity.EntityState.Added;
+        }
+
+        private void ActualizarPuntos() {
+            labelPuntos.Text = ((int)(Total * 0.35m)).ToString();
+        }
+
+        private Compra GetCompra(GD2C2018Entities context) {
+            return new Compra
+            {
+                Compra_Fecha = Properties.Settings.Default.FechaActual,
+                Compra_Cantidad = Cantidad,
+                Compra_Forma_Pago = boxFormaPago.SelectedItem.ToString(),
+                Compra_Tipo_Doc_Cliente = InfoSesion.TipoDocumento,
+                Compra_Num_Doc_Cliente = InfoSesion.NroDocumento,
+                Compra_Total = Total,
+                Compra_Publicacion = Publicacion.ID,
+                Compra_Facturada = false
+            };
         }
     }
 }

@@ -30,12 +30,6 @@
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.boxFormaPago = new System.Windows.Forms.ComboBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,18 +38,26 @@
             this.labelCantidad = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.gridSeleccionados = new System.Windows.Forms.DataGridView();
+            this.botonSeleccionar = new System.Windows.Forms.Button();
+            this.botonDeseleccionar = new System.Windows.Forms.Button();
+            this.labelPuntos2 = new System.Windows.Forms.Label();
+            this.labelPuntos = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceSeleccionados = new System.Windows.Forms.BindingSource(this.components);
-            this.botonSeleccionar = new System.Windows.Forms.Button();
-            this.botonDeseleccionar = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourceSeleccionados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // boxFecha
@@ -104,45 +106,6 @@
             this.dataGrid.Size = new System.Drawing.Size(342, 218);
             this.dataGrid.TabIndex = 3;
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Fila";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Fila";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Asiento";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Asiento";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Enumerado";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Enumerado";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Precio";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Tipo";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Tipo";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // sourceUbicaciones
-            // 
-            this.sourceUbicaciones.DataSource = typeof(PalcoNet.Model.UbicacionModel);
             // 
             // label1
             // 
@@ -239,6 +202,53 @@
             this.gridSeleccionados.Size = new System.Drawing.Size(342, 218);
             this.gridSeleccionados.TabIndex = 11;
             // 
+            // botonSeleccionar
+            // 
+            this.botonSeleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
+            this.botonSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.botonSeleccionar.Enabled = false;
+            this.botonSeleccionar.Location = new System.Drawing.Point(360, 99);
+            this.botonSeleccionar.Name = "botonSeleccionar";
+            this.botonSeleccionar.Size = new System.Drawing.Size(63, 34);
+            this.botonSeleccionar.TabIndex = 12;
+            this.botonSeleccionar.UseVisualStyleBackColor = true;
+            this.botonSeleccionar.Click += new System.EventHandler(this.botonSeleccionar_Click);
+            // 
+            // botonDeseleccionar
+            // 
+            this.botonDeseleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaIzq;
+            this.botonDeseleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.botonDeseleccionar.Enabled = false;
+            this.botonDeseleccionar.Location = new System.Drawing.Point(360, 139);
+            this.botonDeseleccionar.Name = "botonDeseleccionar";
+            this.botonDeseleccionar.Size = new System.Drawing.Size(63, 35);
+            this.botonDeseleccionar.TabIndex = 13;
+            this.botonDeseleccionar.UseVisualStyleBackColor = true;
+            this.botonDeseleccionar.Click += new System.EventHandler(this.botonDeseleccionar_Click);
+            // 
+            // labelPuntos2
+            // 
+            this.labelPuntos2.AutoSize = true;
+            this.labelPuntos2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPuntos2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.labelPuntos2.Location = new System.Drawing.Point(425, 330);
+            this.labelPuntos2.Name = "labelPuntos2";
+            this.labelPuntos2.Size = new System.Drawing.Size(347, 24);
+            this.labelPuntos2.TabIndex = 14;
+            this.labelPuntos2.Text = "Esta compra generaría                  puntos";
+            this.labelPuntos2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPuntos
+            // 
+            this.labelPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPuntos.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.labelPuntos.Location = new System.Drawing.Point(622, 330);
+            this.labelPuntos.Name = "labelPuntos";
+            this.labelPuntos.Size = new System.Drawing.Size(85, 24);
+            this.labelPuntos.TabIndex = 15;
+            this.labelPuntos.Text = "0";
+            this.labelPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "Fila";
@@ -278,35 +288,52 @@
             // 
             this.sourceSeleccionados.DataSource = typeof(PalcoNet.Model.UbicacionModel);
             // 
-            // botonSeleccionar
+            // dataGridViewTextBoxColumn11
             // 
-            this.botonSeleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
-            this.botonSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonSeleccionar.Enabled = false;
-            this.botonSeleccionar.Location = new System.Drawing.Point(360, 99);
-            this.botonSeleccionar.Name = "botonSeleccionar";
-            this.botonSeleccionar.Size = new System.Drawing.Size(63, 34);
-            this.botonSeleccionar.TabIndex = 12;
-            this.botonSeleccionar.UseVisualStyleBackColor = true;
-            this.botonSeleccionar.Click += new System.EventHandler(this.botonSeleccionar_Click);
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Fila";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Fila";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
-            // botonDeseleccionar
+            // dataGridViewTextBoxColumn12
             // 
-            this.botonDeseleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaIzq;
-            this.botonDeseleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonDeseleccionar.Enabled = false;
-            this.botonDeseleccionar.Location = new System.Drawing.Point(360, 139);
-            this.botonDeseleccionar.Name = "botonDeseleccionar";
-            this.botonDeseleccionar.Size = new System.Drawing.Size(63, 35);
-            this.botonDeseleccionar.TabIndex = 13;
-            this.botonDeseleccionar.UseVisualStyleBackColor = true;
-            this.botonDeseleccionar.Click += new System.EventHandler(this.botonDeseleccionar_Click);
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Asiento";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Asiento";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Enumerado";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Enumerado";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Precio";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Precio";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Tipo";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // sourceUbicaciones
+            // 
+            this.sourceUbicaciones.DataSource = typeof(PalcoNet.Model.UbicacionModel);
             // 
             // ConfirmarCompraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 329);
+            this.ClientSize = new System.Drawing.Size(783, 366);
+            this.Controls.Add(this.labelPuntos);
+            this.Controls.Add(this.labelPuntos2);
             this.Controls.Add(this.botonDeseleccionar);
             this.Controls.Add(this.botonSeleccionar);
             this.Controls.Add(this.gridSeleccionados);
@@ -323,9 +350,9 @@
             this.Name = "ConfirmarCompraForm";
             this.Text = "ConfirmarCompraForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourceSeleccionados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,5 +385,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.Label labelPuntos2;
+        private System.Windows.Forms.Label labelPuntos;
     }
 }
