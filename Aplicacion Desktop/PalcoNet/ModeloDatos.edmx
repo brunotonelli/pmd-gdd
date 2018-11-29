@@ -263,6 +263,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="localidadesTotales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="PMD" ReturnType="int">
+          <Parameter Name="idEmpresa" Type="nvarchar" Mode="In" />
+          <Parameter Name="ano" Type="int" Mode="In" />
+          <Parameter Name="trimestre" Type="int" Mode="In" />
+        </Function>
+        <Function Name="localidadesVendidas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="PMD" ReturnType="int">
+          <Parameter Name="idEmpresa" Type="nvarchar" Mode="In" />
+          <Parameter Name="ano" Type="int" Mode="In" />
+          <Parameter Name="trimestre" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="GD2C2018ModelStoreContainer">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Compra" EntityType="Self.Compra" Schema="PMD" store:Type="Tables" />

@@ -7,8 +7,7 @@ using System.Windows.Forms;
 
 namespace PalcoNet.Extensiones
 {
-    public static class MetodosExtension
-    {
+    public static class MetodosExtension {
 
         //bindear textboxs y datepickers, por default se bindea a propiedad text (de textbox)
         public static void Bindear(this Control control, object objeto, string columna, string propiedad = "Text", DataSourceUpdateMode modo = DataSourceUpdateMode.OnPropertyChanged) {
@@ -42,7 +41,7 @@ namespace PalcoNet.Extensiones
 
         public static bool Contains(this string source, string toCheck, StringComparison comp) {
             //         return source?.IndexOf(toCheck, comp) >= 0;     
-            
+
             return source.IndexOf(toCheck, comp) >= 0;
         }
 
@@ -61,6 +60,10 @@ namespace PalcoNet.Extensiones
                 if (a[i] != b[i])
                     return false;
             return true;
+        }
+    
+        public static int Trimestre(this DateTime d) {
+            return (int)Math.Floor((d.Month + 2) / 3.0);
         }
 
     }

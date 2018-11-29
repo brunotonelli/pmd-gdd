@@ -73,6 +73,7 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensiones\FormsEstaticos.cs" />
+    <Compile Include="Extensiones\FuncionesSQL.cs" />
     <Compile Include="Extensiones\InfoSesion.cs" />
     <Compile Include="Extensiones\ListaFuncionalidades.cs">
       <SubType>UserControl</SubType>
