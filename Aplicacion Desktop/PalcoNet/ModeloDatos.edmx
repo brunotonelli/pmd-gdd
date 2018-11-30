@@ -139,10 +139,12 @@
             <PropertyRef Name="Pre_Cli_Tipo_Doc" />
             <PropertyRef Name="Pre_Cli_Nro_Doc" />
             <PropertyRef Name="Pre_Premio_ID" />
+            <PropertyRef Name="Pre_Cli_Canje_ID" />
           </Key>
           <Property Name="Pre_Cli_Tipo_Doc" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Pre_Cli_Nro_Doc" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Pre_Premio_ID" Type="int" Nullable="false" />
+          <Property Name="Pre_Cli_Canje_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Publicacion">
           <Key>
@@ -162,10 +164,10 @@
             <PropertyRef Name="Puntos_ID" />
           </Key>
           <Property Name="Puntos_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Puntos_Cantidad" Type="int" />
-          <Property Name="Puntos_Vencimiento" Type="datetime" />
+          <Property Name="Puntos_Cantidad" Type="int" Nullable="false" />
+          <Property Name="Puntos_Vencimiento" Type="datetime" Nullable="false" />
           <Property Name="Puntos_Tipo_Doc_Cliente" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Puntos_Num_Doc_Cliente" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Puntos_Num_Doc_Cliente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Rol">
           <Key>
@@ -353,7 +355,6 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Espec_Empresa" EntitySet="Espec_Empresa" />
           </AssociationSet>
-          <EntitySet Name="Puntos" EntityType="GD2C2018Model.Puntos" />
           <EntitySet Name="Cliente" EntityType="GD2C2018Model.Cliente" />
           <EntitySet Name="Premio" EntityType="GD2C2018Model.Premio" />
           <EntitySet Name="Premio_X_Cliente" EntityType="GD2C2018Model.Premio_X_Cliente" />
@@ -361,6 +362,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
+          <EntitySet Name="Puntos" EntityType="GD2C2018Model.Puntos" />
           </EntityContainer>
         <EntityType Name="Espec_Empresa">
           <Key>
@@ -538,16 +540,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Puntos">
-          <Key>
-            <PropertyRef Name="Puntos_ID" />
-          </Key>
-          <Property Name="Puntos_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Puntos_Cantidad" Type="Int32" />
-          <Property Name="Puntos_Vencimiento" Type="DateTime" Precision="3" />
-          <Property Name="Puntos_Tipo_Doc_Cliente" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Puntos_Num_Doc_Cliente" Type="Decimal" Precision="10" Scale="0" />
-        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Cli_Nro_Doc" />
@@ -589,10 +581,12 @@
             <PropertyRef Name="Pre_Cli_Tipo_Doc" />
             <PropertyRef Name="Pre_Cli_Nro_Doc" />
             <PropertyRef Name="Pre_Premio_ID" />
+            <PropertyRef Name="Pre_Cli_Canje_ID" />
           </Key>
           <Property Name="Pre_Cli_Tipo_Doc" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Pre_Cli_Nro_Doc" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
           <Property Name="Pre_Premio_ID" Type="Int32" Nullable="false" />
+          <Property Name="Pre_Cli_Canje_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK_Cliente_Usuario">
           <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
@@ -606,6 +600,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Puntos">
+          <Key>
+            <PropertyRef Name="Puntos_ID" />
+          </Key>
+          <Property Name="Puntos_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Puntos_Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Puntos_Vencimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Puntos_Tipo_Doc_Cliente" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Puntos_Num_Doc_Cliente" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -771,17 +775,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Puntos">
-            <EntityTypeMapping TypeName="GD2C2018Model.Puntos">
-              <MappingFragment StoreEntitySet="Puntos">
-                <ScalarProperty Name="Puntos_Num_Doc_Cliente" ColumnName="Puntos_Num_Doc_Cliente" />
-                <ScalarProperty Name="Puntos_Tipo_Doc_Cliente" ColumnName="Puntos_Tipo_Doc_Cliente" />
-                <ScalarProperty Name="Puntos_Vencimiento" ColumnName="Puntos_Vencimiento" />
-                <ScalarProperty Name="Puntos_Cantidad" ColumnName="Puntos_Cantidad" />
-                <ScalarProperty Name="Puntos_ID" ColumnName="Puntos_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="GD2C2018Model.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
@@ -821,9 +814,21 @@
           <EntitySetMapping Name="Premio_X_Cliente">
             <EntityTypeMapping TypeName="GD2C2018Model.Premio_X_Cliente">
               <MappingFragment StoreEntitySet="Premio_X_Cliente">
+                <ScalarProperty Name="Pre_Cli_Canje_ID" ColumnName="Pre_Cli_Canje_ID" />
                 <ScalarProperty Name="Pre_Premio_ID" ColumnName="Pre_Premio_ID" />
                 <ScalarProperty Name="Pre_Cli_Nro_Doc" ColumnName="Pre_Cli_Nro_Doc" />
                 <ScalarProperty Name="Pre_Cli_Tipo_Doc" ColumnName="Pre_Cli_Tipo_Doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Puntos">
+            <EntityTypeMapping TypeName="GD2C2018Model.Puntos">
+              <MappingFragment StoreEntitySet="Puntos">
+                <ScalarProperty Name="Puntos_Num_Doc_Cliente" ColumnName="Puntos_Num_Doc_Cliente" />
+                <ScalarProperty Name="Puntos_Tipo_Doc_Cliente" ColumnName="Puntos_Tipo_Doc_Cliente" />
+                <ScalarProperty Name="Puntos_Vencimiento" ColumnName="Puntos_Vencimiento" />
+                <ScalarProperty Name="Puntos_Cantidad" ColumnName="Puntos_Cantidad" />
+                <ScalarProperty Name="Puntos_ID" ColumnName="Puntos_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

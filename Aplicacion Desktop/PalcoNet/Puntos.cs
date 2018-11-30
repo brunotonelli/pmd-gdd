@@ -15,9 +15,9 @@ namespace PalcoNet
     public partial class Puntos
     {
         public decimal Puntos_ID { get; set; }
-        public Nullable<int> Puntos_Cantidad { get; set; }
-        public Nullable<System.DateTime> Puntos_Vencimiento { get; set; }
+        public int Puntos_Cantidad { get; set; }
+        public System.DateTime Puntos_Vencimiento { get; set; }
         public string Puntos_Tipo_Doc_Cliente { get; set; }
-        public Nullable<decimal> Puntos_Num_Doc_Cliente { get; set; }
+        public decimal Puntos_Num_Doc_Cliente { get; set; }
     }
 }

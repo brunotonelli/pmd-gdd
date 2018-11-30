@@ -51,35 +51,23 @@ namespace PalcoNet.Forms
                 }
                 if (rb_PuntosCliente.Checked == true)
                 {
-                    string fecha="";
-                    string qwery;
-                    switch(cb_Trimestre.SelectedIndex){
-                        case 0:
-                            {
-                                fecha=txt_Ano.Text+"-03-31 00:00:00.000";
-                                break;
-                            }
-                        case 1:
-                            {
-                                fecha=txt_Ano.Text+"-06-30 00:00:00.000";
-                                break;
-                            }
-                        case 2:
-                            {
-                                fecha=txt_Ano.Text+"-09-30 00:00:00.000";
-                                break;
-                            }
-                        default:
-                            {
-                                fecha=txt_Ano.Text+"-12-31 00:00:00.000";
-                                break;
-                            }
-                    }
-                    qwery = "SELECT TOP 5 p.Puntos_Tipo_Doc_Cliente,p.Puntos_Num_Doc_Cliente,SUM(p.Puntos_Cantidad) AS Puntos FROM PMD.Puntos p  WHERE  Puntos_Vencimiento <='" + fecha + "' GROUP BY p.Puntos_Num_Doc_Cliente,p.Puntos_Tipo_Doc_Cliente ORDER BY 2 DESC";
-                    var wea = context.Database
-                        .SqlQuery<PuntosVencidosModel>(qwery)
-                        .ToList();
-                    dg_WEA.DataSource = wea;
+                    var query = from pun in context.Puntos
+                                join cli in context.Cliente on
+                                new { t = pun.Puntos_Tipo_Doc_Cliente, n = pun.Puntos_Num_Doc_Cliente }
+                                equals new { t = cli.Cli_Tipo_Doc, n = cli.Cli_Nro_Doc }
+                                where pun.Puntos_Vencimiento.Year < año ||
+                                      pun.Puntos_Vencimiento.Year == año &&
+                                      SqlFunctions.DatePart("QUARTER", pun.Puntos_Vencimiento) <= trimestre
+                                group new { pun.Puntos_Cantidad } by new { cli.Cli_Tipo_Doc, cli.Cli_Nro_Doc, cli.Cli_Nombre, cli.Cli_Apellido }
+                                into reg
+                                select new
+                                {
+                                    Nombre = reg.Key.Cli_Nombre,
+                                    Apellido = reg.Key.Cli_Apellido,
+                                    Puntos = reg.Sum(x => x.Puntos_Cantidad)
+                                };
+
+                    dg_WEA.DataSource = query.OrderByDescending(x => x.Puntos).Take(5).ToList();
                 }
                 else//Empresas
                 {
@@ -94,6 +82,7 @@ namespace PalcoNet.Forms
                 }
             }
         }
+
         private void rb_Empresas_CheckedChanged(object sender, EventArgs e)
         {
             rb_ComprasCliente.Checked = false;

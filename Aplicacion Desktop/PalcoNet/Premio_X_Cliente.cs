@@ -17,5 +17,6 @@ namespace PalcoNet
         public string Pre_Cli_Tipo_Doc { get; set; }
         public decimal Pre_Cli_Nro_Doc { get; set; }
         public int Pre_Premio_ID { get; set; }
+        public int Pre_Cli_Canje_ID { get; set; }
     }
 }

@@ -89,7 +89,7 @@ namespace PalcoNet.Forms
             {
                 Puntos puntosACanjear = PuntosValidos.OrderBy(p => p.Puntos_Vencimiento).FirstOrDefault();
 
-                int disponibles = puntosACanjear.Puntos_Cantidad.Value;
+                int disponibles = puntosACanjear.Puntos_Cantidad;
 
                 puntosACanjear.Puntos_Cantidad -= puntosAux;
                 puntosAux -= disponibles;
@@ -109,7 +109,7 @@ namespace PalcoNet.Forms
         }
 
         private void ActualizarLabels() {
-            Totales = PuntosValidos.Sum(p => p.Puntos_Cantidad) ?? 0;
+            Totales = PuntosValidos.Sum(p => p.Puntos_Cantidad);
             labelPuntos.Text = Totales.ToString();
             labelVencidos.Text = PuntosVencidos.Sum(p => p.Puntos_Cantidad).ToString();
         }
