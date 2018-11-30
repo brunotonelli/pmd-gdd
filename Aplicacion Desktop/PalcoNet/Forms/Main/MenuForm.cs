@@ -93,5 +93,10 @@ namespace PalcoNet.Forms
             new CuentaForm().Show();
             this.Close();
         }
+
+        private void botonPuntos_Click(object sender, EventArgs e) {
+            new PuntosForm().Show();
+            this.Close();
+        }
     }
 }

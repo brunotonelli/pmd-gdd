@@ -82,6 +82,12 @@
       <DependentUpon>ListaFuncionalidades.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensiones\MetodosExtension.cs" />
+    <Compile Include="Extensiones\PremioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extensiones\PremioControl.Designer.cs">
+      <DependentUpon>PremioControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensiones\TextBoxRequerido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +173,18 @@
     </Compile>
     <Compile Include="Forms\Estadisitcas\EstadisticasForm.Designer.cs">
       <DependentUpon>EstadisticasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Premios\CanjearPremioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Premios\CanjearPremioForm.Designer.cs">
+      <DependentUpon>CanjearPremioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Premios\PuntosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Premios\PuntosForm.Designer.cs">
+      <DependentUpon>PuntosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Grados\AltaGrado.cs">
       <SubType>Form</SubType>
@@ -294,9 +312,13 @@
     <Compile Include="Model\HistorialModel.cs" />
     <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Model\CompraModel.cs" />
+    <Compile Include="Model\PremioEventoModel.cs" />
     <Compile Include="Model\PublicacionModel.cs" />
     <Compile Include="Model\UbicacionModel.cs" />
     <Compile Include="Premio.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Premio_X_Cliente.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -321,6 +343,9 @@
     </Compile>
     <EmbeddedResource Include="Extensiones\ListaFuncionalidades.resx">
       <DependentUpon>ListaFuncionalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensiones\PremioControl.resx">
+      <DependentUpon>PremioControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extensiones\TextBoxRequerido.resx">
       <DependentUpon>TextBoxRequerido.cs</DependentUpon>
@@ -360,6 +385,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Estadisitcas\EstadisticasForm.resx">
       <DependentUpon>EstadisticasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Premios\CanjearPremioForm.resx">
+      <DependentUpon>CanjearPremioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Premios\PuntosForm.resx">
+      <DependentUpon>PuntosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Grados\AltaGrado.resx">
       <DependentUpon>AltaGrado.cs</DependentUpon>

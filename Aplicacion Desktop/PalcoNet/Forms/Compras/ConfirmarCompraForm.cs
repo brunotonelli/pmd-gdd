@@ -79,7 +79,7 @@ namespace PalcoNet.Forms
             labelTotal.Text = "$ " + Total.ToString();
             ActualizarPuntos();
         }
-
+        
         private void botonConfirmar_Click(object sender, EventArgs e) {
             string mensaje = string.Format("¿Desea confirmar la compra de las {0} ubicaciones seleccionadas?", Cantidad);
             DialogResult ok = MessageBox.Show(mensaje, "Confirmar compra", MessageBoxButtons.YesNo);

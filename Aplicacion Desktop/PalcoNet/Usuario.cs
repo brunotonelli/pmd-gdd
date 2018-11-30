@@ -16,8 +16,8 @@ namespace PalcoNet
     {
         public Usuario()
         {
-            this.Cliente = new HashSet<Cliente>();
             this.Espec_Empresa = new HashSet<Espec_Empresa>();
+            this.Cliente = new HashSet<Cliente>();
         }
     
         public string Usuario_Username { get; set; }
@@ -28,7 +28,7 @@ namespace PalcoNet
         public Nullable<bool> Usuario_Autogenerado { get; set; }
         public int Usuario_Inicios { get; set; }
     
-        public virtual ICollection<Cliente> Cliente { get; set; }
         public virtual ICollection<Espec_Empresa> Espec_Empresa { get; set; }
+        public virtual ICollection<Cliente> Cliente { get; set; }
     }
 }

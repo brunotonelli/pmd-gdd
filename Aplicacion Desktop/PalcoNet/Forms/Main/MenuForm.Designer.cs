@@ -144,6 +144,7 @@
             this.botonPuntos.TabIndex = 8;
             this.botonPuntos.Text = "Administración de Puntos";
             this.botonPuntos.UseVisualStyleBackColor = true;
+            this.botonPuntos.Click += new System.EventHandler(this.botonPuntos_Click);
             // 
             // botonComisiones
             // 

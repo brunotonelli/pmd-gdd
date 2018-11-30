@@ -128,11 +128,21 @@
           <Key>
             <PropertyRef Name="Premio_ID" />
           </Key>
-          <Property Name="Premio_ID" Type="int" Nullable="false" />
+          <Property Name="Premio_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Premio_Nombre" Type="nchar" MaxLength="100" />
           <Property Name="Premio_Descripcion" Type="nvarchar" MaxLength="255" />
           <Property Name="Premio_Puntos_Necesarios" Type="int" />
-          <Property Name="Premio_Vencimiento" Type="datetime" />
+          <Property Name="Premio_Imagen" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Premio_X_Cliente">
+          <Key>
+            <PropertyRef Name="Pre_Cli_Tipo_Doc" />
+            <PropertyRef Name="Pre_Cli_Nro_Doc" />
+            <PropertyRef Name="Pre_Premio_ID" />
+          </Key>
+          <Property Name="Pre_Cli_Tipo_Doc" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Pre_Cli_Nro_Doc" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Pre_Premio_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Publicacion">
           <Key>
@@ -285,6 +295,7 @@
           <EntitySet Name="Grado_Publicacion" EntityType="Self.Grado_Publicacion" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Item_Factura" EntityType="Self.Item_Factura" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Premio" EntityType="Self.Premio" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Premio_X_Cliente" EntityType="Self.Premio_X_Cliente" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Publicacion" EntityType="Self.Publicacion" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Puntos" EntityType="Self.Puntos" Schema="PMD" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="PMD" store:Type="Tables" />
@@ -317,14 +328,12 @@
     <edmx:ConceptualModels>
       <Schema Namespace="GD2C2018Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GD2C2018Entities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Cliente" EntityType="GD2C2018Model.Cliente" />
           <EntitySet Name="Espec_Empresa" EntityType="GD2C2018Model.Espec_Empresa" />
           <EntitySet Name="Estado" EntityType="GD2C2018Model.Estado" />
           <EntitySet Name="Factura" EntityType="GD2C2018Model.Factura" />
           <EntitySet Name="Funcionalidad" EntityType="GD2C2018Model.Funcionalidad" />
           <EntitySet Name="Grado_Publicacion" EntityType="GD2C2018Model.Grado_Publicacion" />
           <EntitySet Name="Item_Factura" EntityType="GD2C2018Model.Item_Factura" />
-          <EntitySet Name="Premio" EntityType="GD2C2018Model.Premio" />
           <EntitySet Name="Rol" EntityType="GD2C2018Model.Rol" />
           <EntitySet Name="Rubro" EntityType="GD2C2018Model.Rubro" />
           <EntitySet Name="Ubicacion" EntityType="GD2C2018Model.Ubicacion" />
@@ -340,42 +349,19 @@
             <End Role="Espectaculo" EntitySet="Espectaculo" />
           </AssociationSet>
           <EntitySet Name="Usuario" EntityType="GD2C2018Model.Usuario" />
-          <AssociationSet Name="FK_Cliente_Usuario" Association="GD2C2018Model.FK_Cliente_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Cliente" EntitySet="Cliente" />
-          </AssociationSet>
           <AssociationSet Name="FK_Espec_Empresa_Usuario" Association="GD2C2018Model.FK_Espec_Empresa_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Espec_Empresa" EntitySet="Espec_Empresa" />
           </AssociationSet>
           <EntitySet Name="Puntos" EntityType="GD2C2018Model.Puntos" />
+          <EntitySet Name="Cliente" EntityType="GD2C2018Model.Cliente" />
+          <EntitySet Name="Premio" EntityType="GD2C2018Model.Premio" />
+          <EntitySet Name="Premio_X_Cliente" EntityType="GD2C2018Model.Premio_X_Cliente" />
+          <AssociationSet Name="FK_Cliente_Usuario" Association="GD2C2018Model.FK_Cliente_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
           </EntityContainer>
-        <EntityType Name="Cliente">
-          <Key>
-            <PropertyRef Name="Cli_Nro_Doc" />
-            <PropertyRef Name="Cli_Tipo_Doc" />
-          </Key>
-          <Property Name="Cli_Nro_Doc" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
-          <Property Name="Cli_Tipo_Doc" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Fecha_Nac" Type="DateTime" Precision="3" />
-          <Property Name="Cli_Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Dom_Calle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Nro_Calle" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Cli_Piso" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Cli_Depto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Cod_Postal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_CUIL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Telefono" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Localidad" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Fecha_Alta" Type="DateTime" Precision="3" />
-          <Property Name="Cli_Tarjeta_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Tarjeta_Tipo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cli_Habilitado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Usuario" Relationship="GD2C2018Model.FK_Cliente_Usuario" FromRole="Cliente" ToRole="Usuario" />
-        </EntityType>
         <EntityType Name="Espec_Empresa">
           <Key>
             <PropertyRef Name="Espec_Empresa_Cuit" />
@@ -440,16 +426,6 @@
           <Property Name="Item_Factura_Cantidad" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Item_Factura_Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="Item_Factura_Compra" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="Premio">
-          <Key>
-            <PropertyRef Name="Premio_ID" />
-          </Key>
-          <Property Name="Premio_ID" Type="Int32" Nullable="false" />
-          <Property Name="Premio_Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="Premio_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Premio_Puntos_Necesarios" Type="Int32" />
-          <Property Name="Premio_Vencimiento" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Rol">
           <Key>
@@ -547,21 +523,9 @@
           <Property Name="Usuario_Habilitado" Type="Boolean" />
           <Property Name="Usuario_Autogenerado" Type="Boolean" />
           <Property Name="Usuario_Inicios" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="GD2C2018Model.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
           <NavigationProperty Name="Espec_Empresa" Relationship="GD2C2018Model.FK_Espec_Empresa_Usuario" FromRole="Usuario" ToRole="Espec_Empresa" />
+          <NavigationProperty Name="Cliente" Relationship="GD2C2018Model.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
         </EntityType>
-        <Association Name="FK_Cliente_Usuario">
-          <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="GD2C2018Model.Cliente" Role="Cliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="Usuario_Username" />
-            </Principal>
-            <Dependent Role="Cliente">
-              <PropertyRef Name="Cli_Usuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Espec_Empresa_Usuario">
           <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
           <End Type="GD2C2018Model.Espec_Empresa" Role="Espec_Empresa" Multiplicity="*" />
@@ -584,37 +548,70 @@
           <Property Name="Puntos_Tipo_Doc_Cliente" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Puntos_Num_Doc_Cliente" Type="Decimal" Precision="10" Scale="0" />
         </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Cli_Nro_Doc" />
+            <PropertyRef Name="Cli_Tipo_Doc" />
+          </Key>
+          <Property Name="Cli_Nro_Doc" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="Cli_Tipo_Doc" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Fecha_Nac" Type="DateTime" Precision="3" />
+          <Property Name="Cli_Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Dom_Calle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Nro_Calle" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cli_Piso" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cli_Depto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Cod_Postal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_CUIL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Telefono" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Localidad" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Fecha_Alta" Type="DateTime" Precision="3" />
+          <Property Name="Cli_Tarjeta_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Tarjeta_Tipo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="GD2C2018Model.FK_Cliente_Usuario" FromRole="Cliente" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Premio">
+          <Key>
+            <PropertyRef Name="Premio_ID" />
+          </Key>
+          <Property Name="Premio_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Premio_Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Premio_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Premio_Puntos_Necesarios" Type="Int32" />
+          <Property Name="Premio_Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Premio_X_Cliente">
+          <Key>
+            <PropertyRef Name="Pre_Cli_Tipo_Doc" />
+            <PropertyRef Name="Pre_Cli_Nro_Doc" />
+            <PropertyRef Name="Pre_Premio_ID" />
+          </Key>
+          <Property Name="Pre_Cli_Tipo_Doc" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Pre_Cli_Nro_Doc" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="Pre_Premio_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cliente_Usuario">
+          <End Type="GD2C2018Model.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="GD2C2018Model.Cliente" Role="Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Cli_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GD2C2018ModelStoreContainer" CdmEntityContainer="GD2C2018Entities">
-          <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="GD2C2018Model.Cliente">
-              <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="Cli_Habilitado" ColumnName="Cli_Habilitado" />
-                <ScalarProperty Name="Cli_Usuario" ColumnName="Cli_Usuario" />
-                <ScalarProperty Name="Cli_Tarjeta_Tipo" ColumnName="Cli_Tarjeta_Tipo" />
-                <ScalarProperty Name="Cli_Tarjeta_Num" ColumnName="Cli_Tarjeta_Num" />
-                <ScalarProperty Name="Cli_Fecha_Alta" ColumnName="Cli_Fecha_Alta" />
-                <ScalarProperty Name="Cli_Localidad" ColumnName="Cli_Localidad" />
-                <ScalarProperty Name="Cli_Telefono" ColumnName="Cli_Telefono" />
-                <ScalarProperty Name="Cli_CUIL" ColumnName="Cli_CUIL" />
-                <ScalarProperty Name="Cli_Cod_Postal" ColumnName="Cli_Cod_Postal" />
-                <ScalarProperty Name="Cli_Depto" ColumnName="Cli_Depto" />
-                <ScalarProperty Name="Cli_Piso" ColumnName="Cli_Piso" />
-                <ScalarProperty Name="Cli_Nro_Calle" ColumnName="Cli_Nro_Calle" />
-                <ScalarProperty Name="Cli_Dom_Calle" ColumnName="Cli_Dom_Calle" />
-                <ScalarProperty Name="Cli_Mail" ColumnName="Cli_Mail" />
-                <ScalarProperty Name="Cli_Fecha_Nac" ColumnName="Cli_Fecha_Nac" />
-                <ScalarProperty Name="Cli_Nombre" ColumnName="Cli_Nombre" />
-                <ScalarProperty Name="Cli_Apellido" ColumnName="Cli_Apellido" />
-                <ScalarProperty Name="Cli_Tipo_Doc" ColumnName="Cli_Tipo_Doc" />
-                <ScalarProperty Name="Cli_Nro_Doc" ColumnName="Cli_Nro_Doc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Espec_Empresa">
             <EntityTypeMapping TypeName="GD2C2018Model.Espec_Empresa">
               <MappingFragment StoreEntitySet="Espec_Empresa">
@@ -680,17 +677,6 @@
                 <ScalarProperty Name="Item_Factura_Monto" ColumnName="Item_Factura_Monto" />
                 <ScalarProperty Name="Item_Factura_Factura" ColumnName="Item_Factura_Factura" />
                 <ScalarProperty Name="Item_Factura_ID" ColumnName="Item_Factura_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Premio">
-            <EntityTypeMapping TypeName="GD2C2018Model.Premio">
-              <MappingFragment StoreEntitySet="Premio">
-                <ScalarProperty Name="Premio_Vencimiento" ColumnName="Premio_Vencimiento" />
-                <ScalarProperty Name="Premio_Puntos_Necesarios" ColumnName="Premio_Puntos_Necesarios" />
-                <ScalarProperty Name="Premio_Descripcion" ColumnName="Premio_Descripcion" />
-                <ScalarProperty Name="Premio_Nombre" ColumnName="Premio_Nombre" />
-                <ScalarProperty Name="Premio_ID" ColumnName="Premio_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -793,6 +779,51 @@
                 <ScalarProperty Name="Puntos_Vencimiento" ColumnName="Puntos_Vencimiento" />
                 <ScalarProperty Name="Puntos_Cantidad" ColumnName="Puntos_Cantidad" />
                 <ScalarProperty Name="Puntos_ID" ColumnName="Puntos_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="GD2C2018Model.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Cli_Habilitado" ColumnName="Cli_Habilitado" />
+                <ScalarProperty Name="Cli_Usuario" ColumnName="Cli_Usuario" />
+                <ScalarProperty Name="Cli_Tarjeta_Tipo" ColumnName="Cli_Tarjeta_Tipo" />
+                <ScalarProperty Name="Cli_Tarjeta_Num" ColumnName="Cli_Tarjeta_Num" />
+                <ScalarProperty Name="Cli_Fecha_Alta" ColumnName="Cli_Fecha_Alta" />
+                <ScalarProperty Name="Cli_Localidad" ColumnName="Cli_Localidad" />
+                <ScalarProperty Name="Cli_Telefono" ColumnName="Cli_Telefono" />
+                <ScalarProperty Name="Cli_CUIL" ColumnName="Cli_CUIL" />
+                <ScalarProperty Name="Cli_Cod_Postal" ColumnName="Cli_Cod_Postal" />
+                <ScalarProperty Name="Cli_Depto" ColumnName="Cli_Depto" />
+                <ScalarProperty Name="Cli_Piso" ColumnName="Cli_Piso" />
+                <ScalarProperty Name="Cli_Nro_Calle" ColumnName="Cli_Nro_Calle" />
+                <ScalarProperty Name="Cli_Dom_Calle" ColumnName="Cli_Dom_Calle" />
+                <ScalarProperty Name="Cli_Mail" ColumnName="Cli_Mail" />
+                <ScalarProperty Name="Cli_Fecha_Nac" ColumnName="Cli_Fecha_Nac" />
+                <ScalarProperty Name="Cli_Nombre" ColumnName="Cli_Nombre" />
+                <ScalarProperty Name="Cli_Apellido" ColumnName="Cli_Apellido" />
+                <ScalarProperty Name="Cli_Tipo_Doc" ColumnName="Cli_Tipo_Doc" />
+                <ScalarProperty Name="Cli_Nro_Doc" ColumnName="Cli_Nro_Doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Premio">
+            <EntityTypeMapping TypeName="GD2C2018Model.Premio">
+              <MappingFragment StoreEntitySet="Premio">
+                <ScalarProperty Name="Premio_Imagen" ColumnName="Premio_Imagen" />
+                <ScalarProperty Name="Premio_Puntos_Necesarios" ColumnName="Premio_Puntos_Necesarios" />
+                <ScalarProperty Name="Premio_Descripcion" ColumnName="Premio_Descripcion" />
+                <ScalarProperty Name="Premio_Nombre" ColumnName="Premio_Nombre" />
+                <ScalarProperty Name="Premio_ID" ColumnName="Premio_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Premio_X_Cliente">
+            <EntityTypeMapping TypeName="GD2C2018Model.Premio_X_Cliente">
+              <MappingFragment StoreEntitySet="Premio_X_Cliente">
+                <ScalarProperty Name="Pre_Premio_ID" ColumnName="Pre_Premio_ID" />
+                <ScalarProperty Name="Pre_Cli_Nro_Doc" ColumnName="Pre_Cli_Nro_Doc" />
+                <ScalarProperty Name="Pre_Cli_Tipo_Doc" ColumnName="Pre_Cli_Tipo_Doc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

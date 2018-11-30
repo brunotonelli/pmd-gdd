@@ -12,12 +12,10 @@ namespace PalcoNet
     using System;
     using System.Collections.Generic;
     
-    public partial class Premio
+    public partial class Premio_X_Cliente
     {
-        public int Premio_ID { get; set; }
-        public string Premio_Nombre { get; set; }
-        public string Premio_Descripcion { get; set; }
-        public Nullable<int> Premio_Puntos_Necesarios { get; set; }
-        public string Premio_Imagen { get; set; }
+        public string Pre_Cli_Tipo_Doc { get; set; }
+        public decimal Pre_Cli_Nro_Doc { get; set; }
+        public int Pre_Premio_ID { get; set; }
     }
 }
