@@ -41,11 +41,18 @@ namespace PalcoNet.Forms
                 var context = new GD2C2018Entities();
                 if (rb_ComprasCliente.Checked == true)//ORDENADO MES ANO
                 {
+                    string query = 
+                        "SELECT TOP 5 (SELECT e.Espec_Empresa_Razon_Social From PMD.Espec_Empresa e WHERE e.Espec_Empresa_Cuit = pl.Publicacion_Empresa) AS Empresa, pl.Publicacion_ID, cm.Compra_Tipo_Doc_Cliente, cm.Compra_Num_Doc_Cliente, SUM(cm.Compra_Cantidad) AS Cantidad " +
+                        "FROM PMD.Publicacion pl " +
+                        "JOIN PMD.Compra cm ON pl.Publicacion_ID=cm.Compra_Publicacion " +
+                        "WHERE  YEAR(pl.Publicacion_Fecha) = " + año + " AND DATEPART(QUARTER, pl.Publicacion_Fecha) = " + trimestre + " " +
+                        "GROUP BY pl.Publicacion_ID, cm.Compra_Tipo_Doc_Cliente, cm.Compra_Num_Doc_Cliente, pl.Publicacion_Empresa " +
+                        "ORDER BY Cantidad DESC";
 
-                    string qwery="SELECT TOP 5 (SELECT e.Espec_Empresa_Razon_Social From PMD.Espec_Empresa e WHERE e.Espec_Empresa_Cuit=pl.Publicacion_Empresa)AS Empresa,pl.Publicacion_ID,cm.Compra_Tipo_Doc_Cliente,cm.Compra_Num_Doc_Cliente,SUM(cm.Compra_Cantidad) AS Cantidad FROM PMD.Publicacion pl JOIN PMD.Compra cm ON (pl.Publicacion_ID=cm.Compra_Publicacion) WHERE  YEAR(pl.Publicacion_Fecha)= "+  txt_Ano.Text    +" AND	MONTH(pl.Publicacion_Fecha)>  "+   ((cb_Trimestre.SelectedIndex)*3).ToString() +"   AND  MONTH(pl.Publicacion_Fecha)<="+    ((cb_Trimestre.SelectedIndex+1)*3).ToString()  + " GROUP BY pl.Publicacion_ID,cm.Compra_Tipo_Doc_Cliente,cm.Compra_Num_Doc_Cliente,pl.Publicacion_Empresa ORDER BY 5 DESC";
                     var wea = context.Database
-                            .SqlQuery<ComprasEstadistico>(qwery)
+                            .SqlQuery<ComprasEstadistico>(query)
                             .ToList();
+
                     dg_WEA.DataSource = wea;
                     
                 }
@@ -73,10 +80,19 @@ namespace PalcoNet.Forms
                 {
                     if (rb_Empresas.Checked == true)
                     {
-                        string qwery = "SELECT TOP 5 e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social,p.Publicacion_ID,(p.Publicacion_Localidades - SUM(c.Compra_Cantidad)) AS Cantidad  FROM PMD.Espec_Empresa e JOIN PMD.Publicacion p ON (p.Publicacion_Empresa=e.Espec_Empresa_Cuit) JOIN PMD.Compra c ON (c.Compra_Publicacion=p.Publicacion_ID) WHERE YEAR(p.Publicacion_Fecha)= " + txt_Ano.Text + " AND p.Publicacion_Estado=3	AND	MONTH(p.Publicacion_Fecha)>  " + ((cb_Trimestre.SelectedIndex) * 3).ToString() + " AND  MONTH(p.Publicacion_Fecha)<=" + ((cb_Trimestre.SelectedIndex + 1) * 3).ToString() + " GROUP BY e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social,p.Publicacion_ID,p.Publicacion_Localidades,p.Publicacion_Fecha_Espectaculo,p.Publicacion_Grado ORDER BY 4 DESC,p.Publicacion_Fecha_Espectaculo ASC,p.Publicacion_Grado ASC ";
+                        string query = 
+                            "SELECT TOP 5 e.Espec_Empresa_Cuit, e.Espec_Empresa_Razon_Social, p.Publicacion_ID, (p.Publicacion_Localidades - SUM(c.Compra_Cantidad)) AS Cantidad " +
+                            "FROM PMD.Espec_Empresa e " +
+                            "JOIN PMD.Publicacion p ON p.Publicacion_Empresa=e.Espec_Empresa_Cuit " +
+                            "JOIN PMD.Compra c ON c.Compra_Publicacion = p.Publicacion_ID " +
+                            "WHERE YEAR(p.Publicacion_Fecha) = " + año + " AND p.Publicacion_Estado = 3 AND DATEPART(QUARTER, p.Publicacion_Fecha) = " + trimestre + " " +
+                            "GROUP BY e.Espec_Empresa_Cuit, e.Espec_Empresa_Razon_Social, p.Publicacion_ID, p.Publicacion_Localidades, p.Publicacion_Fecha_Espectaculo, p.Publicacion_Grado " +
+                            "ORDER BY Cantidad DESC, p.Publicacion_Fecha_Espectaculo ASC, p.Publicacion_Grado DESC";
+
                         var wea = context.Database
-                            .SqlQuery<EmpEstadistico>(qwery)
+                            .SqlQuery<EmpEstadistico>(query)
                             .ToList();
+
                         dg_WEA.DataSource = wea;
                     }
                 }
