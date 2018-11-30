@@ -17,7 +17,6 @@ namespace PalcoNet.Forms
         {
             InitializeComponent();
             FormsEstaticos.Principal = this;
-            InicializarVisuales();
         }
 
         private void botonLogin_Click(object sender, EventArgs e) {
@@ -32,21 +31,6 @@ namespace PalcoNet.Forms
 
         private void botonSalir_Click(object sender, EventArgs e) {
             Environment.Exit(0);
-        }
-
-        private void InicializarVisuales() {
-            botonConfig.BackColor = Color.FromArgb(30, 30, 30);
-            botonEstrategia.BackColor = Color.FromArgb(30, 30, 30);
-            botonLogin.BackColor = Color.FromArgb(30, 30, 30);
-            botonRegistrarse.BackColor = Color.FromArgb(30, 30, 30);
-            pictureBox1.Size = this.Size;
-            pictureBox1.Controls.Add(pictureBox2);
-            pictureBox2.BackColor = Color.Transparent;
-
-            this.MouseDown += new MouseEventHandler(DragForm);
-            pictureBox1.MouseDown += new MouseEventHandler(DragForm);
-            pictureBox2.MouseDown += new MouseEventHandler(DragForm);
-            pictureBox3.MouseDown += new MouseEventHandler(DragForm);
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
