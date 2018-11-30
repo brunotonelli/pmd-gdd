@@ -52,6 +52,29 @@ namespace PalcoNet.Extensiones
             }
         }
 
+        //para cliente que modifico su cuil
+        public static bool ExisteCUIL(string tipo, decimal dni, string cuil) {
+            using (var context = new GD2C2018Entities())
+            {
+                var clientes = context.Cliente
+                    .Where(c => c.Cli_CUIL == cuil && 
+                           (c.Cli_Tipo_Doc != tipo || 
+                           c.Cli_Nro_Doc != dni));
+                return clientes.Count() > 0;
+            }
+        }
+
+        //para empresa que modifico su razon
+        public static bool ExisteRazon(string razon, string cuit) {
+            using (var context = new GD2C2018Entities())
+            {
+                var empresas = context.Espec_Empresa
+                    .Where(e => e.Espec_Empresa_Razon_Social == razon &&
+                                e.Espec_Empresa_Cuit != cuit);
+                return empresas.Count() > 0;
+            }
+        }
+
         public static bool CUILValido(string cuil) {
             var expresion = new Regex("\\d\\d-\\d\\d\\d\\d\\d\\d\\d\\d-\\d");
             return expresion.IsMatch(cuil);

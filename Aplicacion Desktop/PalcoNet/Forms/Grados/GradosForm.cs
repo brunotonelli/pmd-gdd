@@ -14,6 +14,7 @@ namespace PalcoNet.Forms
     {
         private int id;
         private Grado_Publicacion Seleccionado;
+        private DataGridViewRow FilaSeleccionada;
 
         public GradosForm() {
             InitializeComponent();
@@ -31,41 +32,29 @@ namespace PalcoNet.Forms
         }
         private void botonModificar_Click(object sender, EventArgs e)
         {
-            new ModificacionGradoForm(Seleccionado).Show();
+            new ModificacionGradoForm(Seleccionado).Show(this);
+            FilaSeleccionada = datagrid.SelectedRows[0];
         }
         private void botonEliminar_Click(object sender, EventArgs e)
         {
-            var selected = datagrid.SelectedRows[0];
-            var nombre = selected.Cells[0].Value.ToString() + " "
-                        + selected.Cells[1].Value.ToString();
-            string mensaje = "¿Está seguro que desea eliminar este grado de publicacion" + nombre + "?";
+            FilaSeleccionada = datagrid.SelectedRows[0];
+            var grado = FilaSeleccionada.DataBoundItem as Grado_Publicacion;
+            var nombre = grado.Grado_Nombre;
+            string mensaje = "¿Está seguro que desea eliminar (de forma lógica) el grado " + nombre + "?";
             DialogResult result = MessageBox.Show(mensaje, "Borrar grado de publicacion", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-                //BorrarGrado(selected.Index);
-                BorrarGradoLogico(selected.Index);
+                BorrarGrado();
         }
 
-        private void BorrarGradoLogico(int fila)
+        private void BorrarGrado()
         {
             using (var context = new GD2C2018Entities())
             {
                 Seleccionado.Grado_Habilitado = false;
-                id = Seleccionado.Grado_ID;
-                var grado = context.Grado_Publicacion.Single(c => c.Grado_ID == id);
-                context.Entry(grado).CurrentValues.SetValues(Seleccionado);
+                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
-                gradoPublicacionBindingSource.DataSource = context.Grado_Publicacion.ToList();
-            }
-        }
-
-        private void BorrarGrado(int fila)
-        {
-            using (var context = new GD2C2018Entities())
-            {
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
-                context.SaveChanges();
-                gradoPublicacionBindingSource.Remove(Seleccionado);
-                datagrid.DataSource = gradoPublicacionBindingSource;
+                ActualizarColor(Seleccionado);
+                //datagrid.DataSource = gradoPublicacionBindingSource;
             }
         }
 
@@ -92,33 +81,23 @@ namespace PalcoNet.Forms
             {
                 Seleccionado = datagrid.SelectedRows[0].DataBoundItem as Grado_Publicacion;
                 botonModificar.Enabled = true;
-                
             }
-            if (Seleccionado.Grado_Habilitado == true)
-            {
-                btnHabilitar.Enabled = false;
-                botonEliminar.Enabled = true;
-            }
-            else
-            {
-                btnHabilitar.Enabled = true;
-                botonEliminar.Enabled = false;
-            }
-
+            botonEliminar.Enabled = Seleccionado.Grado_Habilitado.Value;
         }
 
-        private void btnHabilitar_Click(object sender, EventArgs e)
-        {
-            using (var context = new GD2C2018Entities())
-                {
-                    Seleccionado.Grado_Habilitado = true;
-                    id = Seleccionado.Grado_ID;
-                    var grado = context.Grado_Publicacion.Single(c => c.Grado_ID == id);
-                    context.Entry(grado).CurrentValues.SetValues(Seleccionado);
-                    context.SaveChanges();
-                    gradoPublicacionBindingSource.DataSource = context.Grado_Publicacion.ToList();
-                }
-            
+        private void datagrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            foreach (DataGridViewRow row in datagrid.Rows)
+            {
+                var grado = row.DataBoundItem as Grado_Publicacion;
+                if (!grado.Grado_Habilitado.Value)
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
+            }
+        }
+
+        //Metodo llamado luego de modificar, para cambiar color
+        public void ActualizarColor(Grado_Publicacion g) {
+            FilaSeleccionada.DefaultCellStyle.BackColor = g.Grado_Habilitado.Value ?
+                Color.White : Color.FromArgb(255, 230, 230);
         }
     }
 }

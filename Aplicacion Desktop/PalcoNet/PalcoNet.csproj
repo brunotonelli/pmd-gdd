@@ -387,6 +387,9 @@
     <EmbeddedResource Include="Forms\Estadisitcas\EstadisticasForm.resx">
       <DependentUpon>EstadisticasForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Grados\GradosForm.resx">
+      <DependentUpon>GradosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Premios\CanjearPremioForm.resx">
       <DependentUpon>CanjearPremioForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -66,7 +66,7 @@ namespace PalcoNet.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.boxCUIL = new System.Windows.Forms.MaskedTextBox();
+            this.boxCUIL = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -177,6 +177,7 @@ namespace PalcoNet.Forms
             this.boxMail.Padding = new System.Windows.Forms.Padding(1);
             this.boxMail.Size = new System.Drawing.Size(150, 20);
             this.boxMail.TabIndex = 28;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label5
             // 
@@ -368,6 +369,7 @@ namespace PalcoNet.Forms
             this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
             this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
             this.boxNroDoc.TabIndex = 38;
+            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label18
             // 
@@ -395,6 +397,7 @@ namespace PalcoNet.Forms
             this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
             this.boxApellido.Size = new System.Drawing.Size(150, 20);
             this.boxApellido.TabIndex = 26;
+            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // boxNombre
             // 
@@ -404,6 +407,7 @@ namespace PalcoNet.Forms
             this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
             this.boxNombre.Size = new System.Drawing.Size(150, 20);
             this.boxNombre.TabIndex = 25;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label1
             // 
@@ -452,10 +456,9 @@ namespace PalcoNet.Forms
             // boxCUIL
             // 
             this.boxCUIL.Location = new System.Drawing.Point(83, 181);
-            this.boxCUIL.Mask = "00-00000000-0";
             this.boxCUIL.Name = "boxCUIL";
             this.boxCUIL.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIL.TabIndex = 54;
+            this.boxCUIL.TabIndex = 29;
             // 
             // AltaClientesForm
             // 
@@ -523,6 +526,6 @@ namespace PalcoNet.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox boxTipoDoc;
         private System.Windows.Forms.ComboBox boxTipoTarjeta;
-        private System.Windows.Forms.MaskedTextBox boxCUIL;
+        private System.Windows.Forms.TextBox boxCUIL;
     }
 }

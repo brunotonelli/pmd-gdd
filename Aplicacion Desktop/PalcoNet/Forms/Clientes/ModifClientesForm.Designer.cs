@@ -47,6 +47,7 @@
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxCUIL = new System.Windows.Forms.TextBox();
             this.boxTipoDoc = new System.Windows.Forms.ComboBox();
             this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label18 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             this.boxNroTarjeta = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.boxCUIL = new System.Windows.Forms.MaskedTextBox();
+            this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,7 +75,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(35, 422);
+            this.label13.Location = new System.Drawing.Point(35, 434);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(213, 13);
             this.label13.TabIndex = 46;
@@ -112,6 +113,7 @@
             this.boxMail.Padding = new System.Windows.Forms.Padding(1);
             this.boxMail.Size = new System.Drawing.Size(150, 20);
             this.boxMail.TabIndex = 28;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label5
             // 
@@ -277,9 +279,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
+            // boxCUIL
+            // 
+            this.boxCUIL.Location = new System.Drawing.Point(84, 181);
+            this.boxCUIL.Name = "boxCUIL";
+            this.boxCUIL.Size = new System.Drawing.Size(151, 20);
+            this.boxCUIL.TabIndex = 42;
+            // 
             // boxTipoDoc
             // 
             this.boxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxTipoDoc.Enabled = false;
             this.boxTipoDoc.FormattingEnabled = true;
             this.boxTipoDoc.Items.AddRange(new object[] {
             "DNI",
@@ -298,11 +308,13 @@
             // boxNroDoc
             // 
             this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
+            this.boxNroDoc.Enabled = false;
             this.boxNroDoc.Location = new System.Drawing.Point(84, 145);
             this.boxNroDoc.Name = "boxNroDoc";
             this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
             this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
             this.boxNroDoc.TabIndex = 38;
+            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label18
             // 
@@ -330,6 +342,7 @@
             this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
             this.boxApellido.Size = new System.Drawing.Size(150, 20);
             this.boxApellido.TabIndex = 26;
+            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // boxNombre
             // 
@@ -339,6 +352,7 @@
             this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
             this.boxNombre.Size = new System.Drawing.Size(150, 20);
             this.boxNombre.TabIndex = 25;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label1
             // 
@@ -386,7 +400,6 @@
             // 
             // botonGuardar
             // 
-            this.botonGuardar.Enabled = false;
             this.botonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonGuardar.Location = new System.Drawing.Point(437, 410);
             this.botonGuardar.Name = "botonGuardar";
@@ -447,19 +460,23 @@
             this.label19.TabIndex = 22;
             this.label19.Text = "Numero";
             // 
-            // boxCUIL
+            // checkHabilitado
             // 
-            this.boxCUIL.Location = new System.Drawing.Point(83, 178);
-            this.boxCUIL.Mask = "00-00000000-0";
-            this.boxCUIL.Name = "boxCUIL";
-            this.boxCUIL.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIL.TabIndex = 55;
+            this.checkHabilitado.AutoSize = true;
+            this.checkHabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkHabilitado.Location = new System.Drawing.Point(66, 402);
+            this.checkHabilitado.Name = "checkHabilitado";
+            this.checkHabilitado.Size = new System.Drawing.Size(152, 24);
+            this.checkHabilitado.TabIndex = 50;
+            this.checkHabilitado.Text = "Cliente Habilitado";
+            this.checkHabilitado.UseVisualStyleBackColor = true;
             // 
             // ModifClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 462);
+            this.Controls.Add(this.checkHabilitado);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.botonCancelar);
@@ -469,7 +486,6 @@
             this.Controls.Add(this.botonGuardar);
             this.Name = "ModifClientesForm";
             this.Text = "[PalcoNet] - Modificar Cliente";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifClientesForm_FormClosing);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -523,6 +539,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox boxTipoDoc;
         private System.Windows.Forms.ComboBox boxTipoTarjeta;
-        private System.Windows.Forms.MaskedTextBox boxCUIL;
+        private System.Windows.Forms.TextBox boxCUIL;
+        private System.Windows.Forms.CheckBox checkHabilitado;
     }
 }

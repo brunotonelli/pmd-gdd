@@ -18,14 +18,13 @@ namespace PalcoNet.Forms
         {
             InitializeComponent();
             DataGrid = dataGrid;
-            
-            BindearCampos();
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxComision.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
+            BindearDatos();
             using (var context = new GD2C2018Entities() )
             {
                 Nuevo.Grado_Habilitado = true;
@@ -41,10 +40,11 @@ namespace PalcoNet.Forms
             this.Close();
         }
 
-        private void BindearCampos()
+        private void BindearDatos()
         {
-            boxNombre.Bindear(Nuevo, "Grado_Nombre");
-            boxComision.Bindear(Nuevo, "Grado_Comision");
+            Nuevo.Grado_Nombre = boxNombre.Text;
+            Nuevo.Grado_Comision = decimal.Parse(boxComision.Text);
+            Nuevo.Grado_Habilitado = true;
         }
 
         private void ValidarRequeridos(object sender, EventArgs e)

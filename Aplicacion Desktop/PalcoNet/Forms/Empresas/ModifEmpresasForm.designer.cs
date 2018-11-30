@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -52,30 +51,23 @@
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.boxCUIT = new System.Windows.Forms.MaskedTextBox();
+            this.checkHabilitado = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 276);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(213, 13);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Los campos marcados con * son requeridos";
-            // 
             // botonCancelar
             // 
             this.botonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonCancelar.Location = new System.Drawing.Point(157, 325);
+            this.botonCancelar.Location = new System.Drawing.Point(292, 326);
             this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(119, 37);
+            this.botonCancelar.Size = new System.Drawing.Size(129, 37);
             this.botonCancelar.TabIndex = 55;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
@@ -83,9 +75,8 @@
             // 
             // botonGuardar
             // 
-            this.botonGuardar.Enabled = false;
             this.botonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonGuardar.Location = new System.Drawing.Point(301, 325);
+            this.botonGuardar.Location = new System.Drawing.Point(427, 325);
             this.botonGuardar.Name = "botonGuardar";
             this.botonGuardar.Size = new System.Drawing.Size(132, 37);
             this.botonGuardar.TabIndex = 54;
@@ -114,6 +105,7 @@
             this.boxMail.Padding = new System.Windows.Forms.Padding(1);
             this.boxMail.Size = new System.Drawing.Size(150, 20);
             this.boxMail.TabIndex = 27;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label6
             // 
@@ -289,6 +281,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Empresa";
             // 
+            // boxCUIT
+            // 
+            this.boxCUIT.BackColor = System.Drawing.Color.Tomato;
+            this.boxCUIT.Enabled = false;
+            this.boxCUIT.Location = new System.Drawing.Point(94, 70);
+            this.boxCUIT.Name = "boxCUIT";
+            this.boxCUIT.Padding = new System.Windows.Forms.Padding(1);
+            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIT.TabIndex = 28;
+            this.boxCUIT.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // boxRazon
             // 
             this.boxRazon.BackColor = System.Drawing.Color.Tomato;
@@ -297,6 +300,7 @@
             this.boxRazon.Padding = new System.Windows.Forms.Padding(1);
             this.boxRazon.Size = new System.Drawing.Size(150, 20);
             this.boxRazon.TabIndex = 25;
+            this.boxRazon.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label4
             // 
@@ -316,23 +320,36 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "* CUIT";
             // 
-            // boxCUIT
+            // checkHabilitado
             // 
-            this.boxCUIT.Location = new System.Drawing.Point(94, 70);
-            this.boxCUIT.Mask = "00-00000000-0";
-            this.boxCUIT.Name = "boxCUIT";
-            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIT.TabIndex = 56;
+            this.checkHabilitado.AutoSize = true;
+            this.checkHabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkHabilitado.Location = new System.Drawing.Point(53, 283);
+            this.checkHabilitado.Name = "checkHabilitado";
+            this.checkHabilitado.Size = new System.Drawing.Size(167, 24);
+            this.checkHabilitado.TabIndex = 57;
+            this.checkHabilitado.Text = "Empresa Habilitada";
+            this.checkHabilitado.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 340);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 13);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Los campos marcados con * son requeridos";
             // 
             // ModifEmpresasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 375);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.checkHabilitado);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonGuardar);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "ModifEmpresasForm";
@@ -349,8 +366,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Button botonGuardar;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -377,6 +392,8 @@
         private Extensiones.TextBoxRequerido boxRazon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox boxCUIT;
+        private Extensiones.TextBoxRequerido boxCUIT;
+        private System.Windows.Forms.CheckBox checkHabilitado;
+        private System.Windows.Forms.Label label1;
     }
 }

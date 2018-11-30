@@ -49,6 +49,7 @@ namespace PalcoNet.Forms
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@ namespace PalcoNet.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxCUIT = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -244,6 +244,16 @@ namespace PalcoNet.Forms
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Empresa";
             // 
+            // boxCUIT
+            // 
+            this.boxCUIT.BackColor = System.Drawing.Color.Tomato;
+            this.boxCUIT.Location = new System.Drawing.Point(94, 70);
+            this.boxCUIT.Name = "boxCUIT";
+            this.boxCUIT.Padding = new System.Windows.Forms.Padding(1);
+            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIT.TabIndex = 27;
+            this.boxCUIT.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // boxRazon
             // 
             this.boxRazon.BackColor = System.Drawing.Color.Tomato;
@@ -252,6 +262,7 @@ namespace PalcoNet.Forms
             this.boxRazon.Padding = new System.Windows.Forms.Padding(1);
             this.boxRazon.Size = new System.Drawing.Size(150, 20);
             this.boxRazon.TabIndex = 25;
+            this.boxRazon.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label4
             // 
@@ -317,14 +328,7 @@ namespace PalcoNet.Forms
             this.boxMail.Padding = new System.Windows.Forms.Padding(1);
             this.boxMail.Size = new System.Drawing.Size(150, 20);
             this.boxMail.TabIndex = 27;
-            // 
-            // boxCUIT
-            // 
-            this.boxCUIT.Location = new System.Drawing.Point(94, 70);
-            this.boxCUIT.Mask = "00-00000000-0";
-            this.boxCUIT.Name = "boxCUIT";
-            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIT.TabIndex = 55;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // AltaEmpresaForm
             // 
@@ -378,6 +382,6 @@ namespace PalcoNet.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
         private TextBoxRequerido boxMail;
-        private System.Windows.Forms.MaskedTextBox boxCUIT;
+        private TextBoxRequerido boxCUIT;
     }
 }

@@ -20,8 +20,6 @@ namespace PalcoNet.Forms
         {
             InitializeComponent();
             DataGrid = dataGrid;
-            BindearCampos();
-
             boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxCUIT.TextChanged += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
@@ -29,21 +27,48 @@ namespace PalcoNet.Forms
 
         private void botonCrear_Click(object sender, EventArgs e)
         {
-            using (var context = new GD2C2018Entities())
-            {
-                Usuario u = AutogenerarUsuario();
-                context.Entry(u).State = System.Data.Entity.EntityState.Added;
-                context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
-                context.SaveChanges();
-                DataGrid.DataSource = context.Espec_Empresa.ToList();
-            }
-            this.Close();
+            bool existeEmpresa = Validaciones.ExisteEmpresa(boxRazon.Text, boxCUIT.Text);
+            bool cuitValido = Validaciones.CUILValido(boxCUIT.Text);
 
+            if (existeEmpresa)
+                MessageBox.Show("Ya existe una empresa con esa razón social o CUIT", "Error de Empresa");
+            if (!cuitValido)
+                MessageBox.Show("El CUIL ingresado no tiene el formado correcto\nEjemplo: ##-########-#", "Error de CUIL");
+
+            if (!existeEmpresa && cuitValido)
+            {
+                BindearDatos();
+                using (var context = new GD2C2018Entities())
+                {
+                    Usuario u = AutogenerarUsuario();
+                    context.Entry(u).State = System.Data.Entity.EntityState.Added;
+                    context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
+                    context.SaveChanges();
+                    DataGrid.DataSource = context.Espec_Empresa.ToList();
+                }
+                this.Close();
+            }
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void BindearDatos() {
+            Nuevo.Espec_Empresa_Ciudad = boxCiudad.Text;
+            Nuevo.Espec_Empresa_Cod_Postal = boxCodigoPostal.Text;
+            Nuevo.Espec_Empresa_Cuit = boxCUIT.Text;
+            Nuevo.Espec_Empresa_Depto = boxDepartamento.Text;
+            Nuevo.Espec_Empresa_Dom_Calle = boxCalle.Text;
+            Nuevo.Espec_Empresa_Habilitado = true;
+            Nuevo.Espec_Empresa_Localidad = boxLocalidad.Text;
+            Nuevo.Espec_Empresa_Mail = boxMail.Text;
+            Nuevo.Espec_Empresa_Nro_Calle = decimal.Parse(boxNumero.Text);
+            Nuevo.Espec_Empresa_Piso = decimal.Parse(boxPiso.Text);
+            Nuevo.Espec_Empresa_Razon_Social = boxRazon.Text;
+            Nuevo.Espec_Empresa_Telefono = boxTelefono.Text;
+            Nuevo.Espec_Empresa_Fecha_Creacion = Properties.Settings.Default.FechaActual;
         }
 
         private void ValidarRequeridos(object sender, EventArgs e)
@@ -53,20 +78,6 @@ namespace PalcoNet.Forms
             var mail = boxMail.Text;
             bool ok = razon.Length != 0 && cuil.Length != 0 && mail.Length != 0 && mail.Length != 0;
             botonCrear.Enabled = ok;
-        }
-        private void BindearCampos()
-        {
-            boxRazon.Bindear(Nuevo, "Espec_Empresa_Razon_Social");
-            boxCUIT.Bindear(Nuevo, "Espec_Empresa_CUIT");
-            boxMail.Bindear(Nuevo, "Espec_Empresa_Mail");
-            boxTelefono.Bindear(Nuevo, "Espec_Empresa_Telefono");
-            boxCalle.Bindear(Nuevo, "Espec_Empresa_Dom_Calle");
-            boxNumero.Bindear(Nuevo, "Espec_Empresa_Nro_Calle");
-            boxPiso.Bindear(Nuevo, "Espec_Empresa_Piso");
-            boxDepartamento.Bindear(Nuevo, "Espec_Empresa_Depto");
-            boxCodigoPostal.Bindear(Nuevo, "Espec_Empresa_Cod_Postal");
-            boxLocalidad.Bindear(Nuevo, "Espec_Empresa_Localidad");
-            boxCiudad.Bindear(Nuevo, "Espec_Empresa_Localidad");
         }
 
         private Usuario AutogenerarUsuario() {

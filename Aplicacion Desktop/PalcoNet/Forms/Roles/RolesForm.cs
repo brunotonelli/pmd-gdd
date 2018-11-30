@@ -13,6 +13,7 @@ namespace PalcoNet.Forms
     public partial class RolesForm : Form
     {
         private Rol Seleccionado;
+        private DataGridViewRow FilaSeleccionada;
 
         public RolesForm() {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonModificar_Click(object sender, EventArgs e) {
-
+            MessageBox.Show("IMPLEMENTAR (O NO ::)))) )");
         }
 
         private void botonEliminar_Click(object sender, EventArgs e) {
@@ -54,11 +55,27 @@ namespace PalcoNet.Forms
             
             using (var context = new GD2C2018Entities())
             {
+                Seleccionado.Rol_Habilitado = false;
                 context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
-                rolBindingSource.Remove(Seleccionado);
-                dataGrid.DataSource = rolBindingSource;
+                ActualizarColor(Seleccionado);
+                //dataGrid.DataSource = rolBindingSource;
             }
+        }
+
+        private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                var rol = row.DataBoundItem as Rol;
+                if (!rol.Rol_Habilitado.Value)
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
+            }
+        }
+
+        //Metodo llamado luego de modificar, para cambiar color
+        public void ActualizarColor(Rol r) {
+            FilaSeleccionada.DefaultCellStyle.BackColor = r.Rol_Habilitado.Value ?
+                Color.White : Color.FromArgb(255, 230, 230);
         }
     }
 }

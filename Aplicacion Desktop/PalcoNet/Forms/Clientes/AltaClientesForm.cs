@@ -19,7 +19,6 @@ namespace PalcoNet.Forms
         public AltaClientesForm(DataGridView dataGrid) {
             InitializeComponent();
             DataGrid = dataGrid;
-            BindearCampos();
             boxTipoDoc.SelectedItem = "DNI";
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
@@ -27,20 +26,56 @@ namespace PalcoNet.Forms
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
+        private void BindearDatos() {
+            Nuevo.Cli_Apellido = boxApellido.Text;
+            Nuevo.Cli_Cod_Postal = boxCodigoPostal.Text;
+            Nuevo.Cli_CUIL = boxCUIL.Text;
+            Nuevo.Cli_Depto = boxDepartamento.Text;
+            Nuevo.Cli_Dom_Calle = boxCalle.Text;
+            Nuevo.Cli_Fecha_Alta = Properties.Settings.Default.FechaActual;
+            Nuevo.Cli_Fecha_Nac = boxFecha.Value;
+            Nuevo.Cli_Habilitado = true;
+            Nuevo.Cli_Localidad = boxLocalidad.Text;
+            Nuevo.Cli_Mail = boxMail.Text;
+            Nuevo.Cli_Nombre = boxNombre.Text;
+            Nuevo.Cli_Nro_Calle = decimal.Parse(boxNumero.Text);
+            Nuevo.Cli_Nro_Doc = decimal.Parse(boxNroDoc.Text);
+            Nuevo.Cli_Piso = decimal.Parse(boxPiso.Text);
+            Nuevo.Cli_Tarjeta_Num = boxNroTarjeta.Text;
+            Nuevo.Cli_Tarjeta_Tipo = boxTipoTarjeta.Text;
+            Nuevo.Cli_Telefono = boxTelefono.Text;
+            Nuevo.Cli_Tipo_Doc = boxTipoDoc.Text;
+        }
+
         private void botonCrear_Click(object sender, EventArgs e) {
             Nuevo.Cli_Tipo_Doc = boxTipoDoc.SelectedItem.ToString();
             decimal doc;
             decimal.TryParse(boxNroDoc.Text, out doc);
             Nuevo.Cli_Nro_Doc = doc;
-            using (var context = new GD2C2018Entities())
+
+            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, boxNumero.Text, boxCUIL.Text);
+            bool cuitValido = Validaciones.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
+            //le permito no tener cuil, pero si tiene tiene que estar bien
+
+            if (existeCliente)
+                MessageBox.Show("Ya existe un cliente con ese tipo de documento / numero de documento / CUIL", "Error de Empresa");
+            if (!cuitValido)
+                MessageBox.Show("El CUIL ingresado no tiene el formado correcto\nEjemplo: ##-########-#", "Error de CUIL");
+
+            if (!existeCliente && cuitValido)
             {
-                Usuario u = AutogenerarUsuario();
-                context.Entry(u).State = System.Data.Entity.EntityState.Added;
-                context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
-                context.SaveChanges();
-                DataGrid.DataSource = context.Cliente.ToList();
+                BindearDatos();
+                using (var context = new GD2C2018Entities())
+                {
+                    Usuario u = AutogenerarUsuario();
+                    context.Entry(u).State = System.Data.Entity.EntityState.Added;
+                    context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
+                    context.SaveChanges();
+                    DataGrid.DataSource = context.Cliente.ToList();
+                }
+                this.Close();
             }
-            this.Close();
+
         }
 
         private void botonCancelar_Click(object sender, EventArgs e) {
@@ -54,25 +89,6 @@ namespace PalcoNet.Forms
             var mail = boxMail.Text;
             bool ok = nombre.Length != 0 && apellido.Length != 0 && dni.Length != 0 && mail.Length != 0;
             botonCrear.Enabled = ok;
-        }
-
-        private void BindearCampos() {
-            boxNombre.Bindear(Nuevo, "Cli_Nombre");
-            boxApellido.Bindear(Nuevo, "Cli_Apellido");
-            boxNroDoc.Bindear(Nuevo, "Cli_Nro_Doc");
-            boxMail.Bindear(Nuevo, "Cli_Mail");
-            boxCUIL.Bindear(Nuevo, "Cli_CUIL");
-            boxTipoDoc.Bindear(Nuevo, "Cli_Tipo_Doc", "SelectedItem");
-            boxFecha.Bindear(Nuevo, "Cli_Fecha_Nac", "Value");
-            boxTelefono.Bindear(Nuevo, "Cli_Telefono");
-            boxCalle.Bindear(Nuevo, "Cli_Dom_Calle");
-            boxNumero.Bindear(Nuevo, "Cli_Nro_Calle");
-            boxPiso.Bindear(Nuevo, "Cli_Piso");
-            boxDepartamento.Bindear(Nuevo, "Cli_Depto");
-            boxCodigoPostal.Bindear(Nuevo, "Cli_Cod_Postal");
-            boxLocalidad.Bindear(Nuevo, "Cli_Localidad");
-            boxTipoTarjeta.Bindear(Nuevo, "Cli_Tarjeta_Tipo");
-            boxNroTarjeta.Bindear(Nuevo, "Cli_Tarjeta_Num");
         }
 
         private Usuario AutogenerarUsuario() {

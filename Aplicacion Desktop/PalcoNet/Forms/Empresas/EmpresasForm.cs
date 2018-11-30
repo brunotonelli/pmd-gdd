@@ -13,6 +13,7 @@ namespace PalcoNet.Forms
     public partial class EmpresasForm : Form
     {
         private Espec_Empresa Seleccionado;
+        private DataGridViewRow FilaSeleccionada;
 
         public EmpresasForm(){
             InitializeComponent();
@@ -38,26 +39,28 @@ namespace PalcoNet.Forms
 
         
         private void botonModificar_Click(object sender, EventArgs e){
-            new ModifEmpresasForm(Seleccionado).Show();
+            new ModifEmpresasForm(Seleccionado).Show(this);
+            FilaSeleccionada = dataGrid.SelectedRows[0];
         }
 
        private void botonEliminar_Click(object sender, EventArgs e) {
-            var selected = dataGrid.SelectedRows[0];
-            var razon = selected.Cells[0].Value.ToString() + " " 
-                        + selected.Cells[1].Value.ToString();
-            string mensaje = "¿Está seguro que desea eliminar la Empresa " + razon + "?";
+            FilaSeleccionada = dataGrid.SelectedRows[0];
+            var emp = FilaSeleccionada.DataBoundItem as Espec_Empresa;
+            var razon = emp.Espec_Empresa_Razon_Social;
+            string mensaje = "¿Está seguro que desea eliminar (de forma lógica) a la Empresa " + razon + "?";
             DialogResult result = MessageBox.Show(mensaje, "Borrar Empresa", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-                BorrarEmpresa(selected.Index);
+                BorrarEmpresa();
         }
 
-        private void BorrarEmpresa(int fila) {
+        private void BorrarEmpresa() {
             using (var context = new GD2C2018Entities())
             {
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
+                Seleccionado.Espec_Empresa_Habilitado = false;
+                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
-                especEmpresaBindingSource.Remove(Seleccionado);
-                dataGrid.DataSource = especEmpresaBindingSource;
+                ActualizarColor(Seleccionado);
+                //dataGrid.DataSource = especEmpresaBindingSource;
             }
         }
 
@@ -85,11 +88,19 @@ namespace PalcoNet.Forms
             }
         }
 
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+        private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                var empresa = row.DataBoundItem as Espec_Empresa;
+                if (!empresa.Espec_Empresa_Habilitado.Value)
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
+            }
         }
 
-
+        //Metodo llamado luego de modificar, para cambiar color
+        public void ActualizarColor(Espec_Empresa e) {
+            FilaSeleccionada.DefaultCellStyle.BackColor = e.Espec_Empresa_Habilitado.Value ?
+                Color.White : Color.FromArgb(255, 230, 230);
+        }
     }
 }

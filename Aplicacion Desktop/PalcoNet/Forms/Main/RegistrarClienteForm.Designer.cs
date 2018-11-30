@@ -61,8 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.boxUsuario = new System.Windows.Forms.TextBox();
-            this.boxContraseña = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +70,8 @@
             this.boxNroTarjeta = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.boxContraseña = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxUsuario = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -112,6 +112,7 @@
             this.boxMail.Padding = new System.Windows.Forms.Padding(1);
             this.boxMail.Size = new System.Drawing.Size(150, 20);
             this.boxMail.TabIndex = 28;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label6
             // 
@@ -303,6 +304,7 @@
             this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
             this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
             this.boxNroDoc.TabIndex = 34;
+            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // boxCUIL
             // 
@@ -363,6 +365,7 @@
             this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
             this.boxApellido.Size = new System.Drawing.Size(150, 20);
             this.boxApellido.TabIndex = 26;
+            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // boxNombre
             // 
@@ -372,6 +375,7 @@
             this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
             this.boxNombre.Size = new System.Drawing.Size(150, 20);
             this.boxNombre.TabIndex = 25;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label4
             // 
@@ -393,8 +397,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.boxUsuario);
             this.groupBox1.Controls.Add(this.boxContraseña);
+            this.groupBox1.Controls.Add(this.boxUsuario);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
@@ -405,21 +409,6 @@
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Usuario";
-            // 
-            // boxUsuario
-            // 
-            this.boxUsuario.Location = new System.Drawing.Point(122, 37);
-            this.boxUsuario.Name = "boxUsuario";
-            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
-            this.boxUsuario.TabIndex = 31;
-            // 
-            // boxContraseña
-            // 
-            this.boxContraseña.Location = new System.Drawing.Point(122, 70);
-            this.boxContraseña.Name = "boxContraseña";
-            this.boxContraseña.Size = new System.Drawing.Size(122, 20);
-            this.boxContraseña.TabIndex = 32;
-            this.boxContraseña.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -448,18 +437,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(44, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
+            this.label2.Text = "* Contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre de usuario";
+            this.label1.Text = "* Nombre de usuario";
             // 
             // groupBox5
             // 
@@ -511,6 +500,26 @@
             this.label19.Size = new System.Drawing.Size(44, 13);
             this.label19.TabIndex = 22;
             this.label19.Text = "Numero";
+            // 
+            // boxContraseña
+            // 
+            this.boxContraseña.BackColor = System.Drawing.Color.Tomato;
+            this.boxContraseña.Location = new System.Drawing.Point(122, 71);
+            this.boxContraseña.Name = "boxContraseña";
+            this.boxContraseña.Padding = new System.Windows.Forms.Padding(1);
+            this.boxContraseña.Size = new System.Drawing.Size(122, 20);
+            this.boxContraseña.TabIndex = 30;
+            this.boxContraseña.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Contraseña;
+            // 
+            // boxUsuario
+            // 
+            this.boxUsuario.BackColor = System.Drawing.Color.Tomato;
+            this.boxUsuario.Location = new System.Drawing.Point(122, 36);
+            this.boxUsuario.Name = "boxUsuario";
+            this.boxUsuario.Padding = new System.Windows.Forms.Padding(1);
+            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
+            this.boxUsuario.TabIndex = 29;
+            this.boxUsuario.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // RegistrarClienteForm
             // 
@@ -565,8 +574,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox boxUsuario;
-        private System.Windows.Forms.TextBox boxContraseña;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
@@ -584,5 +591,7 @@
         private System.Windows.Forms.TextBox boxNroTarjeta;
         private System.Windows.Forms.ComboBox boxTipoDoc;
         private System.Windows.Forms.ComboBox boxTipoTarjeta;
+        private Extensiones.TextBoxRequerido boxContraseña;
+        private Extensiones.TextBoxRequerido boxUsuario;
     }
 }

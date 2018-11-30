@@ -14,6 +14,7 @@ namespace PalcoNet.Forms
     public partial class ClientesForm : Form
     {
         private Cliente Seleccionado;
+        private DataGridViewRow FilaSeleccionada;
 
         public ClientesForm() {
             InitializeComponent();
@@ -33,37 +34,34 @@ namespace PalcoNet.Forms
             if (dataGrid.SelectedRows.Count > 0)
             {
                 Seleccionado =  dataGrid.SelectedRows[0].DataBoundItem as Cliente;
-                botonDetalles.Enabled = true;
                 botonModificar.Enabled = true;
                 botonEliminar.Enabled = true;
             }
         }
-
-        private void botonDetalles_Click(object sender, EventArgs e) {
-
-        }
-
+        
         private void botonModificar_Click(object sender, EventArgs e) {
-            new ModifClientesForm(Seleccionado).Show();
+            new ModifClientesForm(Seleccionado).Show(this);
+            FilaSeleccionada = dataGrid.SelectedRows[0];
         }
 
         private void botonEliminar_Click(object sender, EventArgs e) {
-            var selected = dataGrid.SelectedRows[0];
-            var nombre = selected.Cells[0].Value.ToString() + " " 
-                        + selected.Cells[1].Value.ToString();
-            string mensaje = "¿Está seguro que desea eliminar al cliente " + nombre + "?";
+            FilaSeleccionada = dataGrid.SelectedRows[0];
+            var c = FilaSeleccionada.DataBoundItem as Cliente;
+            var nombre = c.Cli_Nombre + " " + c.Cli_Apellido;
+            string mensaje = "¿Está seguro que desea eliminar (de forma lógica) al cliente " + nombre + "?";
             DialogResult result = MessageBox.Show(mensaje, "Borrar cliente", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-                BorrarCliente(selected.Index);
+                BorrarCliente();
         }
 
-        private void BorrarCliente(int fila) {
+        private void BorrarCliente() {
             using (var context = new GD2C2018Entities())
             {
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
+                Seleccionado.Cli_Habilitado = false;
+                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
-                clienteBindingSource.Remove(Seleccionado);
-                dataGrid.DataSource = clienteBindingSource;
+                ActualizarColor(Seleccionado);
+                //dataGrid.DataSource = clienteBindingSource;
             }
         }
 
@@ -90,9 +88,23 @@ namespace PalcoNet.Forms
             boxFiltroMail.Text = string.Empty;
             using (var context = new GD2C2018Entities())
             {
-                clienteBindingSource.DataSource = (from cliente in context.Cliente
-                                                   select cliente).ToList();
+                clienteBindingSource.DataSource = context.Cliente.ToList();
             }            
+        }
+                
+        private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                var cliente = row.DataBoundItem as Cliente;
+                if (!cliente.Cli_Habilitado)
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
+            }
+        }
+
+        //Metodo llamado luego de modificar, para cambiar color
+        public void ActualizarColor(Cliente c) {
+            FilaSeleccionada.DefaultCellStyle.BackColor = c.Cli_Habilitado ?
+                Color.White : Color.FromArgb(255, 230, 230);
         }
     }
 }

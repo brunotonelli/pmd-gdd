@@ -16,48 +16,86 @@ namespace PalcoNet.Forms
     public partial class ModifClientesForm : Form
     {
         private decimal Documento;
+        private string TipoDocumento;
         private Cliente Seleccionado;
-        private Cliente aux;
 
         public ModifClientesForm(Cliente cliente) {
             InitializeComponent();
             Documento = cliente.Cli_Nro_Doc;
+            TipoDocumento = cliente.Cli_Tipo_Doc;
             Seleccionado = cliente;
-            aux = cliente.Clonar();
-            BindearCampos();
+            BindearCampos(Seleccionado);
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
-        private void BindearCampos() {
-             boxNombre.Bindear(Seleccionado, "Cli_Nombre");
-             boxApellido.Bindear(Seleccionado, "Cli_Apellido");
-             boxNroDoc.Bindear(Seleccionado, "Cli_Nro_Doc");
-             boxTipoDoc.Bindear(Seleccionado, "Cli_Tipo_Doc");
-             boxMail.Bindear(Seleccionado, "Cli_Mail");
-             boxCUIL.Bindear(Seleccionado, "Cli_CUIL");
-             boxFecha.Bindear(Seleccionado, "Cli_Fecha_Nac", "Value");
-             boxTelefono.Bindear(Seleccionado, "Cli_Telefono");
-             boxCalle.Bindear(Seleccionado, "Cli_Dom_Calle");
-             boxNumero.Bindear(Seleccionado, "Cli_Nro_Calle");
-             boxPiso.Bindear(Seleccionado, "Cli_Piso");
-             boxDepartamento.Bindear(Seleccionado, "Cli_Depto");
-             boxCodigoPostal.Bindear(Seleccionado, "Cli_Cod_Postal");
-             boxLocalidad.Bindear(Seleccionado, "Cli_Localidad");
-             boxTipoTarjeta.Bindear(Seleccionado, "Cli_Tarjeta_Tipo");
-             boxNroTarjeta.Bindear(Seleccionado, "Cli_Tarjeta_Num");
+        private void BindearCampos(Cliente c) {
+            boxApellido.Text = c.Cli_Apellido;
+            boxCodigoPostal.Text = c.Cli_Cod_Postal;
+            boxCUIL.Text = c.Cli_CUIL;
+            boxDepartamento.Text = c.Cli_Depto;
+            boxCalle.Text = c.Cli_Dom_Calle;
+            boxFecha.Value = c.Cli_Fecha_Nac.Value;
+            checkHabilitado.Checked = c.Cli_Habilitado;
+            boxLocalidad.Text = c.Cli_Localidad;
+            boxMail.Text = c.Cli_Mail;
+            boxNombre.Text = c.Cli_Nombre;
+            boxNumero.Text = c.Cli_Nro_Calle.ToString();
+            boxNroDoc.Text = c.Cli_Nro_Doc.ToString();
+            boxPiso.Text = c.Cli_Piso.ToString();
+            boxNroTarjeta.Text = c.Cli_Tarjeta_Num;
+            boxTipoTarjeta.Text = c.Cli_Tarjeta_Tipo;
+            boxTelefono.Text = c.Cli_Telefono;
+            boxTipoDoc.Text = c.Cli_Tipo_Doc;
+        }
+
+        private void BindearDatos() {
+            Seleccionado.Cli_Apellido = boxApellido.Text;
+            Seleccionado.Cli_Cod_Postal = boxCodigoPostal.Text;
+            Seleccionado.Cli_CUIL = boxCUIL.Text;
+            Seleccionado.Cli_Depto = boxDepartamento.Text;
+            Seleccionado.Cli_Dom_Calle = boxCalle.Text;
+            Seleccionado.Cli_Fecha_Nac = boxFecha.Value;
+            Seleccionado.Cli_Habilitado = checkHabilitado.Checked;
+            Seleccionado.Cli_Localidad = boxLocalidad.Text;
+            Seleccionado.Cli_Mail = boxMail.Text;
+            Seleccionado.Cli_Nombre = boxNombre.Text;
+            Seleccionado.Cli_Nro_Calle = decimal.Parse(boxNumero.Text);
+            Seleccionado.Cli_Nro_Doc = decimal.Parse(boxNroDoc.Text);
+            Seleccionado.Cli_Piso = decimal.Parse(boxPiso.Text);
+            Seleccionado.Cli_Tarjeta_Num = boxNroTarjeta.Text;
+            Seleccionado.Cli_Tarjeta_Tipo = boxTipoTarjeta.Text;
+            Seleccionado.Cli_Telefono = boxTelefono.Text;
+            Seleccionado.Cli_Tipo_Doc = boxTipoDoc.Text;
         }
 
         private void botonGuardar_Click(object sender, EventArgs e) {
-            using (var context = new GD2C2018Entities())
+
+            bool existeCUIL = Validaciones.ExisteCUIL(boxTipoDoc.Text, decimal.Parse(boxNroDoc.Text), boxCUIL.Text) 
+                && boxCUIL.Text.Length != 0;
+
+            bool cuitValido = Validaciones.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
+            //le permito no tener cuil, pero si tiene tiene que estar bien
+
+            if (existeCUIL)
+                MessageBox.Show("Ya existe un cliente con ese CUIL", "Error de Cliente");
+            if (!cuitValido)
+                MessageBox.Show("El CUIL ingresado no tiene el formado correcto\nEjemplo: ##-########-#", "Error de CUIL");
+
+            if (!existeCUIL && cuitValido)
             {
-                var cliente = context.Cliente.Single(c => c.Cli_Nro_Doc == Documento);
-                context.Entry(cliente).CurrentValues.SetValues(Seleccionado);
-                context.SaveChanges();
+                BindearDatos();
+                using (var context = new GD2C2018Entities())
+                {
+                    var cliente = context.Cliente.Single(c => c.Cli_Nro_Doc == Documento && c.Cli_Tipo_Doc == TipoDocumento);
+                    context.Entry(cliente).CurrentValues.SetValues(Seleccionado);
+                    context.SaveChanges();
+                    ((ClientesForm)Owner).ActualizarColor(Seleccionado);
+                }
+                this.Close();
             }
-            this.Close();
         }
 
         private void ValidarRequeridos(object sender, EventArgs e) {
@@ -69,38 +107,8 @@ namespace PalcoNet.Forms
             botonGuardar.Enabled = ok;
         }
 
-        private void ActualizarObjeto() {
-            decimal nroCalle, nroDoc, piso;
-            decimal.TryParse(boxNumero.Text, out nroCalle);
-            decimal.TryParse(boxNroDoc.Text, out nroDoc);
-            decimal.TryParse(boxPiso.Text, out piso);
-
-            Seleccionado.Cli_Apellido = boxApellido.Text;
-            Seleccionado.Cli_Cod_Postal = boxCodigoPostal.Text;
-            Seleccionado.Cli_CUIL = boxCUIL.Text;
-            Seleccionado.Cli_Depto = boxDepartamento.Text;
-            Seleccionado.Cli_Dom_Calle = boxCalle.Text;
-            Seleccionado.Cli_Fecha_Alta = Properties.Settings.Default.FechaActual;
-            Seleccionado.Cli_Fecha_Nac = boxFecha.Value;
-            Seleccionado.Cli_Localidad = boxLocalidad.Text;
-            Seleccionado.Cli_Mail = boxMail.Text;
-            Seleccionado.Cli_Nombre = boxNombre.Text;
-            Seleccionado.Cli_Nro_Calle = nroCalle;
-            Seleccionado.Cli_Nro_Doc = nroDoc;
-            Seleccionado.Cli_Piso = piso;
-            Seleccionado.Cli_Tarjeta_Num = boxNroTarjeta.Text;
-            Seleccionado.Cli_Tarjeta_Tipo = boxTipoTarjeta.SelectedText;
-            Seleccionado.Cli_Telefono = boxTelefono.Text;
-            Seleccionado.Cli_Tipo_Doc = boxTipoDoc.SelectedText;
-        }
-
         private void botonCancelar_Click(object sender, EventArgs e) {
-            Seleccionado = aux;
             this.Close();
-        }
-
-        private void ModifClientesForm_FormClosing(object sender, FormClosingEventArgs e) {
-            Seleccionado = aux;
         }
     }
 }

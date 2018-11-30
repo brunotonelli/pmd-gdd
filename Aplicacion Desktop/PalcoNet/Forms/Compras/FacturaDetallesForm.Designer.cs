@@ -148,7 +148,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::PalcoNet.Properties.Resources.logoNET;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(28, 20);
             this.pictureBox1.Name = "pictureBox1";

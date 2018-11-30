@@ -121,9 +121,6 @@
   <data name="logoBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoPALCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoPALCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="flechaDer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flechaDer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,8 +129,5 @@
   </data>
   <data name="ticket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ticket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoNET" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoNET1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

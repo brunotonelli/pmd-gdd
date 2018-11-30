@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Los puntos se obtienen al realizar una compra y la cantidad obtenida es igual al 35% del monto total.
+Puede canjear los puntos ganados por diversos premios.
+Cada punto obtenido tiene una vigencia de 6 meses a partir de la confirmación de la compra.</value>
+  </data>
 </root>

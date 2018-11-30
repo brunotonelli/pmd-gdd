@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.boxUsuario = new System.Windows.Forms.TextBox();
-            this.boxContraseña = new System.Windows.Forms.TextBox();
+            this.boxContraseña = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxUsuario = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -54,15 +56,13 @@
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.boxTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonRegistrarse = new System.Windows.Forms.Button();
-            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxCUIT = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxRazon = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,8 +71,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.boxUsuario);
             this.groupBox1.Controls.Add(this.boxContraseña);
+            this.groupBox1.Controls.Add(this.boxUsuario);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
@@ -84,20 +84,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Usuario";
             // 
-            // boxUsuario
-            // 
-            this.boxUsuario.Location = new System.Drawing.Point(122, 37);
-            this.boxUsuario.Name = "boxUsuario";
-            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
-            this.boxUsuario.TabIndex = 31;
-            // 
             // boxContraseña
             // 
-            this.boxContraseña.Location = new System.Drawing.Point(122, 70);
+            this.boxContraseña.BackColor = System.Drawing.Color.Tomato;
+            this.boxContraseña.Location = new System.Drawing.Point(122, 71);
             this.boxContraseña.Name = "boxContraseña";
+            this.boxContraseña.Padding = new System.Windows.Forms.Padding(1);
             this.boxContraseña.Size = new System.Drawing.Size(122, 20);
-            this.boxContraseña.TabIndex = 32;
-            this.boxContraseña.UseSystemPasswordChar = true;
+            this.boxContraseña.TabIndex = 28;
+            this.boxContraseña.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Contraseña;
+            // 
+            // boxUsuario
+            // 
+            this.boxUsuario.BackColor = System.Drawing.Color.Tomato;
+            this.boxUsuario.Location = new System.Drawing.Point(122, 36);
+            this.boxUsuario.Name = "boxUsuario";
+            this.boxUsuario.Padding = new System.Windows.Forms.Padding(1);
+            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
+            this.boxUsuario.TabIndex = 27;
+            this.boxUsuario.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label3
             // 
@@ -126,18 +131,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(44, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
+            this.label2.Text = "* Contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre de usuario";
+            this.label1.Text = "* Nombre de usuario";
             // 
             // groupBox3
             // 
@@ -152,6 +157,26 @@
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Empresa";
+            // 
+            // boxCUIT
+            // 
+            this.boxCUIT.BackColor = System.Drawing.Color.Tomato;
+            this.boxCUIT.Location = new System.Drawing.Point(94, 73);
+            this.boxCUIT.Name = "boxCUIT";
+            this.boxCUIT.Padding = new System.Windows.Forms.Padding(1);
+            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIT.TabIndex = 26;
+            this.boxCUIT.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
+            // boxRazon
+            // 
+            this.boxRazon.BackColor = System.Drawing.Color.Tomato;
+            this.boxRazon.Location = new System.Drawing.Point(94, 36);
+            this.boxRazon.Name = "boxRazon";
+            this.boxRazon.Padding = new System.Windows.Forms.Padding(1);
+            this.boxRazon.Size = new System.Drawing.Size(150, 20);
+            this.boxRazon.TabIndex = 25;
+            this.boxRazon.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label4
             // 
@@ -319,6 +344,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos de contacto";
             // 
+            // boxMail
+            // 
+            this.boxMail.BackColor = System.Drawing.Color.Tomato;
+            this.boxMail.Location = new System.Drawing.Point(97, 29);
+            this.boxMail.Name = "boxMail";
+            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
+            this.boxMail.Size = new System.Drawing.Size(150, 20);
+            this.boxMail.TabIndex = 28;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -374,33 +409,6 @@
             this.botonRegistrarse.Text = "Registrarse";
             this.botonRegistrarse.UseVisualStyleBackColor = true;
             this.botonRegistrarse.Click += new System.EventHandler(this.botonRegistrarse_Click);
-            // 
-            // boxMail
-            // 
-            this.boxMail.BackColor = System.Drawing.Color.Tomato;
-            this.boxMail.Location = new System.Drawing.Point(97, 29);
-            this.boxMail.Name = "boxMail";
-            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
-            this.boxMail.Size = new System.Drawing.Size(150, 20);
-            this.boxMail.TabIndex = 28;
-            // 
-            // boxCUIT
-            // 
-            this.boxCUIT.BackColor = System.Drawing.Color.Tomato;
-            this.boxCUIT.Location = new System.Drawing.Point(94, 73);
-            this.boxCUIT.Name = "boxCUIT";
-            this.boxCUIT.Padding = new System.Windows.Forms.Padding(1);
-            this.boxCUIT.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIT.TabIndex = 26;
-            // 
-            // boxRazon
-            // 
-            this.boxRazon.BackColor = System.Drawing.Color.Tomato;
-            this.boxRazon.Location = new System.Drawing.Point(94, 36);
-            this.boxRazon.Name = "boxRazon";
-            this.boxRazon.Padding = new System.Windows.Forms.Padding(1);
-            this.boxRazon.Size = new System.Drawing.Size(150, 20);
-            this.boxRazon.TabIndex = 25;
             // 
             // RegistrarEmpresaForm
             // 
@@ -464,7 +472,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Button botonRegistrarse;
-        private System.Windows.Forms.TextBox boxUsuario;
-        private System.Windows.Forms.TextBox boxContraseña;
+        private Extensiones.TextBoxRequerido boxContraseña;
+        private Extensiones.TextBoxRequerido boxUsuario;
     }
 }

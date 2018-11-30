@@ -14,24 +14,21 @@ namespace PalcoNet.Forms
     {
         private int id;
         private Grado_Publicacion Seleccionado;
+
         public ModificacionGradoForm(Grado_Publicacion grado)
         {
             InitializeComponent();
             Seleccionado = grado;
             id = grado.Grado_ID;
-            BindearCampos();
             boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxComision.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
-        private void BindearCampos()
-        {
-            boxNombre.Bindear(Seleccionado, "Grado_Nombre");
-            boxComision.Bindear(Seleccionado,"Grado_Comision");
+        private void BindearDatos() {
+            Seleccionado.Grado_Nombre = boxNombre.Text;
+            Seleccionado.Grado_Comision = decimal.Parse(boxComision.Text);
+            Seleccionado.Grado_Habilitado = checkHabilitado.Checked;
         }
-
-
-        private void ModificacionGradoForm_Load(object sender, EventArgs e){}
 
         private void botonCancelar_Click(object sender, EventArgs e)
         {
@@ -40,11 +37,13 @@ namespace PalcoNet.Forms
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
+            BindearDatos();
             using (var context = new GD2C2018Entities())
             {
                 var grado = context.Grado_Publicacion.Single(c => c.Grado_ID == id);
                 context.Entry(grado).CurrentValues.SetValues(Seleccionado);
                 context.SaveChanges();
+                ((GradosForm)Owner).ActualizarColor(grado);
             }
             this.Close();
         }
