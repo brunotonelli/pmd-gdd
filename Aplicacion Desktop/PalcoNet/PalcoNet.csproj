@@ -314,6 +314,7 @@
     <Compile Include="Model\CompraModel.cs" />
     <Compile Include="Model\PremioEventoModel.cs" />
     <Compile Include="Model\PublicacionModel.cs" />
+    <Compile Include="Model\PuntosVencidosModel.cs" />
     <Compile Include="Model\UbicacionModel.cs" />
     <Compile Include="Premio.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>

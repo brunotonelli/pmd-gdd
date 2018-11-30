@@ -42,24 +42,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cb_Trimestre = new System.Windows.Forms.ComboBox();
             this.tm_Verificar = new System.Windows.Forms.Timer(this.components);
-            this.grid3 = new System.Windows.Forms.DataGridView();
-            this.comprasEstadisticoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comprasEstadisticoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dg_WEA = new System.Windows.Forms.DataGridView();
             this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comprasEstadisticoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_WEA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +104,7 @@
             // 
             // btn_Cerrar
             // 
-            this.btn_Cerrar.Location = new System.Drawing.Point(305, 245);
+            this.btn_Cerrar.Location = new System.Drawing.Point(362, 245);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(100, 55);
             this.btn_Cerrar.TabIndex = 9;
@@ -122,7 +115,7 @@
             // btn_Buscar
             // 
             this.btn_Buscar.Enabled = false;
-            this.btn_Buscar.Location = new System.Drawing.Point(421, 245);
+            this.btn_Buscar.Location = new System.Drawing.Point(468, 245);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(100, 55);
             this.btn_Buscar.TabIndex = 5;
@@ -206,38 +199,6 @@
             this.tm_Verificar.Interval = 500;
             this.tm_Verificar.Tick += new System.EventHandler(this.tm_Verificar_Tick);
             // 
-            // grid3
-            // 
-            this.grid3.AllowUserToAddRows = false;
-            this.grid3.AllowUserToDeleteRows = false;
-            this.grid3.AllowUserToResizeRows = false;
-            this.grid3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grid3.AutoGenerateColumns = false;
-            this.grid3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.grid3.DataSource = this.comprasEstadisticoBindingSource;
-            this.grid3.Location = new System.Drawing.Point(18, 365);
-            this.grid3.Margin = new System.Windows.Forms.Padding(4);
-            this.grid3.MultiSelect = false;
-            this.grid3.Name = "grid3";
-            this.grid3.ReadOnly = true;
-            this.grid3.RowHeadersVisible = false;
-            this.grid3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid3.Size = new System.Drawing.Size(459, 174);
-            this.grid3.TabIndex = 20;
-            // 
-            // comprasEstadisticoBindingSource
-            // 
-            this.comprasEstadisticoBindingSource.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
-            // 
             // dg_WEA
             // 
             this.dg_WEA.AllowUserToAddRows = false;
@@ -248,14 +209,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_WEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_WEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_WEA.Location = new System.Drawing.Point(495, 365);
+            this.dg_WEA.Location = new System.Drawing.Point(18, 365);
             this.dg_WEA.Margin = new System.Windows.Forms.Padding(4);
             this.dg_WEA.MultiSelect = false;
             this.dg_WEA.Name = "dg_WEA";
             this.dg_WEA.ReadOnly = true;
             this.dg_WEA.RowHeadersVisible = false;
             this.dg_WEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_WEA.Size = new System.Drawing.Size(459, 174);
+            this.dg_WEA.Size = new System.Drawing.Size(599, 174);
             this.dg_WEA.TabIndex = 21;
             // 
             // txt_Ano
@@ -267,48 +228,16 @@
             this.txt_Ano.Size = new System.Drawing.Size(248, 26);
             this.txt_Ano.TabIndex = 10;
             // 
-            // dataGridViewTextBoxColumn1
+            // comprasEstadisticoBindingSource
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Cli_Nro_Doc";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Cli_Nro_Doc";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Cli_Tipo_Doc";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Cli_Tipo_Doc";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Cli_Nombre";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Cli_Nombre";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Cli_Apellido";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Cli_Apellido";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Entradas_Compradas";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Entradas_Compradas";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.comprasEstadisticoBindingSource.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
             // 
             // EstadisticasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 579);
+            this.ClientSize = new System.Drawing.Size(639, 579);
             this.Controls.Add(this.dg_WEA);
-            this.Controls.Add(this.grid3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.Black;
@@ -318,11 +247,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_WEA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasEstadisticoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,7 +279,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantComprasDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource comprasEstadisticoBindingSource1;
-        private System.Windows.Forms.DataGridView grid3;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliNroDocDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliTipoDocDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliNombreDataGridViewTextBoxColumn;

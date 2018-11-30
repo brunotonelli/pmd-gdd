@@ -19,14 +19,13 @@ namespace PalcoNet.Forms
             lbl_Respuesta.Text = "";
             cb_Trimestre.SelectedIndex = 0;
             tm_Verificar.Start();
-            //btn_Buscar.Enabled = false;
+            dg_WEA.Visible = false;
+            txt_Ano.TabIndex = 1;
         }
-
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             int año = int.Parse(txt_Ano.Text), trimestre = int.Parse(cb_Trimestre.Text);
@@ -37,71 +36,66 @@ namespace PalcoNet.Forms
             }
             else
             {
+                dg_WEA.Visible = true;
                 lbl_Respuesta.Text = "";
-
                 var context = new GD2C2018Entities();
                 if (rb_ComprasCliente.Checked == true)//ORDENADO MES ANO
                 {
-                    var query = from cli in context.Cliente
-                                join com in context.Compra on new { t = cli.Cli_Tipo_Doc, n = cli.Cli_Nro_Doc } equals new { t = com.Compra_Tipo_Doc_Cliente, n = com.Compra_Num_Doc_Cliente }
-                                where com.Compra_Fecha.Year == año && 
-                                SqlFunctions.DatePart("QUARTER", com.Compra_Fecha) == trimestre
-                                group new { cli.Cli_Tipo_Doc, cli.Cli_Nro_Doc, cli.Cli_Nombre, cli.Cli_Apellido, com.Compra_Cantidad } by new { cli.Cli_Tipo_Doc, cli.Cli_Nro_Doc, cli.Cli_Nombre, cli.Cli_Apellido }
-                                into c
-                                select new
-                                {
-                                    c.Key.Cli_Tipo_Doc,
-                                    c.Key.Cli_Nro_Doc,
-                                    c.Key.Cli_Nombre,
-                                    c.Key.Cli_Apellido,
-                                    Entradas_Compradas = c.Sum(x => x.Compra_Cantidad)
-                                };
 
-                    comprasEstadisticoBindingSource.DataSource = query
-                        .OrderByDescending(c => c.Entradas_Compradas)
-                        .Take(5)
-                        .ToList();
+                    string qwery="SELECT TOP 5 (SELECT e.Espec_Empresa_Razon_Social From PMD.Espec_Empresa e WHERE e.Espec_Empresa_Cuit=pl.Publicacion_Empresa)AS Empresa,pl.Publicacion_ID,cm.Compra_Tipo_Doc_Cliente,cm.Compra_Num_Doc_Cliente,SUM(cm.Compra_Cantidad) AS Cantidad FROM PMD.Publicacion pl JOIN PMD.Compra cm ON (pl.Publicacion_ID=cm.Compra_Publicacion) WHERE  YEAR(pl.Publicacion_Fecha)= "+  txt_Ano.Text    +" AND	MONTH(pl.Publicacion_Fecha)>  "+   ((cb_Trimestre.SelectedIndex)*3).ToString() +"   AND  MONTH(pl.Publicacion_Fecha)<="+    ((cb_Trimestre.SelectedIndex+1)*3).ToString()  + " GROUP BY pl.Publicacion_ID,cm.Compra_Tipo_Doc_Cliente,cm.Compra_Num_Doc_Cliente,pl.Publicacion_Empresa ORDER BY 5 DESC";
+                    var wea = context.Database
+                            .SqlQuery<ComprasEstadistico>(qwery)
+                            .ToList();
+                    dg_WEA.DataSource = wea;
+                    
                 }
                 if (rb_PuntosCliente.Checked == true)
                 {
-
-
-
+                    string fecha="";
+                    string qwery;
+                    switch(cb_Trimestre.SelectedIndex){
+                        case 0:
+                            {
+                                fecha=txt_Ano.Text+"-03-31 00:00:00.000";
+                                break;
+                            }
+                        case 1:
+                            {
+                                fecha=txt_Ano.Text+"-06-30 00:00:00.000";
+                                break;
+                            }
+                        case 2:
+                            {
+                                fecha=txt_Ano.Text+"-09-30 00:00:00.000";
+                                break;
+                            }
+                        default:
+                            {
+                                fecha=txt_Ano.Text+"-12-31 00:00:00.000";
+                                break;
+                            }
+                    }
+                    qwery = "SELECT TOP 5 p.Puntos_Tipo_Doc_Cliente,p.Puntos_Num_Doc_Cliente,SUM(p.Puntos_Cantidad) AS Puntos FROM PMD.Puntos p  WHERE  Puntos_Vencimiento <='" + fecha + "' GROUP BY p.Puntos_Num_Doc_Cliente,p.Puntos_Tipo_Doc_Cliente ORDER BY 2 DESC";
+                    var wea = context.Database
+                        .SqlQuery<PuntosVencidosModel>(qwery)
+                        .ToList();
+                    dg_WEA.DataSource = wea;
                 }
                 else//Empresas
                 {
                     if (rb_Empresas.Checked == true)
                     {
-                        try
-                        {
-                            var query = (from emp in context.Espec_Empresa
-                                         select new
-                                         {
-                                             emp.Espec_Empresa_Cuit,
-                                             emp.Espec_Empresa_Razon_Social,
-                                             Sobrante = FuncionesSQL.LocalidadesTotales(emp.Espec_Empresa_Cuit, año, trimestre) -
-                                                        FuncionesSQL.LocalidadesVendidas(emp.Espec_Empresa_Cuit, año, trimestre)
-                                         })
-                                         .OrderByDescending(emp => emp.Sobrante).Take(5); //falta filtrar por grado ?
-                                      
-                            var list = query.ToList();
-
-                            dg_WEA.DataSource = list;
-                        }
-
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-
-                        }
+                        string qwery = "SELECT TOP 5 e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social,p.Publicacion_ID,(p.Publicacion_Localidades - SUM(c.Compra_Cantidad)) AS Cantidad  FROM PMD.Espec_Empresa e JOIN PMD.Publicacion p ON (p.Publicacion_Empresa=e.Espec_Empresa_Cuit) JOIN PMD.Compra c ON (c.Compra_Publicacion=p.Publicacion_ID) WHERE YEAR(p.Publicacion_Fecha)= " + txt_Ano.Text + " AND p.Publicacion_Estado=3	AND	MONTH(p.Publicacion_Fecha)>  " + ((cb_Trimestre.SelectedIndex) * 3).ToString() + " AND  MONTH(p.Publicacion_Fecha)<=" + ((cb_Trimestre.SelectedIndex + 1) * 3).ToString() + " GROUP BY e.Espec_Empresa_Cuit,e.Espec_Empresa_Razon_Social,p.Publicacion_ID,p.Publicacion_Localidades,p.Publicacion_Fecha_Espectaculo,p.Publicacion_Grado ORDER BY 4 DESC,p.Publicacion_Fecha_Espectaculo ASC,p.Publicacion_Grado ASC ";
+                        var wea = context.Database
+                            .SqlQuery<EmpEstadistico>(qwery)
+                            .ToList();
+                        dg_WEA.DataSource = wea;
                     }
                 }
             }
         }
-
         private void rb_Empresas_CheckedChanged(object sender, EventArgs e)
         {
-            
             rb_ComprasCliente.Checked = false;
             rb_PuntosCliente.Checked = false;
         }
