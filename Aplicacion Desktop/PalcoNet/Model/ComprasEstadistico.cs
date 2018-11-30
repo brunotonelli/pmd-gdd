@@ -16,10 +16,10 @@ namespace PalcoNet.Model
             this.apellido = apellido;
             this.cantCompras = cantCompras;
         }*/
-        public int Cli_Nro_Doc { get; set; }
-        public string Cli_Tipo_Doc { get; set; }
-        public string Cli_Nombre { get; set; }
-        public string Cli_Apellido { get; set; }
-        public int Entradas_Compradas { get; set; }
+        public string Empresa { get; set; }
+        public decimal Publicacion_ID { get; set; }
+        public string Compra_Tipo_Doc_Cliente { get; set; }
+        public decimal Compra_Num_Doc_Cliente { get; set; }
+        public decimal Cantidad { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace PalcoNet.Model
     {
         public string Espec_Empresa_Cuit { get; set; }
         public string Espec_Empresa_Razon_Social { get; set; }
-        public int Sobrante { get; set; }
+        public decimal Publicacion_ID { get; set; }
+        public decimal Cantidad { get; set; }
     }
 }
