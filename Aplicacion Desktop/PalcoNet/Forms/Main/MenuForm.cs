@@ -91,7 +91,7 @@ namespace PalcoNet.Forms
 
         private void botonCuenta_Click(object sender, EventArgs e) {
             new CuentaForm().Show();
-            this.Close();
+            //this.Close();
         }
     }
 }
