@@ -159,7 +159,7 @@ namespace PalcoNet.Forms
                 Espectaculo_Rubro = rubro.Rubro_ID
             };
             context.Entry(espectaculo).State = System.Data.Entity.EntityState.Added;
-            //context.SaveChanges();
+            context.SaveChanges();
             return espectaculo;
         }
 
@@ -181,8 +181,8 @@ namespace PalcoNet.Forms
                 };
                 context.Entry(publicacion).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
-                lista.Add(publicacion);
-            }
+                lista.Add(publicacion);                
+            }            
             return lista;
         }
 
@@ -191,8 +191,8 @@ namespace PalcoNet.Forms
             {
                 foreach(var ubicacion in Ubicaciones)
                 {
-                    ubicacion.Ubicacion_Publicacion = publicacion.Publicacion_ID;
-                    context.Entry(ubicacion).State = System.Data.Entity.EntityState.Added;
+                    var u = ubicacion.ConPublicacion(publicacion.Publicacion_ID);
+                    context.Entry(u).State = System.Data.Entity.EntityState.Added;
                     context.SaveChanges();
                 }
             }

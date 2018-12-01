@@ -61,5 +61,18 @@ namespace PalcoNet.Extensiones
             return (int)Math.Floor((d.Month + 2) / 3.0);
         }
 
+        public static Ubicacion ConPublicacion(this Ubicacion u, decimal id_publi) {
+            return new Ubicacion
+            {
+                Ubicacion_Asiento = u.Ubicacion_Asiento,
+                Ubicacion_Disponible = true,
+                Ubicacion_Fila = u.Ubicacion_Fila,
+                Ubicacion_Precio = u.Ubicacion_Precio,
+                Ubicacion_Sin_numerar = u.Ubicacion_Sin_numerar,
+                Ubicacion_Tipo = u.Ubicacion_Tipo,
+                Ubicacion_Publicacion = id_publi
+            };
+        }
+
     }
 }
