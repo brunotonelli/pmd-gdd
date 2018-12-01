@@ -139,5 +139,10 @@ namespace PalcoNet.Forms
         {
             //this.Hide();
         }
+
+        private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
