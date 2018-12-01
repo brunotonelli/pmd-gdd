@@ -51,9 +51,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 7);
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 37);
+            this.label1.Size = new System.Drawing.Size(399, 46);
             this.label1.TabIndex = 13;
             this.label1.Text = "Grado de publicacion";
             // 
@@ -61,9 +62,10 @@
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(334, 72);
+            this.botonModificar.Location = new System.Drawing.Point(445, 89);
+            this.botonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(147, 34);
+            this.botonModificar.Size = new System.Drawing.Size(196, 42);
             this.botonModificar.TabIndex = 18;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -73,9 +75,10 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(334, 111);
+            this.botonEliminar.Location = new System.Drawing.Point(445, 137);
+            this.botonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(147, 34);
+            this.botonEliminar.Size = new System.Drawing.Size(196, 42);
             this.botonEliminar.TabIndex = 17;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
@@ -84,9 +87,10 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(334, 31);
+            this.botonNuevo.Location = new System.Drawing.Point(445, 38);
+            this.botonNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonNuevo.Name = "botonNuevo";
-            this.botonNuevo.Size = new System.Drawing.Size(147, 34);
+            this.botonNuevo.Size = new System.Drawing.Size(196, 42);
             this.botonNuevo.TabIndex = 16;
             this.botonNuevo.Text = "Nuevo";
             this.botonNuevo.UseVisualStyleBackColor = true;
@@ -98,18 +102,21 @@
             this.groupBox1.Controls.Add(this.botonBuscar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.boxFiltroNombre);
-            this.groupBox1.Location = new System.Drawing.Point(16, 48);
+            this.groupBox1.Location = new System.Drawing.Point(21, 59);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 98);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(400, 121);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
             // botonLimpiar
             // 
-            this.botonLimpiar.Location = new System.Drawing.Point(208, 55);
+            this.botonLimpiar.Location = new System.Drawing.Point(277, 68);
+            this.botonLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonLimpiar.Name = "botonLimpiar";
-            this.botonLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.botonLimpiar.Size = new System.Drawing.Size(100, 28);
             this.botonLimpiar.TabIndex = 3;
             this.botonLimpiar.Text = "Limpiar";
             this.botonLimpiar.UseVisualStyleBackColor = true;
@@ -117,9 +124,10 @@
             // 
             // botonBuscar
             // 
-            this.botonBuscar.Location = new System.Drawing.Point(208, 16);
+            this.botonBuscar.Location = new System.Drawing.Point(277, 20);
+            this.botonBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonBuscar.Name = "botonBuscar";
-            this.botonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.botonBuscar.Size = new System.Drawing.Size(100, 28);
             this.botonBuscar.TabIndex = 4;
             this.botonBuscar.Text = "Buscar";
             this.botonBuscar.UseVisualStyleBackColor = true;
@@ -128,17 +136,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 38);
+            this.label5.Location = new System.Drawing.Point(28, 47);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(58, 17);
             this.label5.TabIndex = 1;
             this.label5.Text = "Nombre";
             // 
             // boxFiltroNombre
             // 
-            this.boxFiltroNombre.Location = new System.Drawing.Point(71, 35);
+            this.boxFiltroNombre.Location = new System.Drawing.Point(95, 43);
+            this.boxFiltroNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.boxFiltroNombre.Name = "boxFiltroNombre";
-            this.boxFiltroNombre.Size = new System.Drawing.Size(132, 20);
+            this.boxFiltroNombre.Size = new System.Drawing.Size(175, 22);
             this.boxFiltroNombre.TabIndex = 0;
             // 
             // datagrid
@@ -158,13 +168,14 @@
             this.gradoComisionDataGridViewTextBoxColumn,
             this.gradoHabilitadoDataGridViewTextBoxColumn});
             this.datagrid.DataSource = this.gradoPublicacionBindingSource;
-            this.datagrid.Location = new System.Drawing.Point(17, 161);
+            this.datagrid.Location = new System.Drawing.Point(23, 198);
+            this.datagrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.datagrid.MultiSelect = false;
             this.datagrid.Name = "datagrid";
             this.datagrid.ReadOnly = true;
             this.datagrid.RowHeadersVisible = false;
             this.datagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagrid.Size = new System.Drawing.Size(465, 168);
+            this.datagrid.Size = new System.Drawing.Size(620, 207);
             this.datagrid.TabIndex = 19;
             this.datagrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.datagrid_DataBindingComplete);
             this.datagrid.SelectionChanged += new System.EventHandler(this.datagrid_SelectionChanged_1);
@@ -203,18 +214,19 @@
             // 
             // GradosForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 341);
+            this.ClientSize = new System.Drawing.Size(681, 420);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonNuevo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GradosForm";
             this.Text = "GradosForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradosForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();

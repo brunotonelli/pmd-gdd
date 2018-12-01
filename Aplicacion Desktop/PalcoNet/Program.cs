@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PalcoNet
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -18,6 +18,9 @@ namespace PalcoNet
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+
+
+
         }
     }
 }

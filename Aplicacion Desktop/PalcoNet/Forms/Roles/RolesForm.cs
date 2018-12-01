@@ -77,5 +77,10 @@ namespace PalcoNet.Forms
             FilaSeleccionada.DefaultCellStyle.BackColor = r.Rol_Habilitado.Value ?
                 Color.White : Color.FromArgb(255, 230, 230);
         }
+
+        private void RolesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
     }
 }

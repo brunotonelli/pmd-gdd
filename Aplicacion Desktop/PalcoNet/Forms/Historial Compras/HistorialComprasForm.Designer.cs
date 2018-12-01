@@ -47,9 +47,10 @@
             // labelPagina
             // 
             this.labelPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPagina.Location = new System.Drawing.Point(151, 267);
+            this.labelPagina.Location = new System.Drawing.Point(201, 329);
+            this.labelPagina.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPagina.Name = "labelPagina";
-            this.labelPagina.Size = new System.Drawing.Size(249, 34);
+            this.labelPagina.Size = new System.Drawing.Size(332, 42);
             this.labelPagina.TabIndex = 9;
             this.labelPagina.Text = "Página X de Y";
             this.labelPagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -58,9 +59,10 @@
             // 
             this.botonAnterior.BackgroundImage = global::PalcoNet.Properties.Resources.flechaIzq;
             this.botonAnterior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonAnterior.Location = new System.Drawing.Point(70, 267);
+            this.botonAnterior.Location = new System.Drawing.Point(93, 329);
+            this.botonAnterior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonAnterior.Name = "botonAnterior";
-            this.botonAnterior.Size = new System.Drawing.Size(75, 36);
+            this.botonAnterior.Size = new System.Drawing.Size(100, 44);
             this.botonAnterior.TabIndex = 8;
             this.botonAnterior.UseVisualStyleBackColor = true;
             this.botonAnterior.Click += new System.EventHandler(this.botonAnterior_Click);
@@ -69,9 +71,10 @@
             // 
             this.botonSiguiente.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
             this.botonSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonSiguiente.Location = new System.Drawing.Point(406, 267);
+            this.botonSiguiente.Location = new System.Drawing.Point(541, 329);
+            this.botonSiguiente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonSiguiente.Name = "botonSiguiente";
-            this.botonSiguiente.Size = new System.Drawing.Size(75, 36);
+            this.botonSiguiente.Size = new System.Drawing.Size(100, 44);
             this.botonSiguiente.TabIndex = 7;
             this.botonSiguiente.UseVisualStyleBackColor = true;
             this.botonSiguiente.Click += new System.EventHandler(this.botonSiguiente_Click);
@@ -80,9 +83,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 12);
+            this.label3.Location = new System.Drawing.Point(16, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 20);
+            this.label3.Size = new System.Drawing.Size(192, 25);
             this.label3.TabIndex = 10;
             this.label3.Text = "Compras realizadas:";
             // 
@@ -101,14 +105,15 @@
             this.totalDataGridViewTextBoxColumn,
             this.formaPagoDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.historialModelBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(16, 35);
+            this.dataGrid.Location = new System.Drawing.Point(21, 43);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(505, 219);
+            this.dataGrid.Size = new System.Drawing.Size(673, 270);
             this.dataGrid.TabIndex = 2;
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
             // 
@@ -153,16 +158,18 @@
             // 
             // HistorialComprasForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 323);
+            this.ClientSize = new System.Drawing.Size(715, 398);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelPagina);
             this.Controls.Add(this.botonAnterior);
             this.Controls.Add(this.botonSiguiente);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HistorialComprasForm";
             this.Text = "[PalcoNet] - Historial de Compras";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HistorialComprasForm_FormClosing);
             this.Load += new System.EventHandler(this.HistorialComprasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialModelBindingSource)).EndInit();

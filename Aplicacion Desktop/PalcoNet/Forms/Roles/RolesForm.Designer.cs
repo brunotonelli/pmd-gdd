@@ -52,13 +52,14 @@
             this.rolNombreDataGridViewTextBoxColumn,
             this.rolHabilitadoDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.rolBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(12, 12);
+            this.dataGrid.Location = new System.Drawing.Point(16, 15);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(344, 225);
+            this.dataGrid.Size = new System.Drawing.Size(459, 277);
             this.dataGrid.TabIndex = 2;
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
@@ -92,9 +93,10 @@
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(362, 52);
+            this.botonModificar.Location = new System.Drawing.Point(483, 64);
+            this.botonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(123, 34);
+            this.botonModificar.Size = new System.Drawing.Size(164, 42);
             this.botonModificar.TabIndex = 11;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -104,9 +106,10 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(362, 92);
+            this.botonEliminar.Location = new System.Drawing.Point(483, 113);
+            this.botonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(123, 34);
+            this.botonEliminar.Size = new System.Drawing.Size(164, 42);
             this.botonEliminar.TabIndex = 10;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
@@ -115,9 +118,10 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(362, 12);
+            this.botonNuevo.Location = new System.Drawing.Point(483, 15);
+            this.botonNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonNuevo.Name = "botonNuevo";
-            this.botonNuevo.Size = new System.Drawing.Size(123, 34);
+            this.botonNuevo.Size = new System.Drawing.Size(164, 42);
             this.botonNuevo.TabIndex = 9;
             this.botonNuevo.Text = "Nuevo";
             this.botonNuevo.UseVisualStyleBackColor = true;
@@ -125,15 +129,17 @@
             // 
             // RolesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 249);
+            this.ClientSize = new System.Drawing.Size(659, 306);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonNuevo);
             this.Controls.Add(this.dataGrid);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RolesForm";
             this.Text = "[PalcoNet] - Roles";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RolesForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolBindingSource)).EndInit();
             this.ResumeLayout(false);

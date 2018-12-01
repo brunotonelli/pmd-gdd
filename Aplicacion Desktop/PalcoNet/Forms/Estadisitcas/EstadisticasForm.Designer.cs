@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
             this.lbl_Respuesta = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_Buscar = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.comprasEstadisticoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dg_WEA = new System.Windows.Forms.DataGridView();
-            this.txt_Ano = new PalcoNet.Extensiones.TextBoxRequerido();
             this.comprasEstadisticoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,6 +91,16 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingrese los datos a buscar";
+            // 
+            // txt_Ano
+            // 
+            this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
+            this.txt_Ano.Location = new System.Drawing.Point(157, 25);
+            this.txt_Ano.Name = "txt_Ano";
+            this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
+            this.txt_Ano.Size = new System.Drawing.Size(248, 26);
+            this.txt_Ano.TabIndex = 10;
+            this.txt_Ano.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // lbl_Respuesta
             // 
@@ -219,15 +229,6 @@
             this.dg_WEA.Size = new System.Drawing.Size(599, 174);
             this.dg_WEA.TabIndex = 21;
             // 
-            // txt_Ano
-            // 
-            this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
-            this.txt_Ano.Location = new System.Drawing.Point(157, 25);
-            this.txt_Ano.Name = "txt_Ano";
-            this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
-            this.txt_Ano.Size = new System.Drawing.Size(248, 26);
-            this.txt_Ano.TabIndex = 10;
-            // 
             // comprasEstadisticoBindingSource
             // 
             this.comprasEstadisticoBindingSource.DataSource = typeof(PalcoNet.Model.ComprasEstadistico);
@@ -243,6 +244,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "EstadisticasForm";
             this.Text = "[PalcoNet] Estadisticas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EstadisticasForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

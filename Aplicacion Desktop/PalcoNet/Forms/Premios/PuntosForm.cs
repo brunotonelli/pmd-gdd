@@ -114,5 +114,10 @@ namespace PalcoNet.Forms
             labelVencidos.Text = PuntosVencidos.Sum(p => p.Puntos_Cantidad).ToString();
         }
 
+        private void PuntosForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
+
     }
 }

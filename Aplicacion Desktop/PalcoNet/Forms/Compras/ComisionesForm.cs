@@ -98,5 +98,10 @@ namespace PalcoNet.Forms
         private void botonVerFacturas_Click(object sender, EventArgs e) {
             new FacturasForm().Show();
         }
+
+        private void ComisionesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
     }
 }

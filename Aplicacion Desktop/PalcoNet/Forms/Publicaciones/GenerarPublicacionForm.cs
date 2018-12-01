@@ -201,5 +201,10 @@ namespace PalcoNet.Forms
 
         #endregion
 
+        private void GenerarPublicacionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
+
     }
 }

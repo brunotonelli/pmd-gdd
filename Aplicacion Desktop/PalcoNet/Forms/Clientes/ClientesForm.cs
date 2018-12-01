@@ -106,5 +106,10 @@ namespace PalcoNet.Forms
             FilaSeleccionada.DefaultCellStyle.BackColor = c.Cli_Habilitado ?
                 Color.White : Color.FromArgb(255, 230, 230);
         }
+
+        private void ClientesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
     }
 }

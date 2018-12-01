@@ -37,5 +37,10 @@ namespace PalcoNet.Forms
             else
                 new ModifEmpresasForm(InfoSesion.GetEmpresa()).Show();
         }
+
+        private void CuentaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
     }
 }

@@ -47,7 +47,10 @@ namespace PalcoNet.Forms
                 }
                 else
                 {
-                    var menu = new MenuForm(usuario);
+                    //var menu = new MenuForm(usuario);
+
+
+                    var menu = MenuForm.ObtenerInstancia(usuario);
                     this.Close();
                     menu.Show();
                 }

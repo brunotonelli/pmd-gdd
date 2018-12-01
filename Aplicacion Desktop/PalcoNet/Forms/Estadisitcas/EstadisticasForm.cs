@@ -129,5 +129,10 @@ namespace PalcoNet.Forms
             }
 
         }
+
+        private void EstadisticasForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuForm.ObtenerInstancia().Show();
+        }
     }
 }

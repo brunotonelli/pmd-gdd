@@ -59,9 +59,10 @@
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(381, 76);
+            this.botonModificar.Location = new System.Drawing.Point(508, 94);
+            this.botonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(123, 34);
+            this.botonModificar.Size = new System.Drawing.Size(164, 42);
             this.botonModificar.TabIndex = 14;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -71,9 +72,10 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(380, 134);
+            this.botonEliminar.Location = new System.Drawing.Point(507, 165);
+            this.botonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(123, 34);
+            this.botonEliminar.Size = new System.Drawing.Size(164, 42);
             this.botonEliminar.TabIndex = 13;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
@@ -82,9 +84,10 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(381, 17);
+            this.botonNuevo.Location = new System.Drawing.Point(508, 21);
+            this.botonNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonNuevo.Name = "botonNuevo";
-            this.botonNuevo.Size = new System.Drawing.Size(123, 34);
+            this.botonNuevo.Size = new System.Drawing.Size(164, 42);
             this.botonNuevo.TabIndex = 11;
             this.botonNuevo.Text = "Nuevo";
             this.botonNuevo.UseVisualStyleBackColor = true;
@@ -101,9 +104,11 @@
             this.groupBox1.Controls.Add(this.boxFiltroCUIT);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.boxFiltroRazon);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(351, 156);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(468, 192);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
@@ -111,26 +116,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 22);
+            this.label2.Location = new System.Drawing.Point(100, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Razon Social";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(119, 87);
+            this.label6.Location = new System.Drawing.Point(159, 107);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.Size = new System.Drawing.Size(33, 17);
             this.label6.TabIndex = 7;
             this.label6.Text = "Mail";
             // 
             // botonLimpiar
             // 
-            this.botonLimpiar.Location = new System.Drawing.Point(95, 115);
+            this.botonLimpiar.Location = new System.Drawing.Point(127, 142);
+            this.botonLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonLimpiar.Name = "botonLimpiar";
-            this.botonLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.botonLimpiar.Size = new System.Drawing.Size(100, 28);
             this.botonLimpiar.TabIndex = 3;
             this.botonLimpiar.Text = "Limpiar";
             this.botonLimpiar.UseVisualStyleBackColor = true;
@@ -138,9 +146,10 @@
             // 
             // botonBuscar
             // 
-            this.botonBuscar.Location = new System.Drawing.Point(190, 115);
+            this.botonBuscar.Location = new System.Drawing.Point(253, 142);
+            this.botonBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonBuscar.Name = "botonBuscar";
-            this.botonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.botonBuscar.Size = new System.Drawing.Size(100, 28);
             this.botonBuscar.TabIndex = 4;
             this.botonBuscar.Text = "Buscar";
             this.botonBuscar.UseVisualStyleBackColor = true;
@@ -148,39 +157,44 @@
             // 
             // boxFiltroMail
             // 
-            this.boxFiltroMail.Location = new System.Drawing.Point(151, 84);
+            this.boxFiltroMail.Location = new System.Drawing.Point(201, 103);
+            this.boxFiltroMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.boxFiltroMail.Name = "boxFiltroMail";
-            this.boxFiltroMail.Size = new System.Drawing.Size(100, 20);
+            this.boxFiltroMail.Size = new System.Drawing.Size(132, 22);
             this.boxFiltroMail.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(113, 54);
+            this.label3.Location = new System.Drawing.Point(151, 66);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "CUIT";
             // 
             // boxFiltroCUIT
             // 
-            this.boxFiltroCUIT.Location = new System.Drawing.Point(151, 51);
+            this.boxFiltroCUIT.Location = new System.Drawing.Point(201, 63);
+            this.boxFiltroCUIT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.boxFiltroCUIT.Name = "boxFiltroCUIT";
-            this.boxFiltroCUIT.Size = new System.Drawing.Size(100, 20);
+            this.boxFiltroCUIT.Size = new System.Drawing.Size(132, 22);
             this.boxFiltroCUIT.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(133, 28);
             this.label1.TabIndex = 8;
             // 
             // boxFiltroRazon
             // 
-            this.boxFiltroRazon.Location = new System.Drawing.Point(151, 19);
+            this.boxFiltroRazon.Location = new System.Drawing.Point(201, 23);
+            this.boxFiltroRazon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.boxFiltroRazon.Name = "boxFiltroRazon";
-            this.boxFiltroRazon.Size = new System.Drawing.Size(100, 20);
+            this.boxFiltroRazon.Size = new System.Drawing.Size(132, 22);
             this.boxFiltroRazon.TabIndex = 0;
             // 
             // dataGrid
@@ -202,13 +216,14 @@
             this.Espec_Empresa_Dom_Calle,
             this.Espec_Empresa_Nro_Calle});
             this.dataGrid.DataSource = this.especEmpresaBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(12, 183);
+            this.dataGrid.Location = new System.Drawing.Point(16, 225);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(492, 249);
+            this.dataGrid.Size = new System.Drawing.Size(656, 306);
             this.dataGrid.TabIndex = 9;
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
@@ -261,16 +276,18 @@
             // 
             // EmpresasForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 444);
+            this.ClientSize = new System.Drawing.Size(687, 546);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonNuevo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGrid);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EmpresasForm";
             this.Text = "[PalcoNet] - Empresa de Espectaculos ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmpresasForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
