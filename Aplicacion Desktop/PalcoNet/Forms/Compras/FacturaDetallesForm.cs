@@ -17,6 +17,31 @@ namespace PalcoNet.Forms
         public FacturaDetallesForm(Factura factura) {
             InitializeComponent();
             Factura = factura;
+            CargarDatos();
+            this.MouseDown += new MouseEventHandler(DragForm);
+        }
+
+        private void CargarDatos() {
+            var context = new GD2C2018Entities();
+            var query = from p in context.Publicacion
+                        join e in context.Espec_Empresa on p.Publicacion_Empresa equals e.Espec_Empresa_Cuit
+                        where p.Publicacion_ID == Factura.Factura_Publicacion
+                        select new
+                        {
+                            p.Publicacion_ID,
+                            e.Espec_Empresa_Razon_Social,
+                            e.Espec_Empresa_Cuit,
+                            e.Espec_Empresa_Dom_Calle,
+                            e.Espec_Empresa_Nro_Calle,
+                            e.Espec_Empresa_Telefono
+                        };
+            var datos = query.Single();
+            labelCUIT.Text = datos.Espec_Empresa_Cuit;
+            labelEmpresa.Text = datos.Espec_Empresa_Razon_Social;
+            labelDireccion.Text = datos.Espec_Empresa_Dom_Calle + " " + datos.Espec_Empresa_Nro_Calle;
+            labelNumero.Text = "#" + Factura.Factura_Nro;
+            labelTelefono.Text = datos.Espec_Empresa_Telefono;
+            labelFecha.Text = Factura.Factura_Fecha.Value.ToShortDateString();
             var items = GetItems();
             itemModelBindingSource.DataSource = items;
             labelTotal.Text = "$ " + items.Sum(i => i.Precio).ToString();
@@ -30,23 +55,35 @@ namespace PalcoNet.Forms
                                  select new ItemModel
                                  {
                                      Concepto = i.Item_Factura_Descripcion,
-                                     PrecioString = "- $ " + i.Item_Factura_Monto,
-                                     Precio = i.Item_Factura_Monto * -1
+                                     PrecioString = "- " + i.Item_Factura_Monto,
+                                     Precio = i.Item_Factura_Monto
                                  };
-                var ventas = from c in context.Compra
-                             where c.Compra_Publicacion == Factura.Factura_Publicacion
-                             select new ItemModel
-                             {
-                                 Concepto = "Venta de " + c.Compra_Cantidad + " ubicaciones",
-                                 PrecioString = "$ " + c.Compra_Total,
-                                 Precio = c.Compra_Total                                 
-                             };
-                return comisiones.Union(ventas).ToList();
+                return comisiones.ToList();
             }
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
            dataGrid.ClearSelection();
+        }
+
+        private void botonSalir_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void DragForm(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

@@ -27,169 +27,85 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelNumero = new System.Windows.Forms.Label();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.labelEmpresa = new System.Windows.Forms.Label();
+            this.labelCUIT = new System.Windows.Forms.Label();
+            this.labelDireccion = new System.Windows.Forms.Label();
+            this.labelTelefono = new System.Windows.Forms.Label();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label15 = new System.Windows.Forms.Label();
-            this.labelTotal = new System.Windows.Forms.Label();
             this.compraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.botonSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compraModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelNumero
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(368, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Número de factura: ";
+            this.labelNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumero.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelNumero.Location = new System.Drawing.Point(25, 29);
+            this.labelNumero.Name = "labelNumero";
+            this.labelNumero.Size = new System.Drawing.Size(161, 35);
+            this.labelNumero.TabIndex = 1;
+            this.labelNumero.Text = "#";
             // 
-            // label2
+            // labelFecha
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(475, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "####";
+            this.labelFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelFecha.Location = new System.Drawing.Point(192, 29);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(161, 35);
+            this.labelFecha.TabIndex = 3;
+            this.labelFecha.Text = "dd/mm/yyy";
+            this.labelFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label3
+            // labelEmpresa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(475, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "dd/mm/yyy";
+            this.labelEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmpresa.Location = new System.Drawing.Point(28, 64);
+            this.labelEmpresa.Name = "labelEmpresa";
+            this.labelEmpresa.Size = new System.Drawing.Size(325, 36);
+            this.labelEmpresa.TabIndex = 5;
+            this.labelEmpresa.Text = "NOMBRE_EMPRESA";
+            this.labelEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // labelCUIT
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(368, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Fecha de factura: ";
+            this.labelCUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCUIT.Location = new System.Drawing.Point(25, 100);
+            this.labelCUIT.Name = "labelCUIT";
+            this.labelCUIT.Size = new System.Drawing.Size(326, 34);
+            this.labelCUIT.TabIndex = 7;
+            this.labelCUIT.Text = "CUIT";
+            this.labelCUIT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // labelDireccion
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(364, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 37);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Empresa:";
+            this.labelDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDireccion.Location = new System.Drawing.Point(32, 134);
+            this.labelDireccion.Name = "labelDireccion";
+            this.labelDireccion.Size = new System.Drawing.Size(319, 31);
+            this.labelDireccion.TabIndex = 8;
+            this.labelDireccion.Text = "DIRECCION";
+            this.labelDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // labelTelefono
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(368, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "NOMBRE_EMPRESA";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 183);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "CUIT: ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(412, 183);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "#########";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(368, 207);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "DIRECCION";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(368, 232);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "DIRECCION";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 116);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 148);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "PalcoNET S.A";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 170);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "CIF: B63272603";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 194);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(132, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Medrano 951 (C1179AAQ)";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 217);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(115, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Tel: (54 11) 4867-7500";
+            this.labelTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelefono.Location = new System.Drawing.Point(24, 165);
+            this.labelTelefono.Name = "labelTelefono";
+            this.labelTelefono.Size = new System.Drawing.Size(326, 34);
+            this.labelTelefono.TabIndex = 9;
+            this.labelTelefono.Text = "TELEFONO";
+            this.labelTelefono.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGrid
             // 
@@ -205,7 +121,7 @@
             this.precioDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.itemModelBindingSource;
             this.dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGrid.Location = new System.Drawing.Point(28, 274);
+            this.dataGrid.Location = new System.Drawing.Point(28, 202);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -214,9 +130,30 @@
             this.dataGrid.RowTemplate.ReadOnly = true;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(661, 220);
+            this.dataGrid.Size = new System.Drawing.Size(323, 220);
             this.dataGrid.TabIndex = 15;
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(23, 434);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(65, 26);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Total:";
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelTotal.Location = new System.Drawing.Point(94, 434);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(257, 26);
+            this.labelTotal.TabIndex = 17;
+            this.labelTotal.Text = "$ ####,##";
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // conceptoDataGridViewTextBoxColumn
             // 
@@ -241,58 +178,44 @@
             // 
             this.itemModelBindingSource.DataSource = typeof(PalcoNet.Model.ItemModel);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(461, 506);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 26);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Total:";
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(532, 506);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(157, 26);
-            this.labelTotal.TabIndex = 17;
-            this.labelTotal.Text = "$ ####,##";
-            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // compraModelBindingSource
             // 
             this.compraModelBindingSource.DataSource = typeof(PalcoNet.Model.CompraModel);
+            // 
+            // botonSalir
+            // 
+            this.botonSalir.BackColor = System.Drawing.Color.Gray;
+            this.botonSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.botonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonSalir.ForeColor = System.Drawing.Color.White;
+            this.botonSalir.Location = new System.Drawing.Point(355, -3);
+            this.botonSalir.Name = "botonSalir";
+            this.botonSalir.Size = new System.Drawing.Size(24, 22);
+            this.botonSalir.TabIndex = 18;
+            this.botonSalir.Text = "X";
+            this.botonSalir.UseVisualStyleBackColor = false;
+            this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
             // 
             // FacturaDetallesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(717, 605);
+            this.ClientSize = new System.Drawing.Size(378, 470);
+            this.Controls.Add(this.botonSalir);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.dataGrid);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelTelefono);
+            this.Controls.Add(this.labelDireccion);
+            this.Controls.Add(this.labelCUIT);
+            this.Controls.Add(this.labelEmpresa);
+            this.Controls.Add(this.labelFecha);
+            this.Controls.Add(this.labelNumero);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FacturaDetallesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FacturaDetallesForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.compraModelBindingSource)).EndInit();
@@ -302,22 +225,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelNumero;
+        private System.Windows.Forms.Label labelFecha;
+        private System.Windows.Forms.Label labelEmpresa;
+        private System.Windows.Forms.Label labelCUIT;
+        private System.Windows.Forms.Label labelDireccion;
+        private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.BindingSource itemModelBindingSource;
         private System.Windows.Forms.BindingSource compraModelBindingSource;
@@ -325,5 +238,6 @@
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button botonSalir;
     }
 }
