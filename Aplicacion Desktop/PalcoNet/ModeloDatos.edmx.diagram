@@ -17,8 +17,6 @@
         <AssociationConnector Association="GD2C2018Model.Func_Rol" />
         <EntityTypeShape EntityType="GD2C2018Model.Compra" Width="1.5" PointX="12.375" PointY="6.75" />
         <EntityTypeShape EntityType="GD2C2018Model.Publicacion" Width="1.5" PointX="10.375" PointY="10.75" />
-        <EntityTypeShape EntityType="GD2C2018Model.Espectaculo" Width="1.5" PointX="8" PointY="1" />
-        <AssociationConnector Association="GD2C2018Model.FK_Espectaculo_Rubro" />
         <EntityTypeShape EntityType="GD2C2018Model.Usuario" Width="1.5" PointX="0.75" PointY="4.625" />
         <AssociationConnector Association="GD2C2018Model.FK_Espec_Empresa_Usuario" />
         <EntityTypeShape EntityType="GD2C2018Model.Cliente" Width="1.5" PointX="3.375" PointY="15.625" />
@@ -26,6 +24,8 @@
         <EntityTypeShape EntityType="GD2C2018Model.Premio_X_Cliente" Width="1.5" PointX="0.75" PointY="8.75" />
         <AssociationConnector Association="GD2C2018Model.FK_Cliente_Usuario" />
         <EntityTypeShape EntityType="GD2C2018Model.Puntos" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="GD2C2018Model.Espectaculo" Width="1.5" PointX="8" PointY="1" />
+        <AssociationConnector Association="GD2C2018Model.FK_Espectaculo_Rubro" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

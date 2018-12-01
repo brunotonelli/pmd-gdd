@@ -67,7 +67,7 @@
           <Key>
             <PropertyRef Name="Espectaculo_Cod" />
           </Key>
-          <Property Name="Espectaculo_Cod" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Espectaculo_Cod" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Espectaculo_Descripcion" Type="nvarchar" MaxLength="255" />
           <Property Name="Espectaculo_Rubro" Type="int" />
           <Property Name="Espectaculo_Direccion" Type="nvarchar" MaxLength="255" />
@@ -345,11 +345,6 @@
           </AssociationSet>
           <EntitySet Name="Compra" EntityType="GD2C2018Model.Compra" />
           <EntitySet Name="Publicacion" EntityType="GD2C2018Model.Publicacion" />
-          <EntitySet Name="Espectaculo" EntityType="GD2C2018Model.Espectaculo" />
-          <AssociationSet Name="FK_Espectaculo_Rubro" Association="GD2C2018Model.FK_Espectaculo_Rubro">
-            <End Role="Rubro" EntitySet="Rubro" />
-            <End Role="Espectaculo" EntitySet="Espectaculo" />
-          </AssociationSet>
           <EntitySet Name="Usuario" EntityType="GD2C2018Model.Usuario" />
           <AssociationSet Name="FK_Espec_Empresa_Usuario" Association="GD2C2018Model.FK_Espec_Empresa_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -363,6 +358,11 @@
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
           <EntitySet Name="Puntos" EntityType="GD2C2018Model.Puntos" />
+          <EntitySet Name="Espectaculo" EntityType="GD2C2018Model.Espectaculo" />
+          <AssociationSet Name="FK_Espectaculo_Rubro" Association="GD2C2018Model.FK_Espectaculo_Rubro">
+            <End Role="Rubro" EntitySet="Rubro" />
+            <End Role="Espectaculo" EntitySet="Espectaculo" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Espec_Empresa">
           <Key>
@@ -492,28 +492,6 @@
           <Property Name="Publicacion_Estado" Type="Int32" Nullable="false" />
           <Property Name="Publicacion_Fecha_Espectaculo" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="Espectaculo">
-          <Key>
-            <PropertyRef Name="Espectaculo_Cod" />
-          </Key>
-          <Property Name="Espectaculo_Cod" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Espectaculo_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Espectaculo_Rubro" Type="Int32" />
-          <Property Name="Espectaculo_Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Rubro" Relationship="GD2C2018Model.FK_Espectaculo_Rubro" FromRole="Espectaculo" ToRole="Rubro" />
-        </EntityType>
-        <Association Name="FK_Espectaculo_Rubro">
-          <End Type="GD2C2018Model.Rubro" Role="Rubro" Multiplicity="0..1" />
-          <End Type="GD2C2018Model.Espectaculo" Role="Espectaculo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rubro">
-              <PropertyRef Name="Rubro_ID" />
-            </Principal>
-            <Dependent Role="Espectaculo">
-              <PropertyRef Name="Espectaculo_Rubro" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="Usuario_Username" />
@@ -610,6 +588,28 @@
           <Property Name="Puntos_Tipo_Doc_Cliente" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Puntos_Num_Doc_Cliente" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
         </EntityType>
+        <EntityType Name="Espectaculo">
+          <Key>
+            <PropertyRef Name="Espectaculo_Cod" />
+          </Key>
+          <Property Name="Espectaculo_Cod" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Espectaculo_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Espectaculo_Rubro" Type="Int32" />
+          <Property Name="Espectaculo_Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rubro" Relationship="GD2C2018Model.FK_Espectaculo_Rubro" FromRole="Espectaculo" ToRole="Rubro" />
+        </EntityType>
+        <Association Name="FK_Espectaculo_Rubro">
+          <End Type="GD2C2018Model.Rubro" Role="Rubro" Multiplicity="0..1" />
+          <End Type="GD2C2018Model.Espectaculo" Role="Espectaculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rubro">
+              <PropertyRef Name="Rubro_ID" />
+            </Principal>
+            <Dependent Role="Espectaculo">
+              <PropertyRef Name="Espectaculo_Rubro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -752,16 +752,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Espectaculo">
-            <EntityTypeMapping TypeName="GD2C2018Model.Espectaculo">
-              <MappingFragment StoreEntitySet="Espectaculo">
-                <ScalarProperty Name="Espectaculo_Direccion" ColumnName="Espectaculo_Direccion" />
-                <ScalarProperty Name="Espectaculo_Rubro" ColumnName="Espectaculo_Rubro" />
-                <ScalarProperty Name="Espectaculo_Descripcion" ColumnName="Espectaculo_Descripcion" />
-                <ScalarProperty Name="Espectaculo_Cod" ColumnName="Espectaculo_Cod" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="GD2C2018Model.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
@@ -829,6 +819,16 @@
                 <ScalarProperty Name="Puntos_Vencimiento" ColumnName="Puntos_Vencimiento" />
                 <ScalarProperty Name="Puntos_Cantidad" ColumnName="Puntos_Cantidad" />
                 <ScalarProperty Name="Puntos_ID" ColumnName="Puntos_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Espectaculo">
+            <EntityTypeMapping TypeName="GD2C2018Model.Espectaculo">
+              <MappingFragment StoreEntitySet="Espectaculo">
+                <ScalarProperty Name="Espectaculo_Direccion" ColumnName="Espectaculo_Direccion" />
+                <ScalarProperty Name="Espectaculo_Rubro" ColumnName="Espectaculo_Rubro" />
+                <ScalarProperty Name="Espectaculo_Descripcion" ColumnName="Espectaculo_Descripcion" />
+                <ScalarProperty Name="Espectaculo_Cod" ColumnName="Espectaculo_Cod" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

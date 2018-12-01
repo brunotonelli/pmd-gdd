@@ -79,5 +79,6 @@ namespace PalcoNet.Extensiones
             var expresion = new Regex("\\d\\d-\\d\\d\\d\\d\\d\\d\\d\\d-\\d");
             return expresion.IsMatch(cuil);
         }
+
     }
 }
