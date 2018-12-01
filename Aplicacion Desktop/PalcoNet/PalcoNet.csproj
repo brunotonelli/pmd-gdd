@@ -415,6 +415,9 @@
     <EmbeddedResource Include="Forms\Historial Compras\HistorialComprasForm.resx">
       <DependentUpon>HistorialComprasForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Roles\RolesForm.pa-Guru.resx">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\CambiarContraseñaForm.resx">
       <DependentUpon>CambiarContraseñaForm.cs</DependentUpon>
     </EmbeddedResource>

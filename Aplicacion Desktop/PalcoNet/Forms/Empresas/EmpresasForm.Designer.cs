@@ -40,18 +40,20 @@
             this.boxFiltroMail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.boxFiltroCUIT = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.boxFiltroRazon = new System.Windows.Forms.TextBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.Espec_Empresa_Dom_Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Espec_Empresa_Nro_Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.especEmpresaCuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especEmpresaRazonSocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especEmpresaMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especEmpresaCodPostalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Espec_Empresa_Dom_Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Espec_Empresa_Nro_Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especEmpresaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(381, 76);
+            this.botonModificar.Location = new System.Drawing.Point(380, 114);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(123, 34);
             this.botonModificar.TabIndex = 14;
@@ -71,7 +73,7 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(380, 134);
+            this.botonEliminar.Location = new System.Drawing.Point(379, 172);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(123, 34);
             this.botonEliminar.TabIndex = 13;
@@ -82,7 +84,7 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(381, 17);
+            this.botonNuevo.Location = new System.Drawing.Point(380, 55);
             this.botonNuevo.Name = "botonNuevo";
             this.botonNuevo.Size = new System.Drawing.Size(123, 34);
             this.botonNuevo.TabIndex = 11;
@@ -99,9 +101,8 @@
             this.groupBox1.Controls.Add(this.boxFiltroMail);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.boxFiltroCUIT);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.boxFiltroRazon);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(11, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 156);
             this.groupBox1.TabIndex = 10;
@@ -169,13 +170,6 @@
             this.boxFiltroCUIT.Size = new System.Drawing.Size(100, 20);
             this.boxFiltroCUIT.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 8;
-            // 
             // boxFiltroRazon
             // 
             this.boxFiltroRazon.Location = new System.Drawing.Point(151, 19);
@@ -202,16 +196,52 @@
             this.Espec_Empresa_Dom_Calle,
             this.Espec_Empresa_Nro_Calle});
             this.dataGrid.DataSource = this.especEmpresaBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(12, 183);
+            this.dataGrid.Location = new System.Drawing.Point(11, 219);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(492, 249);
+            this.dataGrid.Size = new System.Drawing.Size(492, 193);
             this.dataGrid.TabIndex = 9;
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
+            // 
+            // Espec_Empresa_Dom_Calle
+            // 
+            this.Espec_Empresa_Dom_Calle.DataPropertyName = "Espec_Empresa_Dom_Calle";
+            this.Espec_Empresa_Dom_Calle.HeaderText = "Calle";
+            this.Espec_Empresa_Dom_Calle.Name = "Espec_Empresa_Dom_Calle";
+            this.Espec_Empresa_Dom_Calle.ReadOnly = true;
+            // 
+            // Espec_Empresa_Nro_Calle
+            // 
+            this.Espec_Empresa_Nro_Calle.DataPropertyName = "Espec_Empresa_Nro_Calle";
+            this.Espec_Empresa_Nro_Calle.HeaderText = "Nro Calle";
+            this.Espec_Empresa_Nro_Calle.Name = "Espec_Empresa_Nro_Calle";
+            this.Espec_Empresa_Nro_Calle.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(171, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(191, 33);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "- Empresas - ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Location = new System.Drawing.Point(-8, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(547, 52);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // especEmpresaCuitDataGridViewTextBoxColumn
             // 
@@ -241,20 +271,6 @@
             this.especEmpresaCodPostalDataGridViewTextBoxColumn.Name = "especEmpresaCodPostalDataGridViewTextBoxColumn";
             this.especEmpresaCodPostalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Espec_Empresa_Dom_Calle
-            // 
-            this.Espec_Empresa_Dom_Calle.DataPropertyName = "Espec_Empresa_Dom_Calle";
-            this.Espec_Empresa_Dom_Calle.HeaderText = "Calle";
-            this.Espec_Empresa_Dom_Calle.Name = "Espec_Empresa_Dom_Calle";
-            this.Espec_Empresa_Dom_Calle.ReadOnly = true;
-            // 
-            // Espec_Empresa_Nro_Calle
-            // 
-            this.Espec_Empresa_Nro_Calle.DataPropertyName = "Espec_Empresa_Nro_Calle";
-            this.Espec_Empresa_Nro_Calle.HeaderText = "Nro Calle";
-            this.Espec_Empresa_Nro_Calle.Name = "Espec_Empresa_Nro_Calle";
-            this.Espec_Empresa_Nro_Calle.ReadOnly = true;
-            // 
             // especEmpresaBindingSource
             // 
             this.especEmpresaBindingSource.DataSource = typeof(PalcoNet.Espec_Empresa);
@@ -263,7 +279,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 444);
+            this.ClientSize = new System.Drawing.Size(515, 424);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonNuevo);
@@ -276,8 +294,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especEmpresaBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -295,7 +315,6 @@
         private System.Windows.Forms.TextBox boxFiltroMail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox boxFiltroCUIT;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox boxFiltroRazon;
         private System.Windows.Forms.DataGridViewTextBoxColumn especEmpresaCuitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn especEmpresaRazonSocialDataGridViewTextBoxColumn;
@@ -304,5 +323,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Espec_Empresa_Dom_Calle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Espec_Empresa_Nro_Calle;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

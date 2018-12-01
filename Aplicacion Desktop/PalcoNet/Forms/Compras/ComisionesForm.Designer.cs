@@ -54,12 +54,12 @@
             this.empresaDataGridViewTextBoxColumn,
             this.espectaculoDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.compraModelBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(21, 79);
+            this.dataGrid.Location = new System.Drawing.Point(12, 12);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(478, 319);
+            this.dataGrid.Size = new System.Drawing.Size(478, 186);
             this.dataGrid.TabIndex = 3;
             // 
             // fechaDataGridViewTextBoxColumn
@@ -96,9 +96,10 @@
             // 
             // botonGenerar
             // 
-            this.botonGenerar.Location = new System.Drawing.Point(525, 240);
+            this.botonGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonGenerar.Location = new System.Drawing.Point(498, 139);
             this.botonGenerar.Name = "botonGenerar";
-            this.botonGenerar.Size = new System.Drawing.Size(241, 158);
+            this.botonGenerar.Size = new System.Drawing.Size(85, 59);
             this.botonGenerar.TabIndex = 4;
             this.botonGenerar.Text = "Generar Factura";
             this.botonGenerar.UseVisualStyleBackColor = true;
@@ -107,17 +108,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 40);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 13);
+            this.label1.Size = new System.Drawing.Size(434, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "Puede seleccionar varias compras y facturarlas al mismo tiempo";
             // 
             // botonVerFacturas
             // 
-            this.botonVerFacturas.Location = new System.Drawing.Point(525, 79);
+            this.botonVerFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonVerFacturas.Location = new System.Drawing.Point(498, 12);
             this.botonVerFacturas.Name = "botonVerFacturas";
-            this.botonVerFacturas.Size = new System.Drawing.Size(241, 68);
+            this.botonVerFacturas.Size = new System.Drawing.Size(87, 34);
             this.botonVerFacturas.TabIndex = 6;
             this.botonVerFacturas.Text = "Ver Facturas";
             this.botonVerFacturas.UseVisualStyleBackColor = true;
@@ -127,14 +130,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 410);
+            this.ClientSize = new System.Drawing.Size(594, 226);
             this.Controls.Add(this.botonVerFacturas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.botonGenerar);
             this.Controls.Add(this.dataGrid);
             this.Name = "ComisionesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ComisionesForm";
+            this.Text = "[PalcoNet] - Generar rendicion de comisiones";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ComisionesForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.compraModelBindingSource)).EndInit();

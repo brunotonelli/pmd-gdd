@@ -88,9 +88,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox1.Location = new System.Drawing.Point(14, 40);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(449, 251);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -100,7 +100,7 @@
             // 
             this.txt_Ano.BackColor = System.Drawing.Color.Tomato;
             this.txt_Ano.Location = new System.Drawing.Point(118, 20);
-            this.txt_Ano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Ano.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Ano.Name = "txt_Ano";
             this.txt_Ano.Padding = new System.Windows.Forms.Padding(1);
             this.txt_Ano.Size = new System.Drawing.Size(186, 23);
@@ -121,7 +121,7 @@
             // btn_Cerrar
             // 
             this.btn_Cerrar.Location = new System.Drawing.Point(272, 199);
-            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(75, 45);
             this.btn_Cerrar.TabIndex = 9;
@@ -133,7 +133,7 @@
             // 
             this.btn_Buscar.Enabled = false;
             this.btn_Buscar.Location = new System.Drawing.Point(351, 199);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(75, 45);
             this.btn_Buscar.TabIndex = 5;
@@ -147,9 +147,9 @@
             this.groupBox2.Controls.Add(this.rb_Empresas);
             this.groupBox2.Controls.Add(this.rb_PuntosCliente);
             this.groupBox2.Location = new System.Drawing.Point(28, 74);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(398, 104);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
@@ -159,7 +159,7 @@
             // 
             this.rb_ComprasCliente.AutoSize = true;
             this.rb_ComprasCliente.Location = new System.Drawing.Point(11, 69);
-            this.rb_ComprasCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_ComprasCliente.Margin = new System.Windows.Forms.Padding(2);
             this.rb_ComprasCliente.Name = "rb_ComprasCliente";
             this.rb_ComprasCliente.Size = new System.Drawing.Size(282, 21);
             this.rb_ComprasCliente.TabIndex = 7;
@@ -172,7 +172,7 @@
             // 
             this.rb_Empresas.AutoSize = true;
             this.rb_Empresas.Location = new System.Drawing.Point(9, 20);
-            this.rb_Empresas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_Empresas.Margin = new System.Windows.Forms.Padding(2);
             this.rb_Empresas.Name = "rb_Empresas";
             this.rb_Empresas.Size = new System.Drawing.Size(393, 21);
             this.rb_Empresas.TabIndex = 5;
@@ -185,7 +185,7 @@
             // 
             this.rb_PuntosCliente.AutoSize = true;
             this.rb_PuntosCliente.Location = new System.Drawing.Point(9, 45);
-            this.rb_PuntosCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_PuntosCliente.Margin = new System.Windows.Forms.Padding(2);
             this.rb_PuntosCliente.Name = "rb_PuntosCliente";
             this.rb_PuntosCliente.Size = new System.Drawing.Size(331, 21);
             this.rb_PuntosCliente.TabIndex = 6;
@@ -214,7 +214,7 @@
             "3",
             "4"});
             this.cb_Trimestre.Location = new System.Drawing.Point(118, 46);
-            this.cb_Trimestre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Trimestre.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Trimestre.Name = "cb_Trimestre";
             this.cb_Trimestre.Size = new System.Drawing.Size(187, 24);
             this.cb_Trimestre.TabIndex = 3;
@@ -256,10 +256,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.Black;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EstadisticasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "[PalcoNet] Estadisticas";
+            this.Text = "[PalcoNet] - Estadisticas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EstadisticasForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

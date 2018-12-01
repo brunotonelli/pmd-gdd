@@ -424,7 +424,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "RegistrarEmpresaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegistrarEmpresaForm";
+            this.Text = "[PalcoNet] - Registrar Empresa";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);

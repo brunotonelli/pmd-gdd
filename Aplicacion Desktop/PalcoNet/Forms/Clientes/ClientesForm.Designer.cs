@@ -42,6 +42,8 @@
             this.botonNuevo = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonModificar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cliNombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +53,7 @@
             this.gradoPublicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -73,13 +76,13 @@
             this.cliFechaNacDataGridViewTextBoxColumn,
             this.cliMailDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.clienteBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(12, 189);
+            this.dataGrid.Location = new System.Drawing.Point(12, 233);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(492, 249);
+            this.dataGrid.Size = new System.Drawing.Size(492, 207);
             this.dataGrid.TabIndex = 1;
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
@@ -96,7 +99,7 @@
             this.groupBox1.Controls.Add(this.boxFiltroApellido);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.boxFiltroNombre);
-            this.groupBox1.Location = new System.Drawing.Point(12, 18);
+            this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 156);
             this.groupBox1.TabIndex = 2;
@@ -190,7 +193,7 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(381, 23);
+            this.botonNuevo.Location = new System.Drawing.Point(381, 57);
             this.botonNuevo.Name = "botonNuevo";
             this.botonNuevo.Size = new System.Drawing.Size(123, 34);
             this.botonNuevo.TabIndex = 5;
@@ -202,7 +205,7 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(381, 140);
+            this.botonEliminar.Location = new System.Drawing.Point(381, 174);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(123, 34);
             this.botonEliminar.TabIndex = 7;
@@ -214,13 +217,35 @@
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(381, 82);
+            this.botonModificar.Location = new System.Drawing.Point(381, 116);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(123, 34);
             this.botonModificar.TabIndex = 8;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
             this.botonModificar.Click += new System.EventHandler(this.botonModificar_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(183, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(157, 33);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "- Clientes -";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Location = new System.Drawing.Point(-12, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(547, 47);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // cliNombreDataGridViewTextBoxColumn
             // 
@@ -269,7 +294,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 450);
+            this.ClientSize = new System.Drawing.Size(516, 452);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonNuevo);
@@ -277,14 +304,16 @@
             this.Controls.Add(this.dataGrid);
             this.Name = "ClientesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClientesForm";
+            this.Text = "[PalcoNet] - Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientesForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -312,5 +341,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cliFechaNacDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliMailDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource gradoPublicacionBindingSource;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

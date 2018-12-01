@@ -20,12 +20,12 @@ namespace PalcoNet.Forms
         }
 
         private void botonLogin_Click(object sender, EventArgs e) {
-            new LoginForm().Show();
+            new LoginForm().Show(this);
             this.Hide();
         }
 
         private void botonRegistrarse_Click(object sender, EventArgs e) {
-            new RegistrarseForm().Show();
+            new RegistrarseForm().Show(this);
             this.Hide();
         }
 

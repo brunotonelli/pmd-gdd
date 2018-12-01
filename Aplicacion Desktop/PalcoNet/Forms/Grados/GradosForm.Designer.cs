@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
             this.botonModificar = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonNuevo = new System.Windows.Forms.Button();
@@ -37,6 +36,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.boxFiltroNombre = new System.Windows.Forms.TextBox();
             this.datagrid = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gradoIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradoNombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradoComisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,24 +45,15 @@
             this.gradoPublicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 37);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Grado de publicacion";
             // 
             // botonModificar
             // 
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonModificar.Location = new System.Drawing.Point(334, 72);
+            this.botonModificar.Location = new System.Drawing.Point(330, 96);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(147, 34);
             this.botonModificar.TabIndex = 18;
@@ -73,7 +65,7 @@
             // 
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEliminar.Location = new System.Drawing.Point(334, 111);
+            this.botonEliminar.Location = new System.Drawing.Point(330, 135);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(147, 34);
             this.botonEliminar.TabIndex = 17;
@@ -84,7 +76,7 @@
             // botonNuevo
             // 
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonNuevo.Location = new System.Drawing.Point(334, 31);
+            this.botonNuevo.Location = new System.Drawing.Point(330, 55);
             this.botonNuevo.Name = "botonNuevo";
             this.botonNuevo.Size = new System.Drawing.Size(147, 34);
             this.botonNuevo.TabIndex = 16;
@@ -98,7 +90,7 @@
             this.groupBox1.Controls.Add(this.botonBuscar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.boxFiltroNombre);
-            this.groupBox1.Location = new System.Drawing.Point(16, 48);
+            this.groupBox1.Location = new System.Drawing.Point(12, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(300, 98);
             this.groupBox1.TabIndex = 15;
@@ -158,16 +150,40 @@
             this.gradoComisionDataGridViewTextBoxColumn,
             this.gradoHabilitadoDataGridViewTextBoxColumn});
             this.datagrid.DataSource = this.gradoPublicacionBindingSource;
-            this.datagrid.Location = new System.Drawing.Point(17, 161);
+            this.datagrid.Location = new System.Drawing.Point(12, 185);
             this.datagrid.MultiSelect = false;
             this.datagrid.Name = "datagrid";
             this.datagrid.ReadOnly = true;
             this.datagrid.RowHeadersVisible = false;
             this.datagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagrid.Size = new System.Drawing.Size(465, 168);
+            this.datagrid.Size = new System.Drawing.Size(465, 165);
             this.datagrid.TabIndex = 19;
             this.datagrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.datagrid_DataBindingComplete);
             this.datagrid.SelectionChanged += new System.EventHandler(this.datagrid_SelectionChanged_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(77, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(342, 33);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "- Grados de publicación -";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Location = new System.Drawing.Point(-26, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(547, 50);
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // gradoIDDataGridViewTextBoxColumn
             // 
@@ -205,21 +221,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 341);
+            this.ClientSize = new System.Drawing.Size(487, 362);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonNuevo);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GradosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GradosForm";
+            this.Text = "[PalcoNet] - Grado de Publicación";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradosForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradoPublicacionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -228,7 +246,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button botonModificar;
         private System.Windows.Forms.Button botonEliminar;
         private System.Windows.Forms.Button botonNuevo;
@@ -243,5 +260,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoNombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoComisionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoHabilitadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

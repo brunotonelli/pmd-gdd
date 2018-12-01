@@ -144,7 +144,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "CuentaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CuentaForm";
+            this.Text = "Información de cuenta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CuentaForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

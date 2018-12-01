@@ -92,5 +92,16 @@ namespace PalcoNet.Forms
             context.SaveChanges();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
+            this.Close();
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
+
     }
 }

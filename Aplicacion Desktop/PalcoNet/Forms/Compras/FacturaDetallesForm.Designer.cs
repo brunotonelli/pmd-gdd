@@ -36,11 +36,11 @@
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.label15 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
+            this.botonSalir = new System.Windows.Forms.Button();
             this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.compraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.botonSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compraModelBindingSource)).BeginInit();
@@ -155,6 +155,20 @@
             this.labelTotal.Text = "$ ####,##";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // botonSalir
+            // 
+            this.botonSalir.BackColor = System.Drawing.Color.Gray;
+            this.botonSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.botonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonSalir.ForeColor = System.Drawing.Color.White;
+            this.botonSalir.Location = new System.Drawing.Point(355, -3);
+            this.botonSalir.Name = "botonSalir";
+            this.botonSalir.Size = new System.Drawing.Size(24, 22);
+            this.botonSalir.TabIndex = 18;
+            this.botonSalir.Text = "X";
+            this.botonSalir.UseVisualStyleBackColor = false;
+            this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
+            // 
             // conceptoDataGridViewTextBoxColumn
             // 
             this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
@@ -181,20 +195,6 @@
             // compraModelBindingSource
             // 
             this.compraModelBindingSource.DataSource = typeof(PalcoNet.Model.CompraModel);
-            // 
-            // botonSalir
-            // 
-            this.botonSalir.BackColor = System.Drawing.Color.Gray;
-            this.botonSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.botonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonSalir.ForeColor = System.Drawing.Color.White;
-            this.botonSalir.Location = new System.Drawing.Point(355, -3);
-            this.botonSalir.Name = "botonSalir";
-            this.botonSalir.Size = new System.Drawing.Size(24, 22);
-            this.botonSalir.TabIndex = 18;
-            this.botonSalir.Text = "X";
-            this.botonSalir.UseVisualStyleBackColor = false;
-            this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
             // 
             // FacturaDetallesForm
             // 

@@ -28,12 +28,19 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.gridUbicaciones = new System.Windows.Forms.DataGridView();
+            this.ubicacionFilaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ubicacionAsientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ubicacionPrecioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ubicacionTipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.boxDescripcion = new System.Windows.Forms.TextBox();
             this.boxFechaPublicacion = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.boxEmpresa = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,28 +68,21 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.botonAgregarFecha = new System.Windows.Forms.Button();
             this.gridFechasHoras = new System.Windows.Forms.DataGridView();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botonBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.fechaHoraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.boxHora = new System.Windows.Forms.DateTimePicker();
             this.botonGenerar = new System.Windows.Forms.Button();
-            this.boxEmpresa = new System.Windows.Forms.TextBox();
-            this.ubicacionFilaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacionAsientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ubicacionPrecioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacionTipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaHoraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridUbicaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFechasHoras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fechaHoraModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +114,49 @@
             this.gridUbicaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUbicaciones_CellContentClick);
             this.gridUbicaciones.SelectionChanged += new System.EventHandler(this.gridUbicaciones_SelectionChanged);
             // 
+            // ubicacionFilaDataGridViewTextBoxColumn
+            // 
+            this.ubicacionFilaDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Fila";
+            this.ubicacionFilaDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionFilaDataGridViewTextBoxColumn.HeaderText = "Fila";
+            this.ubicacionFilaDataGridViewTextBoxColumn.Name = "ubicacionFilaDataGridViewTextBoxColumn";
+            this.ubicacionFilaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionAsientoDataGridViewTextBoxColumn
+            // 
+            this.ubicacionAsientoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Asiento";
+            this.ubicacionAsientoDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionAsientoDataGridViewTextBoxColumn.HeaderText = "Asiento";
+            this.ubicacionAsientoDataGridViewTextBoxColumn.Name = "ubicacionAsientoDataGridViewTextBoxColumn";
+            this.ubicacionAsientoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionSinnumerarDataGridViewTextBoxColumn
+            // 
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Sin_numerar";
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.HeaderText = "Sin enumerar";
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Name = "ubicacionSinnumerarDataGridViewTextBoxColumn";
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // ubicacionPrecioDataGridViewTextBoxColumn
+            // 
+            this.ubicacionPrecioDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Precio";
+            this.ubicacionPrecioDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionPrecioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.ubicacionPrecioDataGridViewTextBoxColumn.Name = "ubicacionPrecioDataGridViewTextBoxColumn";
+            this.ubicacionPrecioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionTipoDataGridViewTextBoxColumn
+            // 
+            this.ubicacionTipoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Tipo";
+            this.ubicacionTipoDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionTipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.ubicacionTipoDataGridViewTextBoxColumn.Name = "ubicacionTipoDataGridViewTextBoxColumn";
+            this.ubicacionTipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ubicacionTipoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // BorrarUbicacion
             // 
             this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -123,6 +166,10 @@
             this.BorrarUbicacion.Name = "BorrarUbicacion";
             this.BorrarUbicacion.ReadOnly = true;
             this.BorrarUbicacion.Width = 30;
+            // 
+            // ubicacionBindingSource
+            // 
+            this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
             // 
             // boxDescripcion
             // 
@@ -181,11 +228,19 @@
             this.tabPage1.Controls.Add(this.boxFechaPublicacion);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(626, 245);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Publicación";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // boxEmpresa
+            // 
+            this.boxEmpresa.Enabled = false;
+            this.boxEmpresa.Location = new System.Drawing.Point(406, 207);
+            this.boxEmpresa.Name = "boxEmpresa";
+            this.boxEmpresa.Size = new System.Drawing.Size(199, 20);
+            this.boxEmpresa.TabIndex = 22;
             // 
             // label14
             // 
@@ -323,7 +378,7 @@
             this.tabPage2.Controls.Add(this.gridUbicaciones);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(626, 245);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ubicaciones";
@@ -438,7 +493,7 @@
             this.tabPage3.Controls.Add(this.boxHora);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(626, 245);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Espectáculos";
@@ -480,6 +535,20 @@
             this.gridFechasHoras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridFechasHoras_CellContentClick);
             this.gridFechasHoras.SelectionChanged += new System.EventHandler(this.gridFechasHoras_SelectionChanged);
             // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // horaDataGridViewTextBoxColumn
+            // 
+            this.horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
+            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
+            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
+            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // botonBorrar
             // 
             this.botonBorrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -487,6 +556,10 @@
             this.botonBorrar.Name = "botonBorrar";
             this.botonBorrar.ReadOnly = true;
             this.botonBorrar.Width = 30;
+            // 
+            // fechaHoraModelBindingSource
+            // 
+            this.fechaHoraModelBindingSource.DataSource = typeof(PalcoNet.Model.FechaHoraModel);
             // 
             // label3
             // 
@@ -523,79 +596,6 @@
             this.botonGenerar.UseVisualStyleBackColor = true;
             this.botonGenerar.Click += new System.EventHandler(this.botonGenerar_Click);
             // 
-            // boxEmpresa
-            // 
-            this.boxEmpresa.Enabled = false;
-            this.boxEmpresa.Location = new System.Drawing.Point(406, 207);
-            this.boxEmpresa.Name = "boxEmpresa";
-            this.boxEmpresa.Size = new System.Drawing.Size(199, 20);
-            this.boxEmpresa.TabIndex = 22;
-            // 
-            // ubicacionFilaDataGridViewTextBoxColumn
-            // 
-            this.ubicacionFilaDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Fila";
-            this.ubicacionFilaDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.ubicacionFilaDataGridViewTextBoxColumn.HeaderText = "Fila";
-            this.ubicacionFilaDataGridViewTextBoxColumn.Name = "ubicacionFilaDataGridViewTextBoxColumn";
-            this.ubicacionFilaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ubicacionAsientoDataGridViewTextBoxColumn
-            // 
-            this.ubicacionAsientoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Asiento";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.ubicacionAsientoDataGridViewTextBoxColumn.HeaderText = "Asiento";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.Name = "ubicacionAsientoDataGridViewTextBoxColumn";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ubicacionSinnumerarDataGridViewTextBoxColumn
-            // 
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Sin_numerar";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.HeaderText = "Sin enumerar";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Name = "ubicacionSinnumerarDataGridViewTextBoxColumn";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ubicacionPrecioDataGridViewTextBoxColumn
-            // 
-            this.ubicacionPrecioDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Precio";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.ubicacionPrecioDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.Name = "ubicacionPrecioDataGridViewTextBoxColumn";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ubicacionTipoDataGridViewTextBoxColumn
-            // 
-            this.ubicacionTipoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Tipo";
-            this.ubicacionTipoDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.ubicacionTipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
-            this.ubicacionTipoDataGridViewTextBoxColumn.Name = "ubicacionTipoDataGridViewTextBoxColumn";
-            this.ubicacionTipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ubicacionTipoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ubicacionBindingSource
-            // 
-            this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // horaDataGridViewTextBoxColumn
-            // 
-            this.horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
-            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
-            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
-            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaHoraModelBindingSource
-            // 
-            this.fechaHoraModelBindingSource.DataSource = typeof(PalcoNet.Model.FechaHoraModel);
-            // 
             // GenerarPublicacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,9 +605,10 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "GenerarPublicacionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GenerarPublicacionForm";
+            this.Text = "[PalcoNet] - Generar Publicación";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GenerarPublicacionForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.gridUbicaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -616,7 +617,6 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFechasHoras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fechaHoraModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 

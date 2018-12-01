@@ -290,7 +290,7 @@
             this.Controls.Add(this.dataGrid);
             this.Name = "ComprarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "++";
+            this.Text = "[PalcoNet] - Comprar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ComprarForm_FormClosing);
             this.Load += new System.EventHandler(this.ComprarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();

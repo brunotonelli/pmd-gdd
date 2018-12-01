@@ -135,5 +135,10 @@ namespace PalcoNet.Forms
         {
             Environment.Exit(0);
         }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

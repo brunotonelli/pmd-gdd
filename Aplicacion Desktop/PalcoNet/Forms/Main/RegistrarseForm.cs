@@ -26,5 +26,13 @@ namespace PalcoNet.Forms
         {
             new RegistrarClienteForm().Show();
         }
+
+        private void botonSalir_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
+            this.Close();
+           
+
+        }
     }
 }

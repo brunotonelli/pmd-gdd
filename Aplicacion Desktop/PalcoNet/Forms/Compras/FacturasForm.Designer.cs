@@ -34,6 +34,7 @@
             this.facturaPublicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.botonDetalles = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -52,13 +53,13 @@
             this.facturaTotalDataGridViewTextBoxColumn,
             this.facturaPublicacionDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.facturaBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(12, 88);
+            this.dataGrid.Location = new System.Drawing.Point(12, 32);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(569, 319);
+            this.dataGrid.Size = new System.Drawing.Size(569, 241);
             this.dataGrid.TabIndex = 4;
             // 
             // facturaNroDataGridViewTextBoxColumn
@@ -95,27 +96,40 @@
             // 
             // botonDetalles
             // 
-            this.botonDetalles.Location = new System.Drawing.Point(615, 88);
+            this.botonDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonDetalles.Location = new System.Drawing.Point(441, 279);
             this.botonDetalles.Name = "botonDetalles";
-            this.botonDetalles.Size = new System.Drawing.Size(75, 23);
+            this.botonDetalles.Size = new System.Drawing.Size(140, 38);
             this.botonDetalles.TabIndex = 5;
             this.botonDetalles.Text = "Detalles";
             this.botonDetalles.UseVisualStyleBackColor = true;
             this.botonDetalles.Click += new System.EventHandler(this.botonDetalles_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Seleccione la factura:";
+            // 
             // FacturasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(593, 328);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.botonDetalles);
             this.Controls.Add(this.dataGrid);
             this.Name = "FacturasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FacturasForm";
+            this.Text = "[PalcoNet] - Ver Facturas";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -128,5 +142,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn facturaPublicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource facturaBindingSource;
         private System.Windows.Forms.Button botonDetalles;
+        private System.Windows.Forms.Label label1;
     }
 }

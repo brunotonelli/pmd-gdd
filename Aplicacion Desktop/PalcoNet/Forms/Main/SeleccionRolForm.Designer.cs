@@ -70,7 +70,7 @@
             this.Controls.Add(this.boxRol);
             this.Name = "SeleccionRolForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SeleccionRolForm";
+            this.Text = "Seleccionar Rol";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SeleccionRolForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
