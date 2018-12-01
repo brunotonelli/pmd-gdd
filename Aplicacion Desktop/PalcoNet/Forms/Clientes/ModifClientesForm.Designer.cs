@@ -485,6 +485,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.botonGuardar);
             this.Name = "ModifClientesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Modificar Cliente";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

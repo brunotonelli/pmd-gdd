@@ -29,14 +29,14 @@ namespace PalcoNet.Forms
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.botonCrear = new System.Windows.Forms.Button();
+            this.botonCancelar = new System.Windows.Forms.Button();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.boxCodigo = new System.Windows.Forms.MaskedTextBox();
             this.boxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.botonCrear = new System.Windows.Forms.Button();
-            this.botonCancelar = new System.Windows.Forms.Button();
             this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,6 +58,25 @@ namespace PalcoNet.Forms
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Rol";
+            // 
+            // botonCrear
+            // 
+            this.botonCrear.Location = new System.Drawing.Point(14, 131);
+            this.botonCrear.Name = "botonCrear";
+            this.botonCrear.Size = new System.Drawing.Size(214, 40);
+            this.botonCrear.TabIndex = 40;
+            this.botonCrear.Text = "Crear Rol";
+            this.botonCrear.UseVisualStyleBackColor = true;
+            this.botonCrear.Click += new System.EventHandler(this.botonCrear_Click);
+            // 
+            // botonCancelar
+            // 
+            this.botonCancelar.Location = new System.Drawing.Point(14, 177);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(214, 37);
+            this.botonCancelar.TabIndex = 41;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
             // 
             // checkHabilitado
             // 
@@ -116,25 +135,6 @@ namespace PalcoNet.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Funcionalidades";
             // 
-            // botonCrear
-            // 
-            this.botonCrear.Location = new System.Drawing.Point(14, 131);
-            this.botonCrear.Name = "botonCrear";
-            this.botonCrear.Size = new System.Drawing.Size(214, 40);
-            this.botonCrear.TabIndex = 40;
-            this.botonCrear.Text = "Crear Rol";
-            this.botonCrear.UseVisualStyleBackColor = true;
-            this.botonCrear.Click += new System.EventHandler(this.botonCrear_Click);
-            // 
-            // botonCancelar
-            // 
-            this.botonCancelar.Location = new System.Drawing.Point(14, 177);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(214, 37);
-            this.botonCancelar.TabIndex = 41;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            // 
             // listaFuncionalidades
             // 
             this.listaFuncionalidades.Location = new System.Drawing.Point(14, 24);
@@ -150,6 +150,7 @@ namespace PalcoNet.Forms
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "NuevoRolForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Nuevo Rol";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

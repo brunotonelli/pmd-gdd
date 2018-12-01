@@ -31,7 +31,6 @@ namespace PalcoNet.Forms
                                select u).FirstOrDefault();
                 
             if (ValidarUsuario(usuario, hash, context)) {
-                InfoSesion.LogIn(usuario, context);
                 if (usuario.Usuario_Autogenerado ?? false)
                 {
                     if (usuario.Usuario_Inicios > 1)
@@ -47,12 +46,20 @@ namespace PalcoNet.Forms
                 }
                 else
                 {
-                    //var menu = new MenuForm(usuario);
-
-
-                    var menu = MenuForm.ObtenerInstancia(usuario);
-                    this.Close();
-                    menu.Show();
+                    var roles = usuario.Rol.ToList();
+                    if (roles.Count() == 1)
+                    {
+                        var rol = roles.First();
+                        Sesion.LogIn(usuario, rol);
+                        var menu = MenuForm.ObtenerInstancia(rol);
+                        this.Close();
+                        menu.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        new SeleccionRolForm(roles, usuario).Show(this);                        
+                    }
                 }
             }
         }

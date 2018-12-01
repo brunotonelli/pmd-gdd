@@ -55,9 +55,10 @@ namespace PalcoNet.Forms
                     Usuario_Username = boxUsuario.Text,
                     Usuario_Password = Utilidades.SHA256Encrypt(boxContraseña.Text),
                     Usuario_Intentos_Fallidos = 0,
-                    Usuario_Rol = "EMP",
                     Usuario_Autogenerado = false
                 };
+                var rol = ConsultasDB.GetRol("EMP");
+                usuario.Rol.Add(rol);
 
                 var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
                 var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
@@ -88,8 +89,8 @@ namespace PalcoNet.Forms
                 }
 
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
-                InfoSesion.LogIn(usuario);
-                var menu = MenuForm.ObtenerInstancia(usuario);
+                Sesion.LogIn(usuario, rol);
+                var menu = MenuForm.ObtenerInstancia(rol);
                 this.Close();
                 menu.Show();
             }

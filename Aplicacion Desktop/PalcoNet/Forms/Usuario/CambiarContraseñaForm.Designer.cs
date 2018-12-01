@@ -120,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.boxActual);
             this.Name = "CambiarContraseñaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CambiarContraseñaForm";
             this.Load += new System.EventHandler(this.CambiarContraseñaForm_Load);
             this.ResumeLayout(false);

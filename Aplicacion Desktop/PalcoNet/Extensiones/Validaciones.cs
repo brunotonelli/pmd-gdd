@@ -34,8 +34,7 @@ namespace PalcoNet.Extensiones
             }
         }
 
-        public static bool ExisteCliente(string tipo, string numero, string cuil) {
-            var dni = decimal.Parse(numero);
+        public static bool ExisteCliente(string tipo, decimal dni, string cuil) {
             using (var context = new GD2C2018Entities())
             {
                 var clientes = from c in context.Cliente

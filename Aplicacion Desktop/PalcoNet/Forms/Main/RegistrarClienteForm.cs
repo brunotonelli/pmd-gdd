@@ -39,7 +39,7 @@ namespace PalcoNet.Forms
 
         private void botonRegistrarse_Click(object sender, EventArgs e) {
             bool existeUsuario = Validaciones.ExisteUsuario(boxUsuario.Text);
-            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, boxNroDoc.Text, boxCUIL.Text);
+            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, decimal.Parse(boxNroDoc.Text), boxCUIL.Text);
             bool cuilValido = Validaciones.CUILValido(boxCUIL.Text);
 
             if (existeUsuario)
@@ -56,9 +56,10 @@ namespace PalcoNet.Forms
                     Usuario_Username = boxUsuario.Text,
                     Usuario_Password = Utilidades.SHA256Encrypt(boxContraseña.Text),
                     Usuario_Intentos_Fallidos = 0,
-                    Usuario_Rol = "CLI",
                     Usuario_Autogenerado = false
                 };
+                var rol = ConsultasDB.GetRol("CLI");
+                usuario.Rol.Add(rol);
 
                 var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
                 var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
@@ -76,7 +77,7 @@ namespace PalcoNet.Forms
                     Cli_Dom_Calle = boxCalle.Text,
                     Cli_Nro_Calle = nroCalle,
                     Cli_Cod_Postal = boxCodigoPostal.Text,
-                    Cli_Fecha_Alta = DateTime.Now,
+                    Cli_Fecha_Alta = Properties.Settings.Default.FechaActual,
                     Cli_Fecha_Nac = boxFecha.Value,
                     Cli_Depto = boxDepartamento.Text,
                     Cli_Localidad = boxLocalidad.Text,
@@ -94,8 +95,8 @@ namespace PalcoNet.Forms
                 }
 
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
-                InfoSesion.LogIn(usuario);
-                var menu = MenuForm.ObtenerInstancia(usuario);
+                Sesion.LogIn(usuario, rol);
+                var menu = MenuForm.ObtenerInstancia(Sesion.Rol);
                 this.Close();
                 menu.Show();
             }

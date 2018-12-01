@@ -135,6 +135,7 @@
             this.Controls.Add(this.botonCancelar);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModificacionGradoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet]- Modificar grado";
             this.ResumeLayout(false);
             this.PerformLayout();

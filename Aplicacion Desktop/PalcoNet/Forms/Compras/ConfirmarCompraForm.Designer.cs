@@ -30,6 +30,12 @@
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.boxFormaPago = new System.Windows.Forms.ComboBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,26 +44,20 @@
             this.labelCantidad = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.gridSeleccionados = new System.Windows.Forms.DataGridView();
-            this.botonSeleccionar = new System.Windows.Forms.Button();
-            this.botonDeseleccionar = new System.Windows.Forms.Button();
-            this.labelPuntos2 = new System.Windows.Forms.Label();
-            this.labelPuntos = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceSeleccionados = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
+            this.botonSeleccionar = new System.Windows.Forms.Button();
+            this.botonDeseleccionar = new System.Windows.Forms.Button();
+            this.labelPuntos2 = new System.Windows.Forms.Label();
+            this.labelPuntos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourceSeleccionados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // boxFecha
@@ -106,6 +106,45 @@
             this.dataGrid.Size = new System.Drawing.Size(342, 218);
             this.dataGrid.TabIndex = 3;
             this.dataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGrid_DataBindingComplete);
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Fila";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Fila";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Asiento";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Asiento";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Enumerado";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Enumerado";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Precio";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Precio";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Tipo";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // sourceUbicaciones
+            // 
+            this.sourceUbicaciones.DataSource = typeof(PalcoNet.Model.UbicacionModel);
             // 
             // label1
             // 
@@ -202,6 +241,45 @@
             this.gridSeleccionados.Size = new System.Drawing.Size(342, 218);
             this.gridSeleccionados.TabIndex = 11;
             // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Fila";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Fila";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Asiento";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Asiento";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Enumerado";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Enumerado";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Precio";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Precio";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Tipo";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // sourceSeleccionados
+            // 
+            this.sourceSeleccionados.DataSource = typeof(PalcoNet.Model.UbicacionModel);
+            // 
             // botonSeleccionar
             // 
             this.botonSeleccionar.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
@@ -249,84 +327,6 @@
             this.labelPuntos.Text = "0";
             this.labelPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Fila";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Fila";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Asiento";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Asiento";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Enumerado";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Enumerado";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Precio";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Tipo";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Tipo";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // sourceSeleccionados
-            // 
-            this.sourceSeleccionados.DataSource = typeof(PalcoNet.Model.UbicacionModel);
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Fila";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Fila";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Asiento";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Asiento";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Enumerado";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Enumerado";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Precio";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Tipo";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Tipo";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // sourceUbicaciones
-            // 
-            this.sourceUbicaciones.DataSource = typeof(PalcoNet.Model.UbicacionModel);
-            // 
             // ConfirmarCompraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,11 +348,12 @@
             this.Controls.Add(this.boxFormaPago);
             this.Controls.Add(this.boxFecha);
             this.Name = "ConfirmarCompraForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfirmarCompraForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourceSeleccionados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceUbicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

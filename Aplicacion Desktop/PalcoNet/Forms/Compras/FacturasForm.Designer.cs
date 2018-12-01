@@ -28,11 +28,11 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facturaNroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facturaFechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facturaTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facturaPublicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.botonDetalles = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
@@ -60,10 +60,6 @@
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(569, 319);
             this.dataGrid.TabIndex = 4;
-            // 
-            // facturaBindingSource
-            // 
-            this.facturaBindingSource.DataSource = typeof(PalcoNet.Factura);
             // 
             // facturaNroDataGridViewTextBoxColumn
             // 
@@ -93,6 +89,10 @@
             this.facturaPublicacionDataGridViewTextBoxColumn.Name = "facturaPublicacionDataGridViewTextBoxColumn";
             this.facturaPublicacionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // facturaBindingSource
+            // 
+            this.facturaBindingSource.DataSource = typeof(PalcoNet.Factura);
+            // 
             // botonDetalles
             // 
             this.botonDetalles.Location = new System.Drawing.Point(615, 88);
@@ -111,6 +111,7 @@
             this.Controls.Add(this.botonDetalles);
             this.Controls.Add(this.dataGrid);
             this.Name = "FacturasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FacturasForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();

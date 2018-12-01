@@ -14,10 +14,17 @@ namespace PalcoNet
     
     public partial class Premio
     {
+        public Premio()
+        {
+            this.Premio_X_Cliente = new HashSet<Premio_X_Cliente>();
+        }
+    
         public int Premio_ID { get; set; }
         public string Premio_Nombre { get; set; }
         public string Premio_Descripcion { get; set; }
         public Nullable<int> Premio_Puntos_Necesarios { get; set; }
         public string Premio_Imagen { get; set; }
+    
+        public virtual ICollection<Premio_X_Cliente> Premio_X_Cliente { get; set; }
     }
 }

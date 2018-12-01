@@ -23,8 +23,5 @@ namespace PalcoNet
         public decimal Compra_Total { get; set; }
         public decimal Compra_Publicacion { get; set; }
         public bool Compra_Facturada { get; set; }
-
-
     }
-
 }

@@ -27,7 +27,8 @@ namespace PalcoNet.Forms
             boxHora.Format = DateTimePickerFormat.Time;
             boxHora.ShowUpDown = true;
             CargarComboBox();
-            boxResponsable.Text = InfoSesion.Usuario.Usuario_Username;
+            boxResponsable.Text = Sesion.Usuario.Usuario_Username;
+            boxEmpresa.Text = Sesion.Empresa.Espec_Empresa_Razon_Social;
             boxFecha.MinDate = Properties.Settings.Default.FechaActual;
             boxFechaPublicacion.MinDate = Properties.Settings.Default.FechaActual;
         }
@@ -177,7 +178,7 @@ namespace PalcoNet.Forms
                     Publicacion_Fecha_Espectaculo = fecha.Valor,
                     Publicacion_Grado = grado.Grado_ID,
                     Publicacion_Localidades = Ubicaciones.Count(),
-                    Publicacion_Empresa = InfoSesion.CUITEmpresa
+                    Publicacion_Empresa = Sesion.Empresa.Espec_Empresa_Cuit
                 };
                 context.Entry(publicacion).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();

@@ -74,6 +74,7 @@
             this.Controls.Add(this.botonCliente);
             this.Controls.Add(this.botonEmpresa);
             this.Name = "RegistrarseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrarse";
             this.ResumeLayout(false);
             this.PerformLayout();

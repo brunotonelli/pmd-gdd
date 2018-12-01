@@ -39,6 +39,7 @@ namespace PalcoNet.Forms
 
         private void botonModificar_Click(object sender, EventArgs e) {
             MessageBox.Show("IMPLEMENTAR (O NO ::)))) )");
+            FilaSeleccionada = dataGrid.SelectedRows[0];
         }
 
         private void botonEliminar_Click(object sender, EventArgs e) {

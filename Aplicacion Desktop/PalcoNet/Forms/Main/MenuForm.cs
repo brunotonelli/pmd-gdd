@@ -15,28 +15,19 @@ namespace PalcoNet.Forms
     public partial  class MenuForm : Form
     {
         private static MenuForm singleton { get; set; }
-
-        private Usuario usuario { get; set; }
-
-        private MenuForm(Usuario usuario) {
+        
+        private MenuForm(Rol rol) {
             InitializeComponent();
-
-            this.usuario = usuario;
-
-            var context = new GD2C2018Entities();
-            Rol rol = (from r in context.Rol
-                       where r.Rol_ID == usuario.Usuario_Rol
-                       select r).First();
-            this.labelUsuario.Text = usuario.Usuario_Username;
+            this.labelUsuario.Text = Sesion.Usuario.Usuario_Username;
             this.labelRol.Text = rol.Rol_Nombre;
             ValidarFuncionalidades(rol);
         }
 
-        public static MenuForm ObtenerInstancia(Usuario usuario)
+        public static MenuForm ObtenerInstancia(Rol rol)
         {
             if (singleton == null)
             {
-                singleton = new MenuForm(usuario);
+                singleton = new MenuForm(rol);
             }
             return singleton;
         }
@@ -119,9 +110,9 @@ namespace PalcoNet.Forms
         }
 
         private void botonLogout_Click(object sender, EventArgs e) {
-            InfoSesion.LogOut();
+            Sesion.LogOut();
             FormsEstaticos.Principal.Show();
-            this.Close();
+            this.Hide();
             singleton=null;
         }
 

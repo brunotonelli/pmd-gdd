@@ -27,6 +27,10 @@ namespace PalcoNet.Forms
         }
 
         private void BindearDatos() {
+            var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
+            var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
+            var doc = boxNroDoc.Text.Length > 0 ? decimal.Parse(boxNroDoc.Text) : 0;
+
             Nuevo.Cli_Apellido = boxApellido.Text;
             Nuevo.Cli_Cod_Postal = boxCodigoPostal.Text;
             Nuevo.Cli_CUIL = boxCUIL.Text;
@@ -38,9 +42,9 @@ namespace PalcoNet.Forms
             Nuevo.Cli_Localidad = boxLocalidad.Text;
             Nuevo.Cli_Mail = boxMail.Text;
             Nuevo.Cli_Nombre = boxNombre.Text;
-            Nuevo.Cli_Nro_Calle = decimal.Parse(boxNumero.Text);
-            Nuevo.Cli_Nro_Doc = decimal.Parse(boxNroDoc.Text);
-            Nuevo.Cli_Piso = decimal.Parse(boxPiso.Text);
+            Nuevo.Cli_Piso = piso;
+            Nuevo.Cli_Nro_Calle = nroCalle;
+            Nuevo.Cli_Nro_Doc = doc;
             Nuevo.Cli_Tarjeta_Num = boxNroTarjeta.Text;
             Nuevo.Cli_Tarjeta_Tipo = boxTipoTarjeta.Text;
             Nuevo.Cli_Telefono = boxTelefono.Text;
@@ -53,7 +57,7 @@ namespace PalcoNet.Forms
             decimal.TryParse(boxNroDoc.Text, out doc);
             Nuevo.Cli_Nro_Doc = doc;
 
-            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, boxNumero.Text, boxCUIL.Text);
+            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, doc, boxCUIL.Text);
             bool cuitValido = Validaciones.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
             //le permito no tener cuil, pero si tiene tiene que estar bien
 
@@ -99,10 +103,11 @@ namespace PalcoNet.Forms
                 Usuario_Habilitado = true,
                 Usuario_Inicios = 0,
                 Usuario_Intentos_Fallidos = 0,
-                Usuario_Rol = "CLI",
                 Usuario_Username = Utilidades.GenerarUsuario(6),
                 Usuario_Password = Utilidades.SHA256Encrypt(contraseña)
             };
+            var rolCliente = ConsultasDB.GetRol("CLI");
+            usuario.Rol.Add(rolCliente);
 
             Nuevo.Cli_Usuario = usuario.Usuario_Username;
             MessageBox.Show("Nombre de usuario: " + usuario.Usuario_Username +

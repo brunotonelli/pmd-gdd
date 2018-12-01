@@ -15,10 +15,10 @@ namespace PalcoNet.Forms
     {
         public CuentaForm() {
             InitializeComponent();
-            var rol = InfoSesion.Usuario.Usuario_Rol;
-            labelRol.Text = InfoSesion.Usuario.Usuario_Rol;
-            labelIntentos.Text = InfoSesion.Usuario.Usuario_Intentos_Fallidos.ToString();
-            labelUsuario.Text = InfoSesion.Usuario.Usuario_Username;
+            var rol = Sesion.Rol.Rol_ID;
+            labelRol.Text = rol;
+            labelIntentos.Text = Sesion.Usuario.Usuario_Intentos_Fallidos.ToString();
+            labelUsuario.Text = Sesion.Usuario.Usuario_Username;
             botonCambiarDatos.Enabled = rol == "EMP" || rol == "CLI";
             botonCambiarDatos.Text = "Cambiar datos de " + rol;
         }
@@ -32,10 +32,10 @@ namespace PalcoNet.Forms
         }
 
         private void botonCambiarDatos_Click(object sender, EventArgs e) {
-            if (InfoSesion.Usuario.Usuario_Rol == "CLI")
-                new ModifClientesForm(InfoSesion.GetCliente()).Show();
+            if (Sesion.Rol.Rol_ID == "CLI")
+                new ModifClientesForm(Sesion.Cliente).Show();
             else
-                new ModifEmpresasForm(InfoSesion.GetEmpresa()).Show();
+                new ModifEmpresasForm(Sesion.Empresa).Show();
         }
 
         private void CuentaForm_FormClosing(object sender, FormClosingEventArgs e)

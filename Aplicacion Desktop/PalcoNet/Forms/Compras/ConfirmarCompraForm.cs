@@ -126,8 +126,8 @@ namespace PalcoNet.Forms
             Puntos puntos = new Puntos
             {
                 Puntos_Cantidad = (int)(Total * 0.35m),
-                Puntos_Tipo_Doc_Cliente = InfoSesion.TipoDocumento,
-                Puntos_Num_Doc_Cliente = InfoSesion.NroDocumento,
+                Puntos_Tipo_Doc_Cliente = Sesion.Cliente.Cli_Tipo_Doc,
+                Puntos_Num_Doc_Cliente = Sesion.Cliente.Cli_Nro_Doc,
                 Puntos_Vencimiento = fecha.AddMonths(6)
             };
             context.Entry(puntos).State = System.Data.Entity.EntityState.Added;
@@ -143,8 +143,8 @@ namespace PalcoNet.Forms
                 Compra_Fecha = Properties.Settings.Default.FechaActual,
                 Compra_Cantidad = Cantidad,
                 Compra_Forma_Pago = boxFormaPago.SelectedItem.ToString(),
-                Compra_Tipo_Doc_Cliente = InfoSesion.TipoDocumento,
-                Compra_Num_Doc_Cliente = InfoSesion.NroDocumento,
+                Compra_Tipo_Doc_Cliente = Sesion.Cliente.Cli_Tipo_Doc,
+                Compra_Num_Doc_Cliente = Sesion.Cliente.Cli_Nro_Doc,
                 Compra_Total = Total,
                 Compra_Publicacion = Publicacion.ID,
                 Compra_Facturada = false

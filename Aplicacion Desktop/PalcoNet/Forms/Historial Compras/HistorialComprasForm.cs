@@ -35,8 +35,8 @@ namespace PalcoNet.Forms
                 var list = (from comp in context.Compra
                             join pub in context.Publicacion on comp.Compra_Publicacion equals pub.Publicacion_ID
                             join esp in context.Espectaculo on pub.Publicacion_Espectaculo equals esp.Espectaculo_Cod
-                            where comp.Compra_Num_Doc_Cliente == InfoSesion.NroDocumento
-                            && comp.Compra_Tipo_Doc_Cliente == InfoSesion.TipoDocumento
+                            where comp.Compra_Num_Doc_Cliente == Sesion.Cliente.Cli_Nro_Doc
+                            && comp.Compra_Tipo_Doc_Cliente == Sesion.Cliente.Cli_Tipo_Doc
                             select new HistorialModel {
                                 Fecha = comp.Compra_Fecha,
                                 Espectaculo = esp.Espectaculo_Descripcion,

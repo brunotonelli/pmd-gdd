@@ -52,6 +52,10 @@ namespace PalcoNet.Forms
         }
 
         private void BindearDatos() {
+            var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
+            var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
+            var doc = boxNroDoc.Text.Length > 0 ? decimal.Parse(boxNroDoc.Text) : 0;
+
             Seleccionado.Cli_Apellido = boxApellido.Text;
             Seleccionado.Cli_Cod_Postal = boxCodigoPostal.Text;
             Seleccionado.Cli_CUIL = boxCUIL.Text;
@@ -62,9 +66,9 @@ namespace PalcoNet.Forms
             Seleccionado.Cli_Localidad = boxLocalidad.Text;
             Seleccionado.Cli_Mail = boxMail.Text;
             Seleccionado.Cli_Nombre = boxNombre.Text;
-            Seleccionado.Cli_Nro_Calle = decimal.Parse(boxNumero.Text);
-            Seleccionado.Cli_Nro_Doc = decimal.Parse(boxNroDoc.Text);
-            Seleccionado.Cli_Piso = decimal.Parse(boxPiso.Text);
+            Seleccionado.Cli_Nro_Calle = nroCalle;
+            Seleccionado.Cli_Nro_Doc = doc;
+            Seleccionado.Cli_Piso = piso;
             Seleccionado.Cli_Tarjeta_Num = boxNroTarjeta.Text;
             Seleccionado.Cli_Tarjeta_Tipo = boxTipoTarjeta.Text;
             Seleccionado.Cli_Telefono = boxTelefono.Text;

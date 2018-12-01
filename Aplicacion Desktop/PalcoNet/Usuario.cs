@@ -16,19 +16,20 @@ namespace PalcoNet
     {
         public Usuario()
         {
-            this.Espec_Empresa = new HashSet<Espec_Empresa>();
             this.Cliente = new HashSet<Cliente>();
+            this.Espec_Empresa = new HashSet<Espec_Empresa>();
+            this.Rol = new HashSet<Rol>();
         }
     
         public string Usuario_Username { get; set; }
         public byte[] Usuario_Password { get; set; }
         public Nullable<int> Usuario_Intentos_Fallidos { get; set; }
-        public string Usuario_Rol { get; set; }
         public Nullable<bool> Usuario_Habilitado { get; set; }
         public Nullable<bool> Usuario_Autogenerado { get; set; }
         public int Usuario_Inicios { get; set; }
     
-        public virtual ICollection<Espec_Empresa> Espec_Empresa { get; set; }
         public virtual ICollection<Cliente> Cliente { get; set; }
+        public virtual ICollection<Espec_Empresa> Espec_Empresa { get; set; }
+        public virtual ICollection<Rol> Rol { get; set; }
     }
 }

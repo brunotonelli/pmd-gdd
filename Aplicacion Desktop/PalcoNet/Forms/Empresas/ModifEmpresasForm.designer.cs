@@ -353,6 +353,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "ModifEmpresasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Modificar Empresa";
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

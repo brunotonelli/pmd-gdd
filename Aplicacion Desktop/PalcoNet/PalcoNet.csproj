@@ -72,9 +72,9 @@
     <Compile Include="Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\ConsultasDB.cs" />
     <Compile Include="Extensiones\FormsEstaticos.cs" />
     <Compile Include="Extensiones\FuncionesSQL.cs" />
-    <Compile Include="Extensiones\InfoSesion.cs" />
     <Compile Include="Extensiones\ListaFuncionalidades.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +88,7 @@
     <Compile Include="Extensiones\PremioControl.Designer.cs">
       <DependentUpon>PremioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensiones\Sesion.cs" />
     <Compile Include="Extensiones\TextBoxRequerido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,11 +169,17 @@
     <Compile Include="Forms\Empresas\ModifEmpresasForm.designer.cs">
       <DependentUpon>ModifEmpresasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Estadisitcas\EstadisticasForm.cs">
+    <Compile Include="Forms\Estadisticas\EstadisticasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Estadisitcas\EstadisticasForm.Designer.cs">
+    <Compile Include="Forms\Estadisticas\EstadisticasForm.Designer.cs">
       <DependentUpon>EstadisticasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\SeleccionRolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\SeleccionRolForm.Designer.cs">
+      <DependentUpon>SeleccionRolForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Premios\CanjearPremioForm.cs">
       <SubType>Form</SubType>
@@ -384,11 +391,14 @@
     <EmbeddedResource Include="Forms\Empresas\ModifEmpresasForm.resx">
       <DependentUpon>ModifEmpresasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Estadisitcas\EstadisticasForm.resx">
+    <EmbeddedResource Include="Forms\Estadisticas\EstadisticasForm.resx">
       <DependentUpon>EstadisticasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Grados\GradosForm.resx">
       <DependentUpon>GradosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\SeleccionRolForm.resx">
+      <DependentUpon>SeleccionRolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Premios\CanjearPremioForm.resx">
       <DependentUpon>CanjearPremioForm.cs</DependentUpon>

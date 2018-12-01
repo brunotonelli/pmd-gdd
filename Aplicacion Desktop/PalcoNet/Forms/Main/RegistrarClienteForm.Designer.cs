@@ -61,6 +61,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxContraseña = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxUsuario = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,8 +72,6 @@
             this.boxNroTarjeta = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.boxContraseña = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxUsuario = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -410,6 +410,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Usuario";
             // 
+            // boxContraseña
+            // 
+            this.boxContraseña.BackColor = System.Drawing.Color.Tomato;
+            this.boxContraseña.Location = new System.Drawing.Point(122, 71);
+            this.boxContraseña.Name = "boxContraseña";
+            this.boxContraseña.Padding = new System.Windows.Forms.Padding(1);
+            this.boxContraseña.Size = new System.Drawing.Size(122, 20);
+            this.boxContraseña.TabIndex = 30;
+            this.boxContraseña.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Contraseña;
+            // 
+            // boxUsuario
+            // 
+            this.boxUsuario.BackColor = System.Drawing.Color.Tomato;
+            this.boxUsuario.Location = new System.Drawing.Point(122, 36);
+            this.boxUsuario.Name = "boxUsuario";
+            this.boxUsuario.Padding = new System.Windows.Forms.Padding(1);
+            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
+            this.boxUsuario.TabIndex = 29;
+            this.boxUsuario.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -501,26 +521,6 @@
             this.label19.TabIndex = 22;
             this.label19.Text = "Numero";
             // 
-            // boxContraseña
-            // 
-            this.boxContraseña.BackColor = System.Drawing.Color.Tomato;
-            this.boxContraseña.Location = new System.Drawing.Point(122, 71);
-            this.boxContraseña.Name = "boxContraseña";
-            this.boxContraseña.Padding = new System.Windows.Forms.Padding(1);
-            this.boxContraseña.Size = new System.Drawing.Size(122, 20);
-            this.boxContraseña.TabIndex = 30;
-            this.boxContraseña.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Contraseña;
-            // 
-            // boxUsuario
-            // 
-            this.boxUsuario.BackColor = System.Drawing.Color.Tomato;
-            this.boxUsuario.Location = new System.Drawing.Point(122, 36);
-            this.boxUsuario.Name = "boxUsuario";
-            this.boxUsuario.Padding = new System.Windows.Forms.Padding(1);
-            this.boxUsuario.Size = new System.Drawing.Size(122, 20);
-            this.boxUsuario.TabIndex = 29;
-            this.boxUsuario.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
             // RegistrarClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -533,6 +533,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "RegistrarClienteForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrarClienteForm";
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

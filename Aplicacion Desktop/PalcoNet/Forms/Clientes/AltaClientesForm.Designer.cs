@@ -55,6 +55,7 @@ namespace PalcoNet.Forms
             this.label100 = new System.Windows.Forms.Label();
             this.boxDepartamento = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxCUIL = new System.Windows.Forms.TextBox();
             this.boxTipoDoc = new System.Windows.Forms.ComboBox();
             this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label18 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace PalcoNet.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.boxCUIL = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -343,6 +343,13 @@ namespace PalcoNet.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
+            // boxCUIL
+            // 
+            this.boxCUIL.Location = new System.Drawing.Point(83, 181);
+            this.boxCUIL.Name = "boxCUIL";
+            this.boxCUIL.Size = new System.Drawing.Size(150, 20);
+            this.boxCUIL.TabIndex = 29;
+            // 
             // boxTipoDoc
             // 
             this.boxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -453,13 +460,6 @@ namespace PalcoNet.Forms
             this.label2.TabIndex = 3;
             this.label2.Text = "* Apellido";
             // 
-            // boxCUIL
-            // 
-            this.boxCUIL.Location = new System.Drawing.Point(83, 181);
-            this.boxCUIL.Name = "boxCUIL";
-            this.boxCUIL.Size = new System.Drawing.Size(150, 20);
-            this.boxCUIL.TabIndex = 29;
-            // 
             // AltaClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,6 +473,7 @@ namespace PalcoNet.Forms
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonCrear);
             this.Name = "AltaClientesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Nuevo Cliente";
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();

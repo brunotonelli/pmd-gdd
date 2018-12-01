@@ -32,8 +32,8 @@ namespace PalcoNet.Forms
 
         private IQueryable<Puntos> GetPuntos() {
             var query = from pun in Db.Puntos
-                        where pun.Puntos_Tipo_Doc_Cliente == InfoSesion.TipoDocumento
-                            && pun.Puntos_Num_Doc_Cliente == InfoSesion.NroDocumento
+                        where pun.Puntos_Tipo_Doc_Cliente == Sesion.Cliente.Cli_Tipo_Doc
+                            && pun.Puntos_Num_Doc_Cliente == Sesion.Cliente.Cli_Nro_Doc
                         select pun;
             return query;
         }
@@ -74,8 +74,8 @@ namespace PalcoNet.Forms
         public void ConfirmarCanje(Premio premio) {
             var Db = new GD2C2018Entities();
             Premio_X_Cliente x = new Premio_X_Cliente();
-            x.Pre_Cli_Nro_Doc = InfoSesion.NroDocumento;
-            x.Pre_Cli_Tipo_Doc = InfoSesion.TipoDocumento;
+            x.Pre_Cli_Nro_Doc = Sesion.Cliente.Cli_Nro_Doc;
+            x.Pre_Cli_Tipo_Doc = Sesion.Cliente.Cli_Tipo_Doc;
             x.Pre_Premio_ID = premio.Premio_ID;
             ConsumirPuntos(premio.Premio_Puntos_Necesarios ?? 0);
             Db.Entry(x).State = System.Data.Entity.EntityState.Added;

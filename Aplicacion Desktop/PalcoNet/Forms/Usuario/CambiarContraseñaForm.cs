@@ -19,7 +19,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonConfirmar_Click(object sender, EventArgs e) {
-            byte[] realBytes = InfoSesion.Usuario.Usuario_Password;
+            byte[] realBytes = Sesion.Usuario.Usuario_Password;
             string actual = boxActual.Text, nueva = boxNueva.Text, confirmar = boxConfirmar.Text;
             byte[] actualBytes = Utilidades.SHA256Encrypt(actual);
             string mensaje;
@@ -32,7 +32,7 @@ namespace PalcoNet.Forms
                 using (var context = new GD2C2018Entities())
                 {
                     var query = from u in context.Usuario
-                                where u.Usuario_Username == InfoSesion.Usuario.Usuario_Username
+                                where u.Usuario_Username == Sesion.Usuario.Usuario_Username
                                 select u;
                     Usuario usuario = query.Single();
                     usuario.Usuario_Password = Utilidades.SHA256Encrypt(nueva);
@@ -40,7 +40,7 @@ namespace PalcoNet.Forms
                     context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                     mensaje = "Contraseña cambiada con éxito";
-                    InfoSesion.Usuario = usuario;
+                    Sesion.Usuario = usuario;
                     this.Close();
                 }
             }

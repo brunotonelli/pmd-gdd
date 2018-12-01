@@ -56,6 +56,9 @@ namespace PalcoNet.Forms
         }
 
         private void BindearDatos() {
+            var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
+            var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
+
             Seleccionado.Espec_Empresa_Ciudad = boxCiudad.Text;
             Seleccionado.Espec_Empresa_Cod_Postal = boxCodigoPostal.Text;
             Seleccionado.Espec_Empresa_Cuit = boxCUIT.Text;
@@ -64,8 +67,8 @@ namespace PalcoNet.Forms
             Seleccionado.Espec_Empresa_Habilitado = checkHabilitado.Checked;
             Seleccionado.Espec_Empresa_Localidad = boxLocalidad.Text;
             Seleccionado.Espec_Empresa_Mail = boxMail.Text;
-            Seleccionado.Espec_Empresa_Nro_Calle = decimal.Parse(boxNumero.Text);
-            Seleccionado.Espec_Empresa_Piso = decimal.Parse(boxPiso.Text);
+            Seleccionado.Espec_Empresa_Nro_Calle = nroCalle;
+            Seleccionado.Espec_Empresa_Piso = piso;
             Seleccionado.Espec_Empresa_Razon_Social = boxRazon.Text;
             Seleccionado.Espec_Empresa_Telefono = boxTelefono.Text;
         }

@@ -14,6 +14,11 @@ namespace PalcoNet
     
     public partial class Cliente
     {
+        public Cliente()
+        {
+            this.Premio_X_Cliente = new HashSet<Premio_X_Cliente>();
+        }
+    
         public decimal Cli_Nro_Doc { get; set; }
         public string Cli_Tipo_Doc { get; set; }
         public string Cli_Apellido { get; set; }
@@ -35,5 +40,6 @@ namespace PalcoNet
         public bool Cli_Habilitado { get; set; }
     
         public virtual Usuario Usuario { get; set; }
+        public virtual ICollection<Premio_X_Cliente> Premio_X_Cliente { get; set; }
     }
 }

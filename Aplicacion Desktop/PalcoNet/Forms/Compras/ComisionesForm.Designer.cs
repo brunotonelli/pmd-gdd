@@ -54,13 +54,12 @@
             this.empresaDataGridViewTextBoxColumn,
             this.espectaculoDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.compraModelBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(28, 97);
-            this.dataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGrid.Location = new System.Drawing.Point(21, 79);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(637, 393);
+            this.dataGrid.Size = new System.Drawing.Size(478, 319);
             this.dataGrid.TabIndex = 3;
             // 
             // fechaDataGridViewTextBoxColumn
@@ -97,10 +96,9 @@
             // 
             // botonGenerar
             // 
-            this.botonGenerar.Location = new System.Drawing.Point(700, 295);
-            this.botonGenerar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonGenerar.Location = new System.Drawing.Point(525, 240);
             this.botonGenerar.Name = "botonGenerar";
-            this.botonGenerar.Size = new System.Drawing.Size(321, 194);
+            this.botonGenerar.Size = new System.Drawing.Size(241, 158);
             this.botonGenerar.TabIndex = 4;
             this.botonGenerar.Text = "Generar Factura";
             this.botonGenerar.UseVisualStyleBackColor = true;
@@ -109,19 +107,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(18, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 17);
+            this.label1.Size = new System.Drawing.Size(306, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Puede seleccionar varias compras y facturarlas al mismo tiempo";
             // 
             // botonVerFacturas
             // 
-            this.botonVerFacturas.Location = new System.Drawing.Point(700, 97);
-            this.botonVerFacturas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonVerFacturas.Location = new System.Drawing.Point(525, 79);
             this.botonVerFacturas.Name = "botonVerFacturas";
-            this.botonVerFacturas.Size = new System.Drawing.Size(321, 84);
+            this.botonVerFacturas.Size = new System.Drawing.Size(241, 68);
             this.botonVerFacturas.TabIndex = 6;
             this.botonVerFacturas.Text = "Ver Facturas";
             this.botonVerFacturas.UseVisualStyleBackColor = true;
@@ -129,15 +125,15 @@
             // 
             // ComisionesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 505);
+            this.ClientSize = new System.Drawing.Size(778, 410);
             this.Controls.Add(this.botonVerFacturas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.botonGenerar);
             this.Controls.Add(this.dataGrid);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ComisionesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ComisionesForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ComisionesForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();

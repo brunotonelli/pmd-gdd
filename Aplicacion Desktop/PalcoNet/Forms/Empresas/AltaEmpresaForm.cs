@@ -56,6 +56,9 @@ namespace PalcoNet.Forms
         }
 
         private void BindearDatos() {
+            var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
+            var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
+
             Nuevo.Espec_Empresa_Ciudad = boxCiudad.Text;
             Nuevo.Espec_Empresa_Cod_Postal = boxCodigoPostal.Text;
             Nuevo.Espec_Empresa_Cuit = boxCUIT.Text;
@@ -64,8 +67,8 @@ namespace PalcoNet.Forms
             Nuevo.Espec_Empresa_Habilitado = true;
             Nuevo.Espec_Empresa_Localidad = boxLocalidad.Text;
             Nuevo.Espec_Empresa_Mail = boxMail.Text;
-            Nuevo.Espec_Empresa_Nro_Calle = decimal.Parse(boxNumero.Text);
-            Nuevo.Espec_Empresa_Piso = decimal.Parse(boxPiso.Text);
+            Nuevo.Espec_Empresa_Nro_Calle = nroCalle;
+            Nuevo.Espec_Empresa_Piso = piso;
             Nuevo.Espec_Empresa_Razon_Social = boxRazon.Text;
             Nuevo.Espec_Empresa_Telefono = boxTelefono.Text;
             Nuevo.Espec_Empresa_Fecha_Creacion = Properties.Settings.Default.FechaActual;
@@ -88,10 +91,12 @@ namespace PalcoNet.Forms
                 Usuario_Habilitado = true,
                 Usuario_Inicios = 0,
                 Usuario_Intentos_Fallidos = 0,
-                Usuario_Rol = "EMP",
                 Usuario_Username = Utilidades.GenerarUsuario(6),
                 Usuario_Password = Utilidades.SHA256Encrypt(contraseña)
             };
+            var rolEmpresa = ConsultasDB.GetRol("EMP");
+            usuario.Rol.Add(rolEmpresa);
+
             Nuevo.Espec_Empresa_Usuario = usuario.Usuario_Username;
             MessageBox.Show("Nombre de usuario: " + usuario.Usuario_Username +
                 "\nContraseña: " + contraseña +

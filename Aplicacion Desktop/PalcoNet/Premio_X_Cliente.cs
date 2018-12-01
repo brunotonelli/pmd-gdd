@@ -18,5 +18,8 @@ namespace PalcoNet
         public decimal Pre_Cli_Nro_Doc { get; set; }
         public int Pre_Premio_ID { get; set; }
         public int Pre_Cli_Canje_ID { get; set; }
+    
+        public virtual Cliente Cliente { get; set; }
+        public virtual Premio Premio { get; set; }
     }
 }
