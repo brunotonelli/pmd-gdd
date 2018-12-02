@@ -32,6 +32,7 @@ namespace PalcoNet.Forms
             var rol = Roles.Single(r => r.Rol_Nombre == boxRol.Text);
             Sesion.LogIn(Usuario, rol);
             var menu = MenuForm.ObtenerInstancia(rol);
+            Owner.Owner.Hide();
             Owner.Close();
             this.Close();
             menu.Show();

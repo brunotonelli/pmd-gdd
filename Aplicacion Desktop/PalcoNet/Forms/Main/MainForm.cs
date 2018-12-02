@@ -21,16 +21,14 @@ namespace PalcoNet.Forms
 
         private void botonLogin_Click(object sender, EventArgs e) {
             new LoginForm().Show(this);
-            this.Hide();
         }
 
         private void botonRegistrarse_Click(object sender, EventArgs e) {
             new RegistrarseForm().Show(this);
-            this.Hide();
         }
 
         private void botonSalir_Click(object sender, EventArgs e) {
-            Environment.Exit(0);
+            this.Close();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;

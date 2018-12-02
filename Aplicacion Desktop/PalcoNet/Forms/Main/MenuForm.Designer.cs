@@ -29,23 +29,23 @@
             this.labelRol = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.botonLogout = new System.Windows.Forms.Button();
-            this.botonCuenta = new System.Windows.Forms.Button();
-            this.botonPuntos = new System.Windows.Forms.Button();
-            this.botonHistorial = new System.Windows.Forms.Button();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.botonHistorial = new System.Windows.Forms.Button();
+            this.botonPuntos = new System.Windows.Forms.Button();
+            this.botonCuenta = new System.Windows.Forms.Button();
+            this.botonLogout = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.botonComprar = new System.Windows.Forms.Button();
-            this.botonGenerar = new System.Windows.Forms.Button();
             this.botonEditar = new System.Windows.Forms.Button();
+            this.botonGenerar = new System.Windows.Forms.Button();
+            this.botonComprar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.botonGrados = new System.Windows.Forms.Button();
-            this.botonListado = new System.Windows.Forms.Button();
-            this.botonComisiones = new System.Windows.Forms.Button();
-            this.botonRubros = new System.Windows.Forms.Button();
-            this.botonEmpresas = new System.Windows.Forms.Button();
-            this.botonRoles = new System.Windows.Forms.Button();
             this.botonClientes = new System.Windows.Forms.Button();
+            this.botonRoles = new System.Windows.Forms.Button();
+            this.botonEmpresas = new System.Windows.Forms.Button();
+            this.botonRubros = new System.Windows.Forms.Button();
+            this.botonComisiones = new System.Windows.Forms.Button();
+            this.botonListado = new System.Windows.Forms.Button();
+            this.botonGrados = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
@@ -94,36 +94,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Usuario";
             // 
-            // botonLogout
+            // labelUsuario
             // 
-            this.botonLogout.Location = new System.Drawing.Point(369, 59);
-            this.botonLogout.Name = "botonLogout";
-            this.botonLogout.Size = new System.Drawing.Size(164, 29);
-            this.botonLogout.TabIndex = 15;
-            this.botonLogout.Text = "Cerrar sesión";
-            this.botonLogout.UseVisualStyleBackColor = true;
-            this.botonLogout.Click += new System.EventHandler(this.botonLogout_Click);
-            // 
-            // botonCuenta
-            // 
-            this.botonCuenta.Location = new System.Drawing.Point(281, 59);
-            this.botonCuenta.Name = "botonCuenta";
-            this.botonCuenta.Size = new System.Drawing.Size(82, 29);
-            this.botonCuenta.TabIndex = 16;
-            this.botonCuenta.Text = "Cuenta";
-            this.botonCuenta.UseVisualStyleBackColor = true;
-            this.botonCuenta.Click += new System.EventHandler(this.botonCuenta_Click);
-            // 
-            // botonPuntos
-            // 
-            this.botonPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonPuntos.Location = new System.Drawing.Point(136, 24);
-            this.botonPuntos.Name = "botonPuntos";
-            this.botonPuntos.Size = new System.Drawing.Size(124, 64);
-            this.botonPuntos.TabIndex = 8;
-            this.botonPuntos.Text = "Administración de Puntos";
-            this.botonPuntos.UseVisualStyleBackColor = true;
-            this.botonPuntos.Click += new System.EventHandler(this.botonPuntos_Click);
+            this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsuario.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelUsuario.Location = new System.Drawing.Point(282, 24);
+            this.labelUsuario.Name = "labelUsuario";
+            this.labelUsuario.Size = new System.Drawing.Size(251, 26);
+            this.labelUsuario.TabIndex = 20;
+            this.labelUsuario.Text = "NOMBRE_USUARIO";
+            this.labelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // botonHistorial
             // 
@@ -136,16 +116,36 @@
             this.botonHistorial.UseVisualStyleBackColor = true;
             this.botonHistorial.Click += new System.EventHandler(this.botonHistorial_Click);
             // 
-            // labelUsuario
+            // botonPuntos
             // 
-            this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelUsuario.Location = new System.Drawing.Point(282, 24);
-            this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(251, 26);
-            this.labelUsuario.TabIndex = 20;
-            this.labelUsuario.Text = "NOMBRE_USUARIO";
-            this.labelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.botonPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonPuntos.Location = new System.Drawing.Point(136, 24);
+            this.botonPuntos.Name = "botonPuntos";
+            this.botonPuntos.Size = new System.Drawing.Size(124, 64);
+            this.botonPuntos.TabIndex = 8;
+            this.botonPuntos.Text = "Administración de Puntos";
+            this.botonPuntos.UseVisualStyleBackColor = true;
+            this.botonPuntos.Click += new System.EventHandler(this.botonPuntos_Click);
+            // 
+            // botonCuenta
+            // 
+            this.botonCuenta.Location = new System.Drawing.Point(281, 59);
+            this.botonCuenta.Name = "botonCuenta";
+            this.botonCuenta.Size = new System.Drawing.Size(82, 29);
+            this.botonCuenta.TabIndex = 16;
+            this.botonCuenta.Text = "Cuenta";
+            this.botonCuenta.UseVisualStyleBackColor = true;
+            this.botonCuenta.Click += new System.EventHandler(this.botonCuenta_Click);
+            // 
+            // botonLogout
+            // 
+            this.botonLogout.Location = new System.Drawing.Point(369, 59);
+            this.botonLogout.Name = "botonLogout";
+            this.botonLogout.Size = new System.Drawing.Size(164, 29);
+            this.botonLogout.TabIndex = 15;
+            this.botonLogout.Text = "Cerrar sesión";
+            this.botonLogout.UseVisualStyleBackColor = true;
+            this.botonLogout.Click += new System.EventHandler(this.botonLogout_Click);
             // 
             // groupBox2
             // 
@@ -159,16 +159,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Espectaculos";
             // 
-            // botonComprar
+            // botonEditar
             // 
-            this.botonComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonComprar.Location = new System.Drawing.Point(6, 19);
-            this.botonComprar.Name = "botonComprar";
-            this.botonComprar.Size = new System.Drawing.Size(246, 57);
-            this.botonComprar.TabIndex = 6;
-            this.botonComprar.Text = "Comprar";
-            this.botonComprar.UseVisualStyleBackColor = true;
-            this.botonComprar.Click += new System.EventHandler(this.botonComprar_Click);
+            this.botonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonEditar.Location = new System.Drawing.Point(6, 158);
+            this.botonEditar.Name = "botonEditar";
+            this.botonEditar.Size = new System.Drawing.Size(246, 57);
+            this.botonEditar.TabIndex = 5;
+            this.botonEditar.Text = "Editar Publicación";
+            this.botonEditar.UseVisualStyleBackColor = true;
+            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
             // 
             // botonGenerar
             // 
@@ -181,16 +181,16 @@
             this.botonGenerar.UseVisualStyleBackColor = true;
             this.botonGenerar.Click += new System.EventHandler(this.botonGenerar_Click);
             // 
-            // botonEditar
+            // botonComprar
             // 
-            this.botonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEditar.Location = new System.Drawing.Point(6, 158);
-            this.botonEditar.Name = "botonEditar";
-            this.botonEditar.Size = new System.Drawing.Size(246, 57);
-            this.botonEditar.TabIndex = 5;
-            this.botonEditar.Text = "Editar Publicación";
-            this.botonEditar.UseVisualStyleBackColor = true;
-            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
+            this.botonComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonComprar.Location = new System.Drawing.Point(6, 19);
+            this.botonComprar.Name = "botonComprar";
+            this.botonComprar.Size = new System.Drawing.Size(246, 57);
+            this.botonComprar.TabIndex = 6;
+            this.botonComprar.Text = "Comprar";
+            this.botonComprar.UseVisualStyleBackColor = true;
+            this.botonComprar.Click += new System.EventHandler(this.botonComprar_Click);
             // 
             // groupBox1
             // 
@@ -208,35 +208,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrativo";
             // 
-            // botonGrados
+            // botonClientes
             // 
-            this.botonGrados.Location = new System.Drawing.Point(7, 111);
-            this.botonGrados.Name = "botonGrados";
-            this.botonGrados.Size = new System.Drawing.Size(246, 40);
-            this.botonGrados.TabIndex = 11;
-            this.botonGrados.Text = "ABM de Grado de Publicación";
-            this.botonGrados.UseVisualStyleBackColor = true;
-            this.botonGrados.Click += new System.EventHandler(this.botonGrados_Click);
+            this.botonClientes.Location = new System.Drawing.Point(6, 19);
+            this.botonClientes.Name = "botonClientes";
+            this.botonClientes.Size = new System.Drawing.Size(120, 40);
+            this.botonClientes.TabIndex = 1;
+            this.botonClientes.Text = "ABM de Clientes";
+            this.botonClientes.UseVisualStyleBackColor = true;
+            this.botonClientes.Click += new System.EventHandler(this.botonClientes_Click);
             // 
-            // botonListado
+            // botonRoles
             // 
-            this.botonListado.Location = new System.Drawing.Point(132, 157);
-            this.botonListado.Name = "botonListado";
-            this.botonListado.Size = new System.Drawing.Size(120, 58);
-            this.botonListado.TabIndex = 10;
-            this.botonListado.Text = "Listado estadístico";
-            this.botonListado.UseVisualStyleBackColor = true;
-            this.botonListado.Click += new System.EventHandler(this.botonListado_Click);
+            this.botonRoles.Location = new System.Drawing.Point(6, 65);
+            this.botonRoles.Name = "botonRoles";
+            this.botonRoles.Size = new System.Drawing.Size(120, 40);
+            this.botonRoles.TabIndex = 0;
+            this.botonRoles.Text = "ABM de Rol";
+            this.botonRoles.UseVisualStyleBackColor = true;
+            this.botonRoles.Click += new System.EventHandler(this.botonRoles_Click);
             // 
-            // botonComisiones
+            // botonEmpresas
             // 
-            this.botonComisiones.Location = new System.Drawing.Point(6, 157);
-            this.botonComisiones.Name = "botonComisiones";
-            this.botonComisiones.Size = new System.Drawing.Size(120, 58);
-            this.botonComisiones.TabIndex = 9;
-            this.botonComisiones.Text = "Generar rendición de Comisiones";
-            this.botonComisiones.UseVisualStyleBackColor = true;
-            this.botonComisiones.Click += new System.EventHandler(this.botonComisiones_Click);
+            this.botonEmpresas.Location = new System.Drawing.Point(132, 19);
+            this.botonEmpresas.Name = "botonEmpresas";
+            this.botonEmpresas.Size = new System.Drawing.Size(120, 40);
+            this.botonEmpresas.TabIndex = 2;
+            this.botonEmpresas.Text = "ABM de Empresa";
+            this.botonEmpresas.UseVisualStyleBackColor = true;
+            this.botonEmpresas.Click += new System.EventHandler(this.botonEmpresas_Click);
             // 
             // botonRubros
             // 
@@ -249,35 +249,35 @@
             this.botonRubros.UseVisualStyleBackColor = true;
             this.botonRubros.Click += new System.EventHandler(this.botonRubros_Click);
             // 
-            // botonEmpresas
+            // botonComisiones
             // 
-            this.botonEmpresas.Location = new System.Drawing.Point(132, 19);
-            this.botonEmpresas.Name = "botonEmpresas";
-            this.botonEmpresas.Size = new System.Drawing.Size(120, 40);
-            this.botonEmpresas.TabIndex = 2;
-            this.botonEmpresas.Text = "ABM de Empresa";
-            this.botonEmpresas.UseVisualStyleBackColor = true;
-            this.botonEmpresas.Click += new System.EventHandler(this.botonEmpresas_Click);
+            this.botonComisiones.Location = new System.Drawing.Point(6, 157);
+            this.botonComisiones.Name = "botonComisiones";
+            this.botonComisiones.Size = new System.Drawing.Size(120, 58);
+            this.botonComisiones.TabIndex = 9;
+            this.botonComisiones.Text = "Generar rendición de Comisiones";
+            this.botonComisiones.UseVisualStyleBackColor = true;
+            this.botonComisiones.Click += new System.EventHandler(this.botonComisiones_Click);
             // 
-            // botonRoles
+            // botonListado
             // 
-            this.botonRoles.Location = new System.Drawing.Point(6, 65);
-            this.botonRoles.Name = "botonRoles";
-            this.botonRoles.Size = new System.Drawing.Size(120, 40);
-            this.botonRoles.TabIndex = 0;
-            this.botonRoles.Text = "ABM de Rol";
-            this.botonRoles.UseVisualStyleBackColor = true;
-            this.botonRoles.Click += new System.EventHandler(this.botonRoles_Click);
+            this.botonListado.Location = new System.Drawing.Point(132, 157);
+            this.botonListado.Name = "botonListado";
+            this.botonListado.Size = new System.Drawing.Size(120, 58);
+            this.botonListado.TabIndex = 10;
+            this.botonListado.Text = "Listado estadístico";
+            this.botonListado.UseVisualStyleBackColor = true;
+            this.botonListado.Click += new System.EventHandler(this.botonListado_Click);
             // 
-            // botonClientes
+            // botonGrados
             // 
-            this.botonClientes.Location = new System.Drawing.Point(6, 19);
-            this.botonClientes.Name = "botonClientes";
-            this.botonClientes.Size = new System.Drawing.Size(120, 40);
-            this.botonClientes.TabIndex = 1;
-            this.botonClientes.Text = "ABM de Clientes";
-            this.botonClientes.UseVisualStyleBackColor = true;
-            this.botonClientes.Click += new System.EventHandler(this.botonClientes_Click);
+            this.botonGrados.Location = new System.Drawing.Point(7, 111);
+            this.botonGrados.Name = "botonGrados";
+            this.botonGrados.Size = new System.Drawing.Size(246, 40);
+            this.botonGrados.TabIndex = 11;
+            this.botonGrados.Text = "ABM de Grado de Publicación";
+            this.botonGrados.UseVisualStyleBackColor = true;
+            this.botonGrados.Click += new System.EventHandler(this.botonGrados_Click);
             // 
             // label2
             // 
@@ -315,8 +315,7 @@
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] -  Menu";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
-            this.Load += new System.EventHandler(this.MenuForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuForm_FormClosing);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

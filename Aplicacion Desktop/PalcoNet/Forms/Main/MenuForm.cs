@@ -131,14 +131,10 @@ namespace PalcoNet.Forms
             //this.Hide();
         }
 
-        private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void MenuForm_Load(object sender, EventArgs e)
-        {
-
+        private void MenuForm_FormClosing(object sender, FormClosingEventArgs e) {
+            var d = MessageBox.Show("¿Está seguro que desea salir?", "Saliendo de PalcoNET", MessageBoxButtons.YesNo);
+            if (d == DialogResult.Yes)
+                FormsEstaticos.Principal.Close();
         }
     }
 }
