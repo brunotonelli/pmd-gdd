@@ -16,6 +16,7 @@ namespace PalcoNet.Forms
         public RegistrarEmpresaForm()
         {
             InitializeComponent();
+            AgregarEventosValidacion();
             boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxCUIT.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
@@ -95,5 +96,29 @@ namespace PalcoNet.Forms
                 menu.Show();
             }
         }
+
+        private void AgregarEventosValidacion() {
+            boxNumero.Validating += new CancelEventHandler(ValidarCampoNumericoNull);
+            boxPiso.Validating += new CancelEventHandler(ValidarCampoNumericoNull);
+        }
+
+        //CAMPO QUE DEBE SER NUMERO, O VACÍO
+        private void ValidarCampoNumericoNull(object sender, CancelEventArgs e) {
+            var textbox = sender as TextBox;
+            decimal numero;
+            bool esNumero = decimal.TryParse(textbox.Text, out numero);
+            bool esVacio = textbox.Text.Length == 0;
+            if (esNumero || esVacio) //ok
+            {
+                errorProvider.Clear();
+                e.Cancel = false;
+            }
+            else //error
+            {
+                errorProvider.SetError(textbox, "Tiene que ser un numero o vacío");
+                e.Cancel = true;
+            }
+        }
+        
     }
 }
