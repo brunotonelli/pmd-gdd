@@ -28,11 +28,11 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.publicacionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaEspectaculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPublicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publicacionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.botonEditar = new System.Windows.Forms.Button();
             this.labelViendo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,10 +63,6 @@
             this.dataGrid.Size = new System.Drawing.Size(657, 322);
             this.dataGrid.TabIndex = 3;
             // 
-            // publicacionModelBindingSource
-            // 
-            this.publicacionModelBindingSource.DataSource = typeof(PalcoNet.Model.PublicacionModel);
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -94,6 +90,10 @@
             this.fechaPublicacionDataGridViewTextBoxColumn.HeaderText = "Fecha";
             this.fechaPublicacionDataGridViewTextBoxColumn.Name = "fechaPublicacionDataGridViewTextBoxColumn";
             this.fechaPublicacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // publicacionModelBindingSource
+            // 
+            this.publicacionModelBindingSource.DataSource = typeof(PalcoNet.Model.PublicacionModel);
             // 
             // botonEditar
             // 
@@ -136,6 +136,7 @@
             this.Controls.Add(this.dataGrid);
             this.Name = "EditarPublicacionesSeleccionForm";
             this.Text = "EditarPublicacionesSeleccionForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditarPublicacionesSeleccionForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.publicacionModelBindingSource)).EndInit();
             this.ResumeLayout(false);

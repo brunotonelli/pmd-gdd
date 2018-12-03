@@ -52,8 +52,12 @@ namespace PalcoNet.Forms
             var row = dataGrid.SelectedRows[0];
             var pub = row.DataBoundItem as PublicacionModel;
             Publicacion real = context.Publicacion.Single(p => p.Publicacion_ID == pub.ID);
-            new EditarPublicacionForm(real).Show();
+            new EditarPublicacionForm(real).Show(this);
             this.Hide();
+        }
+
+        private void EditarPublicacionesSeleccionForm_FormClosed(object sender, FormClosedEventArgs e) {
+            MenuForm.ObtenerInstancia().Show();
         }
     }
 }

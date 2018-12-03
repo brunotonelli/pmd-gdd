@@ -58,16 +58,17 @@
             this.boxFila = new System.Windows.Forms.TextBox();
             this.botonAgregarUbicacion = new System.Windows.Forms.Button();
             this.gridUbicaciones = new System.Windows.Forms.DataGridView();
-            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boxFecha = new System.Windows.Forms.DateTimePicker();
+            this.boxHora = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ubicacionFilaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionAsientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionSinnumerarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionPrecioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionTipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.boxFecha = new System.Windows.Forms.DateTimePicker();
-            this.boxHora = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ubicacionDisponibleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -83,6 +84,7 @@
             this.botonGuardar.TabIndex = 13;
             this.botonGuardar.Text = "Guardar cambios";
             this.botonGuardar.UseVisualStyleBackColor = true;
+            this.botonGuardar.Click += new System.EventHandler(this.botonGuardar_Click);
             // 
             // tabControl1
             // 
@@ -223,6 +225,7 @@
             this.boxGrado.Name = "boxGrado";
             this.boxGrado.Size = new System.Drawing.Size(199, 21);
             this.boxGrado.TabIndex = 11;
+            this.boxGrado.SelectedIndexChanged += new System.EventHandler(this.boxGrado_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -400,6 +403,7 @@
             this.ubicacionSinnumerarDataGridViewTextBoxColumn,
             this.ubicacionPrecioDataGridViewTextBoxColumn,
             this.ubicacionTipoDataGridViewTextBoxColumn,
+            this.ubicacionDisponibleDataGridViewCheckBoxColumn,
             this.BorrarUbicacion});
             this.gridUbicaciones.DataSource = this.ubicacionBindingSource;
             this.gridUbicaciones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -412,62 +416,8 @@
             this.gridUbicaciones.Size = new System.Drawing.Size(580, 161);
             this.gridUbicaciones.TabIndex = 0;
             this.gridUbicaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUbicaciones_CellContentClick);
-            // 
-            // ubicacionBindingSource
-            // 
-            this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
-            // 
-            // ubicacionFilaDataGridViewTextBoxColumn
-            // 
-            this.ubicacionFilaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ubicacionFilaDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Fila";
-            this.ubicacionFilaDataGridViewTextBoxColumn.FillWeight = 91.37056F;
-            this.ubicacionFilaDataGridViewTextBoxColumn.HeaderText = "Fila";
-            this.ubicacionFilaDataGridViewTextBoxColumn.Name = "ubicacionFilaDataGridViewTextBoxColumn";
-            this.ubicacionFilaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ubicacionFilaDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // ubicacionAsientoDataGridViewTextBoxColumn
-            // 
-            this.ubicacionAsientoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Asiento";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.FillWeight = 104.3147F;
-            this.ubicacionAsientoDataGridViewTextBoxColumn.HeaderText = "Asiento";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.Name = "ubicacionAsientoDataGridViewTextBoxColumn";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ubicacionSinnumerarDataGridViewTextBoxColumn
-            // 
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Sin_numerar";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.FillWeight = 104.3147F;
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.HeaderText = "Sin enumerar";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Name = "ubicacionSinnumerarDataGridViewTextBoxColumn";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ubicacionPrecioDataGridViewTextBoxColumn
-            // 
-            this.ubicacionPrecioDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Precio";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.FillWeight = 104.3147F;
-            this.ubicacionPrecioDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.Name = "ubicacionPrecioDataGridViewTextBoxColumn";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ubicacionTipoDataGridViewTextBoxColumn
-            // 
-            this.ubicacionTipoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Tipo";
-            this.ubicacionTipoDataGridViewTextBoxColumn.FillWeight = 104.3147F;
-            this.ubicacionTipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
-            this.ubicacionTipoDataGridViewTextBoxColumn.Name = "ubicacionTipoDataGridViewTextBoxColumn";
-            this.ubicacionTipoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // BorrarUbicacion
-            // 
-            this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BorrarUbicacion.FillWeight = 91.37056F;
-            this.BorrarUbicacion.HeaderText = "";
-            this.BorrarUbicacion.Name = "BorrarUbicacion";
-            this.BorrarUbicacion.ReadOnly = true;
-            this.BorrarUbicacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.BorrarUbicacion.Width = 30;
+            this.gridUbicaciones.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridUbicaciones_DataBindingComplete);
+            this.gridUbicaciones.SelectionChanged += new System.EventHandler(this.gridUbicaciones_SelectionChanged);
             // 
             // boxFecha
             // 
@@ -493,6 +443,63 @@
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 23;
             this.label3.Text = "Fecha evento";
+            // 
+            // BorrarUbicacion
+            // 
+            this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BorrarUbicacion.DataPropertyName = "BorrarUbicacion";
+            this.BorrarUbicacion.FillWeight = 91.37056F;
+            this.BorrarUbicacion.HeaderText = "";
+            this.BorrarUbicacion.Name = "BorrarUbicacion";
+            this.BorrarUbicacion.ReadOnly = true;
+            this.BorrarUbicacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.BorrarUbicacion.Width = 30;
+            // 
+            // ubicacionFilaDataGridViewTextBoxColumn
+            // 
+            this.ubicacionFilaDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Fila";
+            this.ubicacionFilaDataGridViewTextBoxColumn.HeaderText = "Fila";
+            this.ubicacionFilaDataGridViewTextBoxColumn.Name = "ubicacionFilaDataGridViewTextBoxColumn";
+            this.ubicacionFilaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionAsientoDataGridViewTextBoxColumn
+            // 
+            this.ubicacionAsientoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Asiento";
+            this.ubicacionAsientoDataGridViewTextBoxColumn.HeaderText = "Asiento";
+            this.ubicacionAsientoDataGridViewTextBoxColumn.Name = "ubicacionAsientoDataGridViewTextBoxColumn";
+            this.ubicacionAsientoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionSinnumerarDataGridViewTextBoxColumn
+            // 
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Sin_numerar";
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.HeaderText = "Sin_numerar";
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Name = "ubicacionSinnumerarDataGridViewTextBoxColumn";
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionPrecioDataGridViewTextBoxColumn
+            // 
+            this.ubicacionPrecioDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Precio";
+            this.ubicacionPrecioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.ubicacionPrecioDataGridViewTextBoxColumn.Name = "ubicacionPrecioDataGridViewTextBoxColumn";
+            this.ubicacionPrecioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionTipoDataGridViewTextBoxColumn
+            // 
+            this.ubicacionTipoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Tipo";
+            this.ubicacionTipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.ubicacionTipoDataGridViewTextBoxColumn.Name = "ubicacionTipoDataGridViewTextBoxColumn";
+            this.ubicacionTipoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionDisponibleDataGridViewCheckBoxColumn
+            // 
+            this.ubicacionDisponibleDataGridViewCheckBoxColumn.DataPropertyName = "Ubicacion_Disponible";
+            this.ubicacionDisponibleDataGridViewCheckBoxColumn.HeaderText = "Disponible";
+            this.ubicacionDisponibleDataGridViewCheckBoxColumn.Name = "ubicacionDisponibleDataGridViewCheckBoxColumn";
+            this.ubicacionDisponibleDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // ubicacionBindingSource
+            // 
+            this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
             // 
             // EditarPublicacionForm
             // 
@@ -551,15 +558,16 @@
         private System.Windows.Forms.TextBox boxFila;
         private System.Windows.Forms.Button botonAgregarUbicacion;
         private System.Windows.Forms.DataGridView gridUbicaciones;
-        private System.Windows.Forms.BindingSource ubicacionBindingSource;
+        private System.Windows.Forms.DateTimePicker boxFecha;
+        private System.Windows.Forms.DateTimePicker boxHora;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionFilaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionAsientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionSinnumerarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionPrecioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionTipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ubicacionDisponibleDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn BorrarUbicacion;
-        private System.Windows.Forms.DateTimePicker boxFecha;
-        private System.Windows.Forms.DateTimePicker boxHora;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource ubicacionBindingSource;
     }
 }
