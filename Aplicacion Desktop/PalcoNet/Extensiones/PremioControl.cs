@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using PalcoNet.Model;
+using System.IO;
 
 namespace PalcoNet.Extensiones
 {
@@ -26,7 +27,8 @@ namespace PalcoNet.Extensiones
             Premio = premio;
             botonNombre.Text = premio.Premio_Nombre;
             labelPuntos.Text = premio.Premio_Puntos_Necesarios.ToString();
-            boxImagen.Load(premio.Premio_Imagen);
+            var archivo = (Image)Properties.Resources.ResourceManager.GetObject(premio.Premio_Imagen);
+            boxImagen.Image = archivo;
         }
 
         [Description("Imagen del premio"), Category("Apariencia")]

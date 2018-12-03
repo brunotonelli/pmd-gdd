@@ -128,7 +128,8 @@ namespace PalcoNet.Forms
 
         private void botonEditar_Click(object sender, EventArgs e)
         {
-            //this.Hide();
+            this.Hide();
+            new EditarPublicacionesSeleccionForm().Show();
         }
 
         private void MenuForm_FormClosing(object sender, FormClosingEventArgs e) {

@@ -217,6 +217,18 @@
     <Compile Include="Forms\Historial Compras\HistorialComprasForm.Designer.cs">
       <DependentUpon>HistorialComprasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Publicaciones\EditarPublicacionesSeleccionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Publicaciones\EditarPublicacionesSeleccionForm.Designer.cs">
+      <DependentUpon>EditarPublicacionesSeleccionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Publicaciones\EditarPublicacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Publicaciones\EditarPublicacionForm.Designer.cs">
+      <DependentUpon>EditarPublicacionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Usuario\CambiarContraseñaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,6 +427,12 @@
     <EmbeddedResource Include="Forms\Historial Compras\HistorialComprasForm.resx">
       <DependentUpon>HistorialComprasForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Publicaciones\EditarPublicacionesSeleccionForm.resx">
+      <DependentUpon>EditarPublicacionesSeleccionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Publicaciones\EditarPublicacionForm.resx">
+      <DependentUpon>EditarPublicacionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Roles\RolesForm.pa-Guru.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,7 +496,9 @@
     <None Include="Properties\DataSources\PalcoNet.Model.FechaHoraModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.HistorialModel.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.ItemModel.datasource" />
+    <None Include="Properties\DataSources\PalcoNet.Model.PublicacionModel1.datasource" />
     <None Include="Properties\DataSources\PalcoNet.Model.UbicacionModel.datasource" />
+    <None Include="Properties\DataSources\Publicacion1.datasource" />
     <None Include="Properties\DataSources\Rol.datasource" />
     <None Include="Properties\DataSources\Ubicacion1.datasource" />
     <None Include="Properties\Settings.settings">
@@ -510,14 +530,16 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\logoNET1.png" />
-    <None Include="Resources\logoPALCO.png" />
-    <None Include="Resources\logoNET.png" />
-    <None Include="Resources\logoBG.png" />
-    <None Include="Resources\cortinaTop.png" />
-    <None Include="Resources\cortinaIzq.png" />
-    <None Include="Resources\cortinaDer.png" />
-    <None Include="Resources\palco.jpg" />
+    <None Include="Resources\Premios\sc_escalera5posiciones_det_1.jpg" />
+    <None Include="Resources\Premios\sc_carry-on-control-remoto.jpg" />
+    <None Include="Resources\Premios\sc_brq294_det_1.jpg" />
+    <None Include="Resources\Premios\brq306_1.jpg" />
+    <None Include="Resources\Premios\brp760_grilla.jpg" />
+    <None Include="Resources\Premios\brp740_grilla.jpg" />
+    <None Include="Resources\Premios\brp518_1.jpg" />
+    <None Include="Resources\Premios\brp502_1.jpg" />
+    <None Include="Resources\Premios\brh636.jpg" />
+    <None Include="Resources\Premios\_mg_3896.jpg" />
     <None Include="Resources\flechaDer.png" />
     <None Include="Resources\flechaIzq.png" />
     <None Include="Resources\ticket.png" />

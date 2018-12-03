@@ -63,6 +63,76 @@ namespace PalcoNet.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _mg_3896 {
+            get {
+                object obj = ResourceManager.GetObject("_mg_3896", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brh636 {
+            get {
+                object obj = ResourceManager.GetObject("brh636", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brp502_1 {
+            get {
+                object obj = ResourceManager.GetObject("brp502_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brp518_1 {
+            get {
+                object obj = ResourceManager.GetObject("brp518_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brp740_grilla {
+            get {
+                object obj = ResourceManager.GetObject("brp740_grilla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brp760_grilla {
+            get {
+                object obj = ResourceManager.GetObject("brp760_grilla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brq306_1 {
+            get {
+                object obj = ResourceManager.GetObject("brq306_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flechaDer {
             get {
                 object obj = ResourceManager.GetObject("flechaDer", resourceCulture);
@@ -83,9 +153,29 @@ namespace PalcoNet.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logoBG {
+        internal static System.Drawing.Bitmap sc_brq294_det_1 {
             get {
-                object obj = ResourceManager.GetObject("logoBG", resourceCulture);
+                object obj = ResourceManager.GetObject("sc_brq294_det_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sc_carry_on_control_remoto {
+            get {
+                object obj = ResourceManager.GetObject("sc_carry_on_control_remoto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sc_escalera5posiciones_det_1 {
+            get {
+                object obj = ResourceManager.GetObject("sc_escalera5posiciones_det_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

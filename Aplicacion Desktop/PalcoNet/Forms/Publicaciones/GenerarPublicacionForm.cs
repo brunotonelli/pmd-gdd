@@ -27,7 +27,6 @@ namespace PalcoNet.Forms
             boxHora.Format = DateTimePickerFormat.Time;
             boxHora.ShowUpDown = true;
             CargarComboBox();
-            boxResponsable.Text = Sesion.Usuario.Usuario_Username;
             boxEmpresa.Text = Sesion.Empresa.Espec_Empresa_Razon_Social;
             boxFecha.MinDate = Properties.Settings.Default.FechaActual;
             boxFechaPublicacion.MinDate = Properties.Settings.Default.FechaActual;

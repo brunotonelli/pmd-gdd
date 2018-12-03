@@ -1,6 +1,6 @@
 ﻿namespace PalcoNet.Forms
 {
-    partial class GenerarPublicacionForm
+    partial class EditarPublicacionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -27,11 +27,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.gridUbicaciones = new System.Windows.Forms.DataGridView();
-            this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.boxDescripcion = new System.Windows.Forms.TextBox();
-            this.boxFechaPublicacion = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.botonGuardar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.boxEmpresa = new System.Windows.Forms.TextBox();
@@ -47,6 +43,9 @@
             this.boxGrado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.boxDireccion = new System.Windows.Forms.TextBox();
+            this.boxDescripcion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.boxFechaPublicacion = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,106 +57,42 @@
             this.boxAsiento = new System.Windows.Forms.TextBox();
             this.boxFila = new System.Windows.Forms.TextBox();
             this.botonAgregarUbicacion = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.botonAgregarFecha = new System.Windows.Forms.Button();
-            this.gridFechasHoras = new System.Windows.Forms.DataGridView();
-            this.botonBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.boxFecha = new System.Windows.Forms.DateTimePicker();
-            this.boxHora = new System.Windows.Forms.DateTimePicker();
-            this.botonGenerar = new System.Windows.Forms.Button();
+            this.gridUbicaciones = new System.Windows.Forms.DataGridView();
+            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ubicacionFilaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionAsientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionPrecioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionTipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaHoraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.gridUbicaciones)).BeginInit();
+            this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.boxFecha = new System.Windows.Forms.DateTimePicker();
+            this.boxHora = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFechasHoras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridUbicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fechaHoraModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridUbicaciones
+            // botonGuardar
             // 
-            this.gridUbicaciones.AllowUserToAddRows = false;
-            this.gridUbicaciones.AllowUserToDeleteRows = false;
-            this.gridUbicaciones.AllowUserToResizeRows = false;
-            this.gridUbicaciones.AutoGenerateColumns = false;
-            this.gridUbicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridUbicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridUbicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ubicacionFilaDataGridViewTextBoxColumn,
-            this.ubicacionAsientoDataGridViewTextBoxColumn,
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn,
-            this.ubicacionPrecioDataGridViewTextBoxColumn,
-            this.ubicacionTipoDataGridViewTextBoxColumn,
-            this.BorrarUbicacion});
-            this.gridUbicaciones.DataSource = this.ubicacionBindingSource;
-            this.gridUbicaciones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.gridUbicaciones.Location = new System.Drawing.Point(23, 69);
-            this.gridUbicaciones.MultiSelect = false;
-            this.gridUbicaciones.Name = "gridUbicaciones";
-            this.gridUbicaciones.ReadOnly = true;
-            this.gridUbicaciones.RowHeadersVisible = false;
-            this.gridUbicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridUbicaciones.Size = new System.Drawing.Size(580, 161);
-            this.gridUbicaciones.TabIndex = 0;
-            this.gridUbicaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUbicaciones_CellContentClick);
-            this.gridUbicaciones.SelectionChanged += new System.EventHandler(this.gridUbicaciones_SelectionChanged);
-            // 
-            // BorrarUbicacion
-            // 
-            this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BorrarUbicacion.DataPropertyName = "BorrarUbicacion";
-            this.BorrarUbicacion.FillWeight = 121.8274F;
-            this.BorrarUbicacion.HeaderText = "";
-            this.BorrarUbicacion.Name = "BorrarUbicacion";
-            this.BorrarUbicacion.ReadOnly = true;
-            this.BorrarUbicacion.Width = 30;
-            // 
-            // boxDescripcion
-            // 
-            this.boxDescripcion.Location = new System.Drawing.Point(26, 85);
-            this.boxDescripcion.Multiline = true;
-            this.boxDescripcion.Name = "boxDescripcion";
-            this.boxDescripcion.Size = new System.Drawing.Size(235, 57);
-            this.boxDescripcion.TabIndex = 4;
-            // 
-            // boxFechaPublicacion
-            // 
-            this.boxFechaPublicacion.Location = new System.Drawing.Point(406, 70);
-            this.boxFechaPublicacion.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
-            this.boxFechaPublicacion.Name = "boxFechaPublicacion";
-            this.boxFechaPublicacion.Size = new System.Drawing.Size(199, 20);
-            this.boxFechaPublicacion.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Fecha de publicación";
+            this.botonGuardar.Location = new System.Drawing.Point(477, 287);
+            this.botonGuardar.Name = "botonGuardar";
+            this.botonGuardar.Size = new System.Drawing.Size(166, 34);
+            this.botonGuardar.TabIndex = 13;
+            this.botonGuardar.Text = "Guardar cambios";
+            this.botonGuardar.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(13, 10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(634, 271);
-            this.tabControl1.TabIndex = 10;
+            this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
             // 
@@ -288,7 +223,6 @@
             this.boxGrado.Name = "boxGrado";
             this.boxGrado.Size = new System.Drawing.Size(199, 21);
             this.boxGrado.TabIndex = 11;
-            this.boxGrado.SelectedIndexChanged += new System.EventHandler(this.boxGrado_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -305,6 +239,31 @@
             this.boxDireccion.Name = "boxDireccion";
             this.boxDireccion.Size = new System.Drawing.Size(179, 20);
             this.boxDireccion.TabIndex = 9;
+            // 
+            // boxDescripcion
+            // 
+            this.boxDescripcion.Location = new System.Drawing.Point(26, 85);
+            this.boxDescripcion.Multiline = true;
+            this.boxDescripcion.Name = "boxDescripcion";
+            this.boxDescripcion.Size = new System.Drawing.Size(235, 57);
+            this.boxDescripcion.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(288, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Fecha de publicación";
+            // 
+            // boxFechaPublicacion
+            // 
+            this.boxFechaPublicacion.Location = new System.Drawing.Point(406, 70);
+            this.boxFechaPublicacion.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
+            this.boxFechaPublicacion.Name = "boxFechaPublicacion";
+            this.boxFechaPublicacion.Size = new System.Drawing.Size(199, 20);
+            this.boxFechaPublicacion.TabIndex = 6;
             // 
             // tabPage2
             // 
@@ -427,112 +386,51 @@
             this.botonAgregarUbicacion.UseVisualStyleBackColor = true;
             this.botonAgregarUbicacion.Click += new System.EventHandler(this.botonAgregarUbicacion_Click);
             // 
-            // tabPage3
+            // gridUbicaciones
             // 
-            this.tabPage3.Controls.Add(this.botonAgregarFecha);
-            this.tabPage3.Controls.Add(this.gridFechasHoras);
-            this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Controls.Add(this.boxFecha);
-            this.tabPage3.Controls.Add(this.boxHora);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(626, 245);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Espectáculos";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.gridUbicaciones.AllowUserToAddRows = false;
+            this.gridUbicaciones.AllowUserToDeleteRows = false;
+            this.gridUbicaciones.AllowUserToResizeRows = false;
+            this.gridUbicaciones.AutoGenerateColumns = false;
+            this.gridUbicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridUbicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridUbicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ubicacionFilaDataGridViewTextBoxColumn,
+            this.ubicacionAsientoDataGridViewTextBoxColumn,
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn,
+            this.ubicacionPrecioDataGridViewTextBoxColumn,
+            this.ubicacionTipoDataGridViewTextBoxColumn,
+            this.BorrarUbicacion});
+            this.gridUbicaciones.DataSource = this.ubicacionBindingSource;
+            this.gridUbicaciones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.gridUbicaciones.Location = new System.Drawing.Point(23, 69);
+            this.gridUbicaciones.MultiSelect = false;
+            this.gridUbicaciones.Name = "gridUbicaciones";
+            this.gridUbicaciones.ReadOnly = true;
+            this.gridUbicaciones.RowHeadersVisible = false;
+            this.gridUbicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridUbicaciones.Size = new System.Drawing.Size(580, 161);
+            this.gridUbicaciones.TabIndex = 0;
+            this.gridUbicaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUbicaciones_CellContentClick);
             // 
-            // botonAgregarFecha
+            // ubicacionBindingSource
             // 
-            this.botonAgregarFecha.Location = new System.Drawing.Point(400, 21);
-            this.botonAgregarFecha.Name = "botonAgregarFecha";
-            this.botonAgregarFecha.Size = new System.Drawing.Size(65, 21);
-            this.botonAgregarFecha.TabIndex = 13;
-            this.botonAgregarFecha.Text = "Agregar";
-            this.botonAgregarFecha.UseVisualStyleBackColor = true;
-            this.botonAgregarFecha.Click += new System.EventHandler(this.botonAgregarFecha_Click);
-            // 
-            // gridFechasHoras
-            // 
-            this.gridFechasHoras.AllowUserToAddRows = false;
-            this.gridFechasHoras.AllowUserToDeleteRows = false;
-            this.gridFechasHoras.AllowUserToResizeRows = false;
-            this.gridFechasHoras.AutoGenerateColumns = false;
-            this.gridFechasHoras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridFechasHoras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridFechasHoras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fechaDataGridViewTextBoxColumn,
-            this.horaDataGridViewTextBoxColumn,
-            this.botonBorrar});
-            this.gridFechasHoras.DataSource = this.fechaHoraModelBindingSource;
-            this.gridFechasHoras.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.gridFechasHoras.Location = new System.Drawing.Point(23, 56);
-            this.gridFechasHoras.MultiSelect = false;
-            this.gridFechasHoras.Name = "gridFechasHoras";
-            this.gridFechasHoras.ReadOnly = true;
-            this.gridFechasHoras.RowHeadersVisible = false;
-            this.gridFechasHoras.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridFechasHoras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridFechasHoras.Size = new System.Drawing.Size(580, 171);
-            this.gridFechasHoras.TabIndex = 12;
-            this.gridFechasHoras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridFechasHoras_CellContentClick);
-            this.gridFechasHoras.SelectionChanged += new System.EventHandler(this.gridFechasHoras_SelectionChanged);
-            // 
-            // botonBorrar
-            // 
-            this.botonBorrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.botonBorrar.HeaderText = "";
-            this.botonBorrar.Name = "botonBorrar";
-            this.botonBorrar.ReadOnly = true;
-            this.botonBorrar.Width = 30;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Nueva fecha/hora";
-            // 
-            // boxFecha
-            // 
-            this.boxFecha.Location = new System.Drawing.Point(121, 22);
-            this.boxFecha.MinDate = new System.DateTime(2018, 11, 27, 0, 0, 0, 0);
-            this.boxFecha.Name = "boxFecha";
-            this.boxFecha.Size = new System.Drawing.Size(199, 20);
-            this.boxFecha.TabIndex = 9;
-            // 
-            // boxHora
-            // 
-            this.boxHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.boxHora.Location = new System.Drawing.Point(327, 22);
-            this.boxHora.Name = "boxHora";
-            this.boxHora.Size = new System.Drawing.Size(67, 20);
-            this.boxHora.TabIndex = 10;
-            // 
-            // botonGenerar
-            // 
-            this.botonGenerar.Location = new System.Drawing.Point(476, 289);
-            this.botonGenerar.Name = "botonGenerar";
-            this.botonGenerar.Size = new System.Drawing.Size(166, 34);
-            this.botonGenerar.TabIndex = 11;
-            this.botonGenerar.Text = "Generar Publicación";
-            this.botonGenerar.UseVisualStyleBackColor = true;
-            this.botonGenerar.Click += new System.EventHandler(this.botonGenerar_Click);
+            this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
             // 
             // ubicacionFilaDataGridViewTextBoxColumn
             // 
+            this.ubicacionFilaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ubicacionFilaDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Fila";
-            this.ubicacionFilaDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionFilaDataGridViewTextBoxColumn.FillWeight = 91.37056F;
             this.ubicacionFilaDataGridViewTextBoxColumn.HeaderText = "Fila";
             this.ubicacionFilaDataGridViewTextBoxColumn.Name = "ubicacionFilaDataGridViewTextBoxColumn";
             this.ubicacionFilaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ubicacionFilaDataGridViewTextBoxColumn.Width = 30;
             // 
             // ubicacionAsientoDataGridViewTextBoxColumn
             // 
             this.ubicacionAsientoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Asiento";
-            this.ubicacionAsientoDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionAsientoDataGridViewTextBoxColumn.FillWeight = 104.3147F;
             this.ubicacionAsientoDataGridViewTextBoxColumn.HeaderText = "Asiento";
             this.ubicacionAsientoDataGridViewTextBoxColumn.Name = "ubicacionAsientoDataGridViewTextBoxColumn";
             this.ubicacionAsientoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -540,17 +438,15 @@
             // ubicacionSinnumerarDataGridViewTextBoxColumn
             // 
             this.ubicacionSinnumerarDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Sin_numerar";
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionSinnumerarDataGridViewTextBoxColumn.FillWeight = 104.3147F;
             this.ubicacionSinnumerarDataGridViewTextBoxColumn.HeaderText = "Sin enumerar";
             this.ubicacionSinnumerarDataGridViewTextBoxColumn.Name = "ubicacionSinnumerarDataGridViewTextBoxColumn";
             this.ubicacionSinnumerarDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ubicacionSinnumerarDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ubicacionPrecioDataGridViewTextBoxColumn
             // 
             this.ubicacionPrecioDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Precio";
-            this.ubicacionPrecioDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionPrecioDataGridViewTextBoxColumn.FillWeight = 104.3147F;
             this.ubicacionPrecioDataGridViewTextBoxColumn.HeaderText = "Precio";
             this.ubicacionPrecioDataGridViewTextBoxColumn.Name = "ubicacionPrecioDataGridViewTextBoxColumn";
             this.ubicacionPrecioDataGridViewTextBoxColumn.ReadOnly = true;
@@ -558,96 +454,81 @@
             // ubicacionTipoDataGridViewTextBoxColumn
             // 
             this.ubicacionTipoDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Tipo";
-            this.ubicacionTipoDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.ubicacionTipoDataGridViewTextBoxColumn.FillWeight = 104.3147F;
             this.ubicacionTipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.ubicacionTipoDataGridViewTextBoxColumn.Name = "ubicacionTipoDataGridViewTextBoxColumn";
             this.ubicacionTipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ubicacionTipoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // ubicacionBindingSource
+            // BorrarUbicacion
             // 
-            this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
+            this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BorrarUbicacion.FillWeight = 91.37056F;
+            this.BorrarUbicacion.HeaderText = "";
+            this.BorrarUbicacion.Name = "BorrarUbicacion";
+            this.BorrarUbicacion.ReadOnly = true;
+            this.BorrarUbicacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.BorrarUbicacion.Width = 30;
             // 
-            // fechaDataGridViewTextBoxColumn
+            // boxFecha
             // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.boxFecha.Location = new System.Drawing.Point(130, 295);
+            this.boxFecha.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
+            this.boxFecha.Name = "boxFecha";
+            this.boxFecha.Size = new System.Drawing.Size(199, 20);
+            this.boxFecha.TabIndex = 23;
             // 
-            // horaDataGridViewTextBoxColumn
+            // boxHora
             // 
-            this.horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
-            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
-            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
-            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.boxHora.Location = new System.Drawing.Point(341, 295);
+            this.boxHora.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
+            this.boxHora.Name = "boxHora";
+            this.boxHora.Size = new System.Drawing.Size(88, 20);
+            this.boxHora.TabIndex = 24;
             // 
-            // fechaHoraModelBindingSource
+            // label3
             // 
-            this.fechaHoraModelBindingSource.DataSource = typeof(PalcoNet.Model.FechaHoraModel);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(51, 298);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Fecha evento";
             // 
-            // GenerarPublicacionForm
+            // EditarPublicacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 331);
-            this.Controls.Add(this.botonGenerar);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.boxHora);
+            this.Controls.Add(this.boxFecha);
+            this.Controls.Add(this.botonGuardar);
             this.Controls.Add(this.tabControl1);
-            this.Name = "GenerarPublicacionForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "[PalcoNet] - Generar Publicación";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GenerarPublicacionForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.gridUbicaciones)).EndInit();
+            this.Name = "EditarPublicacionForm";
+            this.Text = "EditarPublicacionForm";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFechasHoras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridUbicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fechaHoraModelBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridUbicaciones;
-        private System.Windows.Forms.BindingSource ubicacionBindingSource;
-        private System.Windows.Forms.TextBox boxDescripcion;
-        private System.Windows.Forms.DateTimePicker boxFechaPublicacion;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button botonGuardar;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView gridFechasHoras;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker boxFecha;
-        private System.Windows.Forms.DateTimePicker boxHora;
-        private System.Windows.Forms.Button botonAgregarFecha;
-        private System.Windows.Forms.BindingSource fechaHoraModelBindingSource;
-        private System.Windows.Forms.CheckBox checkSinEnumerar;
-        private System.Windows.Forms.ComboBox boxTipo;
-        private System.Windows.Forms.TextBox boxPrecio;
-        private System.Windows.Forms.TextBox boxAsiento;
-        private System.Windows.Forms.TextBox boxFila;
-        private System.Windows.Forms.Button botonAgregarUbicacion;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionFilaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionAsientoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ubicacionSinnumerarDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionPrecioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionTipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn BorrarUbicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn botonBorrar;
+        private System.Windows.Forms.TextBox boxEmpresa;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox boxRubro;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox boxEstado;
@@ -655,12 +536,30 @@
         private System.Windows.Forms.ComboBox boxGrado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox boxDireccion;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox boxRubro;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button botonGenerar;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox boxEmpresa;
+        private System.Windows.Forms.TextBox boxDescripcion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker boxFechaPublicacion;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkSinEnumerar;
+        private System.Windows.Forms.ComboBox boxTipo;
+        private System.Windows.Forms.TextBox boxPrecio;
+        private System.Windows.Forms.TextBox boxAsiento;
+        private System.Windows.Forms.TextBox boxFila;
+        private System.Windows.Forms.Button botonAgregarUbicacion;
+        private System.Windows.Forms.DataGridView gridUbicaciones;
+        private System.Windows.Forms.BindingSource ubicacionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionFilaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionAsientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionSinnumerarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionPrecioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacionTipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn BorrarUbicacion;
+        private System.Windows.Forms.DateTimePicker boxFecha;
+        private System.Windows.Forms.DateTimePicker boxHora;
+        private System.Windows.Forms.Label label3;
     }
 }
