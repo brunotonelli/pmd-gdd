@@ -34,8 +34,8 @@ namespace PalcoNet.Forms
                             join esp in context.Espectaculo on p.Publicacion_Espectaculo equals esp.Espectaculo_Cod
                             join emp in context.Espec_Empresa on p.Publicacion_Empresa equals emp.Espec_Empresa_Cuit
                             where p.Publicacion_Estado == 2
-                            && p.Publicacion_Fecha >= Properties.Settings.Default.FechaActual
-                            && p.Publicacion_Fecha_Espectaculo >= Properties.Settings.Default.FechaActual
+                            && p.Publicacion_Fecha >= Configuracion.FechaActual
+                            && p.Publicacion_Fecha_Espectaculo >= Configuracion.FechaActual
                             select new PublicacionModel
                             {
                                 ID = p.Publicacion_ID,
@@ -99,8 +99,8 @@ namespace PalcoNet.Forms
             usarFiltros = false;
             boxDescripcion.Text = string.Empty;
             listBoxRubros.ClearSelected();
-            boxFechaInicial.Value = Properties.Settings.Default.FechaActual;
-            boxFechaFinal.Value = Properties.Settings.Default.FechaActual;
+            boxFechaInicial.Value = Configuracion.FechaActual;
+            boxFechaFinal.Value = Configuracion.FechaActual;
 
             Publicaciones = GetPublicaciones();
             botonSiguiente.Enabled = Publicaciones.HasNextPage;
@@ -137,10 +137,10 @@ namespace PalcoNet.Forms
         }
 
         private void InicializarFiltros() {
-            boxFechaInicial.MinDate = Properties.Settings.Default.FechaActual;
-            boxFechaFinal.MinDate = Properties.Settings.Default.FechaActual;
-            boxFechaInicial.Value = Properties.Settings.Default.FechaActual;
-            boxFechaFinal.Value = Properties.Settings.Default.FechaActual;
+            boxFechaInicial.MinDate = Configuracion.FechaActual;
+            boxFechaFinal.MinDate = Configuracion.FechaActual;
+            boxFechaInicial.Value = Configuracion.FechaActual;
+            boxFechaFinal.Value = Configuracion.FechaActual;
             listBoxRubros.Items.Clear();
             using (var c = new GD2C2018Entities())
             {

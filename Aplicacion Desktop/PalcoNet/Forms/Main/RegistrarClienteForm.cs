@@ -77,7 +77,7 @@ namespace PalcoNet.Forms
                     Cli_Dom_Calle = boxCalle.Text,
                     Cli_Nro_Calle = nroCalle,
                     Cli_Cod_Postal = boxCodigoPostal.Text,
-                    Cli_Fecha_Alta = Properties.Settings.Default.FechaActual,
+                    Cli_Fecha_Alta = Configuracion.FechaActual,
                     Cli_Fecha_Nac = boxFecha.Value,
                     Cli_Depto = boxDepartamento.Text,
                     Cli_Localidad = boxLocalidad.Text,

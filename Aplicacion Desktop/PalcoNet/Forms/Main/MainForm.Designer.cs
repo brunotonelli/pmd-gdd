@@ -32,6 +32,7 @@
             this.botonSalir = new System.Windows.Forms.Button();
             this.botonRegistrarse = new System.Windows.Forms.PictureBox();
             this.botonLogin = new System.Windows.Forms.PictureBox();
+            this.botonConfiguracion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.botonRegistrarse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botonLogin)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,17 @@
             this.botonLogin.TabStop = false;
             this.botonLogin.Click += new System.EventHandler(this.botonLogin_Click);
             // 
+            // botonConfiguracion
+            // 
+            this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonConfiguracion.Location = new System.Drawing.Point(486, 157);
+            this.botonConfiguracion.Name = "botonConfiguracion";
+            this.botonConfiguracion.Size = new System.Drawing.Size(184, 78);
+            this.botonConfiguracion.TabIndex = 18;
+            this.botonConfiguracion.Text = "Configuracion";
+            this.botonConfiguracion.UseVisualStyleBackColor = true;
+            this.botonConfiguracion.Click += new System.EventHandler(this.botonConfiguracion_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,6 +96,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(700, 397);
+            this.Controls.Add(this.botonConfiguracion);
             this.Controls.Add(this.botonLogin);
             this.Controls.Add(this.botonRegistrarse);
             this.Controls.Add(this.botonSalir);
@@ -102,5 +115,6 @@
         private System.Windows.Forms.Button botonSalir;
         private System.Windows.Forms.PictureBox botonRegistrarse;
         private System.Windows.Forms.PictureBox botonLogin;
+        private System.Windows.Forms.Button botonConfiguracion;
     }
 }

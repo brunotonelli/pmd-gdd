@@ -79,7 +79,7 @@ namespace PalcoNet.Forms
             {
                 factura = new Factura
                 {
-                    Factura_Fecha = Properties.Settings.Default.FechaActual,
+                    Factura_Fecha = Configuracion.FechaActual,
                     Factura_Publicacion = publicacion,
                     Factura_Total = 0.0m
                 };

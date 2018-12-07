@@ -71,7 +71,7 @@ namespace PalcoNet.Forms
             Nuevo.Espec_Empresa_Piso = piso;
             Nuevo.Espec_Empresa_Razon_Social = boxRazon.Text;
             Nuevo.Espec_Empresa_Telefono = boxTelefono.Text;
-            Nuevo.Espec_Empresa_Fecha_Creacion = Properties.Settings.Default.FechaActual;
+            Nuevo.Espec_Empresa_Fecha_Creacion = Configuracion.FechaActual;
         }
 
         private void ValidarRequeridos(object sender, EventArgs e)

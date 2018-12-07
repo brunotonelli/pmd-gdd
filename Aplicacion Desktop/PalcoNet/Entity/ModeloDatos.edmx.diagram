@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cdb81e1c3021467086f6d82bf6c39547" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="GD2C2018Model.Cliente" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Compra" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Espec_Empresa" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Espectaculo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Estado" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Factura" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Funcionalidad" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Grado_Publicacion" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Item_Factura" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Premio" Width="1.5" PointX="7.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Premio_X_Cliente" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Publicacion" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Puntos" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Rol" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Rubro" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Ubicacion" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GD2C2018Model.Usuario" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="GD2C2018Model.FK_Cliente_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="GD2C2018Model.FK_Premio_X_Cliente_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="GD2C2018Model.FK_Espec_Empresa_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="GD2C2018Model.FK_Espectaculo_Rubro" ManuallyRouted="false" />
+        <AssociationConnector Association="GD2C2018Model.FK_Premio_X_Cliente_Premio" ManuallyRouted="false" />
+        <AssociationConnector Association="GD2C2018Model.Func_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="GD2C2018Model.Rol_X_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

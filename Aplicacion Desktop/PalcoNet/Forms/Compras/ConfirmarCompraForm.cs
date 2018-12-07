@@ -22,7 +22,7 @@ namespace PalcoNet.Forms
             InitializeComponent();
             Publicacion = publicacion;
             boxFormaPago.SelectedItem = boxFormaPago.Items[0];
-            boxFecha.Value = Properties.Settings.Default.FechaActual;
+            boxFecha.Value = Configuracion.FechaActual;
             sourceUbicaciones.DataSource = GetUbicaciones();
             botonSeleccionar.Enabled = sourceUbicaciones.Count > 0;
         }
@@ -140,7 +140,7 @@ namespace PalcoNet.Forms
         private Compra GetCompra(GD2C2018Entities context) {
             return new Compra
             {
-                Compra_Fecha = Properties.Settings.Default.FechaActual,
+                Compra_Fecha = Configuracion.FechaActual,
                 Compra_Cantidad = Cantidad,
                 Compra_Forma_Pago = boxFormaPago.SelectedItem.ToString(),
                 Compra_Tipo_Doc_Cliente = Sesion.Cliente.Cli_Tipo_Doc,

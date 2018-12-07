@@ -36,7 +36,7 @@ namespace PalcoNet.Forms
             Nuevo.Cli_CUIL = boxCUIL.Text;
             Nuevo.Cli_Depto = boxDepartamento.Text;
             Nuevo.Cli_Dom_Calle = boxCalle.Text;
-            Nuevo.Cli_Fecha_Alta = Properties.Settings.Default.FechaActual;
+            Nuevo.Cli_Fecha_Alta = Configuracion.FechaActual;
             Nuevo.Cli_Fecha_Nac = boxFecha.Value;
             Nuevo.Cli_Habilitado = true;
             Nuevo.Cli_Localidad = boxLocalidad.Text;

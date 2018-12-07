@@ -28,8 +28,8 @@ namespace PalcoNet.Forms
             boxHora.ShowUpDown = true;
             CargarComboBox();
             boxEmpresa.Text = Sesion.Empresa.Espec_Empresa_Razon_Social;
-            boxFecha.MinDate = Properties.Settings.Default.FechaActual;
-            boxFechaPublicacion.MinDate = Properties.Settings.Default.FechaActual;
+            boxFecha.MinDate = Configuracion.FechaActual;
+            boxFechaPublicacion.MinDate = Configuracion.FechaActual;
         }
         
         private void botonAgregarFecha_Click(object sender, EventArgs e) {

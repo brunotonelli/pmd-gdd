@@ -38,6 +38,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -57,21 +60,73 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs">
+    <Compile Include="Entity\Cliente.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Compra.cs">
+    <Compile Include="Entity\Compra.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Espectaculo.cs">
+    <Compile Include="Entity\Espectaculo.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Espec_Empresa.cs">
+    <Compile Include="Entity\Espec_Empresa.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Estado.cs">
+    <Compile Include="Entity\Estado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Factura.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Funcionalidad.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Grado_Publicacion.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Item_Factura.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ModeloDatos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDatos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ModeloDatos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ModeloDatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Premio.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Premio_X_Cliente.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Publicacion.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Puntos.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Rol.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Rubro.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Ubicacion.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Usuario.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensiones\Configuracion.cs" />
     <Compile Include="Extensiones\ConsultasDB.cs" />
     <Compile Include="Extensiones\FormsEstaticos.cs" />
     <Compile Include="Extensiones\FuncionesSQL.cs" />
@@ -100,9 +155,6 @@
     </Compile>
     <Compile Include="Extensiones\Utilidades.cs" />
     <Compile Include="Extensiones\Validaciones.cs" />
-    <Compile Include="Factura.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Clientes\AltaClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +226,12 @@
     </Compile>
     <Compile Include="Forms\Estadisticas\EstadisticasForm.Designer.cs">
       <DependentUpon>EstadisticasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\ConfiguracionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\ConfiguracionForm.Designer.cs">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main\SeleccionRolForm.cs">
       <SubType>Form</SubType>
@@ -301,31 +359,8 @@
     <Compile Include="Forms\Rubros\RubrosForm.Designer.cs">
       <DependentUpon>RubrosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidad.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Grado_Publicacion.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Item_Factura.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDatos.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloDatos.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDatos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDatos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloDatos.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\ComprasEstadistico.cs" />
+    <Compile Include="Model\ConfigModel.cs" />
     <Compile Include="Model\EmpEstadistico.cs" />
     <Compile Include="Model\FechaHoraModel.cs" />
     <Compile Include="Model\HistorialModel.cs" />
@@ -335,32 +370,8 @@
     <Compile Include="Model\PublicacionModel.cs" />
     <Compile Include="Model\PuntosVencidosModel.cs" />
     <Compile Include="Model\UbicacionModel.cs" />
-    <Compile Include="Premio.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Premio_X_Cliente.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Publicacion.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Puntos.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rol.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rubro.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ubicacion.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Usuario.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Extensiones\ListaFuncionalidades.resx">
       <DependentUpon>ListaFuncionalidades.cs</DependentUpon>
     </EmbeddedResource>
@@ -409,6 +420,9 @@
     <EmbeddedResource Include="Forms\Grados\GradosForm.resx">
       <DependentUpon>GradosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\ConfiguracionForm.resx">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\SeleccionRolForm.resx">
       <DependentUpon>SeleccionRolForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -447,6 +461,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
@@ -479,11 +494,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="ModeloDatos.edmx">
+    <EntityDeploy Include="Entity\ModeloDatos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDatos.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModeloDatos.edmx.diagram">
+    <None Include="Entity\ModeloDatos.edmx.diagram">
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -501,35 +516,11 @@
     <None Include="Properties\DataSources\Publicacion1.datasource" />
     <None Include="Properties\DataSources\Rol.datasource" />
     <None Include="Properties\DataSources\Ubicacion1.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModeloDatos.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeloDatos.edmx</DependentUpon>
-      <LastGenOutput>ModeloDatos.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModeloDatos.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeloDatos.edmx</DependentUpon>
-      <LastGenOutput>ModeloDatos.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\Premios\sc_escalera5posiciones_det_1.jpg" />
     <None Include="Resources\Premios\sc_carry-on-control-remoto.jpg" />
     <None Include="Resources\Premios\sc_brq294_det_1.jpg" />
@@ -544,7 +535,18 @@
     <None Include="Resources\flechaIzq.png" />
     <None Include="Resources\ticket.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entity\ModeloDatos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatos.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\ModeloDatos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatos.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

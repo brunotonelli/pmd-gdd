@@ -39,11 +39,11 @@ namespace PalcoNet.Forms
         }
 
         private List<Puntos> GetValidos() {
-            return GetPuntos().Where(p => p.Puntos_Vencimiento > Properties.Settings.Default.FechaActual).ToList();                
+            return GetPuntos().Where(p => p.Puntos_Vencimiento > Configuracion.FechaActual).ToList();                
         }
 
         private List<Puntos> GetVencidos() {
-            return GetPuntos().Where(p => p.Puntos_Vencimiento <= Properties.Settings.Default.FechaActual).ToList();
+            return GetPuntos().Where(p => p.Puntos_Vencimiento <= Configuracion.FechaActual).ToList();
         }
 
         private void CargarPremios() {

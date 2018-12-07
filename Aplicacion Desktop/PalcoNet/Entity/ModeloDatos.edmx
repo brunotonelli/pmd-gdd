@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GD2C2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Cli_Nro_Doc" />
+            <PropertyRef Name="Cli_Tipo_Doc" />
+          </Key>
+          <Property Name="Cli_Nro_Doc" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Cli_Tipo_Doc" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Cli_Apellido" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_Fecha_Nac" Type="datetime" />
+          <Property Name="Cli_Mail" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_Dom_Calle" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_Nro_Calle" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Cli_Piso" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Cli_Depto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_Cod_Postal" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_CUIL" Type="nvarchar" MaxLength="128" />
+          <Property Name="Cli_Telefono" Type="nvarchar" MaxLength="40" />
+          <Property Name="Cli_Localidad" Type="nvarchar" MaxLength="128" />
+          <Property Name="Cli_Fecha_Alta" Type="datetime" />
+          <Property Name="Cli_Tarjeta_Num" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cli_Tarjeta_Tipo" Type="nvarchar" MaxLength="40" />
+          <Property Name="Cli_Usuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cli_Habilitado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Compra">
+          <Key>
+            <PropertyRef Name="Compra_ID" />
+          </Key>
+          <Property Name="Compra_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Compra_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Compra_Cantidad" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Compra_Forma_Pago" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Compra_Tipo_Doc_Cliente" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Compra_Num_Doc_Cliente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Compra_Total" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Compra_Publicacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Compra_Facturada" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Espec_Empresa">
+          <Key>
+            <PropertyRef Name="Espec_Empresa_Cuit" />
+          </Key>
+          <Property Name="Espec_Empresa_Cuit" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Espec_Empresa_Razon_Social" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Espec_Empresa_Fecha_Creacion" Type="datetime" />
+          <Property Name="Espec_Empresa_Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Espec_Empresa_Dom_Calle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Espec_Empresa_Nro_Calle" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Espec_Empresa_Piso" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Espec_Empresa_Depto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Espec_Empresa_Cod_Postal" Type="nvarchar" MaxLength="50" />
+          <Property Name="Espec_Empresa_Telefono" Type="nvarchar" MaxLength="40" />
+          <Property Name="Espec_Empresa_Localidad" Type="nvarchar" MaxLength="128" />
+          <Property Name="Espec_Empresa_Ciudad" Type="nvarchar" MaxLength="128" />
+          <Property Name="Espec_Empresa_Usuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Espec_Empresa_Habilitado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Espectaculo">
+          <Key>
+            <PropertyRef Name="Espectaculo_Cod" />
+          </Key>
+          <Property Name="Espectaculo_Cod" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Espectaculo_Descripcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Espectaculo_Rubro" Type="int" />
+          <Property Name="Espectaculo_Direccion" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Estado_ID" />
+          </Key>
+          <Property Name="Estado_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado_Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="Factura_Nro" />
+          </Key>
+          <Property Name="Factura_Nro" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Factura_Fecha" Type="datetime" />
+          <Property Name="Factura_Total" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Factura_Publicacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Func_Rol">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+            <PropertyRef Name="Func_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Func_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Funcionalidad">
+          <Key>
+            <PropertyRef Name="Func_ID" />
+          </Key>
+          <Property Name="Func_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Func_Descripcion" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Grado_Publicacion">
+          <Key>
+            <PropertyRef Name="Grado_ID" />
+          </Key>
+          <Property Name="Grado_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Grado_Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grado_Comision" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="Grado_Habilitado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Item_Factura">
+          <Key>
+            <PropertyRef Name="Item_Factura_ID" />
+            <PropertyRef Name="Item_Factura_Factura" />
+          </Key>
+          <Property Name="Item_Factura_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item_Factura_Factura" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Item_Factura_Monto" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Item_Factura_Cantidad" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Item_Factura_Descripcion" Type="nvarchar" MaxLength="60" />
+          <Property Name="Item_Factura_Compra" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Premio">
+          <Key>
+            <PropertyRef Name="Premio_ID" />
+          </Key>
+          <Property Name="Premio_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Premio_Nombre" Type="nchar" MaxLength="100" />
+          <Property Name="Premio_Descripcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Premio_Puntos_Necesarios" Type="int" />
+          <Property Name="Premio_Imagen" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Premio_X_Cliente">
+          <Key>
+            <PropertyRef Name="Pre_Cli_Tipo_Doc" />
+            <PropertyRef Name="Pre_Cli_Nro_Doc" />
+            <PropertyRef Name="Pre_Premio_ID" />
+            <PropertyRef Name="Pre_Cli_Canje_ID" />
+          </Key>
+          <Property Name="Pre_Cli_Tipo_Doc" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Pre_Cli_Nro_Doc" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Pre_Premio_ID" Type="int" Nullable="false" />
+          <Property Name="Pre_Cli_Canje_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publicacion">
+          <Key>
+            <PropertyRef Name="Publicacion_ID" />
+          </Key>
+          <Property Name="Publicacion_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Publicacion_Espectaculo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Publicacion_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Publicacion_Localidades" Type="int" />
+          <Property Name="Publicacion_Grado" Type="int" />
+          <Property Name="Publicacion_Empresa" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Publicacion_Estado" Type="int" Nullable="false" />
+          <Property Name="Publicacion_Fecha_Espectaculo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Puntos">
+          <Key>
+            <PropertyRef Name="Puntos_ID" />
+          </Key>
+          <Property Name="Puntos_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Puntos_Cantidad" Type="int" Nullable="false" />
+          <Property Name="Puntos_Vencimiento" Type="datetime" Nullable="false" />
+          <Property Name="Puntos_Tipo_Doc_Cliente" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Puntos_Num_Doc_Cliente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Rol_Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Rol_Habilitado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Rol_X_Usuario">
+          <Key>
+            <PropertyRef Name="Usuario_Username" />
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Usuario_Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Rol_ID" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rubro">
+          <Key>
+            <PropertyRef Name="Rubro_ID" />
+          </Key>
+          <Property Name="Rubro_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rubro_Descripcion" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="Ubicacion_Publicacion" />
+            <PropertyRef Name="Ubicacion_Fila" />
+            <PropertyRef Name="Ubicacion_Asiento" />
+          </Key>
+          <Property Name="Ubicacion_Publicacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ubicacion_Fila" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Ubicacion_Asiento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ubicacion_Sin_numerar" Type="bit" />
+          <Property Name="Ubicacion_Precio" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Ubicacion_Tipo" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Ubicacion_Compra" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Ubicacion_Disponible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Usuario_Username" />
+          </Key>
+          <Property Name="Usuario_Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Usuario_Password" Type="binary" MaxLength="64" />
+          <Property Name="Usuario_Intentos_Fallidos" Type="int" />
+          <Property Name="Usuario_Habilitado" Type="bit" />
+          <Property Name="Usuario_Autogenerado" Type="bit" />
+          <Property Name="Usuario_Inicios" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cliente_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Cli_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Espec_Empresa_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Espec_Empresa" Type="Self.Espec_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Espec_Empresa">
+              <PropertyRef Name="Espec_Empresa_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Espectaculo_Rubro">
+          <End Role="Rubro" Type="Self.Rubro" Multiplicity="0..1" />
+          <End Role="Espectaculo" Type="Self.Espectaculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rubro">
+              <PropertyRef Name="Rubro_ID" />
+            </Principal>
+            <Dependent Role="Espectaculo">
+              <PropertyRef Name="Espectaculo_Rubro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Func_Rol_Funcionalidad">
+          <End Role="Funcionalidad" Type="Self.Funcionalidad" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Func_Rol" Type="Self.Func_Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionalidad">
+              <PropertyRef Name="Func_ID" />
+            </Principal>
+            <Dependent Role="Func_Rol">
+              <PropertyRef Name="Func_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Func_Rol_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Func_Rol" Type="Self.Func_Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Rol_ID" />
+            </Principal>
+            <Dependent Role="Func_Rol">
+              <PropertyRef Name="Rol_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Premio_X_Cliente_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Premio_X_Cliente" Type="Self.Premio_X_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Cli_Nro_Doc" />
+              <PropertyRef Name="Cli_Tipo_Doc" />
+            </Principal>
+            <Dependent Role="Premio_X_Cliente">
+              <PropertyRef Name="Pre_Cli_Nro_Doc" />
+              <PropertyRef Name="Pre_Cli_Tipo_Doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Premio_X_Cliente_Premio">
+          <End Role="Premio" Type="Self.Premio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Premio_X_Cliente" Type="Self.Premio_X_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Premio">
+              <PropertyRef Name="Premio_ID" />
+            </Principal>
+            <Dependent Role="Premio_X_Cliente">
+              <PropertyRef Name="Pre_Premio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rol_X_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rol_X_Usuario" Type="Self.Rol_X_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Rol_ID" />
+            </Principal>
+            <Dependent Role="Rol_X_Usuario">
+              <PropertyRef Name="Rol_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rol_X_Usuario_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rol_X_Usuario" Type="Self.Rol_X_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Rol_X_Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GD2C2018ModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Compra" EntityType="Self.Compra" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Espec_Empresa" EntityType="Self.Espec_Empresa" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Espectaculo" EntityType="Self.Espectaculo" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Func_Rol" EntityType="Self.Func_Rol" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Funcionalidad" EntityType="Self.Funcionalidad" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Grado_Publicacion" EntityType="Self.Grado_Publicacion" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Item_Factura" EntityType="Self.Item_Factura" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Premio" EntityType="Self.Premio" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Premio_X_Cliente" EntityType="Self.Premio_X_Cliente" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Publicacion" EntityType="Self.Publicacion" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Puntos" EntityType="Self.Puntos" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Rol_X_Usuario" EntityType="Self.Rol_X_Usuario" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Rubro" EntityType="Self.Rubro" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="PMD" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="PMD" store:Type="Tables" />
+          <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Espec_Empresa_Usuario" Association="Self.FK_Espec_Empresa_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Espec_Empresa" EntitySet="Espec_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Espectaculo_Rubro" Association="Self.FK_Espectaculo_Rubro">
+            <End Role="Rubro" EntitySet="Rubro" />
+            <End Role="Espectaculo" EntitySet="Espectaculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Func_Rol_Funcionalidad" Association="Self.FK_Func_Rol_Funcionalidad">
+            <End Role="Funcionalidad" EntitySet="Funcionalidad" />
+            <End Role="Func_Rol" EntitySet="Func_Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Func_Rol_Rol" Association="Self.FK_Func_Rol_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Func_Rol" EntitySet="Func_Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Premio_X_Cliente_Cliente" Association="Self.FK_Premio_X_Cliente_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Premio_X_Cliente" EntitySet="Premio_X_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Premio_X_Cliente_Premio" Association="Self.FK_Premio_X_Cliente_Premio">
+            <End Role="Premio" EntitySet="Premio" />
+            <End Role="Premio_X_Cliente" EntitySet="Premio_X_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rol_X_Usuario_Rol" Association="Self.FK_Rol_X_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Rol_X_Usuario" EntitySet="Rol_X_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rol_X_Usuario_Usuario" Association="Self.FK_Rol_X_Usuario_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Rol_X_Usuario" EntitySet="Rol_X_Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GD2C2018Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Cli_Nro_Doc" />
+            <PropertyRef Name="Cli_Tipo_Doc" />
+          </Key>
+          <Property Name="Cli_Nro_Doc" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Cli_Tipo_Doc" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cli_Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Fecha_Nac" Type="DateTime" Precision="3" />
+          <Property Name="Cli_Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Dom_Calle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Nro_Calle" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cli_Piso" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cli_Depto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Cod_Postal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_CUIL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Telefono" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Localidad" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Fecha_Alta" Type="DateTime" Precision="3" />
+          <Property Name="Cli_Tarjeta_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Tarjeta_Tipo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cli_Habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Cliente_Usuario" FromRole="Cliente" ToRole="Usuario" />
+          <NavigationProperty Name="Premio_X_Cliente" Relationship="Self.FK_Premio_X_Cliente_Cliente" FromRole="Cliente" ToRole="Premio_X_Cliente" />
+        </EntityType>
+        <EntityType Name="Compra">
+          <Key>
+            <PropertyRef Name="Compra_ID" />
+          </Key>
+          <Property Name="Compra_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Compra_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Compra_Cantidad" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Compra_Forma_Pago" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Compra_Tipo_Doc_Cliente" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Compra_Num_Doc_Cliente" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Compra_Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Compra_Publicacion" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Compra_Facturada" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Espec_Empresa">
+          <Key>
+            <PropertyRef Name="Espec_Empresa_Cuit" />
+          </Key>
+          <Property Name="Espec_Empresa_Cuit" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Espec_Empresa_Razon_Social" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Espec_Empresa_Fecha_Creacion" Type="DateTime" Precision="3" />
+          <Property Name="Espec_Empresa_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Dom_Calle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Nro_Calle" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Espec_Empresa_Piso" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Espec_Empresa_Depto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Cod_Postal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Telefono" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Localidad" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Ciudad" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Espec_Empresa_Habilitado" Type="Boolean" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Espec_Empresa_Usuario" FromRole="Espec_Empresa" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Espectaculo">
+          <Key>
+            <PropertyRef Name="Espectaculo_Cod" />
+          </Key>
+          <Property Name="Espectaculo_Cod" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Espectaculo_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Espectaculo_Rubro" Type="Int32" />
+          <Property Name="Espectaculo_Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rubro" Relationship="Self.FK_Espectaculo_Rubro" FromRole="Espectaculo" ToRole="Rubro" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Estado_ID" />
+          </Key>
+          <Property Name="Estado_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado_Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="Factura_Nro" />
+          </Key>
+          <Property Name="Factura_Nro" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Factura_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Factura_Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Factura_Publicacion" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Funcionalidad">
+          <Key>
+            <PropertyRef Name="Func_ID" />
+          </Key>
+          <Property Name="Func_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Func_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rol" Relationship="Self.Func_Rol" FromRole="Funcionalidad" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Grado_Publicacion">
+          <Key>
+            <PropertyRef Name="Grado_ID" />
+          </Key>
+          <Property Name="Grado_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Grado_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grado_Comision" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Grado_Habilitado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Item_Factura">
+          <Key>
+            <PropertyRef Name="Item_Factura_ID" />
+            <PropertyRef Name="Item_Factura_Factura" />
+          </Key>
+          <Property Name="Item_Factura_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item_Factura_Factura" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Item_Factura_Monto" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Item_Factura_Cantidad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Item_Factura_Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Item_Factura_Compra" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Premio">
+          <Key>
+            <PropertyRef Name="Premio_ID" />
+          </Key>
+          <Property Name="Premio_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Premio_Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Premio_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Premio_Puntos_Necesarios" Type="Int32" />
+          <Property Name="Premio_Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Premio_X_Cliente" Relationship="Self.FK_Premio_X_Cliente_Premio" FromRole="Premio" ToRole="Premio_X_Cliente" />
+        </EntityType>
+        <EntityType Name="Premio_X_Cliente">
+          <Key>
+            <PropertyRef Name="Pre_Cli_Tipo_Doc" />
+            <PropertyRef Name="Pre_Cli_Nro_Doc" />
+            <PropertyRef Name="Pre_Premio_ID" />
+            <PropertyRef Name="Pre_Cli_Canje_ID" />
+          </Key>
+          <Property Name="Pre_Cli_Tipo_Doc" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pre_Cli_Nro_Doc" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Pre_Premio_ID" Type="Int32" Nullable="false" />
+          <Property Name="Pre_Cli_Canje_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Premio_X_Cliente_Cliente" FromRole="Premio_X_Cliente" ToRole="Cliente" />
+          <NavigationProperty Name="Premio" Relationship="Self.FK_Premio_X_Cliente_Premio" FromRole="Premio_X_Cliente" ToRole="Premio" />
+        </EntityType>
+        <EntityType Name="Publicacion">
+          <Key>
+            <PropertyRef Name="Publicacion_ID" />
+          </Key>
+          <Property Name="Publicacion_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Publicacion_Espectaculo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Publicacion_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Publicacion_Localidades" Type="Int32" />
+          <Property Name="Publicacion_Grado" Type="Int32" />
+          <Property Name="Publicacion_Empresa" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Publicacion_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Publicacion_Fecha_Espectaculo" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Puntos">
+          <Key>
+            <PropertyRef Name="Puntos_ID" />
+          </Key>
+          <Property Name="Puntos_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Puntos_Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Puntos_Vencimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Puntos_Tipo_Doc_Cliente" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Puntos_Num_Doc_Cliente" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Rol_Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Rol_Habilitado" Type="Boolean" />
+          <NavigationProperty Name="Funcionalidad" Relationship="Self.Func_Rol" FromRole="Rol" ToRole="Funcionalidad" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Rol_X_Usuario" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Rubro">
+          <Key>
+            <PropertyRef Name="Rubro_ID" />
+          </Key>
+          <Property Name="Rubro_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rubro_Descripcion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Espectaculo" Relationship="Self.FK_Espectaculo_Rubro" FromRole="Rubro" ToRole="Espectaculo" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="Ubicacion_Publicacion" />
+            <PropertyRef Name="Ubicacion_Fila" />
+            <PropertyRef Name="Ubicacion_Asiento" />
+          </Key>
+          <Property Name="Ubicacion_Publicacion" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ubicacion_Fila" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ubicacion_Asiento" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ubicacion_Sin_numerar" Type="Boolean" />
+          <Property Name="Ubicacion_Precio" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Ubicacion_Tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ubicacion_Compra" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Ubicacion_Disponible" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Usuario_Username" />
+          </Key>
+          <Property Name="Usuario_Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Usuario_Password" Type="Binary" MaxLength="64" FixedLength="true" />
+          <Property Name="Usuario_Intentos_Fallidos" Type="Int32" />
+          <Property Name="Usuario_Habilitado" Type="Boolean" />
+          <Property Name="Usuario_Autogenerado" Type="Boolean" />
+          <Property Name="Usuario_Inicios" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
+          <NavigationProperty Name="Espec_Empresa" Relationship="Self.FK_Espec_Empresa_Usuario" FromRole="Usuario" ToRole="Espec_Empresa" />
+          <NavigationProperty Name="Rol" Relationship="Self.Rol_X_Usuario" FromRole="Usuario" ToRole="Rol" />
+        </EntityType>
+        <Association Name="FK_Cliente_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Cli_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Premio_X_Cliente_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Premio_X_Cliente" Type="Self.Premio_X_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Cli_Nro_Doc" />
+              <PropertyRef Name="Cli_Tipo_Doc" />
+            </Principal>
+            <Dependent Role="Premio_X_Cliente">
+              <PropertyRef Name="Pre_Cli_Nro_Doc" />
+              <PropertyRef Name="Pre_Cli_Tipo_Doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Espec_Empresa_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Espec_Empresa" Type="Self.Espec_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Usuario_Username" />
+            </Principal>
+            <Dependent Role="Espec_Empresa">
+              <PropertyRef Name="Espec_Empresa_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Espectaculo_Rubro">
+          <End Role="Rubro" Type="Self.Rubro" Multiplicity="0..1" />
+          <End Role="Espectaculo" Type="Self.Espectaculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rubro">
+              <PropertyRef Name="Rubro_ID" />
+            </Principal>
+            <Dependent Role="Espectaculo">
+              <PropertyRef Name="Espectaculo_Rubro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Premio_X_Cliente_Premio">
+          <End Role="Premio" Type="Self.Premio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Premio_X_Cliente" Type="Self.Premio_X_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Premio">
+              <PropertyRef Name="Premio_ID" />
+            </Principal>
+            <Dependent Role="Premio_X_Cliente">
+              <PropertyRef Name="Pre_Premio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Func_Rol">
+          <End Role="Funcionalidad" Type="Self.Funcionalidad" Multiplicity="*" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+        </Association>
+        <Association Name="Rol_X_Usuario">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GD2C2018Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Compra" EntityType="Self.Compra" />
+          <EntitySet Name="Espec_Empresa" EntityType="Self.Espec_Empresa" />
+          <EntitySet Name="Espectaculo" EntityType="Self.Espectaculo" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" />
+          <EntitySet Name="Funcionalidad" EntityType="Self.Funcionalidad" />
+          <EntitySet Name="Grado_Publicacion" EntityType="Self.Grado_Publicacion" />
+          <EntitySet Name="Item_Factura" EntityType="Self.Item_Factura" />
+          <EntitySet Name="Premio" EntityType="Self.Premio" />
+          <EntitySet Name="Premio_X_Cliente" EntityType="Self.Premio_X_Cliente" />
+          <EntitySet Name="Publicacion" EntityType="Self.Publicacion" />
+          <EntitySet Name="Puntos" EntityType="Self.Puntos" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Rubro" EntityType="Self.Rubro" />
+          <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Premio_X_Cliente_Cliente" Association="Self.FK_Premio_X_Cliente_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Premio_X_Cliente" EntitySet="Premio_X_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Espec_Empresa_Usuario" Association="Self.FK_Espec_Empresa_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Espec_Empresa" EntitySet="Espec_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Espectaculo_Rubro" Association="Self.FK_Espectaculo_Rubro">
+            <End Role="Rubro" EntitySet="Rubro" />
+            <End Role="Espectaculo" EntitySet="Espectaculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Premio_X_Cliente_Premio" Association="Self.FK_Premio_X_Cliente_Premio">
+            <End Role="Premio" EntitySet="Premio" />
+            <End Role="Premio_X_Cliente" EntitySet="Premio_X_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="Func_Rol" Association="Self.Func_Rol">
+            <End Role="Funcionalidad" EntitySet="Funcionalidad" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="Rol_X_Usuario" Association="Self.Rol_X_Usuario">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GD2C2018ModelStoreContainer" CdmEntityContainer="GD2C2018Entities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="GD2C2018Model.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Cli_Nro_Doc" ColumnName="Cli_Nro_Doc" />
+                <ScalarProperty Name="Cli_Tipo_Doc" ColumnName="Cli_Tipo_Doc" />
+                <ScalarProperty Name="Cli_Apellido" ColumnName="Cli_Apellido" />
+                <ScalarProperty Name="Cli_Nombre" ColumnName="Cli_Nombre" />
+                <ScalarProperty Name="Cli_Fecha_Nac" ColumnName="Cli_Fecha_Nac" />
+                <ScalarProperty Name="Cli_Mail" ColumnName="Cli_Mail" />
+                <ScalarProperty Name="Cli_Dom_Calle" ColumnName="Cli_Dom_Calle" />
+                <ScalarProperty Name="Cli_Nro_Calle" ColumnName="Cli_Nro_Calle" />
+                <ScalarProperty Name="Cli_Piso" ColumnName="Cli_Piso" />
+                <ScalarProperty Name="Cli_Depto" ColumnName="Cli_Depto" />
+                <ScalarProperty Name="Cli_Cod_Postal" ColumnName="Cli_Cod_Postal" />
+                <ScalarProperty Name="Cli_CUIL" ColumnName="Cli_CUIL" />
+                <ScalarProperty Name="Cli_Telefono" ColumnName="Cli_Telefono" />
+                <ScalarProperty Name="Cli_Localidad" ColumnName="Cli_Localidad" />
+                <ScalarProperty Name="Cli_Fecha_Alta" ColumnName="Cli_Fecha_Alta" />
+                <ScalarProperty Name="Cli_Tarjeta_Num" ColumnName="Cli_Tarjeta_Num" />
+                <ScalarProperty Name="Cli_Tarjeta_Tipo" ColumnName="Cli_Tarjeta_Tipo" />
+                <ScalarProperty Name="Cli_Usuario" ColumnName="Cli_Usuario" />
+                <ScalarProperty Name="Cli_Habilitado" ColumnName="Cli_Habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compra">
+            <EntityTypeMapping TypeName="GD2C2018Model.Compra">
+              <MappingFragment StoreEntitySet="Compra">
+                <ScalarProperty Name="Compra_ID" ColumnName="Compra_ID" />
+                <ScalarProperty Name="Compra_Fecha" ColumnName="Compra_Fecha" />
+                <ScalarProperty Name="Compra_Cantidad" ColumnName="Compra_Cantidad" />
+                <ScalarProperty Name="Compra_Forma_Pago" ColumnName="Compra_Forma_Pago" />
+                <ScalarProperty Name="Compra_Tipo_Doc_Cliente" ColumnName="Compra_Tipo_Doc_Cliente" />
+                <ScalarProperty Name="Compra_Num_Doc_Cliente" ColumnName="Compra_Num_Doc_Cliente" />
+                <ScalarProperty Name="Compra_Total" ColumnName="Compra_Total" />
+                <ScalarProperty Name="Compra_Publicacion" ColumnName="Compra_Publicacion" />
+                <ScalarProperty Name="Compra_Facturada" ColumnName="Compra_Facturada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Espec_Empresa">
+            <EntityTypeMapping TypeName="GD2C2018Model.Espec_Empresa">
+              <MappingFragment StoreEntitySet="Espec_Empresa">
+                <ScalarProperty Name="Espec_Empresa_Cuit" ColumnName="Espec_Empresa_Cuit" />
+                <ScalarProperty Name="Espec_Empresa_Razon_Social" ColumnName="Espec_Empresa_Razon_Social" />
+                <ScalarProperty Name="Espec_Empresa_Fecha_Creacion" ColumnName="Espec_Empresa_Fecha_Creacion" />
+                <ScalarProperty Name="Espec_Empresa_Mail" ColumnName="Espec_Empresa_Mail" />
+                <ScalarProperty Name="Espec_Empresa_Dom_Calle" ColumnName="Espec_Empresa_Dom_Calle" />
+                <ScalarProperty Name="Espec_Empresa_Nro_Calle" ColumnName="Espec_Empresa_Nro_Calle" />
+                <ScalarProperty Name="Espec_Empresa_Piso" ColumnName="Espec_Empresa_Piso" />
+                <ScalarProperty Name="Espec_Empresa_Depto" ColumnName="Espec_Empresa_Depto" />
+                <ScalarProperty Name="Espec_Empresa_Cod_Postal" ColumnName="Espec_Empresa_Cod_Postal" />
+                <ScalarProperty Name="Espec_Empresa_Telefono" ColumnName="Espec_Empresa_Telefono" />
+                <ScalarProperty Name="Espec_Empresa_Localidad" ColumnName="Espec_Empresa_Localidad" />
+                <ScalarProperty Name="Espec_Empresa_Ciudad" ColumnName="Espec_Empresa_Ciudad" />
+                <ScalarProperty Name="Espec_Empresa_Usuario" ColumnName="Espec_Empresa_Usuario" />
+                <ScalarProperty Name="Espec_Empresa_Habilitado" ColumnName="Espec_Empresa_Habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Espectaculo">
+            <EntityTypeMapping TypeName="GD2C2018Model.Espectaculo">
+              <MappingFragment StoreEntitySet="Espectaculo">
+                <ScalarProperty Name="Espectaculo_Cod" ColumnName="Espectaculo_Cod" />
+                <ScalarProperty Name="Espectaculo_Descripcion" ColumnName="Espectaculo_Descripcion" />
+                <ScalarProperty Name="Espectaculo_Rubro" ColumnName="Espectaculo_Rubro" />
+                <ScalarProperty Name="Espectaculo_Direccion" ColumnName="Espectaculo_Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="GD2C2018Model.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="Estado_ID" ColumnName="Estado_ID" />
+                <ScalarProperty Name="Estado_Descripcion" ColumnName="Estado_Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura">
+            <EntityTypeMapping TypeName="GD2C2018Model.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="Factura_Nro" ColumnName="Factura_Nro" />
+                <ScalarProperty Name="Factura_Fecha" ColumnName="Factura_Fecha" />
+                <ScalarProperty Name="Factura_Total" ColumnName="Factura_Total" />
+                <ScalarProperty Name="Factura_Publicacion" ColumnName="Factura_Publicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Funcionalidad">
+            <EntityTypeMapping TypeName="GD2C2018Model.Funcionalidad">
+              <MappingFragment StoreEntitySet="Funcionalidad">
+                <ScalarProperty Name="Func_ID" ColumnName="Func_ID" />
+                <ScalarProperty Name="Func_Descripcion" ColumnName="Func_Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grado_Publicacion">
+            <EntityTypeMapping TypeName="GD2C2018Model.Grado_Publicacion">
+              <MappingFragment StoreEntitySet="Grado_Publicacion">
+                <ScalarProperty Name="Grado_ID" ColumnName="Grado_ID" />
+                <ScalarProperty Name="Grado_Nombre" ColumnName="Grado_Nombre" />
+                <ScalarProperty Name="Grado_Comision" ColumnName="Grado_Comision" />
+                <ScalarProperty Name="Grado_Habilitado" ColumnName="Grado_Habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_Factura">
+            <EntityTypeMapping TypeName="GD2C2018Model.Item_Factura">
+              <MappingFragment StoreEntitySet="Item_Factura">
+                <ScalarProperty Name="Item_Factura_ID" ColumnName="Item_Factura_ID" />
+                <ScalarProperty Name="Item_Factura_Factura" ColumnName="Item_Factura_Factura" />
+                <ScalarProperty Name="Item_Factura_Monto" ColumnName="Item_Factura_Monto" />
+                <ScalarProperty Name="Item_Factura_Cantidad" ColumnName="Item_Factura_Cantidad" />
+                <ScalarProperty Name="Item_Factura_Descripcion" ColumnName="Item_Factura_Descripcion" />
+                <ScalarProperty Name="Item_Factura_Compra" ColumnName="Item_Factura_Compra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Premio">
+            <EntityTypeMapping TypeName="GD2C2018Model.Premio">
+              <MappingFragment StoreEntitySet="Premio">
+                <ScalarProperty Name="Premio_ID" ColumnName="Premio_ID" />
+                <ScalarProperty Name="Premio_Nombre" ColumnName="Premio_Nombre" />
+                <ScalarProperty Name="Premio_Descripcion" ColumnName="Premio_Descripcion" />
+                <ScalarProperty Name="Premio_Puntos_Necesarios" ColumnName="Premio_Puntos_Necesarios" />
+                <ScalarProperty Name="Premio_Imagen" ColumnName="Premio_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Premio_X_Cliente">
+            <EntityTypeMapping TypeName="GD2C2018Model.Premio_X_Cliente">
+              <MappingFragment StoreEntitySet="Premio_X_Cliente">
+                <ScalarProperty Name="Pre_Cli_Tipo_Doc" ColumnName="Pre_Cli_Tipo_Doc" />
+                <ScalarProperty Name="Pre_Cli_Nro_Doc" ColumnName="Pre_Cli_Nro_Doc" />
+                <ScalarProperty Name="Pre_Premio_ID" ColumnName="Pre_Premio_ID" />
+                <ScalarProperty Name="Pre_Cli_Canje_ID" ColumnName="Pre_Cli_Canje_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publicacion">
+            <EntityTypeMapping TypeName="GD2C2018Model.Publicacion">
+              <MappingFragment StoreEntitySet="Publicacion">
+                <ScalarProperty Name="Publicacion_ID" ColumnName="Publicacion_ID" />
+                <ScalarProperty Name="Publicacion_Espectaculo" ColumnName="Publicacion_Espectaculo" />
+                <ScalarProperty Name="Publicacion_Fecha" ColumnName="Publicacion_Fecha" />
+                <ScalarProperty Name="Publicacion_Localidades" ColumnName="Publicacion_Localidades" />
+                <ScalarProperty Name="Publicacion_Grado" ColumnName="Publicacion_Grado" />
+                <ScalarProperty Name="Publicacion_Empresa" ColumnName="Publicacion_Empresa" />
+                <ScalarProperty Name="Publicacion_Estado" ColumnName="Publicacion_Estado" />
+                <ScalarProperty Name="Publicacion_Fecha_Espectaculo" ColumnName="Publicacion_Fecha_Espectaculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Puntos">
+            <EntityTypeMapping TypeName="GD2C2018Model.Puntos">
+              <MappingFragment StoreEntitySet="Puntos">
+                <ScalarProperty Name="Puntos_ID" ColumnName="Puntos_ID" />
+                <ScalarProperty Name="Puntos_Cantidad" ColumnName="Puntos_Cantidad" />
+                <ScalarProperty Name="Puntos_Vencimiento" ColumnName="Puntos_Vencimiento" />
+                <ScalarProperty Name="Puntos_Tipo_Doc_Cliente" ColumnName="Puntos_Tipo_Doc_Cliente" />
+                <ScalarProperty Name="Puntos_Num_Doc_Cliente" ColumnName="Puntos_Num_Doc_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="GD2C2018Model.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+                <ScalarProperty Name="Rol_Nombre" ColumnName="Rol_Nombre" />
+                <ScalarProperty Name="Rol_Habilitado" ColumnName="Rol_Habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rubro">
+            <EntityTypeMapping TypeName="GD2C2018Model.Rubro">
+              <MappingFragment StoreEntitySet="Rubro">
+                <ScalarProperty Name="Rubro_ID" ColumnName="Rubro_ID" />
+                <ScalarProperty Name="Rubro_Descripcion" ColumnName="Rubro_Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ubicacion">
+            <EntityTypeMapping TypeName="GD2C2018Model.Ubicacion">
+              <MappingFragment StoreEntitySet="Ubicacion">
+                <ScalarProperty Name="Ubicacion_Publicacion" ColumnName="Ubicacion_Publicacion" />
+                <ScalarProperty Name="Ubicacion_Fila" ColumnName="Ubicacion_Fila" />
+                <ScalarProperty Name="Ubicacion_Asiento" ColumnName="Ubicacion_Asiento" />
+                <ScalarProperty Name="Ubicacion_Sin_numerar" ColumnName="Ubicacion_Sin_numerar" />
+                <ScalarProperty Name="Ubicacion_Precio" ColumnName="Ubicacion_Precio" />
+                <ScalarProperty Name="Ubicacion_Tipo" ColumnName="Ubicacion_Tipo" />
+                <ScalarProperty Name="Ubicacion_Compra" ColumnName="Ubicacion_Compra" />
+                <ScalarProperty Name="Ubicacion_Disponible" ColumnName="Ubicacion_Disponible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="GD2C2018Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Usuario_Username" ColumnName="Usuario_Username" />
+                <ScalarProperty Name="Usuario_Password" ColumnName="Usuario_Password" />
+                <ScalarProperty Name="Usuario_Intentos_Fallidos" ColumnName="Usuario_Intentos_Fallidos" />
+                <ScalarProperty Name="Usuario_Habilitado" ColumnName="Usuario_Habilitado" />
+                <ScalarProperty Name="Usuario_Autogenerado" ColumnName="Usuario_Autogenerado" />
+                <ScalarProperty Name="Usuario_Inicios" ColumnName="Usuario_Inicios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Func_Rol" TypeName="GD2C2018Model.Func_Rol" StoreEntitySet="Func_Rol">
+            <EndProperty Name="Funcionalidad">
+              <ScalarProperty Name="Func_ID" ColumnName="Func_ID" />
+            </EndProperty>
+            <EndProperty Name="Rol">
+              <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Rol_X_Usuario" TypeName="GD2C2018Model.Rol_X_Usuario" StoreEntitySet="Rol_X_Usuario">
+            <EndProperty Name="Rol">
+              <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+            </EndProperty>
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="Usuario_Username" ColumnName="Usuario_Username" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

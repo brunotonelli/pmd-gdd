@@ -47,5 +47,8 @@ namespace PalcoNet.Forms
             }
         }
 
+        private void botonConfiguracion_Click(object sender, EventArgs e) {
+            new ConfiguracionForm().Show();
+        }
     }
 }
