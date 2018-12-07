@@ -1,4 +1,5 @@
 ﻿using PalcoNet.Extensiones;
+using PalcoNet.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,9 +26,7 @@ namespace PalcoNet.Forms
             Cuit = empresa.Espec_Empresa_Cuit;
             Seleccionado = empresa;
             BindearCampos(Seleccionado);
-            boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxCUIT.TextChanged += new EventHandler(ValidarRequeridos);
-            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);  
+            AgregarEventosValidacion();
         }
                
         private void ValidarRequeridos(object sender, EventArgs e)
@@ -75,9 +74,9 @@ namespace PalcoNet.Forms
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
-            bool existeRazon = Validaciones.ExisteRazon(boxRazon.Text, boxCUIT.Text);
+            bool existeRazon = ValidacionesInput.ExisteRazon(boxRazon.Text, boxCUIT.Text);
 
-            bool cuitValido = Validaciones.CUILValido(boxCUIT.Text);
+            bool cuitValido = ValidacionesInput.CUILValido(boxCUIT.Text);
 
             if (existeRazon)
                 MessageBox.Show("Ya existe una empresa con esa razón social", "Error de Empresa");
@@ -102,6 +101,15 @@ namespace PalcoNet.Forms
         private void botonCancelar_Click(object sender, EventArgs e)
         {
            this.Close();
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPiso, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNumero, ValidadorCampos.TipoValidacion.Numerica);
+            boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxCUIT.TextChanged += new EventHandler(ValidarRequeridos);
+            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
     }

@@ -31,6 +31,7 @@ namespace PalcoNet.Extensiones
         }
 
         public event EventHandler TextChangeEvent;
+        public new event CancelEventHandler Validating;
 
         public TextBoxRequerido() {
 
@@ -42,7 +43,8 @@ namespace PalcoNet.Extensiones
                 Padding = new Padding(-1)
             };
             container.Controls.Add(TextBox);
-            TextBox.TextChanged += new EventHandler(Validar);
+            TextBox.TextChanged += new EventHandler(ValidarNotNull);
+            TextBox.Validating += new CancelEventHandler(ValidarFormato);
             this.Controls.Add(container);
 
             BackColor = Color.Tomato;
@@ -50,7 +52,12 @@ namespace PalcoNet.Extensiones
             Size = TextBox.Size;
         }
 
-        private void Validar(object sender, EventArgs e) {
+        private void ValidarFormato(object sender, CancelEventArgs e) {
+            if (Validating != null)
+                Validating(this, e);
+        }
+
+        private void ValidarNotNull(object sender, EventArgs e) {
             BackColor = TextBox.Text.Length == 0 ? Color.Tomato : Color.LimeGreen;
             if (TextChangeEvent != null)
                 TextChangeEvent(sender, e);

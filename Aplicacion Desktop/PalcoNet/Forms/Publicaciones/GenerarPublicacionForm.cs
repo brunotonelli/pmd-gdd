@@ -1,5 +1,6 @@
 ﻿using PalcoNet.Extensiones;
 using PalcoNet.Model;
+using PalcoNet.Validaciones;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace PalcoNet.Forms
             boxHora.Format = DateTimePickerFormat.Time;
             boxHora.ShowUpDown = true;
             CargarComboBox();
+            AgregarEventosValidacion();
             boxEmpresa.Text = Sesion.Empresa.Espec_Empresa_Razon_Social;
             boxFecha.MinDate = Configuracion.FechaActual;
             boxFechaPublicacion.MinDate = Configuracion.FechaActual;
@@ -126,6 +128,13 @@ namespace PalcoNet.Forms
                 MessageBox.Show(mensaje, "Comisión por visibilidad", MessageBoxButtons.OK);
             }
             GradoCambiado = true;
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPrecio, ValidadorCampos.TipoValidacion.NumericaNotNull);
+            ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NumericaNotNull);
+            ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NotNull);
         }
 
         #region LOGICA DE ALTA

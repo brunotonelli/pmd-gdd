@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PalcoNet.Extensiones;
+using PalcoNet.Validaciones;
 
 namespace PalcoNet.Forms
 {
@@ -26,6 +27,7 @@ namespace PalcoNet.Forms
         public EditarPublicacionForm(Publicacion publicacion) {
             InitializeComponent();
             Publicacion = publicacion;
+            AgregarEventosValidacion();
             Espectaculo = ConsultasDB.GetEspectaculo(publicacion.Publicacion_Espectaculo);
             CargarComboBox();
             CargarDatos();
@@ -164,6 +166,13 @@ namespace PalcoNet.Forms
                 MessageBox.Show(mensaje, "Comisión por visibilidad", MessageBoxButtons.OK);
             }
             GradoCambiado = true;
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPrecio, ValidadorCampos.TipoValidacion.NumericaNotNull);
+            ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NumericaNotNull);
+            ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NotNull);
         }
     }
 }

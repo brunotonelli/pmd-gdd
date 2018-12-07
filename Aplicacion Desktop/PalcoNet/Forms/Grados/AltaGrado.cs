@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PalcoNet.Validaciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,8 @@ namespace PalcoNet.Forms
         {
             InitializeComponent();
             DataGrid = dataGrid;
-            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxComision.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            AgregarEventosValidacion();
+
         }
 
         private void botonGuardar_Click(object sender, EventArgs e)
@@ -51,6 +52,13 @@ namespace PalcoNet.Forms
         {
             bool ok = boxNombre.Text.Length != 0 && boxComision.Text.Length != 0;
             botonGuardar.Enabled = ok;
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxComision, ValidadorCampos.TipoValidacion.Numerica);
+            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxComision.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
     }

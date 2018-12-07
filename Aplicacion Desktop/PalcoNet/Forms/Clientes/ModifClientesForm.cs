@@ -1,4 +1,5 @@
 ﻿using PalcoNet.Extensiones;
+using PalcoNet.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,10 +26,7 @@ namespace PalcoNet.Forms
             TipoDocumento = cliente.Cli_Tipo_Doc;
             Seleccionado = cliente;
             BindearCampos(Seleccionado);
-            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            AgregarEventosValidacion();
         }
 
         private void BindearCampos(Cliente c) {
@@ -77,10 +75,10 @@ namespace PalcoNet.Forms
 
         private void botonGuardar_Click(object sender, EventArgs e) {
 
-            bool existeCUIL = Validaciones.ExisteCUIL(boxTipoDoc.Text, decimal.Parse(boxNroDoc.Text), boxCUIL.Text) 
+            bool existeCUIL = ValidacionesInput.ExisteCUIL(boxTipoDoc.Text, decimal.Parse(boxNroDoc.Text), boxCUIL.Text) 
                 && boxCUIL.Text.Length != 0;
 
-            bool cuitValido = Validaciones.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
+            bool cuitValido = ValidacionesInput.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
             //le permito no tener cuil, pero si tiene tiene que estar bien
 
             if (existeCUIL)
@@ -113,6 +111,19 @@ namespace PalcoNet.Forms
 
         private void botonCancelar_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPiso, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNumero, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNroDoc, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNroTarjeta, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxCUIL, ValidadorCampos.TipoValidacion.CUIT);
+            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
     }
 }

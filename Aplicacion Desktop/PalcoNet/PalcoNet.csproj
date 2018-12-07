@@ -143,7 +143,7 @@
     <Compile Include="Extensiones\PremioControl.Designer.cs">
       <DependentUpon>PremioControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Extensiones\Sesion.cs" />
+    <Compile Include="Validaciones\Sesion.cs" />
     <Compile Include="Extensiones\TextBoxRequerido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,7 +154,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensiones\Utilidades.cs" />
-    <Compile Include="Extensiones\Validaciones.cs" />
+    <Compile Include="Validaciones\ValidacionesInput.cs" />
     <Compile Include="Forms\Clientes\AltaClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +372,7 @@
     <Compile Include="Model\UbicacionModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones\ValidadorCampos.cs" />
     <EmbeddedResource Include="Extensiones\ListaFuncionalidades.resx">
       <DependentUpon>ListaFuncionalidades.cs</DependentUpon>
     </EmbeddedResource>

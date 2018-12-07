@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PalcoNet.Extensiones;
+using PalcoNet.Validaciones;
 
 namespace PalcoNet.Forms
 {
@@ -17,11 +18,6 @@ namespace PalcoNet.Forms
         {
             InitializeComponent();
             AgregarEventosValidacion();
-            boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxCUIT.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxUsuario.TextChanged += new EventHandler(ValidarRequeridos);
-            boxContraseña.TextChanged += new EventHandler(ValidarRequeridos);
         }
 
         private void ValidarRequeridos(object sender, EventArgs e)
@@ -38,9 +34,9 @@ namespace PalcoNet.Forms
 
         private void botonRegistrarse_Click(object sender, EventArgs e)
         {
-            bool existeUsuario = Validaciones.ExisteUsuario(boxUsuario.Text);
-            bool existeEmpresa = Validaciones.ExisteEmpresa(boxRazon.Text, boxCUIT.Text);
-            bool cuitValido = Validaciones.CUILValido(boxCUIT.Text);
+            bool existeUsuario = ValidacionesInput.ExisteUsuario(boxUsuario.Text);
+            bool existeEmpresa = ValidacionesInput.ExisteEmpresa(boxRazon.Text, boxCUIT.Text);
+            bool cuitValido = ValidacionesInput.CUILValido(boxCUIT.Text);
 
             if (existeUsuario)
                 MessageBox.Show("Ese nombre de usuario ya se encuentra en uso", "Error de Usuario");
@@ -98,26 +94,14 @@ namespace PalcoNet.Forms
         }
 
         private void AgregarEventosValidacion() {
-            boxNumero.Validating += new CancelEventHandler(ValidarCampoNumericoNull);
-            boxPiso.Validating += new CancelEventHandler(ValidarCampoNumericoNull);
-        }
-
-        //CAMPO QUE DEBE SER NUMERO, O VACÍO
-        private void ValidarCampoNumericoNull(object sender, CancelEventArgs e) {
-            var textbox = sender as TextBox;
-            decimal numero;
-            bool esNumero = decimal.TryParse(textbox.Text, out numero);
-            bool esVacio = textbox.Text.Length == 0;
-            if (esNumero || esVacio) //ok
-            {
-                errorProvider.Clear();
-                e.Cancel = false;
-            }
-            else //error
-            {
-                errorProvider.SetError(textbox, "Tiene que ser un numero o vacío");
-                e.Cancel = true;
-            }
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPiso, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNumero, ValidadorCampos.TipoValidacion.Numerica);
+            boxRazon.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxCUIT.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxUsuario.TextChanged += new EventHandler(ValidarRequeridos);
+            boxContraseña.TextChanged += new EventHandler(ValidarRequeridos);
         }
         
     }

@@ -8,6 +8,7 @@ using PalcoNet.Model;
 using System.Data.Entity;
 using PalcoNet.Extensiones;
 using System.Data.Entity.SqlServer;
+using PalcoNet.Validaciones;
 
 namespace PalcoNet.Forms
 {
@@ -16,6 +17,7 @@ namespace PalcoNet.Forms
         public EstadisticasForm()
         {
             InitializeComponent();
+            AgregarEventosValidacion();
             lbl_Respuesta.Text = "";
             cb_Trimestre.SelectedIndex = 0;
             tm_Verificar.Start();
@@ -133,6 +135,11 @@ namespace PalcoNet.Forms
         private void EstadisticasForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             MenuForm.ObtenerInstancia().Show();
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(txt_Ano, ValidadorCampos.TipoValidacion.Numerica);
         }
     }
 }

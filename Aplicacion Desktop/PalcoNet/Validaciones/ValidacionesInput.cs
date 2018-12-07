@@ -5,11 +5,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace PalcoNet.Extensiones
+namespace PalcoNet.Validaciones
 {
-    public class Validaciones
+    public class ValidacionesInput
     {
-
         public static bool ExisteUsuario(string usuario) {
             using (var context = new GD2C2018Entities())
             {

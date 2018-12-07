@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PalcoNet.Validaciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace PalcoNet.Forms
         public NuevoRolForm(DataGridView dataGrid) {
             InitializeComponent();
             DataGrid = dataGrid;
+            AgregarEventosValidacion();
         }
 
         private void botonCrear_Click(object sender, EventArgs e) {
@@ -44,6 +46,11 @@ namespace PalcoNet.Forms
             }
 
             this.Close();           
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxNombre, ValidadorCampos.TipoValidacion.NotNull);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PalcoNet.Extensiones;
+using PalcoNet.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +21,7 @@ namespace PalcoNet.Forms
             InitializeComponent();
             DataGrid = dataGrid;
             boxTipoDoc.SelectedItem = "DNI";
-            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            AgregarEventosValidacion();
         }
 
         private void BindearDatos() {
@@ -57,8 +55,8 @@ namespace PalcoNet.Forms
             decimal.TryParse(boxNroDoc.Text, out doc);
             Nuevo.Cli_Nro_Doc = doc;
 
-            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, doc, boxCUIL.Text);
-            bool cuitValido = Validaciones.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
+            bool existeCliente = ValidacionesInput.ExisteCliente(boxTipoDoc.Text, doc, boxCUIL.Text);
+            bool cuitValido = ValidacionesInput.CUILValido(boxCUIL.Text) || boxCUIL.Text.Length == 0;
             //le permito no tener cuil, pero si tiene tiene que estar bien
 
             if (existeCliente)
@@ -115,6 +113,19 @@ namespace PalcoNet.Forms
                 "\n\nTome constancia de estos datos e informe al usuario por mail",
                 "Usuario autogenerado");
             return usuario;
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPiso, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNumero, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNroDoc, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNroTarjeta, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxCUIL, ValidadorCampos.TipoValidacion.CUIT);
+            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
     }

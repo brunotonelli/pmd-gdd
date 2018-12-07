@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boxContraseña = new PalcoNet.Extensiones.TextBoxRequerido();
             this.boxUsuario = new PalcoNet.Extensiones.TextBoxRequerido();
@@ -64,12 +63,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonRegistrarse = new System.Windows.Forms.Button();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -413,12 +410,6 @@
             this.botonRegistrarse.UseVisualStyleBackColor = true;
             this.botonRegistrarse.Click += new System.EventHandler(this.botonRegistrarse_Click);
             // 
-            // errorProvider
-            // 
-            this.errorProvider.BlinkRate = 0;
-            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider.ContainerControl = this;
-            // 
             // RegistrarEmpresaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,7 +433,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,6 +475,5 @@
         private System.Windows.Forms.Button botonRegistrarse;
         private Extensiones.TextBoxRequerido boxContraseña;
         private Extensiones.TextBoxRequerido boxUsuario;
-        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PalcoNet.Extensiones;
+using PalcoNet.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +18,7 @@ namespace PalcoNet.Forms
         {
             InitializeComponent();
             boxTipoDoc.SelectedIndex = 0;
-            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
-            boxUsuario.TextChanged += new EventHandler(ValidarRequeridos);
-            boxContraseña.TextChanged += new EventHandler(ValidarRequeridos);
+            AgregarEventosValidacion();
         }
 
         private void ValidarRequeridos(object sender, EventArgs e) {
@@ -38,18 +34,15 @@ namespace PalcoNet.Forms
         }
 
         private void botonRegistrarse_Click(object sender, EventArgs e) {
-            bool existeUsuario = Validaciones.ExisteUsuario(boxUsuario.Text);
-            bool existeCliente = Validaciones.ExisteCliente(boxTipoDoc.Text, decimal.Parse(boxNroDoc.Text), boxCUIL.Text);
-            bool cuilValido = Validaciones.CUILValido(boxCUIL.Text);
+            bool existeUsuario = ValidacionesInput.ExisteUsuario(boxUsuario.Text);
+            bool existeCliente = ValidacionesInput.ExisteCliente(boxTipoDoc.Text, decimal.Parse(boxNroDoc.Text), boxCUIL.Text);
 
             if (existeUsuario)
                 MessageBox.Show("Ese nombre de usuario ya se encuentra en uso", "Error de Usuario");
             if (existeCliente)
                 MessageBox.Show("Ya existe un cliente con ese Tipo y Nro de documento, o bien ese CUIL ya está en uso", "Error de Cliente");
-            if (!cuilValido)
-                MessageBox.Show("El CUIL ingresado no tiene el formado correcto\nEjemplo: ##-########-#", "Error de CUIL");
 
-            if (!existeUsuario && !existeCliente && cuilValido)
+            if (!existeUsuario && !existeCliente)
             {
                 Usuario usuario = new Usuario
                 {
@@ -100,6 +93,21 @@ namespace PalcoNet.Forms
                 this.Close();
                 menu.Show();
             }
+        }
+
+        private void AgregarEventosValidacion() {
+            var ep = new ValidadorCampos(this);
+            ep.AgregarCampo(boxPiso, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNumero, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNroDoc, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxNroTarjeta, ValidadorCampos.TipoValidacion.Numerica);
+            ep.AgregarCampo(boxCUIL, ValidadorCampos.TipoValidacion.CUIT);
+            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
+            boxUsuario.TextChanged += new EventHandler(ValidarRequeridos);
+            boxContraseña.TextChanged += new EventHandler(ValidarRequeridos);
         }
     }
 }
