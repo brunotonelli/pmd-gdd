@@ -30,6 +30,7 @@ namespace PalcoNet.Forms
 
         private void CargarPublicaciones() {
             var query = from p in context.Publicacion
+                        where p.Publicacion_Estado == 1 //borrador
                         join e in context.Espectaculo on p.Publicacion_Espectaculo equals e.Espectaculo_Cod
                         select new PublicacionModel
                         {
