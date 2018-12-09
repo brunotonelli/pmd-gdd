@@ -32,6 +32,9 @@ namespace PalcoNet.Forms
                                select u).FirstOrDefault();
                 
             if (ValidarUsuario(usuario, hash, context)) {
+                usuario.Usuario_Inicios++;
+                usuario.Usuario_Intentos_Fallidos = 0;
+                context.SaveChanges();
                 if (usuario.Usuario_Autogenerado ?? false)
                 {
                     if (usuario.Usuario_Inicios > 1)
@@ -55,7 +58,7 @@ namespace PalcoNet.Forms
                     else if (roles.Count() == 1)
                     {
                         var rol = roles.First();
-                        Sesion.LogIn(usuario, rol);
+                        Sesion.LogIn(usuario, rol);              
                         var menu = MenuForm.ObtenerInstancia(rol);
                         Owner.Hide();
                         this.Close();
