@@ -52,6 +52,11 @@ namespace PalcoNet.Forms
             boxPiso.Text = e.Espec_Empresa_Piso.ToString();
             boxRazon.Text = e.Espec_Empresa_Razon_Social;
             boxTelefono.Text = e.Espec_Empresa_Telefono;
+            if (e.Usuario != null)
+            {
+                boxUsuario.Text = e.Usuario.Usuario_Username;
+                botonContraseña.Enabled = true;
+            }
         }
 
         private void BindearDatos() {
@@ -112,5 +117,8 @@ namespace PalcoNet.Forms
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
         }
 
+        private void botonContraseña_Click(object sender, EventArgs e) {
+            new CambiarContraseñaAdmin(Seleccionado.Usuario).Show();
+        }
     }
 }

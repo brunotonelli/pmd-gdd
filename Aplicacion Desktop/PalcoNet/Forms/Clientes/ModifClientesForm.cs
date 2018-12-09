@@ -35,7 +35,7 @@ namespace PalcoNet.Forms
             boxCUIL.Text = c.Cli_CUIL;
             boxDepartamento.Text = c.Cli_Depto;
             boxCalle.Text = c.Cli_Dom_Calle;
-            boxFecha.Value = c.Cli_Fecha_Nac.Value;
+            boxFecha.Value = c.Cli_Fecha_Nac ?? Configuracion.FechaActual;
             checkHabilitado.Checked = c.Cli_Habilitado;
             boxLocalidad.Text = c.Cli_Localidad;
             boxMail.Text = c.Cli_Mail;
@@ -47,6 +47,11 @@ namespace PalcoNet.Forms
             boxTipoTarjeta.Text = c.Cli_Tarjeta_Tipo;
             boxTelefono.Text = c.Cli_Telefono;
             boxTipoDoc.Text = c.Cli_Tipo_Doc;
+            if (c.Usuario != null)
+            {
+                boxUsuario.Text = c.Usuario.Usuario_Username;
+                botonContraseña.Enabled = true;
+            }
         }
 
         private void BindearDatos() {
@@ -124,6 +129,10 @@ namespace PalcoNet.Forms
             boxApellido.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxNroDoc.TextChangeEvent += new EventHandler(ValidarRequeridos);
+        }
+
+        private void botonContraseña_Click(object sender, EventArgs e) {
+            new CambiarContraseñaAdmin(Seleccionado.Usuario).Show();
         }
     }
 }

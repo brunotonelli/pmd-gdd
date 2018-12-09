@@ -57,9 +57,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.botonContraseña = new System.Windows.Forms.Button();
+            this.boxUsuario = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonCancelar
@@ -324,7 +329,7 @@
             // 
             this.checkHabilitado.AutoSize = true;
             this.checkHabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkHabilitado.Location = new System.Drawing.Point(53, 283);
+            this.checkHabilitado.Location = new System.Drawing.Point(57, 369);
             this.checkHabilitado.Name = "checkHabilitado";
             this.checkHabilitado.Size = new System.Drawing.Size(167, 24);
             this.checkHabilitado.TabIndex = 57;
@@ -334,17 +339,59 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 340);
+            this.label1.Location = new System.Drawing.Point(326, 376);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 13);
             this.label1.TabIndex = 56;
             this.label1.Text = "Los campos marcados con * son requeridos";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.botonContraseña);
+            this.groupBox1.Controls.Add(this.boxUsuario);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 251);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(264, 106);
+            this.groupBox1.TabIndex = 58;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Usuario vinculado";
+            // 
+            // botonContraseña
+            // 
+            this.botonContraseña.Enabled = false;
+            this.botonContraseña.Location = new System.Drawing.Point(20, 65);
+            this.botonContraseña.Name = "botonContraseña";
+            this.botonContraseña.Size = new System.Drawing.Size(227, 23);
+            this.botonContraseña.TabIndex = 51;
+            this.botonContraseña.Text = "Cambiarle contraseña";
+            this.botonContraseña.UseVisualStyleBackColor = true;
+            this.botonContraseña.Click += new System.EventHandler(this.botonContraseña_Click);
+            // 
+            // boxUsuario
+            // 
+            this.boxUsuario.Enabled = false;
+            this.boxUsuario.Location = new System.Drawing.Point(84, 30);
+            this.boxUsuario.Name = "boxUsuario";
+            this.boxUsuario.Size = new System.Drawing.Size(163, 20);
+            this.boxUsuario.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Usuario";
+            // 
             // ModifEmpresasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 375);
+            this.ClientSize = new System.Drawing.Size(572, 404);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.checkHabilitado);
             this.Controls.Add(this.label1);
@@ -361,6 +408,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +445,9 @@
         private Extensiones.TextBoxRequerido boxCUIT;
         private System.Windows.Forms.CheckBox checkHabilitado;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button botonContraseña;
+        private System.Windows.Forms.TextBox boxUsuario;
+        private System.Windows.Forms.Label label3;
     }
 }

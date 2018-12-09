@@ -15,15 +15,11 @@ namespace PalcoNet.Forms
     {
         private Cliente Seleccionado;
         private DataGridViewRow FilaSeleccionada;
+        GD2C2018Entities context = new GD2C2018Entities();
 
         public ClientesForm() {
             InitializeComponent();
-
-            using (var context = new GD2C2018Entities())
-            {
-                clienteBindingSource.DataSource = context.Cliente.ToList();
-            }
-
+            clienteBindingSource.DataSource = context.Cliente.ToList();
         }
 
         private void botonNuevo_Click(object sender, EventArgs e) {
@@ -66,19 +62,17 @@ namespace PalcoNet.Forms
         }
 
         private void botonBuscar_Click(object sender, EventArgs e) {
-            using (var context = new GD2C2018Entities())
+            var query = from cliente in context.Cliente
+                        where cliente.Cli_Nombre.Contains(boxFiltroNombre.Text) &&
+                              cliente.Cli_Apellido.Contains(boxFiltroApellido.Text) &&
+                              cliente.Cli_Mail.Contains(boxFiltroMail.Text)
+                        select cliente;
+            if (boxFiltroDNI.Text.Length > 0)
             {
-                var query = from cliente in context.Cliente
-                            where cliente.Cli_Nombre.Contains(boxFiltroNombre.Text) &&
-                                  cliente.Cli_Apellido.Contains(boxFiltroApellido.Text) &&
-                                  cliente.Cli_Mail.Contains(boxFiltroMail.Text)                                
-                            select cliente;
-                if (boxFiltroDNI.Text.Length > 0) {
-                    decimal documento = decimal.Parse(boxFiltroDNI.Text);
-                    query = query.Where(cliente => cliente.Cli_Nro_Doc == documento);
-                }
-                clienteBindingSource.DataSource = query.ToList();
+                decimal documento = decimal.Parse(boxFiltroDNI.Text);
+                query = query.Where(cliente => cliente.Cli_Nro_Doc == documento);
             }
+            clienteBindingSource.DataSource = query.ToList();
         }
 
         private void botonLimpiar_Click(object sender, EventArgs e) {
@@ -86,10 +80,7 @@ namespace PalcoNet.Forms
             boxFiltroApellido.Text = string.Empty;
             boxFiltroDNI.Text = string.Empty;
             boxFiltroMail.Text = string.Empty;
-            using (var context = new GD2C2018Entities())
-            {
-                clienteBindingSource.DataSource = context.Cliente.ToList();
-            }            
+            clienteBindingSource.DataSource = context.Cliente.ToList();
         }
                 
         private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
