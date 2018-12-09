@@ -80,12 +80,30 @@ namespace PalcoNet.Forms
             labelTotal.Text = "$ " + Total.ToString();
             ActualizarPuntos();
         }
-        
+
         private void botonConfirmar_Click(object sender, EventArgs e) {
             string mensaje = string.Format("¿Desea confirmar la compra de las {0} ubicaciones seleccionadas?", Cantidad);
             DialogResult ok = MessageBox.Show(mensaje, "Confirmar compra", MessageBoxButtons.YesNo);
-            if (ok == DialogResult.Yes)
-                ConfirmarCompra();
+            if (boxFormaPago.SelectedIndex == 1)
+            {
+                using (GD2C2018Entities context = new GD2C2018Entities())
+                {
+                    var tarj = (from c in context.Cliente
+                                select c.Cli_Tarjeta_Num).FirstOrDefault();
+
+                    if (tarj == null)
+                        new ConfirmarTarjeta().Show(this);
+                    else
+                        if (ok == DialogResult.Yes)
+                        ConfirmarCompra();
+                }
+            }
+            else
+            {
+                if (ok == DialogResult.Yes)
+                    ConfirmarCompra();
+            }
+
         }
 
         private void ConfirmarCompra() {
