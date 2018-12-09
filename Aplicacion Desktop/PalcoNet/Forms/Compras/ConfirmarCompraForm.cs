@@ -16,6 +16,7 @@ namespace PalcoNet.Forms
     public partial class ConfirmarCompraForm : Form
     {
         PublicacionModel Publicacion;
+        GD2C2018Entities context = new GD2C2018Entities();
         int Cantidad = 0;
         decimal Total = 0;
 
@@ -28,24 +29,20 @@ namespace PalcoNet.Forms
             botonSeleccionar.Enabled = sourceUbicaciones.Count > 0;
         }
 
-
         private List<UbicacionModel> GetUbicaciones() {
-            using (var context = new GD2C2018Entities())
-            {
-                var a = context.Ubicacion.Count();
-                return (from u in context.Ubicacion
-                        where u.Ubicacion_Publicacion == Publicacion.ID
-                        select new UbicacionModel
-                        {
-                            Publicacion = u.Ubicacion_Publicacion,
-                            Asiento = u.Ubicacion_Asiento,
-                            Fila = u.Ubicacion_Fila,
-                            Enumerado = u.Ubicacion_Sin_numerar.Value ? "NO" : "SÍ",
-                            Precio = u.Ubicacion_Precio,
-                            Tipo = u.Ubicacion_Tipo,
-                            Disponible = u.Ubicacion_Disponible
-                        }).ToList();
-            }
+            var a = context.Ubicacion.Count();
+            return (from u in context.Ubicacion
+                    where u.Ubicacion_Publicacion == Publicacion.ID
+                    select new UbicacionModel
+                    {
+                        Publicacion = u.Ubicacion_Publicacion,
+                        Asiento = u.Ubicacion_Asiento,
+                        Fila = u.Ubicacion_Fila,
+                        Enumerado = u.Ubicacion_Sin_numerar.Value ? "NO" : "SÍ",
+                        Precio = u.Ubicacion_Precio,
+                        Tipo = u.Ubicacion_Tipo,
+                        Disponible = u.Ubicacion_Disponible
+                    }).ToList();
         }
 
         private void botonSeleccionar_Click(object sender, EventArgs e) {
@@ -84,37 +81,29 @@ namespace PalcoNet.Forms
         private void botonConfirmar_Click(object sender, EventArgs e) {
             string mensaje = string.Format("¿Desea confirmar la compra de las {0} ubicaciones seleccionadas?", Cantidad);
             DialogResult ok = MessageBox.Show(mensaje, "Confirmar compra", MessageBoxButtons.YesNo);
-            if (boxFormaPago.SelectedIndex == 1)
+            if (ok == DialogResult.Yes)
             {
-                using (GD2C2018Entities context = new GD2C2018Entities())
+                var tarjeta = Sesion.Cliente.Cli_Tarjeta_Num;
+                if (boxFormaPago.SelectedIndex == 1 //credito
+                    && tarjeta == null) 
                 {
-                    var tarj = (from c in context.Cliente
-                                select c.Cli_Tarjeta_Num).FirstOrDefault();
-
-                    if (tarj == null)
-                        new ConfirmarTarjeta().Show(this);
-                    else
-                        if (ok == DialogResult.Yes)
-                        ConfirmarCompra();
+                    MessageBox.Show("Seleccionó Crédito pero no tiene tarjeta. Debe asociar una!",
+                            "Error de forma de pago");
+                    new AsociarTarjeta().Show();
+                }
+                else
+                {
+                    ConfirmarCompra();
                 }
             }
-            else
-            {
-                if (ok == DialogResult.Yes)
-                    ConfirmarCompra();
-            }
-
         }
 
         private void ConfirmarCompra() {
-            using (var context = new GD2C2018Entities())
-            {
-                Compra compra = GetCompra(context);
-                context.Entry(compra).State = System.Data.Entity.EntityState.Added;
-                GuardarUbicaciones(context);
-                GuardarPuntos(context, compra.Compra_Fecha);
-                context.SaveChanges();
-            }
+            Compra compra = GetCompra(context);
+            context.Entry(compra).State = System.Data.Entity.EntityState.Added;
+            GuardarUbicaciones(context);
+            GuardarPuntos(context, compra.Compra_Fecha);
+            context.SaveChanges();
             MessageBox.Show("La empresa de espectaculos le enviará la factura", "Compra realizada con éxito", MessageBoxButtons.OK);
             this.Close();
         }
