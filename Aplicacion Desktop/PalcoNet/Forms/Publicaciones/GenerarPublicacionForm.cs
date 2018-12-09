@@ -50,7 +50,8 @@ namespace PalcoNet.Forms
             }
             else
             {
-                MessageBox.Show("La fecha no puede ser anterior a la fecha de la publicación");
+                MessageBox.Show("La fecha no puede ser anterior a la fecha de la publicación " +
+                    "ni se pueden repetir fechas iguales");
             }
         }
 
@@ -98,7 +99,7 @@ namespace PalcoNet.Forms
         }
 
         private bool FechaValida(DateTime fecha) {
-            return fecha >= boxFechaPublicacion.Value;
+            return fecha >= boxFechaPublicacion.Value && Fechas.All(f => f.Valor != fecha);
         }
 
         private void gridUbicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e) {
