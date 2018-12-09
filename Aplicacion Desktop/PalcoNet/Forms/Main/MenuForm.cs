@@ -85,7 +85,14 @@ namespace PalcoNet.Forms
 
         private void botonComprar_Click(object sender, EventArgs e) {
             this.Hide();
-            new ComprarForm().Show();
+            if (!Sesion.Cliente.Cli_Habilitado)
+            {
+                MessageBox.Show("Usted esta deshabilitado por lo tanto no puede comprar");
+            }
+            else
+            {
+                new ComprarForm().Show();
+            }
         }
 
         private void botonComisiones_Click(object sender, EventArgs e) {
