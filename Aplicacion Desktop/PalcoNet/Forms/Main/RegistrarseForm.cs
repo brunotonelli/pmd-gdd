@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PalcoNet.Extensiones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,20 +20,24 @@ namespace PalcoNet.Forms
 
         private void botonEmpresa_Click(object sender, EventArgs e)
         {
-            new RegistrarEmpresaForm().Show();
+            if (ConsultasDB.GetRol("EMP").Rol_Habilitado.Value)
+                new RegistrarEmpresaForm().Show();
+            else
+                MessageBox.Show("Las empresas (el rol) fue deshabilitado.\nContacte a un admin para resolver el problema");
         }
 
         private void botonCliente_Click(object sender, EventArgs e)
         {
-            new RegistrarClienteForm().Show();
+            if (ConsultasDB.GetRol("CLI").Rol_Habilitado.Value)
+                new RegistrarClienteForm().Show();
+            else
+                MessageBox.Show("Los clientes (el rol) fue deshabilitado.\nContacte a un admin para resolver el problema");
         }
 
         private void botonSalir_Click(object sender, EventArgs e)
         {
             Owner.Show();
-            this.Close();
-           
-
+            this.Close();       
         }
     }
 }

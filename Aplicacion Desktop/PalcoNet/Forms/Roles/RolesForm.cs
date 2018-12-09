@@ -14,14 +14,11 @@ namespace PalcoNet.Forms
     {
         private Rol Seleccionado;
         private DataGridViewRow FilaSeleccionada;
+        GD2C2018Entities context = new GD2C2018Entities();
 
         public RolesForm() {
             InitializeComponent();
-
-            using (var context = new GD2C2018Entities())
-            {
-                rolBindingSource.DataSource = context.Rol.ToList();
-            }
+            rolBindingSource.DataSource = context.Rol.ToList();
         }
 
         private void botonNuevo_Click(object sender, EventArgs e) {
@@ -53,15 +50,18 @@ namespace PalcoNet.Forms
         }
 
         private void BorrarRol(int fila) {
-            
-            using (var context = new GD2C2018Entities())
-            {
-                Seleccionado.Rol_Habilitado = false;
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Deleted;
-                context.SaveChanges();
-                ActualizarColor(Seleccionado);
-                //dataGrid.DataSource = rolBindingSource;
-            }
+            FilaSeleccionada = dataGrid.SelectedRows[0];
+            Seleccionado.Rol_Habilitado = false;
+            var usuariosConRol = (from u in context.Usuario
+                                  where u.Rol.Any(r => r.Rol_ID == Seleccionado.Rol_ID)
+                                  select u).ToList();
+            int afectados = usuariosConRol.Count();
+            usuariosConRol.ForEach(u => u.Rol.Remove(Seleccionado));
+            context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+            ActualizarColor(Seleccionado);
+            string mensaje = string.Format("Se han afectado {0} usuarios.", afectados);
+            MessageBox.Show(mensaje, "Rol inhabilitado");
         }
 
         private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {

@@ -48,7 +48,11 @@ namespace PalcoNet.Forms
                 else
                 {
                     var roles = usuario.Rol.ToList();
-                    if (roles.Count() == 1)
+                    if (roles.Count() == 0)
+                    {
+                        MessageBox.Show("No tiene roles asignados!\nPuede deberse a la inhabilitación de ese rol. Contacte a un admin.");
+                    }
+                    else if (roles.Count() == 1)
                     {
                         var rol = roles.First();
                         Sesion.LogIn(usuario, rol);
