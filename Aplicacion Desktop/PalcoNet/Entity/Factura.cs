@@ -14,9 +14,19 @@ namespace PalcoNet
     
     public partial class Factura
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Factura()
+        {
+            this.Item_Factura = new HashSet<Item_Factura>();
+        }
+    
         public decimal Factura_Nro { get; set; }
         public Nullable<System.DateTime> Factura_Fecha { get; set; }
         public Nullable<decimal> Factura_Total { get; set; }
         public decimal Factura_Publicacion { get; set; }
+    
+        public virtual Publicacion Publicacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Item_Factura> Item_Factura { get; set; }
     }
 }

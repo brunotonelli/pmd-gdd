@@ -19,5 +19,7 @@ namespace PalcoNet
         public System.DateTime Puntos_Vencimiento { get; set; }
         public string Puntos_Tipo_Doc_Cliente { get; set; }
         public decimal Puntos_Num_Doc_Cliente { get; set; }
+    
+        public virtual Cliente Cliente { get; set; }
     }
 }

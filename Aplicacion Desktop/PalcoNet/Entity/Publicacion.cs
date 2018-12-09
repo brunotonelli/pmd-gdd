@@ -14,6 +14,14 @@ namespace PalcoNet
     
     public partial class Publicacion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Publicacion()
+        {
+            this.Factura = new HashSet<Factura>();
+            this.Ubicacion = new HashSet<Ubicacion>();
+            this.Compra = new HashSet<Compra>();
+        }
+    
         public decimal Publicacion_ID { get; set; }
         public decimal Publicacion_Espectaculo { get; set; }
         public System.DateTime Publicacion_Fecha { get; set; }
@@ -22,5 +30,15 @@ namespace PalcoNet
         public string Publicacion_Empresa { get; set; }
         public int Publicacion_Estado { get; set; }
         public System.DateTime Publicacion_Fecha_Espectaculo { get; set; }
+    
+        public virtual Espectaculo Espectaculo { get; set; }
+        public virtual Estado Estado { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura> Factura { get; set; }
+        public virtual Grado_Publicacion Grado_Publicacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ubicacion> Ubicacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compra> Compra { get; set; }
     }
 }

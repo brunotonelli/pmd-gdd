@@ -15,7 +15,10 @@ namespace PalcoNet
     
     public partial class GD2C2018Entities : DbContext
     {
-        public GD2C2018Entities() : base(Configuracion.ConnectionString) { }
+        public GD2C2018Entities()
+            : base(Configuracion.ConnectionString)
+        {
+        }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,7 +26,6 @@ namespace PalcoNet
         }
     
         public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Compra> Compra { get; set; }
         public virtual DbSet<Espec_Empresa> Espec_Empresa { get; set; }
         public virtual DbSet<Espectaculo> Espectaculo { get; set; }
         public virtual DbSet<Estado> Estado { get; set; }
@@ -39,5 +41,6 @@ namespace PalcoNet
         public virtual DbSet<Rubro> Rubro { get; set; }
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Compra> Compra { get; set; }
     }
 }

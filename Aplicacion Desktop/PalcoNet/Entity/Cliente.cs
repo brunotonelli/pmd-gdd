@@ -18,6 +18,8 @@ namespace PalcoNet
         public Cliente()
         {
             this.Premio_X_Cliente = new HashSet<Premio_X_Cliente>();
+            this.Puntos = new HashSet<Puntos>();
+            this.Compra = new HashSet<Compra>();
         }
     
         public decimal Cli_Nro_Doc { get; set; }
@@ -43,5 +45,9 @@ namespace PalcoNet
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Premio_X_Cliente> Premio_X_Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Puntos> Puntos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compra> Compra { get; set; }
     }
 }

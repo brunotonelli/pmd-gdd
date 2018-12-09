@@ -14,6 +14,12 @@ namespace PalcoNet
     
     public partial class Compra
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Compra()
+        {
+            this.Ubicacion = new HashSet<Ubicacion>();
+        }
+    
         public decimal Compra_ID { get; set; }
         public System.DateTime Compra_Fecha { get; set; }
         public decimal Compra_Cantidad { get; set; }
@@ -23,5 +29,10 @@ namespace PalcoNet
         public decimal Compra_Total { get; set; }
         public decimal Compra_Publicacion { get; set; }
         public bool Compra_Facturada { get; set; }
+    
+        public virtual Cliente Cliente { get; set; }
+        public virtual Publicacion Publicacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }
 }

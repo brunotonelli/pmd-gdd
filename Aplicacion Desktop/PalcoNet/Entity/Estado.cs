@@ -14,7 +14,16 @@ namespace PalcoNet
     
     public partial class Estado
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Estado()
+        {
+            this.Publicacion = new HashSet<Publicacion>();
+        }
+    
         public int Estado_ID { get; set; }
         public string Estado_Descripcion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Publicacion> Publicacion { get; set; }
     }
 }

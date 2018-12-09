@@ -57,11 +57,13 @@ namespace PalcoNet.Validaciones
         }
 
         private void ValidarCampoNumerico(object sender, CancelEventArgs e) {
-            Validar(sender, e, t => t.Length == 0 || decimal.TryParse(t, out decimal n), "Es un campo numerico");
+            decimal n;
+            Validar(sender, e, t => t.Length == 0 || decimal.TryParse(t, out n), "Es un campo numerico");
         }
 
         private void ValidarCampoNumericoNotNull(object sender, CancelEventArgs e) {
-            Validar(sender, e, t => decimal.TryParse(t, out decimal n), "Es un campo numerico requerido");
+            decimal n;
+            Validar(sender, e, t => decimal.TryParse(t, out n), "Es un campo numerico requerido");
         }
 
         private void ValidarCampoCUIT(object sender, CancelEventArgs e) {

@@ -20,5 +20,7 @@ namespace PalcoNet
         public Nullable<decimal> Item_Factura_Cantidad { get; set; }
         public string Item_Factura_Descripcion { get; set; }
         public decimal Item_Factura_Compra { get; set; }
+    
+        public virtual Factura Factura { get; set; }
     }
 }

@@ -22,5 +22,8 @@ namespace PalcoNet
         public string Ubicacion_Tipo { get; set; }
         public Nullable<decimal> Ubicacion_Compra { get; set; }
         public bool Ubicacion_Disponible { get; set; }
+    
+        public virtual Publicacion Publicacion { get; set; }
+        public virtual Compra Compra { get; set; }
     }
 }
