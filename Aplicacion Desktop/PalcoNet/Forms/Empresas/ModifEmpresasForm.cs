@@ -56,6 +56,7 @@ namespace PalcoNet.Forms
             {
                 boxUsuario.Text = e.Usuario.Usuario_Username;
                 botonContraseña.Enabled = true;
+                botonBajaUsuario.Enabled = true;
             }
         }
 
@@ -119,6 +120,22 @@ namespace PalcoNet.Forms
 
         private void botonContraseña_Click(object sender, EventArgs e) {
             new CambiarContraseñaAdmin(Seleccionado.Usuario).Show();
+        }
+
+        private void botonBajaUsuario_Click(object sender, EventArgs e) {
+            string mensaje = "Está seguro que quiere darle de baja el usuario a " + Seleccionado.Espec_Empresa_Razon_Social + "?";
+            DialogResult d = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo);
+            if (d == DialogResult.Yes)
+            {
+                using (var context = new GD2C2018Entities())
+                {
+                    var usuario = context.Usuario.Single(u => u.Usuario_Username == Seleccionado.Espec_Empresa_Usuario);
+                    usuario.Usuario_Habilitado = false;
+                    context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                    MessageBox.Show("Usuario inhabilitado con exito");
+                }
+            }
         }
     }
 }

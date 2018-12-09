@@ -29,6 +29,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.boxTelefono = new System.Windows.Forms.TextBox();
@@ -48,8 +49,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boxCUIL = new System.Windows.Forms.TextBox();
             this.boxTipoDoc = new System.Windows.Forms.ComboBox();
+            this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label1 = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,14 +66,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
-            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label3 = new System.Windows.Forms.Label();
             this.boxUsuario = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.botonContraseña = new System.Windows.Forms.Button();
+            this.botonBajaUsuario = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -109,6 +110,16 @@
             this.groupBox3.TabIndex = 44;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de contacto";
+            // 
+            // boxMail
+            // 
+            this.boxMail.BackColor = System.Drawing.Color.Tomato;
+            this.boxMail.Location = new System.Drawing.Point(84, 32);
+            this.boxMail.Name = "boxMail";
+            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
+            this.boxMail.Size = new System.Drawing.Size(150, 20);
+            this.boxMail.TabIndex = 28;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label5
             // 
@@ -300,6 +311,17 @@
             this.boxTipoDoc.Size = new System.Drawing.Size(152, 21);
             this.boxTipoDoc.TabIndex = 41;
             // 
+            // boxNroDoc
+            // 
+            this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
+            this.boxNroDoc.Enabled = false;
+            this.boxNroDoc.Location = new System.Drawing.Point(84, 145);
+            this.boxNroDoc.Name = "boxNroDoc";
+            this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
+            this.boxNroDoc.TabIndex = 38;
+            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -317,6 +339,26 @@
             this.label15.Size = new System.Drawing.Size(76, 13);
             this.label15.TabIndex = 35;
             this.label15.Text = "* Tipo de Doc.";
+            // 
+            // boxApellido
+            // 
+            this.boxApellido.BackColor = System.Drawing.Color.Tomato;
+            this.boxApellido.Location = new System.Drawing.Point(84, 73);
+            this.boxApellido.Name = "boxApellido";
+            this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
+            this.boxApellido.Size = new System.Drawing.Size(150, 20);
+            this.boxApellido.TabIndex = 26;
+            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(84, 36);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(150, 20);
+            this.boxNombre.TabIndex = 25;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label1
             // 
@@ -435,47 +477,6 @@
             this.checkHabilitado.Text = "Cliente Habilitado";
             this.checkHabilitado.UseVisualStyleBackColor = true;
             // 
-            // boxMail
-            // 
-            this.boxMail.BackColor = System.Drawing.Color.Tomato;
-            this.boxMail.Location = new System.Drawing.Point(84, 32);
-            this.boxMail.Name = "boxMail";
-            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
-            this.boxMail.Size = new System.Drawing.Size(150, 20);
-            this.boxMail.TabIndex = 28;
-            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
-            // boxNroDoc
-            // 
-            this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
-            this.boxNroDoc.Enabled = false;
-            this.boxNroDoc.Location = new System.Drawing.Point(84, 145);
-            this.boxNroDoc.Name = "boxNroDoc";
-            this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
-            this.boxNroDoc.TabIndex = 38;
-            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
-            // boxApellido
-            // 
-            this.boxApellido.BackColor = System.Drawing.Color.Tomato;
-            this.boxApellido.Location = new System.Drawing.Point(84, 73);
-            this.boxApellido.Name = "boxApellido";
-            this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
-            this.boxApellido.Size = new System.Drawing.Size(150, 20);
-            this.boxApellido.TabIndex = 26;
-            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
-            // boxNombre
-            // 
-            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
-            this.boxNombre.Location = new System.Drawing.Point(84, 36);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNombre.Size = new System.Drawing.Size(150, 20);
-            this.boxNombre.TabIndex = 25;
-            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -495,13 +496,14 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.botonBajaUsuario);
             this.groupBox4.Controls.Add(this.botonContraseña);
             this.groupBox4.Controls.Add(this.boxUsuario);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(574, 24);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(250, 106);
+            this.groupBox4.Size = new System.Drawing.Size(250, 136);
             this.groupBox4.TabIndex = 43;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Usuario vinculado";
@@ -516,6 +518,17 @@
             this.botonContraseña.Text = "Cambiarle contraseña";
             this.botonContraseña.UseVisualStyleBackColor = true;
             this.botonContraseña.Click += new System.EventHandler(this.botonContraseña_Click);
+            // 
+            // botonBajaUsuario
+            // 
+            this.botonBajaUsuario.Enabled = false;
+            this.botonBajaUsuario.Location = new System.Drawing.Point(20, 99);
+            this.botonBajaUsuario.Name = "botonBajaUsuario";
+            this.botonBajaUsuario.Size = new System.Drawing.Size(214, 23);
+            this.botonBajaUsuario.TabIndex = 52;
+            this.botonBajaUsuario.Text = "Dar de baja usuario";
+            this.botonBajaUsuario.UseVisualStyleBackColor = true;
+            this.botonBajaUsuario.Click += new System.EventHandler(this.botonBajaUsuario_Click);
             // 
             // ModifClientesForm
             // 
@@ -595,5 +608,6 @@
         private System.Windows.Forms.TextBox boxUsuario;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button botonContraseña;
+        private System.Windows.Forms.Button botonBajaUsuario;
     }
 }
