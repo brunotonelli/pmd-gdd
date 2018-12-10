@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet.Entity
+namespace PalcoNet
 {
     using System;
     using System.Data.Entity;
@@ -16,7 +16,7 @@ namespace PalcoNet.Entity
     public partial class GD2C2018Entities : DbContext
     {
         public GD2C2018Entities()
-            : base("name=GD2C2018Entities")
+            : base(Configuracion.ConnectionString)
         {
         }
     

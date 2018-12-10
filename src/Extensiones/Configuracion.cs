@@ -14,11 +14,14 @@ namespace PalcoNet
 {
     public class Configuracion
     {
+        //se levanta la config en un ConfigModel y se arma el connection string
+        //eso se usa en el Context del ModeloDatos (se sobreescribe en el constructor el parametro default)
         public static string ConnectionString {
             get {
                 return ArmarConnectionString(_config);
             }
         }
+
         public static DateTime FechaActual {
             get {
                 return _config.FechaActual;
@@ -81,6 +84,7 @@ namespace PalcoNet
             Process.Start("notepad.exe", _ruta);
         }
 
+        //en caso de que modifiquen el archivo y se olviden como era, esto lo devuelve a default
         public static void Reestablecer() {
             ConfigModel config = new ConfigModel
             {
@@ -93,6 +97,8 @@ namespace PalcoNet
             Guardar(config);
         }
 
+        //esto es porque la carpeta "src" del proyecto puede estar en otro lado no predeterminado 
+        //en relacion al bin o archivo ejecutable
         private static string DecidirRuta() {
             var carpetaSource = Directory.GetParent(Directory.GetCurrentDirectory()).Parent;
             if (carpetaSource != null)

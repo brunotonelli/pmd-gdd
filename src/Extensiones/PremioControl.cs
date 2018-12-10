@@ -13,6 +13,8 @@ using System.IO;
 
 namespace PalcoNet.Extensiones
 {
+    //Para crear/cargar los premios en el Form de premios, de forma dinamica /programatica
+    //y que no sea un desastre el form padre
     public partial class PremioControl : UserControl
     {
         public event EventHandler BotonClick;

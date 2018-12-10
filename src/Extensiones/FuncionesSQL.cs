@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace PalcoNet.Extensiones
 {
+    //clase necesaria para poder usar las Functions de la DB en LINQ to entities / EF6
     public static class FuncionesSQL
     {
         [DbFunction("GD2C2018Model.Store", "localidadesVendidas")]

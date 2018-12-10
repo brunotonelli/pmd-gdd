@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PalcoNet.Extensiones
 {
+    //basicamente en esta clase son GETS de entidades, pasandole el id nada mas
     public static class ConsultasDB {
         public static Rol GetRol(string id) {
             return new GD2C2018Entities().Rol.Single(r => r.Rol_ID == id);

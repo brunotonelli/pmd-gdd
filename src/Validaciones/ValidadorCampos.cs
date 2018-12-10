@@ -70,6 +70,7 @@ namespace PalcoNet.Validaciones
             Validar(sender, e, t => t.Length == 0 || ValidacionesInput.CUILValido(t), "No cumple formato CUIT");
         }
 
+        //el metodo principal: si no se cumple la condicion se bloquea el form hasta que funcione
         private void Validar(object sender, CancelEventArgs e, Predicate<string> condicion, string mensaje) {
             var box = sender as Control;
             if (condicion.Invoke(box.Text))

@@ -16,6 +16,7 @@ namespace PalcoNet.Forms
 {
     public partial class ComprarForm : Form
     {
+        //se usa el package PagedList para la paginacion
         IPagedList<PublicacionModel> Publicaciones;
         int Pagina = 1, Cantidad;
         PublicacionModel Seleccionado;

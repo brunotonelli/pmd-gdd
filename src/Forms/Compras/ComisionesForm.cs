@@ -18,7 +18,8 @@ namespace PalcoNet.Forms
             compraModelBindingSource.DataSource = GetCompras();
         }
 
-        private List<CompraModel> GetCompras() { //no facturadas
+        //compras no facturadas en el sistema (no facturadas es que no existen facturas sorbe esa publi)
+        private List<CompraModel> GetCompras() { 
             using (var context = new GD2C2018Entities())
             {
                 var q = from c in context.Compra

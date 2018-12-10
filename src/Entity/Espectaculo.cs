@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet.Entity
+namespace PalcoNet
 {
     using System;
     using System.Collections.Generic;

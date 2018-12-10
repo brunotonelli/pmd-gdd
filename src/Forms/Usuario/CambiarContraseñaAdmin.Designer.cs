@@ -112,7 +112,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.boxNueva);
             this.Name = "CambiarContraseñaAdmin";
-            this.Text = "CambiarContraseñaAdmin";
+            this.Text = "[PalcoNet] - Cambiar PW";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -466,6 +466,9 @@
     <EmbeddedResource Include="Forms\Roles\RolesForm.pa-Guru.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rubros\RubrosForm.resx">
+      <DependentUpon>RubrosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\CambiarContraseñaAdmin.resx">
       <DependentUpon>CambiarContraseñaAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,6 +568,7 @@
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\config.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

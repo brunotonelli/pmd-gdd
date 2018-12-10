@@ -184,7 +184,7 @@
             this.Controls.Add(this.botonArchivo);
             this.Name = "ConfiguracionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ConfiguracionForm";
+            this.Text = "[PalcoNet] - Configuracion";
             this.ResumeLayout(false);
             this.PerformLayout();
 

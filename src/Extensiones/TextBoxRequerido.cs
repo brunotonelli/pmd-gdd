@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace PalcoNet.Extensiones
 {
+    //Se pensó para que el usuario vea sin error los campos que son requeridos en cierto formularo
+    //se podria haber usado el validadosCampos pero se hizo despues. esta solucion es mejor visualmente igual
     public partial class TextBoxRequerido : UserControl
     {
         public enum Tipo {

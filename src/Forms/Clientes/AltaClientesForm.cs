@@ -24,6 +24,7 @@ namespace PalcoNet.Forms
             AgregarEventosValidacion();
         }
 
+        //carga los datos en los textbox
         private void BindearDatos() {
             var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
             var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
@@ -115,6 +116,7 @@ namespace PalcoNet.Forms
             return usuario;
         }
 
+        //Cargo el error provider del ValidadorCampos (clase validadora de notnull, etc)
         private void AgregarEventosValidacion() {
             var ep = new ValidadorCampos(this);
             ep.AgregarCampo(boxPiso, ValidadorCampos.TipoValidacion.Numerica);

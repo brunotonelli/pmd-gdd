@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace PalcoNet.Extensiones
 {
+    //se pensó para reutilizarlo en forms que requieran listar las funcionalidades, al final quedó
+    //se usa solo en la creacion/modif de roles
     public partial class ListaFuncionalidades : UserControl {
         public ListaFuncionalidades() {
             InitializeComponent();

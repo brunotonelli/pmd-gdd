@@ -135,7 +135,7 @@
             this.Controls.Add(this.botonEditar);
             this.Controls.Add(this.dataGrid);
             this.Name = "EditarPublicacionesSeleccionForm";
-            this.Text = "EditarPublicacionesSeleccionForm";
+            this.Text = "[PalcoNet] - Editar Publicacion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditarPublicacionesSeleccionForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.publicacionModelBindingSource)).EndInit();

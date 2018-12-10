@@ -80,12 +80,13 @@
             // 
             // botonConfiguracion
             // 
+            this.botonConfiguracion.BackgroundImage = global::PalcoNet.Properties.Resources.config;
+            this.botonConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonConfiguracion.Location = new System.Drawing.Point(486, 157);
+            this.botonConfiguracion.Location = new System.Drawing.Point(633, 332);
             this.botonConfiguracion.Name = "botonConfiguracion";
-            this.botonConfiguracion.Size = new System.Drawing.Size(184, 78);
+            this.botonConfiguracion.Size = new System.Drawing.Size(55, 53);
             this.botonConfiguracion.TabIndex = 18;
-            this.botonConfiguracion.Text = "Configuracion";
             this.botonConfiguracion.UseVisualStyleBackColor = true;
             this.botonConfiguracion.Click += new System.EventHandler(this.botonConfiguracion_Click);
             // 
