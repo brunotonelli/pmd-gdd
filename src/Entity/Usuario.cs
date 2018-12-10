@@ -7,27 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Rol
+    public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rol()
+        public Usuario()
         {
-            this.Funcionalidad = new HashSet<Funcionalidad>();
-            this.Usuario = new HashSet<Usuario>();
+            this.Cliente = new HashSet<Cliente>();
+            this.Espec_Empresa = new HashSet<Espec_Empresa>();
+            this.Rol = new HashSet<Rol>();
         }
     
-        public string Rol_ID { get; set; }
-        public string Rol_Nombre { get; set; }
-        public Nullable<bool> Rol_Habilitado { get; set; }
+        public string Usuario_Username { get; set; }
+        public byte[] Usuario_Password { get; set; }
+        public Nullable<int> Usuario_Intentos_Fallidos { get; set; }
+        public Nullable<bool> Usuario_Habilitado { get; set; }
+        public Nullable<bool> Usuario_Autogenerado { get; set; }
+        public int Usuario_Inicios { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Funcionalidad> Funcionalidad { get; set; }
+        public virtual ICollection<Cliente> Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuario { get; set; }
+        public virtual ICollection<Espec_Empresa> Espec_Empresa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rol> Rol { get; set; }
     }
 }

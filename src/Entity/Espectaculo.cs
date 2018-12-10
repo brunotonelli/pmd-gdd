@@ -7,26 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Factura
+    public partial class Espectaculo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Factura()
+        public Espectaculo()
         {
-            this.Item_Factura = new HashSet<Item_Factura>();
+            this.Publicacion = new HashSet<Publicacion>();
         }
     
-        public decimal Factura_Nro { get; set; }
-        public Nullable<System.DateTime> Factura_Fecha { get; set; }
-        public Nullable<decimal> Factura_Total { get; set; }
-        public decimal Factura_Publicacion { get; set; }
+        public decimal Espectaculo_Cod { get; set; }
+        public string Espectaculo_Descripcion { get; set; }
+        public Nullable<int> Espectaculo_Rubro { get; set; }
+        public string Espectaculo_Direccion { get; set; }
     
-        public virtual Publicacion Publicacion { get; set; }
+        public virtual Rubro Rubro { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Item_Factura> Item_Factura { get; set; }
+        public virtual ICollection<Publicacion> Publicacion { get; set; }
     }
 }

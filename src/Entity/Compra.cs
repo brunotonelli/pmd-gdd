@@ -7,23 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Estado
+    public partial class Compra
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Estado()
+        public Compra()
         {
-            this.Publicacion = new HashSet<Publicacion>();
+            this.Ubicacion = new HashSet<Ubicacion>();
         }
     
-        public int Estado_ID { get; set; }
-        public string Estado_Descripcion { get; set; }
+        public decimal Compra_ID { get; set; }
+        public System.DateTime Compra_Fecha { get; set; }
+        public decimal Compra_Cantidad { get; set; }
+        public string Compra_Forma_Pago { get; set; }
+        public string Compra_Tipo_Doc_Cliente { get; set; }
+        public decimal Compra_Num_Doc_Cliente { get; set; }
+        public decimal Compra_Total { get; set; }
+        public decimal Compra_Publicacion { get; set; }
+        public bool Compra_Facturada { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
+        public virtual Publicacion Publicacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Publicacion> Publicacion { get; set; }
+        public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }
 }

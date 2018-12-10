@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Rubro
+    public partial class Funcionalidad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rubro()
+        public Funcionalidad()
         {
-            this.Espectaculo = new HashSet<Espectaculo>();
+            this.Rol = new HashSet<Rol>();
         }
     
-        public int Rubro_ID { get; set; }
-        public string Rubro_Descripcion { get; set; }
+        public int Func_ID { get; set; }
+        public string Func_Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Espectaculo> Espectaculo { get; set; }
+        public virtual ICollection<Rol> Rol { get; set; }
     }
 }

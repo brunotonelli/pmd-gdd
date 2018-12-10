@@ -7,23 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Funcionalidad
+    public partial class Premio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Funcionalidad()
+        public Premio()
         {
-            this.Rol = new HashSet<Rol>();
+            this.Premio_X_Cliente = new HashSet<Premio_X_Cliente>();
         }
     
-        public int Func_ID { get; set; }
-        public string Func_Descripcion { get; set; }
+        public int Premio_ID { get; set; }
+        public string Premio_Nombre { get; set; }
+        public string Premio_Descripcion { get; set; }
+        public Nullable<int> Premio_Puntos_Necesarios { get; set; }
+        public string Premio_Imagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rol> Rol { get; set; }
+        public virtual ICollection<Premio_X_Cliente> Premio_X_Cliente { get; set; }
     }
 }

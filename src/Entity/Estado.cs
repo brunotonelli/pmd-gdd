@@ -7,25 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Espectaculo
+    public partial class Estado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Espectaculo()
+        public Estado()
         {
             this.Publicacion = new HashSet<Publicacion>();
         }
     
-        public decimal Espectaculo_Cod { get; set; }
-        public string Espectaculo_Descripcion { get; set; }
-        public Nullable<int> Espectaculo_Rubro { get; set; }
-        public string Espectaculo_Direccion { get; set; }
+        public int Estado_ID { get; set; }
+        public string Estado_Descripcion { get; set; }
     
-        public virtual Rubro Rubro { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Publicacion> Publicacion { get; set; }
     }

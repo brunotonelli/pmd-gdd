@@ -7,20 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PalcoNet
+namespace PalcoNet.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Item_Factura
+    public partial class Puntos
     {
-        public int Item_Factura_ID { get; set; }
-        public decimal Item_Factura_Factura { get; set; }
-        public decimal Item_Factura_Monto { get; set; }
-        public Nullable<decimal> Item_Factura_Cantidad { get; set; }
-        public string Item_Factura_Descripcion { get; set; }
-        public decimal Item_Factura_Compra { get; set; }
+        public decimal Puntos_ID { get; set; }
+        public int Puntos_Cantidad { get; set; }
+        public System.DateTime Puntos_Vencimiento { get; set; }
+        public string Puntos_Tipo_Doc_Cliente { get; set; }
+        public decimal Puntos_Num_Doc_Cliente { get; set; }
     
-        public virtual Factura Factura { get; set; }
+        public virtual Cliente Cliente { get; set; }
     }
 }
