@@ -33,22 +33,22 @@ namespace PalcoNet.Forms
             this.botonCancelar = new System.Windows.Forms.Button();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.boxCodigo = new System.Windows.Forms.MaskedTextBox();
-            this.boxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.boxNombre);
             this.groupBox1.Controls.Add(this.botonCrear);
             this.groupBox1.Controls.Add(this.botonCancelar);
             this.groupBox1.Controls.Add(this.checkHabilitado);
             this.groupBox1.Controls.Add(this.boxCodigo);
-            this.groupBox1.Controls.Add(this.boxNombre);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,6 +61,7 @@ namespace PalcoNet.Forms
             // 
             // botonCrear
             // 
+            this.botonCrear.Enabled = false;
             this.botonCrear.Location = new System.Drawing.Point(14, 131);
             this.botonCrear.Name = "botonCrear";
             this.botonCrear.Size = new System.Drawing.Size(214, 40);
@@ -100,13 +101,6 @@ namespace PalcoNet.Forms
             this.boxCodigo.Size = new System.Drawing.Size(24, 20);
             this.boxCodigo.TabIndex = 25;
             // 
-            // boxNombre
-            // 
-            this.boxNombre.Location = new System.Drawing.Point(76, 54);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Size = new System.Drawing.Size(150, 20);
-            this.boxNombre.TabIndex = 23;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -143,6 +137,16 @@ namespace PalcoNet.Forms
             this.listaFuncionalidades.Size = new System.Drawing.Size(196, 190);
             this.listaFuncionalidades.TabIndex = 0;
             // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(76, 54);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(152, 20);
+            this.boxNombre.TabIndex = 42;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // NuevoRolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,7 +168,6 @@ namespace PalcoNet.Forms
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox boxCodigo;
-        private System.Windows.Forms.TextBox boxNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkHabilitado;
@@ -172,5 +175,6 @@ namespace PalcoNet.Forms
         private ListaFuncionalidades listaFuncionalidades;
         private System.Windows.Forms.Button botonCrear;
         private System.Windows.Forms.Button botonCancelar;
+        private TextBoxRequerido boxNombre;
     }
 }

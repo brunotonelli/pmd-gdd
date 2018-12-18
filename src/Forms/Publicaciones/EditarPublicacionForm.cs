@@ -182,5 +182,10 @@ namespace PalcoNet.Forms
             ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NotNull);
             ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NumericaNotNull);
         }
+
+        private void EditarPublicacionForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

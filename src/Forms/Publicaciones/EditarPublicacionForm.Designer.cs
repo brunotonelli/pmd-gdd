@@ -513,6 +513,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "EditarPublicacionForm";
             this.Text = "[PalcoNet] - Editar Publicacion";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditarPublicacionForm_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

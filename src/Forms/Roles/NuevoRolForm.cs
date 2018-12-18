@@ -46,6 +46,14 @@ namespace PalcoNet.Forms
         private void AgregarEventosValidacion() {
             var ep = new ValidadorCampos(this);
             ep.AgregarCampo(boxNombre, ValidadorCampos.TipoValidacion.NotNull);
+            boxNombre.TextChangeEvent += new EventHandler(ValidarRequeridos);
+        }
+
+        private void ValidarRequeridos(object sender, EventArgs e)
+        {
+            var nombre = boxNombre.Text;
+            bool ok = nombre.Length != 0;
+            botonCrear.Enabled = ok;
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)

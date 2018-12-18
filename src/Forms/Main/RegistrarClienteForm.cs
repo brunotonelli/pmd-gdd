@@ -44,6 +44,8 @@ namespace PalcoNet.Forms
 
             if (!existeUsuario && !existeCliente)
             {
+                var context = new GD2C2018Entities();
+
                 Usuario usuario = new Usuario
                 {
                     Usuario_Username = boxUsuario.Text,
@@ -51,8 +53,6 @@ namespace PalcoNet.Forms
                     Usuario_Intentos_Fallidos = 0,
                     Usuario_Autogenerado = false
                 };
-                var rol = ConsultasDB.GetRol("CLI");
-                usuario.Rol.Add(rol);
 
                 var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
                 var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
@@ -80,12 +80,13 @@ namespace PalcoNet.Forms
                     Cli_Usuario = boxUsuario.Text
                 };
 
-                using (var context = new GD2C2018Entities())
-                {
-                    context.Entry(usuario).State = System.Data.Entity.EntityState.Added;
-                    context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
-                    context.SaveChanges();
-                }
+                context.Entry(usuario).State = System.Data.Entity.EntityState.Added;
+                context.Entry(cliente).State = System.Data.Entity.EntityState.Added;
+
+
+                var rol = context.Rol.Single(r => r.Rol_ID == "CLI");
+                usuario.Rol.Add(rol);               
+                context.SaveChanges();
 
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
                 Sesion.LogIn(usuario, rol);

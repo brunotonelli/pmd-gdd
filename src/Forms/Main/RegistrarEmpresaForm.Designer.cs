@@ -61,7 +61,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.boxTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.botonCancelar = new System.Windows.Forms.Button();
             this.botonRegistrarse = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -388,23 +387,13 @@
             this.label5.TabIndex = 43;
             this.label5.Text = "Los campos marcados con * son requeridos";
             // 
-            // botonCancelar
-            // 
-            this.botonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonCancelar.Location = new System.Drawing.Point(293, 364);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(119, 37);
-            this.botonCancelar.TabIndex = 42;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            // 
             // botonRegistrarse
             // 
             this.botonRegistrarse.Enabled = false;
             this.botonRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonRegistrarse.Location = new System.Drawing.Point(428, 364);
+            this.botonRegistrarse.Location = new System.Drawing.Point(292, 364);
             this.botonRegistrarse.Name = "botonRegistrarse";
-            this.botonRegistrarse.Size = new System.Drawing.Size(132, 37);
+            this.botonRegistrarse.Size = new System.Drawing.Size(268, 37);
             this.botonRegistrarse.TabIndex = 41;
             this.botonRegistrarse.Text = "Registrarse";
             this.botonRegistrarse.UseVisualStyleBackColor = true;
@@ -416,7 +405,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 411);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonRegistrarse);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -471,7 +459,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox boxTelefono;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Button botonRegistrarse;
         private Extensiones.TextBoxRequerido boxContraseña;
         private Extensiones.TextBoxRequerido boxUsuario;

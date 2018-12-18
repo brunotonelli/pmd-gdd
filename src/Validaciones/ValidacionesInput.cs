@@ -46,7 +46,7 @@ namespace PalcoNet.Validaciones
                 return clientes.Any
                     (c => (c.tipo.Equals(tipo, StringComparison.OrdinalIgnoreCase)
                     && c.numero == dni)
-                    || c.cuil.Equals(cuil, StringComparison.OrdinalIgnoreCase));
+                    || (c.cuil.Equals(cuil, StringComparison.OrdinalIgnoreCase) && c.cuil.Length > 0));
             }
         }
 

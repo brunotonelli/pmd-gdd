@@ -47,6 +47,8 @@ namespace PalcoNet.Forms
 
             if (!existeUsuario && !existeEmpresa && cuitValido)
             {
+                var context = new GD2C2018Entities();
+
                 Usuario usuario = new Usuario
                 {
                     Usuario_Username = boxUsuario.Text,
@@ -54,9 +56,7 @@ namespace PalcoNet.Forms
                     Usuario_Intentos_Fallidos = 0,
                     Usuario_Autogenerado = false
                 };
-                var rol = ConsultasDB.GetRol("EMP");
-                usuario.Rol.Add(rol);
-
+                
                 var piso = boxPiso.Text.Length > 0 ? decimal.Parse(boxPiso.Text) : 0;
                 var nroCalle = boxNumero.Text.Length > 0 ? decimal.Parse(boxNumero.Text) : 0;
 
@@ -76,15 +76,14 @@ namespace PalcoNet.Forms
                     Espec_Empresa_Piso = nroCalle,
                     Espec_Empresa_Usuario = boxUsuario.Text
                 };
-                
-                using (var context = new GD2C2018Entities())
-                {
-                    context.Entry(usuario).State = System.Data.Entity.EntityState.Added;
-                    context.Entry(empresa).State = System.Data.Entity.EntityState.Added;
-                    context.SaveChanges();
-                    
-                }
 
+                context.Entry(usuario).State = System.Data.Entity.EntityState.Added;
+                context.Entry(empresa).State = System.Data.Entity.EntityState.Added;
+
+                var rol = context.Rol.Single(r => r.Rol_ID == "EMP");                
+                usuario.Rol.Add(rol);
+                context.SaveChanges();        
+                
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
                 Sesion.LogIn(usuario, rol);
                 var menu = MenuForm.ObtenerInstancia(rol);
@@ -102,6 +101,11 @@ namespace PalcoNet.Forms
             boxMail.TextChangeEvent += new EventHandler(ValidarRequeridos);
             boxUsuario.TextChanged += new EventHandler(ValidarRequeridos);
             boxContraseña.TextChanged += new EventHandler(ValidarRequeridos);
+        }
+
+        private void botonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         
     }

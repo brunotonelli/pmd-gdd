@@ -51,14 +51,11 @@ namespace PalcoNet.Forms
         }
 
         private void BorrarCliente() {
-            using (var context = new GD2C2018Entities())
-            {
-                Seleccionado.Cli_Habilitado = false;
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
-                context.SaveChanges();
-                ActualizarColor(Seleccionado);
-                //dataGrid.DataSource = clienteBindingSource;
-            }
+            Seleccionado.Cli_Habilitado = false;
+            context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+            ActualizarColor(Seleccionado);
+            //dataGrid.DataSource = clienteBindingSource;
         }
 
         private void botonBuscar_Click(object sender, EventArgs e) {

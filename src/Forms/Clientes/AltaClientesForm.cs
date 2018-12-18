@@ -82,7 +82,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonCancelar_Click(object sender, EventArgs e) {
-
+            this.Close();
         }
 
         private void ValidarRequeridos(object sender, EventArgs e) {

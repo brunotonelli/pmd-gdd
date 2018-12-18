@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.boxCodigo = new System.Windows.Forms.MaskedTextBox();
-            this.boxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -53,20 +53,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Funcionalidades";
             // 
-            // listaFuncionalidades
-            // 
-            this.listaFuncionalidades.Location = new System.Drawing.Point(14, 24);
-            this.listaFuncionalidades.Name = "listaFuncionalidades";
-            this.listaFuncionalidades.Size = new System.Drawing.Size(196, 190);
-            this.listaFuncionalidades.TabIndex = 0;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.boxNombre);
             this.groupBox1.Controls.Add(this.botonGuardar);
             this.groupBox1.Controls.Add(this.botonCancelar);
             this.groupBox1.Controls.Add(this.checkHabilitado);
             this.groupBox1.Controls.Add(this.boxCodigo);
-            this.groupBox1.Controls.Add(this.boxNombre);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,13 +112,6 @@
             this.boxCodigo.Size = new System.Drawing.Size(24, 20);
             this.boxCodigo.TabIndex = 25;
             // 
-            // boxNombre
-            // 
-            this.boxNombre.Location = new System.Drawing.Point(76, 54);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Size = new System.Drawing.Size(150, 20);
-            this.boxNombre.TabIndex = 23;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -143,6 +129,23 @@
             this.label12.Size = new System.Drawing.Size(44, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "Nombre";
+            // 
+            // listaFuncionalidades
+            // 
+            this.listaFuncionalidades.Location = new System.Drawing.Point(14, 24);
+            this.listaFuncionalidades.Name = "listaFuncionalidades";
+            this.listaFuncionalidades.Size = new System.Drawing.Size(196, 190);
+            this.listaFuncionalidades.TabIndex = 0;
+            // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(76, 54);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(152, 20);
+            this.boxNombre.TabIndex = 43;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // EditarRolForm
             // 
@@ -169,8 +172,8 @@
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.CheckBox checkHabilitado;
         private System.Windows.Forms.MaskedTextBox boxCodigo;
-        private System.Windows.Forms.TextBox boxNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label12;
+        private Extensiones.TextBoxRequerido boxNombre;
     }
 }
