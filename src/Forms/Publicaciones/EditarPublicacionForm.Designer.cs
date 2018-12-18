@@ -58,17 +58,17 @@
             this.boxFila = new System.Windows.Forms.TextBox();
             this.botonAgregarUbicacion = new System.Windows.Forms.Button();
             this.gridUbicaciones = new System.Windows.Forms.DataGridView();
-            this.boxFecha = new System.Windows.Forms.DateTimePicker();
-            this.boxHora = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ubicacionFilaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionAsientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionSinnumerarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionPrecioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionTipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionDisponibleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BorrarUbicacion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boxFecha = new System.Windows.Forms.DateTimePicker();
+            this.boxHora = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -419,42 +419,6 @@
             this.gridUbicaciones.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridUbicaciones_DataBindingComplete);
             this.gridUbicaciones.SelectionChanged += new System.EventHandler(this.gridUbicaciones_SelectionChanged);
             // 
-            // boxFecha
-            // 
-            this.boxFecha.Location = new System.Drawing.Point(130, 295);
-            this.boxFecha.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
-            this.boxFecha.Name = "boxFecha";
-            this.boxFecha.Size = new System.Drawing.Size(199, 20);
-            this.boxFecha.TabIndex = 23;
-            // 
-            // boxHora
-            // 
-            this.boxHora.Location = new System.Drawing.Point(341, 295);
-            this.boxHora.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
-            this.boxHora.Name = "boxHora";
-            this.boxHora.Size = new System.Drawing.Size(88, 20);
-            this.boxHora.TabIndex = 24;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 298);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Fecha evento";
-            // 
-            // BorrarUbicacion
-            // 
-            this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BorrarUbicacion.DataPropertyName = "BorrarUbicacion";
-            this.BorrarUbicacion.FillWeight = 91.37056F;
-            this.BorrarUbicacion.HeaderText = "";
-            this.BorrarUbicacion.Name = "BorrarUbicacion";
-            this.BorrarUbicacion.ReadOnly = true;
-            this.BorrarUbicacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.BorrarUbicacion.Width = 30;
-            // 
             // ubicacionFilaDataGridViewTextBoxColumn
             // 
             this.ubicacionFilaDataGridViewTextBoxColumn.DataPropertyName = "Ubicacion_Fila";
@@ -497,9 +461,45 @@
             this.ubicacionDisponibleDataGridViewCheckBoxColumn.Name = "ubicacionDisponibleDataGridViewCheckBoxColumn";
             this.ubicacionDisponibleDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // BorrarUbicacion
+            // 
+            this.BorrarUbicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BorrarUbicacion.DataPropertyName = "BorrarUbicacion";
+            this.BorrarUbicacion.FillWeight = 91.37056F;
+            this.BorrarUbicacion.HeaderText = "";
+            this.BorrarUbicacion.Name = "BorrarUbicacion";
+            this.BorrarUbicacion.ReadOnly = true;
+            this.BorrarUbicacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.BorrarUbicacion.Width = 30;
+            // 
             // ubicacionBindingSource
             // 
             this.ubicacionBindingSource.DataSource = typeof(PalcoNet.Ubicacion);
+            // 
+            // boxFecha
+            // 
+            this.boxFecha.Location = new System.Drawing.Point(130, 295);
+            this.boxFecha.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
+            this.boxFecha.Name = "boxFecha";
+            this.boxFecha.Size = new System.Drawing.Size(199, 20);
+            this.boxFecha.TabIndex = 23;
+            // 
+            // boxHora
+            // 
+            this.boxHora.Location = new System.Drawing.Point(341, 295);
+            this.boxHora.MinDate = new System.DateTime(1754, 1, 1, 0, 0, 0, 0);
+            this.boxHora.Name = "boxHora";
+            this.boxHora.Size = new System.Drawing.Size(88, 20);
+            this.boxHora.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(51, 298);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Fecha evento";
             // 
             // EditarPublicacionForm
             // 
@@ -512,7 +512,7 @@
             this.Controls.Add(this.botonGuardar);
             this.Controls.Add(this.tabControl1);
             this.Name = "EditarPublicacionForm";
-            this.Text = "EditarPublicacionForm";
+            this.Text = "[PalcoNet] - Editar Publicacion";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

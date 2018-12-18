@@ -134,8 +134,8 @@ namespace PalcoNet.Forms
         private void AgregarEventosValidacion() {
             var ep = new ValidadorCampos(this);
             ep.AgregarCampo(boxPrecio, ValidadorCampos.TipoValidacion.NumericaNotNull);
-            ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NumericaNotNull);
-            ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NotNull);
+            ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NotNull);
+            ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NumericaNotNull);
         }
 
         #region LOGICA DE ALTA

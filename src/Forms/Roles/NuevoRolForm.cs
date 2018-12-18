@@ -41,7 +41,7 @@ namespace PalcoNet.Forms
 
                 context.Entry(rol).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
-                ((RolesForm)Owner).ActualizarColor(rol);
+                //((RolesForm)Owner).ActualizarColor(rol);
                 DataGrid.DataSource = context.Rol.ToList();
             }
 

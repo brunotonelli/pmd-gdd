@@ -22,13 +22,14 @@ namespace PalcoNet.Forms
         List<Ubicacion> NuevasUbicaciones = new List<Ubicacion>();
         List<Ubicacion> BorradasUbicaciones = new List<Ubicacion>();
 
-        GD2C2018Entities context = new GD2C2018Entities();
+        GD2C2018Entities Context;
 
-        public EditarPublicacionForm(Publicacion publicacion) {
+        public EditarPublicacionForm(Publicacion publicacion, GD2C2018Entities context) {
+            Context = context;
             InitializeComponent();
             Publicacion = publicacion;
             AgregarEventosValidacion();
-            Espectaculo = ConsultasDB.GetEspectaculo(publicacion.Publicacion_Espectaculo);
+            Espectaculo = Context.Espectaculo.Single(e => e.Espectaculo_Cod == publicacion.Publicacion_Espectaculo);
             CargarComboBox();
             CargarDatos();
         }
@@ -45,7 +46,7 @@ namespace PalcoNet.Forms
             boxGrado.SelectedItem = ConsultasDB.GetGrado(Publicacion.Publicacion_Grado.Value).Grado_Nombre;
             boxEstado.SelectedItem = ConsultasDB.GetEstado(Publicacion.Publicacion_Estado).Estado_Descripcion;
             boxDireccion.Text = Espectaculo.Espectaculo_Direccion;
-            var query = from u in context.Ubicacion
+            var query = from u in Context.Ubicacion
                         where u.Ubicacion_Publicacion == Publicacion.Publicacion_ID
                         select u;
             Ubicaciones = query.ToList();
@@ -53,9 +54,9 @@ namespace PalcoNet.Forms
         }
         
         private void CargarComboBox() {
-            foreach (var rubro in context.Rubro)
+            foreach (var rubro in Context.Rubro)
                 boxRubro.Items.Add(rubro.Rubro_Descripcion);
-            foreach (var grado in context.Grado_Publicacion)
+            foreach (var grado in Context.Grado_Publicacion)
                 boxGrado.Items.Add(grado.Grado_Nombre);
         }
 
@@ -131,29 +132,36 @@ namespace PalcoNet.Forms
                 MessageBox.Show("No se ingresaron ubicaciones", "Error");
             else
             {
-
                 Publicacion.Publicacion_Estado = ConsultasDB.GetEstado(boxEstado.Text);
                 Publicacion.Publicacion_Fecha = boxFechaPublicacion.Value;
                 Publicacion.Publicacion_Fecha_Espectaculo = boxFecha.Value;
                 Publicacion.Publicacion_Grado = ConsultasDB.GetGrado(boxGrado.Text);
                 Publicacion.Publicacion_Localidades = Ubicaciones.Count();
 
-                context.Entry(Publicacion).State = System.Data.Entity.EntityState.Modified;
+                Espectaculo.Espectaculo_Descripcion = boxDescripcion.Text;
+                Espectaculo.Espectaculo_Direccion = boxDireccion.Text;
+                var rubro = Context.Rubro.Single(r => r.Rubro_Descripcion == boxRubro.Text);
+                Espectaculo.Rubro = rubro;
+
+                Context.Entry(Publicacion).State = System.Data.Entity.EntityState.Modified;                
+                Context.Entry(Espectaculo).State = System.Data.Entity.EntityState.Modified;
+                Context.SaveChanges();
 
                 foreach (var ubi in BorradasUbicaciones)
                 {
-                    context.Entry(ubi).State = System.Data.Entity.EntityState.Deleted;
-                    context.SaveChanges();
+                    Context.Entry(ubi).State = System.Data.Entity.EntityState.Deleted;
+                    Context.SaveChanges();
                 }
 
                 foreach (var ubi in NuevasUbicaciones)
                 {
-                    context.Entry(ubi).State = System.Data.Entity.EntityState.Added;
-                    context.SaveChanges();
+                    Context.Entry(ubi).State = System.Data.Entity.EntityState.Added;
+                    Context.SaveChanges();
                 }
 
                 MessageBox.Show("Cambios guardados con éxito", "Guardar cambios");
                 Owner.Show();
+                ((EditarPublicacionesSeleccionForm)Owner).ActualizarGrid();
                 this.Close();
             }
         }
@@ -161,7 +169,7 @@ namespace PalcoNet.Forms
         private void boxGrado_SelectedIndexChanged(object sender, EventArgs e) {
             if (GradoCambiado)
             {
-                var grado = context.Grado_Publicacion.Single(g => g.Grado_Nombre == boxGrado.Text);
+                var grado = Context.Grado_Publicacion.Single(g => g.Grado_Nombre == boxGrado.Text);
                 string mensaje = string.Format("Ese grado cuesta una comisión del {0}%", grado.Grado_Comision);
                 MessageBox.Show(mensaje, "Comisión por visibilidad", MessageBoxButtons.OK);
             }
@@ -171,8 +179,8 @@ namespace PalcoNet.Forms
         private void AgregarEventosValidacion() {
             var ep = new ValidadorCampos(this);
             ep.AgregarCampo(boxPrecio, ValidadorCampos.TipoValidacion.NumericaNotNull);
-            ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NumericaNotNull);
-            ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NotNull);
+            ep.AgregarCampo(boxFila, ValidadorCampos.TipoValidacion.NotNull);
+            ep.AgregarCampo(boxAsiento, ValidadorCampos.TipoValidacion.NumericaNotNull);
         }
     }
 }

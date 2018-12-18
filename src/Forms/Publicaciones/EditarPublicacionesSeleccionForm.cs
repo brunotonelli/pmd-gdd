@@ -23,6 +23,7 @@ namespace PalcoNet.Forms
             InitializeComponent();
             MostrarTodas = Sesion.Rol.Rol_ID == "ADM" || Sesion.Rol.Rol_ID == "GOD";
             CargarPublicaciones();
+            
             labelViendo.Text = MostrarTodas ?
                 "Mostrando todas las publicaciones como administrador" :
                 "Mostrando sus publicaciones";
@@ -48,18 +49,25 @@ namespace PalcoNet.Forms
             }
             publicacionModelBindingSource.DataSource =
                 Publicaciones.OrderByDescending(p => p.FechaPublicacion);
+            if (Publicaciones.Count() > 0)
+                botonEditar.Enabled = true;
         }
 
         private void botonEditar_Click(object sender, EventArgs e) {
             var row = dataGrid.SelectedRows[0];
             var pub = row.DataBoundItem as PublicacionModel;
             Publicacion real = context.Publicacion.Single(p => p.Publicacion_ID == pub.ID);
-            new EditarPublicacionForm(real).Show(this);
+            new EditarPublicacionForm(real, context).Show(this);
             this.Hide();
         }
 
         private void EditarPublicacionesSeleccionForm_FormClosed(object sender, FormClosedEventArgs e) {
             MenuForm.ObtenerInstancia().Show();
         }
+
+        public void ActualizarGrid() {
+            CargarPublicaciones();
+        }
+
     }
 }

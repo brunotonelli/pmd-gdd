@@ -28,14 +28,15 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.botonEditar = new System.Windows.Forms.Button();
+            this.labelViendo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaEspectaculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPublicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicacionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.botonEditar = new System.Windows.Forms.Button();
-            this.labelViendo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.publicacionModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,37 @@
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(657, 322);
             this.dataGrid.TabIndex = 3;
+            // 
+            // botonEditar
+            // 
+            this.botonEditar.Enabled = false;
+            this.botonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonEditar.Location = new System.Drawing.Point(461, 12);
+            this.botonEditar.Name = "botonEditar";
+            this.botonEditar.Size = new System.Drawing.Size(208, 65);
+            this.botonEditar.TabIndex = 4;
+            this.botonEditar.Text = "Editar";
+            this.botonEditar.UseVisualStyleBackColor = true;
+            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
+            // 
+            // labelViendo
+            // 
+            this.labelViendo.AutoSize = true;
+            this.labelViendo.Location = new System.Drawing.Point(9, 59);
+            this.labelViendo.Name = "labelViendo";
+            this.labelViendo.Size = new System.Drawing.Size(197, 13);
+            this.labelViendo.TabIndex = 5;
+            this.labelViendo.Text = "Viendo todas las publicaciones (ADMIN)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(309, 39);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Editar publicación";
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -95,41 +127,21 @@
             // 
             this.publicacionModelBindingSource.DataSource = typeof(PalcoNet.Model.PublicacionModel);
             // 
-            // botonEditar
+            // label1
             // 
-            this.botonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonEditar.Location = new System.Drawing.Point(461, 12);
-            this.botonEditar.Name = "botonEditar";
-            this.botonEditar.Size = new System.Drawing.Size(208, 65);
-            this.botonEditar.TabIndex = 4;
-            this.botonEditar.Text = "Editar";
-            this.botonEditar.UseVisualStyleBackColor = true;
-            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
-            // 
-            // labelViendo
-            // 
-            this.labelViendo.AutoSize = true;
-            this.labelViendo.Location = new System.Drawing.Point(9, 59);
-            this.labelViendo.Name = "labelViendo";
-            this.labelViendo.Size = new System.Drawing.Size(197, 13);
-            this.labelViendo.TabIndex = 5;
-            this.labelViendo.Text = "Viendo todas las publicaciones (ADMIN)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 39);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Editar publicación";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(320, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "(Borrador)";
             // 
             // EditarPublicacionesSeleccionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 423);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelViendo);
             this.Controls.Add(this.botonEditar);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.Button botonEditar;
         private System.Windows.Forms.Label labelViendo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
