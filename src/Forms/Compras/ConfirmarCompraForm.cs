@@ -58,6 +58,7 @@ namespace PalcoNet.Forms
                 labelCantidad.Text = Cantidad.ToString();
                 labelTotal.Text = "$ " + Total.ToString();
                 ActualizarPuntos();
+                CheckBoton();
             }
             else
             {
@@ -76,6 +77,12 @@ namespace PalcoNet.Forms
             labelCantidad.Text = Cantidad.ToString();
             labelTotal.Text = "$ " + Total.ToString();
             ActualizarPuntos();
+            CheckBoton();
+        }
+
+        private void CheckBoton()
+        {
+            botonConfirmar.Enabled = Cantidad > 0;
         }
 
         private void botonConfirmar_Click(object sender, EventArgs e) {

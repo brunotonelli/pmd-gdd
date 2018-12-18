@@ -144,6 +144,7 @@ namespace PalcoNet.Forms
             var d = MessageBox.Show("¿Está seguro que desea salir?", "Saliendo de PalcoNET", MessageBoxButtons.YesNo);
             if (d == DialogResult.Yes)
                 FormsEstaticos.Principal.Close();
+            e.Cancel = true;
         }
     }
 }

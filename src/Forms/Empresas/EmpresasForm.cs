@@ -14,14 +14,11 @@ namespace PalcoNet.Forms
     {
         private Espec_Empresa Seleccionado;
         private DataGridViewRow FilaSeleccionada;
+        GD2C2018Entities Context = new GD2C2018Entities();
 
         public EmpresasForm(){
             InitializeComponent();
-
-            using (var context = new GD2C2018Entities())
-            {
-                especEmpresaBindingSource.DataSource = context.Espec_Empresa.ToList();
-            }
+            ActualizarGrid();
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e){
@@ -34,12 +31,16 @@ namespace PalcoNet.Forms
         }
 
         private void botonNuevo_Click(object sender, EventArgs e){
-            new AltaEmpresaForm(dataGrid).Show();
+            new AltaEmpresaForm(Context).Show();
         }
 
+        public void ActualizarGrid()
+        {
+            especEmpresaBindingSource.DataSource = Context.Espec_Empresa.ToList();
+        }
         
         private void botonModificar_Click(object sender, EventArgs e){
-            new ModifEmpresasForm(Seleccionado).Show(this);
+            new ModifEmpresasForm(Seleccionado, Context).Show(this);
             FilaSeleccionada = dataGrid.SelectedRows[0];
         }
 
@@ -65,15 +66,12 @@ namespace PalcoNet.Forms
         }
 
         private void botonBuscar_Click(object sender, EventArgs e) {
-        using (var context = new GD2C2018Entities())
-            {
-                var query = from esp in context.Espec_Empresa
-                            where esp.Espec_Empresa_Razon_Social.Contains(boxFiltroRazon.Text) &&
-                                  esp.Espec_Empresa_Cuit.Contains(boxFiltroCUIT.Text) &&
-                                  esp.Espec_Empresa_Mail.Contains(boxFiltroMail.Text) 
-                            select esp;
-                especEmpresaBindingSource.DataSource = query.ToList();
-            }
+            var query = from esp in Context.Espec_Empresa
+                        where esp.Espec_Empresa_Razon_Social.Contains(boxFiltroRazon.Text) &&
+                              esp.Espec_Empresa_Cuit.Contains(boxFiltroCUIT.Text) &&
+                              esp.Espec_Empresa_Mail.Contains(boxFiltroMail.Text)
+                        select esp;
+            especEmpresaBindingSource.DataSource = query.ToList();
         }
 
         private void botonLimpiar_Click(object sender, EventArgs e)
@@ -92,7 +90,8 @@ namespace PalcoNet.Forms
             foreach (DataGridViewRow row in dataGrid.Rows)
             {
                 var empresa = row.DataBoundItem as Espec_Empresa;
-                if (!empresa.Espec_Empresa_Habilitado.Value)
+                var hab = empresa.Espec_Empresa_Habilitado ?? true;
+                if (!hab)
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
             }
         }

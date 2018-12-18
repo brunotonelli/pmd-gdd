@@ -14,12 +14,12 @@ namespace PalcoNet.Forms
 {
     public partial class AltaClientesForm : Form
     {
-        DataGridView DataGrid;
         private Cliente Nuevo = new Cliente();
+        GD2C2018Entities Context;
 
-        public AltaClientesForm(DataGridView dataGrid) {
+        public AltaClientesForm(GD2C2018Entities context) {
+            Context = context;
             InitializeComponent();
-            DataGrid = dataGrid;
             boxTipoDoc.SelectedItem = "DNI";
             AgregarEventosValidacion();
         }
@@ -48,6 +48,7 @@ namespace PalcoNet.Forms
             Nuevo.Cli_Tarjeta_Tipo = boxTipoTarjeta.Text;
             Nuevo.Cli_Telefono = boxTelefono.Text;
             Nuevo.Cli_Tipo_Doc = boxTipoDoc.Text;
+            Nuevo.Cli_Habilitado = true;
         }
 
         private void botonCrear_Click(object sender, EventArgs e) {
@@ -68,14 +69,11 @@ namespace PalcoNet.Forms
             if (!existeCliente && cuitValido)
             {
                 BindearDatos();
-                using (var context = new GD2C2018Entities())
-                {
-                    Usuario u = AutogenerarUsuario();
-                    context.Entry(u).State = System.Data.Entity.EntityState.Added;
-                    context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
-                    context.SaveChanges();
-                    DataGrid.DataSource = context.Cliente.ToList();
-                }
+                Usuario u = AutogenerarUsuario();
+                Context.Entry(u).State = System.Data.Entity.EntityState.Added;
+                Context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
+                Context.SaveChanges();
+                ((ClientesForm)Owner).ActualizarGrid();
                 this.Close();
             }
 
@@ -105,7 +103,7 @@ namespace PalcoNet.Forms
                 Usuario_Username = Utilidades.GenerarUsuario(6),
                 Usuario_Password = Utilidades.SHA256Encrypt(contraseña)
             };
-            var rolCliente = ConsultasDB.GetRol("CLI");
+            var rolCliente = Context.Rol.Single(r => r.Rol_ID == "CLI");
             usuario.Rol.Add(rolCliente);
 
             Nuevo.Cli_Usuario = usuario.Usuario_Username;

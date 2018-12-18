@@ -14,13 +14,13 @@ namespace PalcoNet.Forms
 {
     public partial class AltaEmpresaForm : Form
     {
-        DataGridView DataGrid;
         private Espec_Empresa Nuevo = new Espec_Empresa();
+        GD2C2018Entities Context;
 
-        public AltaEmpresaForm(DataGridView dataGrid)
+        public AltaEmpresaForm(GD2C2018Entities context)
         {
             InitializeComponent();
-            DataGrid = dataGrid;
+            Context = context;
             AgregarEventosValidacion();
         }
 
@@ -37,14 +37,11 @@ namespace PalcoNet.Forms
             if (!existeEmpresa && cuitValido)
             {
                 BindearDatos();
-                using (var context = new GD2C2018Entities())
-                {
-                    Usuario u = AutogenerarUsuario();
-                    context.Entry(u).State = System.Data.Entity.EntityState.Added;
-                    context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
-                    context.SaveChanges();
-                    DataGrid.DataSource = context.Espec_Empresa.ToList();
-                }
+                Usuario u = AutogenerarUsuario();
+                Context.Entry(u).State = System.Data.Entity.EntityState.Added;
+                Context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
+                Context.SaveChanges();
+                ((EmpresasForm)Owner).ActualizarGrid();
                 this.Close();
             }
         }
@@ -93,7 +90,7 @@ namespace PalcoNet.Forms
                 Usuario_Username = Utilidades.GenerarUsuario(6),
                 Usuario_Password = Utilidades.SHA256Encrypt(contraseña)
             };
-            var rolEmpresa = ConsultasDB.GetRol("EMP");
+            var rolEmpresa = Context.Rol.Single(r => r.Rol_ID == "EMP");
             usuario.Rol.Add(rolEmpresa);
 
             Nuevo.Espec_Empresa_Usuario = usuario.Usuario_Username;

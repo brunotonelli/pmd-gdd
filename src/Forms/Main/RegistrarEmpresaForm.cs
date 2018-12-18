@@ -74,7 +74,8 @@ namespace PalcoNet.Forms
                     Espec_Empresa_Depto = boxDepartamento.Text,
                     Espec_Empresa_Ciudad = boxCiudad.Text,
                     Espec_Empresa_Piso = nroCalle,
-                    Espec_Empresa_Usuario = boxUsuario.Text
+                    Espec_Empresa_Usuario = boxUsuario.Text,
+                    Espec_Empresa_Habilitado = true
                 };
 
                 context.Entry(usuario).State = System.Data.Entity.EntityState.Added;

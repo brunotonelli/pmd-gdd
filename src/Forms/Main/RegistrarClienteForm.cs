@@ -77,7 +77,8 @@ namespace PalcoNet.Forms
                     Cli_Piso = piso,
                     Cli_Tarjeta_Tipo = boxTipoTarjeta.Text,
                     Cli_Tarjeta_Num = boxNroTarjeta.Text,
-                    Cli_Usuario = boxUsuario.Text
+                    Cli_Usuario = boxUsuario.Text,
+                    Cli_Habilitado = true
                 };
 
                 context.Entry(usuario).State = System.Data.Entity.EntityState.Added;

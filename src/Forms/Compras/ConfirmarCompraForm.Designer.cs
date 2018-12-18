@@ -185,6 +185,7 @@
             // 
             // botonConfirmar
             // 
+            this.botonConfirmar.Enabled = false;
             this.botonConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonConfirmar.Location = new System.Drawing.Point(593, 19);
             this.botonConfirmar.Name = "botonConfirmar";

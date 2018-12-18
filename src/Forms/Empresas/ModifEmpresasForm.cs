@@ -17,12 +17,15 @@ namespace PalcoNet.Forms
     [System.ComponentModel.DefaultBindingProperty("Text")]
     public partial class ModifEmpresasForm : Form
     {
+        GD2C2018Entities Context;
         private Espec_Empresa Seleccionado;
+        private Usuario UsuarioEmpresa;
         private string Cuit;
 
-        public ModifEmpresasForm(Espec_Empresa empresa)
+        public ModifEmpresasForm(Espec_Empresa empresa, GD2C2018Entities context)
         {
             InitializeComponent();
+            Context = context;
             Cuit = empresa.Espec_Empresa_Cuit;
             Seleccionado = empresa;
             BindearCampos(Seleccionado);
@@ -45,7 +48,7 @@ namespace PalcoNet.Forms
             boxCUIT.Text = e.Espec_Empresa_Cuit;
             boxDepartamento.Text = e.Espec_Empresa_Depto;
             boxCalle.Text = e.Espec_Empresa_Dom_Calle;
-            checkHabilitado.Checked = e.Espec_Empresa_Habilitado.Value;
+            checkHabilitado.Checked = e.Espec_Empresa_Habilitado ?? true;
             boxLocalidad.Text = e.Espec_Empresa_Localidad;
             boxMail.Text = e.Espec_Empresa_Mail;
             boxNumero.Text = e.Espec_Empresa_Nro_Calle.ToString();
@@ -92,14 +95,12 @@ namespace PalcoNet.Forms
             if (!existeRazon && cuitValido)
             {
                 BindearDatos();
-                using (var context = new GD2C2018Entities())
-                {
-                    var empresa = context.Espec_Empresa.Single(em => em.Espec_Empresa_Cuit == Cuit);
+                //var empresa = Context.Espec_Empresa.Single(em => em.Espec_Empresa_Cuit == Cuit);
 
-                    context.Entry(empresa).CurrentValues.SetValues(Seleccionado);
-                    context.SaveChanges();
-                    ((EmpresasForm)Owner).ActualizarColor(empresa);
-                }
+                //Context.Entry(empresa).CurrentValues.SetValues(Seleccionado);
+                Context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
+                Context.SaveChanges();
+                ((EmpresasForm)Owner).ActualizarColor(Seleccionado);
                 this.Close();
             }
         }
@@ -127,14 +128,11 @@ namespace PalcoNet.Forms
             DialogResult d = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo);
             if (d == DialogResult.Yes)
             {
-                using (var context = new GD2C2018Entities())
-                {
-                    var usuario = context.Usuario.Single(u => u.Usuario_Username == Seleccionado.Espec_Empresa_Usuario);
-                    usuario.Usuario_Habilitado = false;
-                    context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
-                    context.SaveChanges();
-                    MessageBox.Show("Usuario inhabilitado con exito");
-                }
+                var usuario = Context.Usuario.Single(u => u.Usuario_Username == Seleccionado.Espec_Empresa_Usuario);
+                usuario.Usuario_Habilitado = false;
+                Context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                Context.SaveChanges();
+                MessageBox.Show("Usuario inhabilitado con exito");
             }
         }
     }

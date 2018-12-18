@@ -19,9 +19,11 @@ namespace PalcoNet.Forms
         private decimal Documento;
         private string TipoDocumento;
         private Cliente Seleccionado;
+        GD2C2018Entities Context;
 
-        public ModifClientesForm(Cliente cliente) {
+        public ModifClientesForm(Cliente cliente, GD2C2018Entities context) {
             InitializeComponent();
+            Context = context;
             Documento = cliente.Cli_Nro_Doc;
             TipoDocumento = cliente.Cli_Tipo_Doc;
             Seleccionado = cliente;

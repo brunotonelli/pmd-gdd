@@ -34,9 +34,9 @@ namespace PalcoNet.Forms
 
         private void botonCambiarDatos_Click(object sender, EventArgs e) {
             if (Sesion.Rol.Rol_ID == "CLI")
-                new ModifClientesForm(Sesion.Cliente).Show();
+                new ModifClientesForm(Sesion.Cliente, new GD2C2018Entities()).Show();
             else
-                new ModifEmpresasForm(Sesion.Empresa).Show();
+                new ModifEmpresasForm(Sesion.Empresa, new GD2C2018Entities()).Show();
         }
 
         private void CuentaForm_FormClosing(object sender, FormClosingEventArgs e)

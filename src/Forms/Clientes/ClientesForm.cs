@@ -19,11 +19,11 @@ namespace PalcoNet.Forms
 
         public ClientesForm() {
             InitializeComponent();
-            clienteBindingSource.DataSource = context.Cliente.ToList();
+            ActualizarGrid();
         }
 
         private void botonNuevo_Click(object sender, EventArgs e) {
-            new AltaClientesForm(dataGrid).Show();
+            new AltaClientesForm(context).Show(this);
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
@@ -34,9 +34,14 @@ namespace PalcoNet.Forms
                 botonEliminar.Enabled = true;
             }
         }
+
+        public void ActualizarGrid()
+        {
+            clienteBindingSource.DataSource = context.Cliente.ToList();
+        }
         
         private void botonModificar_Click(object sender, EventArgs e) {
-            new ModifClientesForm(Seleccionado).Show(this);
+            new ModifClientesForm(Seleccionado, context).Show(this);
             FilaSeleccionada = dataGrid.SelectedRows[0];
         }
 
