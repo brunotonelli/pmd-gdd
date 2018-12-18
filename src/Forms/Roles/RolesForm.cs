@@ -22,7 +22,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonNuevo_Click(object sender, EventArgs e) {
-            new NuevoRolForm(dataGrid).Show();
+            new NuevoRolForm().Show(this);
         }
 
         private void dataGrid_SelectionChanged(object sender, EventArgs e) {
@@ -35,8 +35,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonModificar_Click(object sender, EventArgs e) {
-            MessageBox.Show("IMPLEMENTAR (O NO ::)))) )");
-            FilaSeleccionada = dataGrid.SelectedRows[0];
+            new EditarRolForm(Seleccionado, context).Show(this);
         }
 
         private void botonEliminar_Click(object sender, EventArgs e) {
@@ -59,29 +58,34 @@ namespace PalcoNet.Forms
             usuariosConRol.ForEach(u => u.Rol.Remove(Seleccionado));
             context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
-            ActualizarColor(Seleccionado);
+            ActualizarColores();
             string mensaje = string.Format("Se han afectado {0} usuarios.", afectados);
             MessageBox.Show(mensaje, "Rol inhabilitado");
         }
 
         private void dataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            ActualizarColores();
+        }
+
+        //Metodo llamado luego de modificar/nuevo, para cambiar color
+        public void ActualizarColores() {
             foreach (DataGridViewRow row in dataGrid.Rows)
             {
                 var rol = row.DataBoundItem as Rol;
-                if (!rol.Rol_Habilitado.Value)
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
-            }
-        }
-
-        //Metodo llamado luego de modificar, para cambiar color
-        public void ActualizarColor(Rol r) {
-            FilaSeleccionada.DefaultCellStyle.BackColor = r.Rol_Habilitado.Value ?
+                row.DefaultCellStyle.BackColor = rol.Rol_Habilitado.Value ?
                 Color.White : Color.FromArgb(255, 230, 230);
+            }
         }
 
         private void RolesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             MenuForm.ObtenerInstancia().Show();
+        }
+
+        public void ActualizarGrid()
+        {
+            rolBindingSource.DataSource = context.Rol.ToList();
+            ActualizarColores();
         }
     }
 }

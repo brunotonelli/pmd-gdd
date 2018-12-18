@@ -20,5 +20,12 @@ namespace PalcoNet.Extensiones
         public List<string> Seleccionadas {
             get { return lista.CheckedItems.Cast<string>().ToList();}
         }
+
+        public void Seleccionar(string item)
+        {
+            var items = lista.Items.Cast<string>().ToList();
+            int indice = items.IndexOf(item);
+            lista.SetItemChecked(indice, true);
+        }
     }
 }

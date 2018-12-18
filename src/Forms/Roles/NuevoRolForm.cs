@@ -14,11 +14,8 @@ namespace PalcoNet.Forms
 {
     public partial class NuevoRolForm : Form
     {
-        DataGridView DataGrid;
-
-        public NuevoRolForm(DataGridView dataGrid) {
+        public NuevoRolForm() {
             InitializeComponent();
-            DataGrid = dataGrid;
             AgregarEventosValidacion();
         }
 
@@ -41,16 +38,19 @@ namespace PalcoNet.Forms
 
                 context.Entry(rol).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
-                //((RolesForm)Owner).ActualizarColor(rol);
-                DataGrid.DataSource = context.Rol.ToList();
             }
-
+            ((RolesForm)Owner).ActualizarGrid();
             this.Close();           
         }
 
         private void AgregarEventosValidacion() {
             var ep = new ValidadorCampos(this);
             ep.AgregarCampo(boxNombre, ValidadorCampos.TipoValidacion.NotNull);
+        }
+
+        private void botonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
