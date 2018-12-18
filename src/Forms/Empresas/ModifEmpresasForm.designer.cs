@@ -58,10 +58,10 @@
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.botonBajaUsuario = new System.Windows.Forms.Button();
             this.botonContraseña = new System.Windows.Forms.Button();
             this.boxUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.botonBajaUsuario = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -360,6 +360,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuario vinculado";
             // 
+            // botonBajaUsuario
+            // 
+            this.botonBajaUsuario.Enabled = false;
+            this.botonBajaUsuario.Location = new System.Drawing.Point(20, 94);
+            this.botonBajaUsuario.Name = "botonBajaUsuario";
+            this.botonBajaUsuario.Size = new System.Drawing.Size(227, 23);
+            this.botonBajaUsuario.TabIndex = 53;
+            this.botonBajaUsuario.Text = "Dar de baja usuario";
+            this.botonBajaUsuario.UseVisualStyleBackColor = true;
+            this.botonBajaUsuario.Click += new System.EventHandler(this.botonBajaUsuario_Click);
+            // 
             // botonContraseña
             // 
             this.botonContraseña.Enabled = false;
@@ -388,17 +399,6 @@
             this.label3.TabIndex = 30;
             this.label3.Text = "Usuario";
             // 
-            // botonBajaUsuario
-            // 
-            this.botonBajaUsuario.Enabled = false;
-            this.botonBajaUsuario.Location = new System.Drawing.Point(20, 94);
-            this.botonBajaUsuario.Name = "botonBajaUsuario";
-            this.botonBajaUsuario.Size = new System.Drawing.Size(227, 23);
-            this.botonBajaUsuario.TabIndex = 53;
-            this.botonBajaUsuario.Text = "Dar de baja usuario";
-            this.botonBajaUsuario.UseVisualStyleBackColor = true;
-            this.botonBajaUsuario.Click += new System.EventHandler(this.botonBajaUsuario_Click);
-            // 
             // ModifEmpresasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +412,8 @@
             this.Controls.Add(this.botonGuardar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ModifEmpresasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Modificar Empresa";

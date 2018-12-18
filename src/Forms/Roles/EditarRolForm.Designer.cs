@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
             this.boxCodigo = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
-            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +52,13 @@
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Funcionalidades";
+            // 
+            // listaFuncionalidades
+            // 
+            this.listaFuncionalidades.Location = new System.Drawing.Point(14, 24);
+            this.listaFuncionalidades.Name = "listaFuncionalidades";
+            this.listaFuncionalidades.Size = new System.Drawing.Size(196, 190);
+            this.listaFuncionalidades.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -69,6 +76,16 @@
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Rol";
+            // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(76, 54);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(152, 20);
+            this.boxNombre.TabIndex = 43;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // botonGuardar
             // 
@@ -130,23 +147,6 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "Nombre";
             // 
-            // listaFuncionalidades
-            // 
-            this.listaFuncionalidades.Location = new System.Drawing.Point(14, 24);
-            this.listaFuncionalidades.Name = "listaFuncionalidades";
-            this.listaFuncionalidades.Size = new System.Drawing.Size(196, 190);
-            this.listaFuncionalidades.TabIndex = 0;
-            // 
-            // boxNombre
-            // 
-            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
-            this.boxNombre.Location = new System.Drawing.Point(76, 54);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNombre.Size = new System.Drawing.Size(152, 20);
-            this.boxNombre.TabIndex = 43;
-            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
             // EditarRolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +154,8 @@
             this.ClientSize = new System.Drawing.Size(484, 249);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EditarRolForm";
             this.Text = "[PalcoNet] - Editar Rol";
             this.groupBox2.ResumeLayout(false);

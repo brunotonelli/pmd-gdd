@@ -182,6 +182,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.boxServidor);
             this.Controls.Add(this.botonArchivo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ConfiguracionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "[PalcoNet] - Configuracion";

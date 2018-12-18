@@ -511,6 +511,8 @@
             this.Controls.Add(this.boxFecha);
             this.Controls.Add(this.botonGuardar);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EditarPublicacionForm";
             this.Text = "[PalcoNet] - Editar Publicacion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditarPublicacionForm_FormClosed);

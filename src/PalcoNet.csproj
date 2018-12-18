@@ -372,12 +372,6 @@
     <Compile Include="Forms\Roles\RolesForm.Designer.cs">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rubros\RubrosForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rubros\RubrosForm.Designer.cs">
-      <DependentUpon>RubrosForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\ComprasEstadistico.cs" />
     <Compile Include="Model\ConfigModel.cs" />
     <Compile Include="Model\EmpEstadistico.cs" />
@@ -475,9 +469,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Roles\RolesForm.pa-Guru.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rubros\RubrosForm.resx">
-      <DependentUpon>RubrosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuario\CambiarContraseñaAdmin.resx">
       <DependentUpon>CambiarContraseñaAdmin.cs</DependentUpon>

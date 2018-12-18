@@ -37,6 +37,7 @@ namespace PalcoNet.Forms
                             where p.Publicacion_Estado == 2
                             && p.Publicacion_Fecha >= Configuracion.FechaActual
                             && p.Publicacion_Fecha_Espectaculo >= Configuracion.FechaActual
+                            orderby p.Grado_Publicacion.Grado_Comision descending
                             select new PublicacionModel
                             {
                                 ID = p.Publicacion_ID,
@@ -46,8 +47,7 @@ namespace PalcoNet.Forms
                                 FechaPublicacion = p.Publicacion_Fecha,
                                 Empresa = emp.Espec_Empresa_Razon_Social,
                                 Localidades = p.Publicacion_Localidades ?? 0
-                            })
-                 .OrderBy(p => p.ID);
+                            });
                 if (!usarFiltros)
                 {
                     Cantidad = list.Count() / tamaño + 1;
@@ -58,7 +58,7 @@ namespace PalcoNet.Forms
                     var rubrosFiltro = listBoxRubros.CheckedItems.Cast<string>().ToList();
                     var ret = list
                        .Where(p => (p.Nombre.Contains(boxDescripcion.Text)
-                        && ((p.FechaPublicacion < boxFechaFinal.Value && boxFechaInicial.Value < p.FechaEspectaculo) || !usarFechas)
+                        && ((p.FechaEspectaculo < boxFechaFinal.Value && boxFechaInicial.Value < p.FechaEspectaculo) || !usarFechas)
                         && rubrosFiltro.Contains(p.Rubro)) || !usarFiltros);
                     Cantidad = ret.Count() / tamaño + 1;
                     return ret.ToPagedList(pagina, tamaño);

@@ -68,6 +68,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.boxRol);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SeleccionRolForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seleccionar Rol";

@@ -347,6 +347,8 @@
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.boxFormaPago);
             this.Controls.Add(this.boxFecha);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ConfirmarCompraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Confirmar compra";

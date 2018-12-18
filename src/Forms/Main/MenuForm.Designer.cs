@@ -247,7 +247,6 @@
             this.botonRubros.TabIndex = 3;
             this.botonRubros.Text = "ABM de Rubro";
             this.botonRubros.UseVisualStyleBackColor = true;
-            this.botonRubros.Click += new System.EventHandler(this.botonRubros_Click);
             // 
             // botonComisiones
             // 
@@ -312,6 +311,8 @@
             this.Controls.Add(this.labelRol);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] -  Menu";

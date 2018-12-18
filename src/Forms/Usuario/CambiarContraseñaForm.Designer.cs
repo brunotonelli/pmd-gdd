@@ -119,6 +119,8 @@
             this.Controls.Add(this.boxNueva);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.boxActual);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CambiarContraseñaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Cambiar PW";

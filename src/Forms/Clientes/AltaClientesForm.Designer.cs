@@ -37,7 +37,6 @@ namespace PalcoNet.Forms
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.boxTelefono = new System.Windows.Forms.TextBox();
@@ -57,16 +56,17 @@ namespace PalcoNet.Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boxCUIL = new System.Windows.Forms.TextBox();
             this.boxTipoDoc = new System.Windows.Forms.ComboBox();
-            this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
-            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.label1 = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.boxMail = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxNroDoc = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxApellido = new PalcoNet.Extensiones.TextBoxRequerido();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -168,16 +168,6 @@ namespace PalcoNet.Forms
             this.groupBox3.TabIndex = 52;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de contacto";
-            // 
-            // boxMail
-            // 
-            this.boxMail.BackColor = System.Drawing.Color.Tomato;
-            this.boxMail.Location = new System.Drawing.Point(84, 32);
-            this.boxMail.Name = "boxMail";
-            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
-            this.boxMail.Size = new System.Drawing.Size(150, 20);
-            this.boxMail.TabIndex = 28;
-            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label5
             // 
@@ -368,16 +358,6 @@ namespace PalcoNet.Forms
             this.boxTipoDoc.Size = new System.Drawing.Size(152, 21);
             this.boxTipoDoc.TabIndex = 39;
             // 
-            // boxNroDoc
-            // 
-            this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
-            this.boxNroDoc.Location = new System.Drawing.Point(84, 145);
-            this.boxNroDoc.Name = "boxNroDoc";
-            this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
-            this.boxNroDoc.TabIndex = 38;
-            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -395,26 +375,6 @@ namespace PalcoNet.Forms
             this.label15.Size = new System.Drawing.Size(76, 13);
             this.label15.TabIndex = 35;
             this.label15.Text = "* Tipo de Doc.";
-            // 
-            // boxApellido
-            // 
-            this.boxApellido.BackColor = System.Drawing.Color.Tomato;
-            this.boxApellido.Location = new System.Drawing.Point(84, 73);
-            this.boxApellido.Name = "boxApellido";
-            this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
-            this.boxApellido.Size = new System.Drawing.Size(150, 20);
-            this.boxApellido.TabIndex = 26;
-            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
-            // boxNombre
-            // 
-            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
-            this.boxNombre.Location = new System.Drawing.Point(84, 36);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNombre.Size = new System.Drawing.Size(150, 20);
-            this.boxNombre.TabIndex = 25;
-            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // label1
             // 
@@ -460,6 +420,46 @@ namespace PalcoNet.Forms
             this.label2.TabIndex = 3;
             this.label2.Text = "* Apellido";
             // 
+            // boxMail
+            // 
+            this.boxMail.BackColor = System.Drawing.Color.Tomato;
+            this.boxMail.Location = new System.Drawing.Point(84, 32);
+            this.boxMail.Name = "boxMail";
+            this.boxMail.Padding = new System.Windows.Forms.Padding(1);
+            this.boxMail.Size = new System.Drawing.Size(150, 20);
+            this.boxMail.TabIndex = 28;
+            this.boxMail.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
+            // boxNroDoc
+            // 
+            this.boxNroDoc.BackColor = System.Drawing.Color.Tomato;
+            this.boxNroDoc.Location = new System.Drawing.Point(84, 145);
+            this.boxNroDoc.Name = "boxNroDoc";
+            this.boxNroDoc.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNroDoc.Size = new System.Drawing.Size(150, 20);
+            this.boxNroDoc.TabIndex = 38;
+            this.boxNroDoc.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
+            // boxApellido
+            // 
+            this.boxApellido.BackColor = System.Drawing.Color.Tomato;
+            this.boxApellido.Location = new System.Drawing.Point(84, 73);
+            this.boxApellido.Name = "boxApellido";
+            this.boxApellido.Padding = new System.Windows.Forms.Padding(1);
+            this.boxApellido.Size = new System.Drawing.Size(150, 20);
+            this.boxApellido.TabIndex = 26;
+            this.boxApellido.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(84, 36);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(150, 20);
+            this.boxNombre.TabIndex = 25;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
+            // 
             // AltaClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +472,8 @@ namespace PalcoNet.Forms
             this.Controls.Add(this.label13);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AltaClientesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Nuevo Cliente";

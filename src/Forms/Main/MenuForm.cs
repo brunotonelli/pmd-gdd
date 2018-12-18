@@ -73,11 +73,6 @@ namespace PalcoNet.Forms
             new RolesForm().Show();
         }
 
-        private void botonRubros_Click(object sender, EventArgs e) {
-            this.Hide();
-            new RubrosForm().Show();
-        }
-
         private void botonGrados_Click(object sender, EventArgs e) {
             this.Hide();
             new GradosForm().Show();

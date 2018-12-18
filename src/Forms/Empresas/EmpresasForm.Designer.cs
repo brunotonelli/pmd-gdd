@@ -59,6 +59,7 @@
             // 
             // botonModificar
             // 
+            this.botonModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botonModificar.Enabled = false;
             this.botonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonModificar.Location = new System.Drawing.Point(380, 114);
@@ -71,6 +72,7 @@
             // 
             // botonEliminar
             // 
+            this.botonEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botonEliminar.Enabled = false;
             this.botonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonEliminar.Location = new System.Drawing.Point(379, 172);
@@ -83,6 +85,7 @@
             // 
             // botonNuevo
             // 
+            this.botonNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonNuevo.Location = new System.Drawing.Point(380, 55);
             this.botonNuevo.Name = "botonNuevo";
@@ -94,6 +97,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.botonLimpiar);
@@ -111,6 +116,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(75, 22);
             this.label2.Name = "label2";
@@ -120,6 +126,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(119, 87);
             this.label6.Name = "label6";
@@ -129,6 +136,7 @@
             // 
             // botonLimpiar
             // 
+            this.botonLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.botonLimpiar.Location = new System.Drawing.Point(95, 115);
             this.botonLimpiar.Name = "botonLimpiar";
             this.botonLimpiar.Size = new System.Drawing.Size(75, 23);
@@ -139,6 +147,7 @@
             // 
             // botonBuscar
             // 
+            this.botonBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.botonBuscar.Location = new System.Drawing.Point(190, 115);
             this.botonBuscar.Name = "botonBuscar";
             this.botonBuscar.Size = new System.Drawing.Size(75, 23);
@@ -149,6 +158,7 @@
             // 
             // boxFiltroMail
             // 
+            this.boxFiltroMail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.boxFiltroMail.Location = new System.Drawing.Point(151, 84);
             this.boxFiltroMail.Name = "boxFiltroMail";
             this.boxFiltroMail.Size = new System.Drawing.Size(100, 20);
@@ -156,6 +166,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(113, 54);
             this.label3.Name = "label3";
@@ -165,6 +176,7 @@
             // 
             // boxFiltroCUIT
             // 
+            this.boxFiltroCUIT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.boxFiltroCUIT.Location = new System.Drawing.Point(151, 51);
             this.boxFiltroCUIT.Name = "boxFiltroCUIT";
             this.boxFiltroCUIT.Size = new System.Drawing.Size(100, 20);
@@ -172,6 +184,7 @@
             // 
             // boxFiltroRazon
             // 
+            this.boxFiltroRazon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.boxFiltroRazon.Location = new System.Drawing.Point(151, 19);
             this.boxFiltroRazon.Name = "boxFiltroRazon";
             this.boxFiltroRazon.Size = new System.Drawing.Size(100, 20);
@@ -223,6 +236,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -236,6 +250,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Location = new System.Drawing.Point(-8, -3);
             this.pictureBox1.Name = "pictureBox1";

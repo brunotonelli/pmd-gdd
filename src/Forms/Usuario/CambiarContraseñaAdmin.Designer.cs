@@ -111,6 +111,8 @@
             this.Controls.Add(this.boxConfirmar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.boxNueva);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CambiarContraseñaAdmin";
             this.Text = "[PalcoNet] - Cambiar PW";
             this.ResumeLayout(false);

@@ -28,14 +28,14 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.botonGenerar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.botonVerFacturas = new System.Windows.Forms.Button();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espectaculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.compraModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.botonGenerar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.botonVerFacturas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compraModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -61,38 +61,6 @@
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(478, 186);
             this.dataGrid.TabIndex = 3;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // empresaDataGridViewTextBoxColumn
-            // 
-            this.empresaDataGridViewTextBoxColumn.DataPropertyName = "Empresa";
-            this.empresaDataGridViewTextBoxColumn.HeaderText = "Empresa";
-            this.empresaDataGridViewTextBoxColumn.Name = "empresaDataGridViewTextBoxColumn";
-            this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // espectaculoDataGridViewTextBoxColumn
-            // 
-            this.espectaculoDataGridViewTextBoxColumn.DataPropertyName = "Espectaculo";
-            this.espectaculoDataGridViewTextBoxColumn.HeaderText = "Espectaculo";
-            this.espectaculoDataGridViewTextBoxColumn.Name = "espectaculoDataGridViewTextBoxColumn";
-            this.espectaculoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // compraModelBindingSource
-            // 
-            this.compraModelBindingSource.DataSource = typeof(PalcoNet.Model.CompraModel);
             // 
             // botonGenerar
             // 
@@ -126,6 +94,38 @@
             this.botonVerFacturas.UseVisualStyleBackColor = true;
             this.botonVerFacturas.Click += new System.EventHandler(this.botonVerFacturas_Click);
             // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // empresaDataGridViewTextBoxColumn
+            // 
+            this.empresaDataGridViewTextBoxColumn.DataPropertyName = "Empresa";
+            this.empresaDataGridViewTextBoxColumn.HeaderText = "Empresa";
+            this.empresaDataGridViewTextBoxColumn.Name = "empresaDataGridViewTextBoxColumn";
+            this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // espectaculoDataGridViewTextBoxColumn
+            // 
+            this.espectaculoDataGridViewTextBoxColumn.DataPropertyName = "Espectaculo";
+            this.espectaculoDataGridViewTextBoxColumn.HeaderText = "Espectaculo";
+            this.espectaculoDataGridViewTextBoxColumn.Name = "espectaculoDataGridViewTextBoxColumn";
+            this.espectaculoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // compraModelBindingSource
+            // 
+            this.compraModelBindingSource.DataSource = typeof(PalcoNet.Model.CompraModel);
+            // 
             // ComisionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,6 +135,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.botonGenerar);
             this.Controls.Add(this.dataGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ComisionesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Generar rendicion de comisiones";

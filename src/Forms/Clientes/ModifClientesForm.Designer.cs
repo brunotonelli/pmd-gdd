@@ -69,8 +69,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.boxUsuario = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.botonContraseña = new System.Windows.Forms.Button();
             this.botonBajaUsuario = new System.Windows.Forms.Button();
+            this.botonContraseña = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -508,17 +508,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Usuario vinculado";
             // 
-            // botonContraseña
-            // 
-            this.botonContraseña.Enabled = false;
-            this.botonContraseña.Location = new System.Drawing.Point(20, 65);
-            this.botonContraseña.Name = "botonContraseña";
-            this.botonContraseña.Size = new System.Drawing.Size(214, 23);
-            this.botonContraseña.TabIndex = 51;
-            this.botonContraseña.Text = "Cambiarle contraseña";
-            this.botonContraseña.UseVisualStyleBackColor = true;
-            this.botonContraseña.Click += new System.EventHandler(this.botonContraseña_Click);
-            // 
             // botonBajaUsuario
             // 
             this.botonBajaUsuario.Enabled = false;
@@ -529,6 +518,17 @@
             this.botonBajaUsuario.Text = "Dar de baja usuario";
             this.botonBajaUsuario.UseVisualStyleBackColor = true;
             this.botonBajaUsuario.Click += new System.EventHandler(this.botonBajaUsuario_Click);
+            // 
+            // botonContraseña
+            // 
+            this.botonContraseña.Enabled = false;
+            this.botonContraseña.Location = new System.Drawing.Point(20, 65);
+            this.botonContraseña.Name = "botonContraseña";
+            this.botonContraseña.Size = new System.Drawing.Size(214, 23);
+            this.botonContraseña.TabIndex = 51;
+            this.botonContraseña.Text = "Cambiarle contraseña";
+            this.botonContraseña.UseVisualStyleBackColor = true;
+            this.botonContraseña.Click += new System.EventHandler(this.botonContraseña_Click);
             // 
             // ModifClientesForm
             // 
@@ -544,6 +544,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.botonGuardar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ModifClientesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Modificar Cliente";

@@ -34,20 +34,22 @@
             this.botonSiguiente = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.historialModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espectaculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.historialModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPagina
             // 
+            this.labelPagina.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPagina.Location = new System.Drawing.Point(151, 267);
+            this.labelPagina.Location = new System.Drawing.Point(151, 274);
             this.labelPagina.Name = "labelPagina";
             this.labelPagina.Size = new System.Drawing.Size(249, 34);
             this.labelPagina.TabIndex = 9;
@@ -56,9 +58,10 @@
             // 
             // botonAnterior
             // 
+            this.botonAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.botonAnterior.BackgroundImage = global::PalcoNet.Properties.Resources.flechaIzq;
             this.botonAnterior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonAnterior.Location = new System.Drawing.Point(70, 267);
+            this.botonAnterior.Location = new System.Drawing.Point(70, 274);
             this.botonAnterior.Name = "botonAnterior";
             this.botonAnterior.Size = new System.Drawing.Size(75, 36);
             this.botonAnterior.TabIndex = 8;
@@ -67,9 +70,10 @@
             // 
             // botonSiguiente
             // 
+            this.botonSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.botonSiguiente.BackgroundImage = global::PalcoNet.Properties.Resources.flechaDer;
             this.botonSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.botonSiguiente.Location = new System.Drawing.Point(406, 267);
+            this.botonSiguiente.Location = new System.Drawing.Point(406, 274);
             this.botonSiguiente.Name = "botonSiguiente";
             this.botonSiguiente.Size = new System.Drawing.Size(75, 36);
             this.botonSiguiente.TabIndex = 7;
@@ -91,6 +95,9 @@
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToResizeRows = false;
+            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid.AutoGenerateColumns = false;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -101,7 +108,7 @@
             this.totalDataGridViewTextBoxColumn,
             this.formaPagoDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.historialModelBindingSource;
-            this.dataGrid.Location = new System.Drawing.Point(16, 35);
+            this.dataGrid.Location = new System.Drawing.Point(16, 40);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -111,6 +118,10 @@
             this.dataGrid.Size = new System.Drawing.Size(505, 219);
             this.dataGrid.TabIndex = 2;
             this.dataGrid.SelectionChanged += new System.EventHandler(this.dataGrid_SelectionChanged);
+            // 
+            // historialModelBindingSource
+            // 
+            this.historialModelBindingSource.DataSource = typeof(PalcoNet.Model.HistorialModel);
             // 
             // fechaDataGridViewTextBoxColumn
             // 
@@ -142,14 +153,10 @@
             // 
             // formaPagoDataGridViewTextBoxColumn
             // 
-            this.formaPagoDataGridViewTextBoxColumn.DataPropertyName = "FormaPago";
+            this.formaPagoDataGridViewTextBoxColumn.DataPropertyName = "Forma Pago";
             this.formaPagoDataGridViewTextBoxColumn.HeaderText = "FormaPago";
             this.formaPagoDataGridViewTextBoxColumn.Name = "formaPagoDataGridViewTextBoxColumn";
             this.formaPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // historialModelBindingSource
-            // 
-            this.historialModelBindingSource.DataSource = typeof(PalcoNet.Model.HistorialModel);
             // 
             // HistorialComprasForm
             // 

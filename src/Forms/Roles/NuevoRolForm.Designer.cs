@@ -29,6 +29,7 @@ namespace PalcoNet.Forms
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.botonCrear = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.checkHabilitado = new System.Windows.Forms.CheckBox();
@@ -37,7 +38,6 @@ namespace PalcoNet.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listaFuncionalidades = new PalcoNet.Extensiones.ListaFuncionalidades();
-            this.boxNombre = new PalcoNet.Extensiones.TextBoxRequerido();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,16 @@ namespace PalcoNet.Forms
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Rol";
+            // 
+            // boxNombre
+            // 
+            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
+            this.boxNombre.Location = new System.Drawing.Point(76, 54);
+            this.boxNombre.Name = "boxNombre";
+            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
+            this.boxNombre.Size = new System.Drawing.Size(152, 20);
+            this.boxNombre.TabIndex = 42;
+            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
             // 
             // botonCrear
             // 
@@ -137,16 +147,6 @@ namespace PalcoNet.Forms
             this.listaFuncionalidades.Size = new System.Drawing.Size(196, 190);
             this.listaFuncionalidades.TabIndex = 0;
             // 
-            // boxNombre
-            // 
-            this.boxNombre.BackColor = System.Drawing.Color.Tomato;
-            this.boxNombre.Location = new System.Drawing.Point(76, 54);
-            this.boxNombre.Name = "boxNombre";
-            this.boxNombre.Padding = new System.Windows.Forms.Padding(1);
-            this.boxNombre.Size = new System.Drawing.Size(152, 20);
-            this.boxNombre.TabIndex = 42;
-            this.boxNombre.TipoTextbox = PalcoNet.Extensiones.TextBoxRequerido.Tipo.Normal;
-            // 
             // NuevoRolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +154,8 @@ namespace PalcoNet.Forms
             this.ClientSize = new System.Drawing.Size(487, 250);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "NuevoRolForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[PalcoNet] - Nuevo Rol";
