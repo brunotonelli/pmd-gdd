@@ -45,7 +45,7 @@ namespace PalcoNet.Forms
             else //soy una empresa
             {
                 var cuit = Sesion.Empresa.Espec_Empresa_Cuit;
-                Publicaciones = query.Where(p => p.Empresa == cuit).ToList();
+                Publicaciones = query.ToList().Where(p => p.Empresa == cuit).ToList();
             }
             publicacionModelBindingSource.DataSource =
                 Publicaciones.OrderByDescending(p => p.FechaPublicacion);

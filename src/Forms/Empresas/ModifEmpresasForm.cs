@@ -96,13 +96,14 @@ namespace PalcoNet.Forms
             if (!existeRazon && cuitValido)
             {
                 BindearDatos();
-                //var empresa = Context.Espec_Empresa.Single(em => em.Espec_Empresa_Cuit == Cuit);
-
-                //Context.Entry(empresa).CurrentValues.SetValues(Seleccionado);
-                Context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
-                Context.SaveChanges();
-                if (Owner != null)
-                    ((EmpresasForm)Owner).ActualizarColor(Seleccionado);
+                using (var context = new GD2C2018Entities())
+                {
+                    var empresa = context.Espec_Empresa.Single(em => em.Espec_Empresa_Cuit == Seleccionado.Espec_Empresa_Cuit);
+                    context.Entry(empresa).CurrentValues.SetValues(Seleccionado);
+                    context.SaveChanges();
+                    if (Owner != null)
+                        ((EmpresasForm)Owner).ActualizarColor(Seleccionado);
+                }
                 this.Close();
             }
         }
