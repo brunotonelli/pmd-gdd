@@ -52,8 +52,9 @@ namespace PalcoNet.Forms
             if (c.Usuario != null)
             {
                 boxUsuario.Text = c.Usuario.Usuario_Username;
-                botonContraseña.Enabled = true;
-                botonBajaUsuario.Enabled = true;
+                var hab = c.Usuario.Usuario_Habilitado ?? true;
+                botonContraseña.Enabled = hab;
+                botonBajaUsuario.Enabled = hab;
             }
         }
 

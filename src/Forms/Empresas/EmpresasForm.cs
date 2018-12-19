@@ -31,7 +31,7 @@ namespace PalcoNet.Forms
         }
 
         private void botonNuevo_Click(object sender, EventArgs e){
-            new AltaEmpresaForm(Context).Show();
+            new AltaEmpresaForm(Context).Show(this);
         }
 
         public void ActualizarGrid()
