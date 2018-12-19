@@ -50,8 +50,7 @@ namespace PalcoNet.Forms
             }
             publicacionModelBindingSource.DataSource =
                 Publicaciones.OrderByDescending(p => p.FechaPublicacion);
-            if (Publicaciones.Count() > 0)
-                botonEditar.Enabled = true;
+            botonEditar.Enabled = Publicaciones.Count() > 0;
         }
 
         private void botonEditar_Click(object sender, EventArgs e) {

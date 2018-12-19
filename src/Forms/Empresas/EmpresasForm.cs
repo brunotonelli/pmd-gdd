@@ -55,14 +55,10 @@ namespace PalcoNet.Forms
         }
 
         private void BorrarEmpresa() {
-            using (var context = new GD2C2018Entities())
-            {
-                Seleccionado.Espec_Empresa_Habilitado = false;
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
-                context.SaveChanges();
-                ActualizarColor(Seleccionado);
-                //dataGrid.DataSource = especEmpresaBindingSource;
-            }
+            Seleccionado.Espec_Empresa_Habilitado = false;
+            Context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
+            Context.SaveChanges();
+            ActualizarColor(Seleccionado);
         }
 
         private void botonBuscar_Click(object sender, EventArgs e) {
