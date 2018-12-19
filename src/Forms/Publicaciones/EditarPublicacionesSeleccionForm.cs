@@ -38,7 +38,8 @@ namespace PalcoNet.Forms
                             ID = p.Publicacion_ID,
                             FechaEspectaculo = p.Publicacion_Fecha_Espectaculo,
                             FechaPublicacion = p.Publicacion_Fecha,
-                            Nombre = e.Espectaculo_Descripcion
+                            Nombre = e.Espectaculo_Descripcion,
+                            Empresa = p.Publicacion_Empresa
                         };
             if (MostrarTodas)
                 Publicaciones = query.ToList();
