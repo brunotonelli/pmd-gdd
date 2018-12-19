@@ -102,7 +102,8 @@ namespace PalcoNet.Forms
                     var cliente = context.Cliente.Single(c => c.Cli_Nro_Doc == Documento && c.Cli_Tipo_Doc == TipoDocumento);
                     context.Entry(cliente).CurrentValues.SetValues(Seleccionado);
                     context.SaveChanges();
-                    ((ClientesForm)Owner).ActualizarColor(Seleccionado);
+                    if (Owner != null)
+                        ((ClientesForm)Owner).ActualizarColor(Seleccionado);
                 }
                 this.Close();
             }

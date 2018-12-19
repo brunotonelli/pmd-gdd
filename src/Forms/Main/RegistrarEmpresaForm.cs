@@ -88,6 +88,7 @@ namespace PalcoNet.Forms
                 MessageBox.Show("Usuario creado con éxito!", "Registro de usuario");
                 Sesion.LogIn(usuario, rol);
                 var menu = MenuForm.ObtenerInstancia(rol);
+                FormsEstaticos.Principal.Hide();
                 this.Close();
                 menu.Show();
             }

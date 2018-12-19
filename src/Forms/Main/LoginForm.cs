@@ -45,6 +45,9 @@ namespace PalcoNet.Forms
                     else
                     {
                         MessageBox.Show("Su usuario fue autogenerado, debe cambiar la contraseña EN ESTA SESIÓN");
+                        var rol = usuario.Rol.First();
+                        Sesion.LogIn(usuario, rol);
+                        MenuForm.ObtenerInstancia(rol); //cargo menu
                         new CuentaForm().Show();
                     }
                 }

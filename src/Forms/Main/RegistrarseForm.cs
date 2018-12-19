@@ -24,6 +24,7 @@ namespace PalcoNet.Forms
                 new RegistrarEmpresaForm().Show();
             else
                 MessageBox.Show("Las empresas (el rol) fue deshabilitado.\nContacte a un admin para resolver el problema");
+            this.Close();
         }
 
         private void botonCliente_Click(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace PalcoNet.Forms
                 new RegistrarClienteForm().Show();
             else
                 MessageBox.Show("Los clientes (el rol) fue deshabilitado.\nContacte a un admin para resolver el problema");
+            this.Close();
         }
 
         private void botonSalir_Click(object sender, EventArgs e)

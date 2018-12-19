@@ -15,13 +15,23 @@ namespace PalcoNet.Forms
     {
         private int id;
         private Grado_Publicacion Seleccionado;
+        GD2C2018Entities Context;
 
-        public ModificacionGradoForm(Grado_Publicacion grado)
+        public ModificacionGradoForm(Grado_Publicacion grado, GD2C2018Entities context)
         {
+            Context = context;
             InitializeComponent();
             Seleccionado = grado;
             id = grado.Grado_ID;
             AgregarEventosValidacion();
+            CargarCampos();
+        }
+
+        private void CargarCampos()
+        {
+            boxNombre.Text = Seleccionado.Grado_Nombre;
+            boxComision.Text = Seleccionado.Grado_Comision.ToString();
+            checkHabilitado.Checked = Seleccionado.Grado_Habilitado ?? true;
         }
 
         private void BindearDatos() {
@@ -38,13 +48,10 @@ namespace PalcoNet.Forms
         private void botonGuardar_Click(object sender, EventArgs e)
         {
             BindearDatos();
-            using (var context = new GD2C2018Entities())
-            {
-                var grado = context.Grado_Publicacion.Single(c => c.Grado_ID == id);
-                context.Entry(grado).CurrentValues.SetValues(Seleccionado);
-                context.SaveChanges();
-                ((GradosForm)Owner).ActualizarColor(grado);
-            }
+            var grado = Context.Grado_Publicacion.Single(c => c.Grado_ID == id);
+            Context.Entry(grado).CurrentValues.SetValues(Seleccionado);
+            Context.SaveChanges();
+            ((GradosForm)Owner).ActualizarColor(grado);
             this.Close();
         }
 

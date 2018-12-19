@@ -93,6 +93,7 @@ namespace PalcoNet.Forms
                 Sesion.LogIn(usuario, rol);
                 var menu = MenuForm.ObtenerInstancia(Sesion.Rol);
                 this.Close();
+                FormsEstaticos.Principal.Hide();
                 menu.Show();
             }
         }

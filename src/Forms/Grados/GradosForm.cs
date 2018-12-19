@@ -15,24 +15,20 @@ namespace PalcoNet.Forms
         private int id;
         private Grado_Publicacion Seleccionado;
         private DataGridViewRow FilaSeleccionada;
+        GD2C2018Entities Context = new GD2C2018Entities();
 
         public GradosForm() {
             InitializeComponent();
-
-            using (var context = new GD2C2018Entities())
-            {
-                gradoPublicacionBindingSource.DataSource = context.Grado_Publicacion.ToList();
-            }
-
+            ActualizarGrid();
         }
 
         private void botonNuevo_Click(object sender, EventArgs e)
         {
-            new AltaGrado(datagrid).Show();
+            new AltaGrado(Context).Show(this);
         }
         private void botonModificar_Click(object sender, EventArgs e)
         {
-            new ModificacionGradoForm(Seleccionado).Show(this);
+            new ModificacionGradoForm(Seleccionado, Context).Show(this);
             FilaSeleccionada = datagrid.SelectedRows[0];
         }
         private void botonEliminar_Click(object sender, EventArgs e)
@@ -48,33 +44,12 @@ namespace PalcoNet.Forms
 
         private void BorrarGrado()
         {
-            using (var context = new GD2C2018Entities())
-            {
-                Seleccionado.Grado_Habilitado = false;
-                context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
-                context.SaveChanges();
-                ActualizarColor(Seleccionado);
-                //datagrid.DataSource = gradoPublicacionBindingSource;
-            }
+            Seleccionado.Grado_Habilitado = false;
+            Context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
+            Context.SaveChanges();
+            ActualizarColor(Seleccionado);
         }
-
-        private void botonBuscar_Click(object sender, EventArgs e)
-        {
-            using (var context = new GD2C2018Entities())
-            {
-                var query = from grado in context.Grado_Publicacion
-                            where grado.Grado_Nombre.Contains(boxFiltroNombre.Text)
-                            select grado;
-                gradoPublicacionBindingSource.DataSource = query.ToList();
-            }
-        }
-
-        private void botonLimpiar_Click(object sender, EventArgs e)
-        {
-            boxFiltroNombre.Text = "";
-        }
-
-
+        
         private void datagrid_SelectionChanged_1(object sender, EventArgs e)
         {
             if (datagrid.SelectedRows.Count > 0)
@@ -105,14 +80,9 @@ namespace PalcoNet.Forms
             MenuForm.ObtenerInstancia().Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void ActualizarGrid()
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            gradoPublicacionBindingSource.DataSource = Context.Grado_Publicacion.ToList();
         }
     }
 }

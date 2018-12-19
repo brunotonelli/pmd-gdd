@@ -13,12 +13,13 @@ namespace PalcoNet.Forms
 {
     public partial class AltaGrado : Form
     {
-        DataGridView DataGrid;
         private Grado_Publicacion Nuevo = new Grado_Publicacion();
-        public AltaGrado(DataGridView dataGrid)
+        GD2C2018Entities Context;
+
+        public AltaGrado(GD2C2018Entities context)
         {
+            Context = context;
             InitializeComponent();
-            DataGrid = dataGrid;
             AgregarEventosValidacion();
 
         }
@@ -26,13 +27,10 @@ namespace PalcoNet.Forms
         private void botonGuardar_Click(object sender, EventArgs e)
         {
             BindearDatos();
-            using (var context = new GD2C2018Entities() )
-            {
-                Nuevo.Grado_Habilitado = true;
-                context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
-                context.SaveChanges();
-                DataGrid.DataSource = context.Grado_Publicacion.ToList();
-            }
+            Nuevo.Grado_Habilitado = true;
+            Context.Entry(Nuevo).State = System.Data.Entity.EntityState.Added;
+            Context.SaveChanges();
+            ((GradosForm)Owner).ActualizarGrid();
             this.Close();
         }
 

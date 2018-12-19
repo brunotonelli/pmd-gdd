@@ -129,8 +129,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(237, 169);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.botonIniciar);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.checkMostrar);
             this.Controls.Add(this.label2);

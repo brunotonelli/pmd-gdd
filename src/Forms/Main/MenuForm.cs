@@ -36,7 +36,7 @@ namespace PalcoNet.Forms
         public static MenuForm ObtenerInstancia()
         {
             if(singleton == null){
-                throw new Exception("ERROR 905: CHINGASTE LA WEA");
+                throw new Exception("error de menu");
             }
             return singleton;
         }

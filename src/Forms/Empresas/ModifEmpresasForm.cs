@@ -100,7 +100,8 @@ namespace PalcoNet.Forms
                 //Context.Entry(empresa).CurrentValues.SetValues(Seleccionado);
                 Context.Entry(Seleccionado).State = System.Data.Entity.EntityState.Modified;
                 Context.SaveChanges();
-                ((EmpresasForm)Owner).ActualizarColor(Seleccionado);
+                if (Owner != null)
+                    ((EmpresasForm)Owner).ActualizarColor(Seleccionado);
                 this.Close();
             }
         }
