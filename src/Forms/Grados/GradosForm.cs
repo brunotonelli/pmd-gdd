@@ -12,7 +12,6 @@ namespace PalcoNet.Forms
 {
     public partial class GradosForm : Form
     {
-        private int id;
         private Grado_Publicacion Seleccionado;
         private DataGridViewRow FilaSeleccionada;
         GD2C2018Entities Context = new GD2C2018Entities();

@@ -19,7 +19,6 @@ namespace PalcoNet.Forms
     {
         GD2C2018Entities Context;
         private Espec_Empresa Seleccionado;
-        private Usuario UsuarioEmpresa;
         private string Cuit;
 
         public ModifEmpresasForm(Espec_Empresa empresa, GD2C2018Entities context)
