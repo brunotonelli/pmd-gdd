@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="GD2C2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GD2C2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Cli_Nro_Doc" />
@@ -326,6 +326,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Item_Factura_Compra">
+          <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
+          <End Role="Item_Factura" Type="Self.Item_Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compra">
+              <PropertyRef Name="Compra_ID" />
+            </Principal>
+            <Dependent Role="Item_Factura">
+              <PropertyRef Name="Item_Factura_Compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Item_Factura_Factura">
           <End Role="Factura" Type="Self.Factura" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -545,6 +557,10 @@
             <End Role="Rol" EntitySet="Rol" />
             <End Role="Func_Rol" EntitySet="Func_Rol" />
           </AssociationSet>
+          <AssociationSet Name="FK_Item_Factura_Compra" Association="Self.FK_Item_Factura_Compra">
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Item_Factura" EntitySet="Item_Factura" />
+          </AssociationSet>
           <AssociationSet Name="FK_Item_Factura_Factura" Association="Self.FK_Item_Factura_Factura">
             <End Role="Factura" EntitySet="Factura" />
             <End Role="Item_Factura" EntitySet="Item_Factura" />
@@ -602,7 +618,6 @@
           <EntitySet Name="Factura" EntityType="GD2C2018Model.Factura" />
           <EntitySet Name="Funcionalidad" EntityType="GD2C2018Model.Funcionalidad" />
           <EntitySet Name="Grado_Publicacion" EntityType="GD2C2018Model.Grado_Publicacion" />
-          <EntitySet Name="Item_Factura" EntityType="GD2C2018Model.Item_Factura" />
           <EntitySet Name="Premio" EntityType="GD2C2018Model.Premio" />
           <EntitySet Name="Premio_X_Cliente" EntityType="GD2C2018Model.Premio_X_Cliente" />
           <EntitySet Name="Publicacion" EntityType="GD2C2018Model.Publicacion" />
@@ -643,10 +658,6 @@
             <End Role="Publicacion" EntitySet="Publicacion" />
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
-          <AssociationSet Name="FK_Item_Factura_Factura" Association="GD2C2018Model.FK_Item_Factura_Factura">
-            <End Role="Factura" EntitySet="Factura" />
-            <End Role="Item_Factura" EntitySet="Item_Factura" />
-          </AssociationSet>
           <AssociationSet Name="FK_Publicacion_Grado" Association="GD2C2018Model.FK_Publicacion_Grado">
             <End Role="Grado_Publicacion" EntitySet="Grado_Publicacion" />
             <End Role="Publicacion" EntitySet="Publicacion" />
@@ -668,6 +679,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
           <EntitySet Name="Compra" EntityType="GD2C2018Model.Compra" />
+          <EntitySet Name="Item_Factura" EntityType="GD2C2018Model.Item_Factura" />
           <AssociationSet Name="FK_Compra_Cliente" Association="GD2C2018Model.FK_Compra_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Compra" EntitySet="Compra" />
@@ -676,11 +688,19 @@
             <End Role="Publicacion" EntitySet="Publicacion" />
             <End Role="Compra" EntitySet="Compra" />
           </AssociationSet>
+          <AssociationSet Name="FK_Item_Factura_Compra" Association="GD2C2018Model.FK_Item_Factura_Compra">
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Item_Factura" EntitySet="Item_Factura" />
+          </AssociationSet>
           <AssociationSet Name="FK_Ubicacion_Compra" Association="GD2C2018Model.FK_Ubicacion_Compra">
             <End Role="Compra" EntitySet="Compra" />
             <End Role="Ubicacion" EntitySet="Ubicacion" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_Item_Factura_Factura" Association="GD2C2018Model.FK_Item_Factura_Factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="Item_Factura" EntitySet="Item_Factura" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Cli_Nro_Doc" />
@@ -777,19 +797,6 @@
           <Property Name="Grado_Comision" Type="Decimal" Precision="10" Scale="4" />
           <Property Name="Grado_Habilitado" Type="Boolean" />
           <NavigationProperty Name="Publicacion" Relationship="GD2C2018Model.FK_Publicacion_Grado" FromRole="Grado_Publicacion" ToRole="Publicacion" />
-        </EntityType>
-        <EntityType Name="Item_Factura">
-          <Key>
-            <PropertyRef Name="Item_Factura_ID" />
-            <PropertyRef Name="Item_Factura_Factura" />
-          </Key>
-          <Property Name="Item_Factura_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Item_Factura_Factura" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Item_Factura_Monto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Item_Factura_Cantidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Item_Factura_Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="Item_Factura_Compra" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <NavigationProperty Name="Factura" Relationship="GD2C2018Model.FK_Item_Factura_Factura" FromRole="Item_Factura" ToRole="Factura" />
         </EntityType>
         <EntityType Name="Premio">
           <Key>
@@ -1003,20 +1010,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Item_Factura_Factura">
-          <End Type="GD2C2018Model.Factura" Role="Factura" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="GD2C2018Model.Item_Factura" Role="Item_Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Factura">
-              <PropertyRef Name="Factura_Nro" />
-            </Principal>
-            <Dependent Role="Item_Factura">
-              <PropertyRef Name="Item_Factura_Factura" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Publicacion_Grado">
           <End Type="GD2C2018Model.Grado_Publicacion" Role="Grado_Publicacion" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1082,7 +1075,22 @@
           <Property Name="Compra_Facturada" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="GD2C2018Model.FK_Compra_Cliente" FromRole="Compra" ToRole="Cliente" />
           <NavigationProperty Name="Publicacion" Relationship="GD2C2018Model.FK_Compra_Publicacion" FromRole="Compra" ToRole="Publicacion" />
+          <NavigationProperty Name="Item_Factura" Relationship="GD2C2018Model.FK_Item_Factura_Compra" FromRole="Compra" ToRole="Item_Factura" />
           <NavigationProperty Name="Ubicacion" Relationship="GD2C2018Model.FK_Ubicacion_Compra" FromRole="Compra" ToRole="Ubicacion" />
+        </EntityType>
+        <EntityType Name="Item_Factura">
+          <Key>
+            <PropertyRef Name="Item_Factura_ID" />
+            <PropertyRef Name="Item_Factura_Factura" />
+          </Key>
+          <Property Name="Item_Factura_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item_Factura_Factura" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Item_Factura_Monto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Item_Factura_Cantidad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Item_Factura_Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Item_Factura_Compra" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Compra" Relationship="GD2C2018Model.FK_Item_Factura_Compra" FromRole="Item_Factura" ToRole="Compra" />
+          <NavigationProperty Name="Factura" Relationship="GD2C2018Model.FK_Item_Factura_Factura" FromRole="Item_Factura" ToRole="Factura" />
         </EntityType>
         <Association Name="FK_Compra_Cliente">
           <End Type="GD2C2018Model.Cliente" Role="Cliente" Multiplicity="1">
@@ -1114,6 +1122,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Item_Factura_Compra">
+          <End Type="GD2C2018Model.Compra" Role="Compra" Multiplicity="1" />
+          <End Type="GD2C2018Model.Item_Factura" Role="Item_Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compra">
+              <PropertyRef Name="Compra_ID" />
+            </Principal>
+            <Dependent Role="Item_Factura">
+              <PropertyRef Name="Item_Factura_Compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Ubicacion_Compra">
           <End Type="GD2C2018Model.Compra" Role="Compra" Multiplicity="0..1" />
           <End Type="GD2C2018Model.Ubicacion" Role="Ubicacion" Multiplicity="*" />
@@ -1126,7 +1146,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK_Item_Factura_Factura">
+          <End Type="GD2C2018Model.Factura" Role="Factura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GD2C2018Model.Item_Factura" Role="Item_Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Factura_Nro" />
+            </Principal>
+            <Dependent Role="Item_Factura">
+              <PropertyRef Name="Item_Factura_Factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1220,18 +1254,6 @@
                 <ScalarProperty Name="Grado_Comision" ColumnName="Grado_Comision" />
                 <ScalarProperty Name="Grado_Nombre" ColumnName="Grado_Nombre" />
                 <ScalarProperty Name="Grado_ID" ColumnName="Grado_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Item_Factura">
-            <EntityTypeMapping TypeName="GD2C2018Model.Item_Factura">
-              <MappingFragment StoreEntitySet="Item_Factura">
-                <ScalarProperty Name="Item_Factura_Compra" ColumnName="Item_Factura_Compra" />
-                <ScalarProperty Name="Item_Factura_Descripcion" ColumnName="Item_Factura_Descripcion" />
-                <ScalarProperty Name="Item_Factura_Cantidad" ColumnName="Item_Factura_Cantidad" />
-                <ScalarProperty Name="Item_Factura_Monto" ColumnName="Item_Factura_Monto" />
-                <ScalarProperty Name="Item_Factura_Factura" ColumnName="Item_Factura_Factura" />
-                <ScalarProperty Name="Item_Factura_ID" ColumnName="Item_Factura_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1352,6 +1374,18 @@
                 <ScalarProperty Name="Compra_Cantidad" ColumnName="Compra_Cantidad" />
                 <ScalarProperty Name="Compra_Fecha" ColumnName="Compra_Fecha" />
                 <ScalarProperty Name="Compra_ID" ColumnName="Compra_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_Factura">
+            <EntityTypeMapping TypeName="GD2C2018Model.Item_Factura">
+              <MappingFragment StoreEntitySet="Item_Factura">
+                <ScalarProperty Name="Item_Factura_Compra" ColumnName="Item_Factura_Compra" />
+                <ScalarProperty Name="Item_Factura_Descripcion" ColumnName="Item_Factura_Descripcion" />
+                <ScalarProperty Name="Item_Factura_Cantidad" ColumnName="Item_Factura_Cantidad" />
+                <ScalarProperty Name="Item_Factura_Monto" ColumnName="Item_Factura_Monto" />
+                <ScalarProperty Name="Item_Factura_Factura" ColumnName="Item_Factura_Factura" />
+                <ScalarProperty Name="Item_Factura_ID" ColumnName="Item_Factura_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

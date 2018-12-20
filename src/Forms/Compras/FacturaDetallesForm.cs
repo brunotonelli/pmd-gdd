@@ -44,7 +44,7 @@ namespace PalcoNet.Forms
             labelFecha.Text = Factura.Factura_Fecha.Value.ToShortDateString();
             var items = GetItems();
             itemModelBindingSource.DataSource = items;
-            labelTotal.Text = "$ " + items.Sum(i => i.Precio).ToString();
+            labelTotal.Text = "$ " + Factura.Factura_Total;
         }
 
         private List<ItemModel> GetItems() {
@@ -54,7 +54,8 @@ namespace PalcoNet.Forms
                                  where i.Item_Factura_Factura == Factura.Factura_Nro
                                  select new ItemModel
                                  {
-                                     Concepto = i.Item_Factura_Descripcion,
+                                     Descripcion = i.Item_Factura_Descripcion,
+                                     MontoCompra = i.Compra.Compra_Total,
                                      PrecioString = "- " + i.Item_Factura_Monto,
                                      Precio = i.Item_Factura_Monto
                                  };

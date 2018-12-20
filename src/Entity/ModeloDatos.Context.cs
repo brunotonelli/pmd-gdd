@@ -32,7 +32,6 @@ namespace PalcoNet
         public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<Funcionalidad> Funcionalidad { get; set; }
         public virtual DbSet<Grado_Publicacion> Grado_Publicacion { get; set; }
-        public virtual DbSet<Item_Factura> Item_Factura { get; set; }
         public virtual DbSet<Premio> Premio { get; set; }
         public virtual DbSet<Premio_X_Cliente> Premio_X_Cliente { get; set; }
         public virtual DbSet<Publicacion> Publicacion { get; set; }
@@ -42,5 +41,6 @@ namespace PalcoNet
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Compra> Compra { get; set; }
+        public virtual DbSet<Item_Factura> Item_Factura { get; set; }
     }
 }

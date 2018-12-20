@@ -21,6 +21,7 @@ namespace PalcoNet
         public string Item_Factura_Descripcion { get; set; }
         public decimal Item_Factura_Compra { get; set; }
     
+        public virtual Compra Compra { get; set; }
         public virtual Factura Factura { get; set; }
     }
 }

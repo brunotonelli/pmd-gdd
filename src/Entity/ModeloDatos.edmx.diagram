@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cdb81e1c3021467086f6d82bf6c39547" Name="Diagram1" ZoomLevel="25">
+      <Diagram DiagramId="cdb81e1c3021467086f6d82bf6c39547" Name="Diagram1" ZoomLevel="42">
         <EntityTypeShape EntityType="GD2C2018Model.Cliente" Width="1.5" PointX="5.25" PointY="10.25" />
         <EntityTypeShape EntityType="GD2C2018Model.Espec_Empresa" Width="1.5" PointX="2.875" PointY="15.375" />
         <EntityTypeShape EntityType="GD2C2018Model.Espectaculo" Width="1.5" PointX="3" PointY="3.875" />
@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="GD2C2018Model.Factura" Width="1.5" PointX="7.75" PointY="0.5" />
         <EntityTypeShape EntityType="GD2C2018Model.Funcionalidad" Width="1.5" PointX="0.75" PointY="9.25" />
         <EntityTypeShape EntityType="GD2C2018Model.Grado_Publicacion" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="GD2C2018Model.Item_Factura" Width="1.5" PointX="10.75" PointY="0.5" />
         <EntityTypeShape EntityType="GD2C2018Model.Premio" Width="1.5" PointX="10" PointY="11.875" />
         <EntityTypeShape EntityType="GD2C2018Model.Premio_X_Cliente" Width="1.5" PointX="7.5" PointY="11.875" />
         <EntityTypeShape EntityType="GD2C2018Model.Publicacion" Width="1.5" PointX="5.25" PointY="3" />
@@ -29,17 +28,19 @@
         <AssociationConnector Association="GD2C2018Model.FK_Publicacion_Espectaculo" />
         <AssociationConnector Association="GD2C2018Model.FK_Publicacion_Estado" />
         <AssociationConnector Association="GD2C2018Model.FK_Factura_Publicacion" />
-        <AssociationConnector Association="GD2C2018Model.FK_Item_Factura_Factura" />
         <AssociationConnector Association="GD2C2018Model.FK_Publicacion_Grado" />
         <AssociationConnector Association="GD2C2018Model.FK_Premio_X_Cliente_Premio" />
         <AssociationConnector Association="GD2C2018Model.FK_Ubicacion_Publicacion" />
         <AssociationConnector Association="GD2C2018Model.Func_Rol" />
         <AssociationConnector Association="GD2C2018Model.Rol_X_Usuario" />
-        <EntityTypeShape EntityType="GD2C2018Model.Compra" Width="1.5" PointX="10.5" PointY="5.75" />
+        <EntityTypeShape EntityType="GD2C2018Model.Compra" Width="1.5" PointX="10.5" PointY="7.25" />
+        <EntityTypeShape EntityType="GD2C2018Model.Item_Factura" Width="1.5" PointX="11" PointY="2.375" />
         <AssociationConnector Association="GD2C2018Model.FK_Compra_Cliente" />
         <AssociationConnector Association="GD2C2018Model.FK_Compra_Publicacion" />
+        <AssociationConnector Association="GD2C2018Model.FK_Item_Factura_Compra" />
         <AssociationConnector Association="GD2C2018Model.FK_Ubicacion_Compra" />
-      </Diagram>
+        <AssociationConnector Association="GD2C2018Model.FK_Item_Factura_Factura" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

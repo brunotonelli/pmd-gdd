@@ -17,6 +17,7 @@ namespace PalcoNet
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Compra()
         {
+            this.Item_Factura = new HashSet<Item_Factura>();
             this.Ubicacion = new HashSet<Ubicacion>();
         }
     
@@ -32,6 +33,8 @@ namespace PalcoNet
     
         public virtual Cliente Cliente { get; set; }
         public virtual Publicacion Publicacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Item_Factura> Item_Factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ubicacion> Ubicacion { get; set; }
     }
