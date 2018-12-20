@@ -521,7 +521,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDatos.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="Entity\ModeloDatos.edmx.diagram">
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </None>
@@ -570,9 +569,6 @@
     </Content>
     <None Include="Resources\Premios\brq304_2.jpg" />
     <None Include="Resources\config.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

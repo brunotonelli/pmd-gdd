@@ -39,7 +39,7 @@
             this.espectaculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +106,7 @@
             this.espectaculoDataGridViewTextBoxColumn,
             this.cantidadDataGridViewTextBoxColumn,
             this.totalDataGridViewTextBoxColumn,
-            this.formaPagoDataGridViewTextBoxColumn});
+            this.FormaPago});
             this.dataGrid.DataSource = this.historialModelBindingSource;
             this.dataGrid.Location = new System.Drawing.Point(16, 40);
             this.dataGrid.MultiSelect = false;
@@ -151,12 +151,12 @@
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // formaPagoDataGridViewTextBoxColumn
+            // FormaPago
             // 
-            this.formaPagoDataGridViewTextBoxColumn.DataPropertyName = "Forma Pago";
-            this.formaPagoDataGridViewTextBoxColumn.HeaderText = "FormaPago";
-            this.formaPagoDataGridViewTextBoxColumn.Name = "formaPagoDataGridViewTextBoxColumn";
-            this.formaPagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.FormaPago.DataPropertyName = "FormaPago";
+            this.FormaPago.HeaderText = "FormaPago";
+            this.FormaPago.Name = "FormaPago";
+            this.FormaPago.ReadOnly = true;
             // 
             // HistorialComprasForm
             // 
@@ -188,10 +188,11 @@
         private System.Windows.Forms.BindingSource historialModelBindingSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formaPagoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn espectaculoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formaPagoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormaPago;
     }
 }
